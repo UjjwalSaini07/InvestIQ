@@ -28,6 +28,6 @@ Welcome to InvestIQ! It is a cutting-edge fintech platform designed for crypto e
 
 ## Demo
 
-You can visit the live site here - https://invest-iq-rho.vercel.app/
+You can visit the live site here - https://invest-iqs.vercel.app/
 
 
