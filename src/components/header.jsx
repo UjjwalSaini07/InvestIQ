@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import logo from '../../public/vite.svg';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,7 @@ const Header = () => {
         {/* Logo Section */}
         <div className="flex items-center">
           <Link to="/">
-            <img src="./public/vite.svg" alt="Logo" className="h-5 md:h-9" />
+            <img src={logo} alt="Logo" className="h-5 md:h-9" />
           </Link>
         </div>
 
