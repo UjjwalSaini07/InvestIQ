@@ -6,7 +6,7 @@ import App from './App.jsx';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route index element={<App />} />
+      {/* <Route index element={<App />} /> */}
     </Route>
   )
 );

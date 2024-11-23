@@ -14,7 +14,7 @@ const Header = () => {
         {/* Logo Section */}
         <div className="flex items-center">
           <Link to="/">
-            <img src="/rdmlogowhite.png" alt="Logo" className="h-11 md:h-14" />
+            <img src="./public/vite.svg" alt="Logo" className="h-5 md:h-9" />
           </Link>
         </div>
 
@@ -31,7 +31,7 @@ const Header = () => {
             Home
           </NavLink>
           <NavLink
-            to="/about"
+            to="/template"
             className={({ isActive }) =>
               isActive
                 ? "text-blue-500 border-b-2 rounded-md border-blue-500"
@@ -41,7 +41,7 @@ const Header = () => {
             About
           </NavLink>
           <NavLink
-            to="/services"
+            to="/template"
             className={({ isActive }) =>
               isActive
                 ? "text-blue-500 border-b-2 rounded-md border-blue-500"
@@ -51,7 +51,17 @@ const Header = () => {
             Services
           </NavLink>
           <NavLink
-            to="/contact"
+            to="/template"
+            className={({ isActive }) =>
+              isActive
+                ? "text-blue-500 border-b-2 rounded-md border-blue-500"
+                : "text-white"
+            }
+          >
+            Help
+          </NavLink>
+          <NavLink
+            to="/template"
             className={({ isActive }) =>
               isActive
                 ? "text-blue-500 border-b-2 rounded-md border-blue-500"
@@ -114,7 +124,7 @@ const Header = () => {
       >
         <nav className="flex flex-col backdrop-blur-3xl items-center space-y-4 py-6">
           <NavLink
-            to="/"
+            to="/template"
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
               isActive
@@ -125,7 +135,7 @@ const Header = () => {
             Home
           </NavLink>
           <NavLink
-            to="/about"
+            to="/template"
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
               isActive
@@ -136,7 +146,7 @@ const Header = () => {
             About
           </NavLink>
           <NavLink
-            to="/services"
+            to="/template"
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
               isActive
@@ -147,7 +157,7 @@ const Header = () => {
             Services
           </NavLink>
           <NavLink
-            to="/contact"
+            to="/template"
             onClick={() => setIsOpen(false)}
             className={({ isActive }) =>
               isActive
