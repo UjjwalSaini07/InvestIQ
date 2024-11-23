@@ -1,21 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-    </>
-  )
+    <div style={{ alignContent: "center", textAlign: "center", padding: "20px" }}>
+      <h1>InvestIQ - Fintech App</h1>
+    </div>
+  );
 }
 
-export default App
+export default App;
