@@ -27,7 +27,19 @@ Welcome to InvestIQ! It is a cutting-edge fintech platform designed for crypto e
 <br/>
 
 ## Demo
-
 You can visit the live site here - https://invest-iqs.vercel.app/
 
+## Technologies Used
+- React: JavaScript library for building user interfaces.
+- Tailwind CSS: For styling components inline.
+- SASS/SCSS - Css Preprocessor
+- GASP : javascript animation library
+- Node.js
+- Express
+- Mongoose
+- MongoDB
+
+## Installation
+
+- First Read this [License](https://github.com/UjjwalSaini07/InvestIQ/blob/main/LICENSE) & their terms then proceed.
 
