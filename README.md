@@ -81,3 +81,8 @@ Contributions are always welcome!
   git push origin feature/YourFeatureName
 ```
 - Rasie and Open a pull request.
+
+## Author
+
+- [@Ujjwal Saini](https://github.com/UjjwalSaini07)
+- [@Gaytari Singh](https://github.com/Gayatrisin123)
