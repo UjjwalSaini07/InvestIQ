@@ -42,4 +42,21 @@ You can visit the live site here - https://invest-iqs.vercel.app/
 ## Installation
 
 - First Read this [License](https://github.com/UjjwalSaini07/InvestIQ/blob/main/LICENSE) & their terms then proceed.
+- star the [Repository](https://github.com/UjjwalSaini07/InvestIQ)
+- Fork the repository
+- Clone the repository:
+```bash
+  git clone https://github.com/yourusername/your-repo-name.git
+```
+- Install the necessary dependencies:
+```bash
+  npm install
+```
+- Start the NodeJS server:
 
+## Usage
+- Start the development server
+```bash
+ npm run dev
+ ```
+- Open your browser and navigate to http://localhost:5173 to view the localhost website
