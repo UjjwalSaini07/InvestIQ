@@ -60,3 +60,17 @@ You can visit the live site here - https://invest-iqs.vercel.app/
  npm run dev
  ```
 - Open your browser and navigate to http://localhost:5173 to view the localhost website
+
+## Contributing
+
+Contributions are always welcome!
+
+- Follow the Installation Procedure.
+- Create a new branch:
+- For each and every change create new feature branch with respective number.
+- Make your changes and commit on the pull request.
+- Push to the branch
+```bash
+  git push origin feature/YourFeatureName
+```
+- Rasie and Open a pull request.
