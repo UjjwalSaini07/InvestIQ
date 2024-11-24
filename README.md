@@ -67,6 +67,13 @@ Contributions are always welcome!
 
 - Follow the Installation Procedure.
 - Create a new branch:
+```bash
+    git branch branch-name
+ ```
+- Switching the Branch:
+```bash
+    git checkout branch-name
+ ```
 - For each and every change create new feature branch with respective number.
 - Make your changes and commit on the pull request.
 - Push to the branch
