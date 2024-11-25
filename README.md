@@ -40,7 +40,6 @@ You can visit the live site here - https://invest-iqs.vercel.app/
 - MongoDB
 
 ## Installation
-
 - First Read this [License](https://github.com/UjjwalSaini07/InvestIQ/blob/main/LICENSE) & their terms then proceed.
 - star the [Repository](https://github.com/UjjwalSaini07/InvestIQ)
 - Fork the repository
@@ -62,7 +61,6 @@ You can visit the live site here - https://invest-iqs.vercel.app/
 - Open your browser and navigate to http://localhost:5173 to view the localhost website
 
 ## Contributing
-
 Contributions are always welcome!
 
 - Follow the Installation Procedure.
@@ -83,7 +81,6 @@ Contributions are always welcome!
 - Rasie and Open a pull request.
 
 ## Author
-
 - [@Ujjwal Saini](https://github.com/UjjwalSaini07)
 - [@Gaytari Singh](https://github.com/Gayatrisin123)
 
@@ -93,6 +90,6 @@ Contributions are always welcome!
 
 Feel free to reach out if you have any questions or suggestions!
 
+- Raise an issue for the same [Issue](https://github.com/UjjwalSaini07/InvestIQ/issues/new)
 - Github: [@Ujjwal Saini](https://github.com/UjjwalSaini07), [@Gaytari Singh](https://github.com/Gayatrisin123)
 - Email: [My Mail](mailto:ujjwalsaini0007+investiq@gmail.com)
-- Also Raise an issue for the same [Issue](https://github.com/UjjwalSaini07/InvestIQ/issues/new)
