@@ -94,5 +94,5 @@ Contributions are always welcome!
 Feel free to reach out if you have any questions or suggestions!
 
 - Github: [@Ujjwal Saini](https://github.com/UjjwalSaini07), [@Gaytari Singh](https://github.com/Gayatrisin123)
-- Email: [My Mail](mailto:ujjwalsaini0007@gmail.com)
+- Email: [My Mail](mailto:ujjwalsaini0007+investiq@gmail.com)
 - Also Raise an issue for the same [Issue](https://github.com/UjjwalSaini07/InvestIQ/issues/new)
