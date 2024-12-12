@@ -27,7 +27,7 @@ Welcome to InvestIQ! It is a cutting-edge fintech platform designed for crypto e
 <br/>
 
 ## Demo
-You can visit the live site here - https://invest-iqs.vercel.app/
+You can visit the live site here - https://invest-iqs.vercel.app/ (-Temporarily Disable-)
 
 ## Technologies Used
 - React: JavaScript library for building user interfaces.
