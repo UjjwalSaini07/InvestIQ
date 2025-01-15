@@ -1,8 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
 import Layout from './components/Layout.jsx';
-// import App from './App.jsx';
-import Home from './pages/Home.jsx'; // Ensure the filename starts with an uppercase letter
+import Home from './pages/Home.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
