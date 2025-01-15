@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import shade from '../assets/shade1.png'
+import shade from '../assets/shade1.png';
 
 const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const styles = {
     sidebar: {
@@ -70,6 +71,7 @@ const Sidebar = () => {
       display: "flex",
       alignItems: "center",
       borderTop: "1px solid #dee2e6",
+      position: "relative",
     },
     footerImage: {
       width: "2rem",
@@ -85,7 +87,32 @@ const Sidebar = () => {
     },
     footerDropdown: {
       marginLeft: "auto",
+      cursor: "pointer",
       display: isExpanded ? "inline" : "none",
+    },
+    dropdown: {
+        position: "absolute",
+        top: "-105px",
+        right: "0.6rem",
+        backgroundColor: "#3d434a",
+        border: "1px solid #dee2e6",
+        borderRadius: "8px",
+        display: isDropdownOpen ? "block" : "none",
+        zIndex: "100",
+    },
+    dropdownItem: {
+      padding: "0.3rem 0.8rem",
+      color: "#fff",
+      textDecoration: "none",
+      display: "block",
+    },
+    dropdownLastItem: {
+      padding: "0.1rem 0.8rem",
+      paddingBottom: "0.3rem",
+      borderTop: "1.5px solid #495057",
+      color: "#fff",
+      textDecoration: "none",
+      marginBottom: "2rem",
     },
   };
 
@@ -144,7 +171,13 @@ const Sidebar = () => {
           style={styles.footerImage}
         />
         <span style={styles.footerText}>UserName1</span>
-        <i className="bi bi-chevron-down" style={styles.footerDropdown}></i>
+        <i className="bi bi-chevron-down" style={styles.footerDropdown}
+        onClick={() => setIsDropdownOpen(!isDropdownOpen)}></i>
+            <div style={styles.dropdown}>
+                <a href="#" style={styles.dropdownItem}>Profile</a>
+                <a href="#" style={styles.dropdownItem}>Settings</a>
+                <a href="#" style={styles.dropdownLastItem}>Sign out</a>
+            </div>
       </div>
     </div>
   );
