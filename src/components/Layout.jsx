@@ -1,13 +1,15 @@
 import React from "react";
-// import Header from "./header.jsx";
+import home from "../pages/home.jsx";
+import Sidebar from "./sidebar";
 import { Outlet } from "react-router-dom";
 
 function Layout() {
   return (
     <>
-      {/* <Header /> */}
+      <Sidebar />
       <main>
         <Outlet />
+        <home />
       </main>
     </>
   );
