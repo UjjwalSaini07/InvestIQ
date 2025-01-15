@@ -1,5 +1,5 @@
 import React from "react";
-import home from "../pages/home.jsx";
+import Home from "../pages/Home.jsx";
 import Sidebar from "./sidebar";
 import { Outlet } from "react-router-dom";
 
@@ -9,7 +9,6 @@ function Layout() {
       <Sidebar />
       <main>
         <Outlet />
-        <home />
       </main>
     </>
   );

@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 function MainComponent() {
   return (
     <div className="main-flex">
-      <div className="info-landing">
+      {/* <div className="info-landing">
         <motion.h1
           className="heading1"
           initial={{ opacity: 0, x: 50 }}
@@ -36,7 +36,7 @@ function MainComponent() {
           do so!{" "}
           <br/><br/>
           <b>Made By Saurabh Bisht..</b>
-        </motion.p>
+        </motion.p> */}
         {/* <motion.div
           className="btn-flex"
           initial={{ opacity: 0, y: 50 }}
@@ -57,7 +57,7 @@ function MainComponent() {
             <Button text={"Share App"} outlined={true} />
           </RWebShare>
         </motion.div> */}
-      </div>
+      {/* </div> */}
       <div className="gradient-div">
         <img src={gradient} className="gradient" />
         <motion.img
