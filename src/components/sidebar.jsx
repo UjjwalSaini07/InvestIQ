@@ -94,6 +94,7 @@ const Sidebar = () => {
         position: "absolute",
         top: "-105px",
         right: "0.6rem",
+        fontSize: "1rem", 
         backgroundColor: "#3d434a",
         border: "1px solid #dee2e6",
         borderRadius: "8px",
@@ -120,7 +121,10 @@ const Sidebar = () => {
     <div
       style={styles.sidebar}
       onMouseEnter={() => setIsExpanded(true)}
-      onMouseLeave={() => setIsExpanded(false)}
+      onMouseLeave={() => {
+        setIsExpanded(false); 
+        setIsDropdownOpen(false);
+    }}
     >
       <div style={styles.header}>
         <div style={styles.logo}>IQ</div>
