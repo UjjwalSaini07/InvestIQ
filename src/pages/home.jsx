@@ -1,8 +1,9 @@
 import React from "react";
+import { motion } from "framer-motion";
+
 import "../styles/home.scss";
 import gradient from "../assets/gradient.png";
 import iphone from "../assets/PhoneDemo.png";
-import { motion } from "framer-motion";
 
 function MainComponent() {
   return (

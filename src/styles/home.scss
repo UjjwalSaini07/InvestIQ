@@ -2,18 +2,17 @@
   --white: #ffffff;
   --black: #000000;
   --blue: #1e90ff;
-  --grey: #6c757d;
 }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  background-color: var(--black);
 }
 
 .main-container {
   display: flex;
   padding: 2rem;
-  height: 100vh;
   box-sizing: border-box;
 }
 
