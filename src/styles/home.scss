@@ -1,108 +1,103 @@
-.main-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 1rem 3rem;
-  
-    @media only screen and (max-width: 800px) {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --blue: #1e90ff;
+  --grey: #6c757d;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  display: flex;
+  // justify-content: space-between;
+  padding: 2rem;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.text-content {
+  flex: 1;
+  max-width: 50%;
+}
+
+.main-heading {
+  font-size: clamp(3rem, 6vw, 8rem);
+  margin: 0;
+  color: var(--black);
+  transition: color 0.3s, -webkit-text-stroke 0.3s;
+}
+
+.main-heading:hover {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--white);
+  color: var(--blue);
+}
+
+.image-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.phone-image {
+  position: relative;
+  z-index: 5;
+  width: 360px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .main-heading {
+    font-size: clamp(2.5rem, 5vw, 6rem);
   }
-  
-  .heading1,
-  .heading2 {
-    font-size: 8rem;
-    margin: 0;
-  
-    @media only screen and (max-width: 1350px) {
-      font-size: 5rem;
-    }
-  
-    @media only screen and (max-width: 1050px) {
-      font-size: 4rem;
-    }
-  
-    @media only screen and (max-width: 800px) {
-      font-size: 2rem;
-      text-align: center;
-    }
-  }
-  
-  .heading1 {
-    &:hover {
-      -webkit-text-stroke-width: 3px;
-      -webkit-text-stroke-color: var(--white);
-      color: var(--black);
-      transition: all 0.3s;
-    }
-  }
-  
-  .heading2 {
-    color: var(--blue);
-  }
-  
-  .info-text {
-    color: var(--grey);
-    font-weight: 300;
-  
-    @media only screen and (max-width: 800px) {
-      text-align: center;
-      font-size: 0.8rem;
-    }
-  }
-  
-  .btn-flex {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  
-    @media only screen and (max-width: 800px) {
-      justify-content: center;
-      width: 100%;
-    }
-  }
-  
-  .gradient-div {
-    position: relative;
-    width: 50%;
-    margin-left: auto;
-  
-    @media only screen and (max-width: 800px) {
-      margin-top: 3rem;
-      margin-right: auto;
-    }
-  }
-  
+
   .gradient {
-    position: absolute;
-    right: 0px;
-    top: 80px;
-    width: 250px;
-  
-    @media only screen and (max-width: 1050px) {
-      top: 60px;
-      width: 200px;
-    }
-  
-    @media only screen and (max-width: 800px) {
-      left: 0px;
-    }
-  }
-  
-  .iphone {
-    position: absolute;
-    right: 10px;
     width: 300px;
-  
-    @media only screen and (max-width: 1050px) {
-      right: 0px;
-      width: 250px;
-    }
-  
-    @media only screen and (max-width: 800px) {
-      left: -30px;
-    }
   }
-  
+
+  .phone-image {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .text-content {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .image-container {
+    justify-content: center;
+  }
+
+  .gradient {
+    width: 250px;
+    top: -20px;
+  }
+
+  .phone-image {
+    width: 280px;
+  }
+}
