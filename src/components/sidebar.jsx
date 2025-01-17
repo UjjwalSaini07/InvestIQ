@@ -9,7 +9,7 @@ const Sidebar = () => {
     sidebar: {
       width: isExpanded ? "215px" : "65px",
       height: "100vh",
-      backgroundColor: "#343a40",
+      backgroundColor: "#0f0f0f",
       color: "#fff",
       display: "flex",
       flexDirection: "column",
