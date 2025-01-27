@@ -1,11 +1,24 @@
 {
   "name": "investiq-backend",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "javascript",
+    "backend",
+    "cryptoanalysis",
+    "cryptocurrency",
+    "bitcoin",
+    "API integration"
+  ],
   "author": "Ujjwal",
   "license": "ISC",
-  "description": ""
+  "description": "Separate Backend of InvestIQ",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cloudinary": "^2.5.1"
+  }
 }
