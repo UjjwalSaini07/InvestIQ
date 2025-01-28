@@ -7,9 +7,11 @@ import img4 from "../../assets/Landing/Home2Compo/Trade5.png";
 
 const Home2 = () => {
   const [currentMedia, setCurrentMedia] = useState({ type: "video", src: vid1 });
+  const [activeButton, setActiveButton] = useState(null);
 
-  const handleMediaChange = (type, src) => {
+  const handleMediaChange = (type, src, label) => {
     setCurrentMedia({ type, src });
+    setActiveButton(label);
   };
 
   const containerStyle = {
@@ -22,6 +24,7 @@ const Home2 = () => {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    overflow: "hidden",
   };
 
   const headlineStyle = {
@@ -48,8 +51,17 @@ const Home2 = () => {
     fontSize: "0.9rem",
     fontWeight: "bold",
     padding: "0.75rem 1rem",
+    border: "none",
+    backgroundColor: "transparent",
+    borderRadius: "8px",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
     cursor: "pointer",
     transition: "background-color 0.3s ease, transform 0.2s ease",
+  };
+
+  const buttonActiveStyle = {
+    backgroundColor: "#4b5058",
+    transform: "scale(1.05)",
   };
 
   const tradeIdeaBoxStyle = {
@@ -64,7 +76,7 @@ const Home2 = () => {
 
   const mediaStyle = {
     width: "100%",
-    height: "500px",
+    height: "80%",
     borderRadius: "12px",
     objectFit: "cover",
     marginBottom: "1rem",
@@ -80,7 +92,10 @@ const Home2 = () => {
         {["Chart", "Trade", "Screen", "Analyze", "Learn"].map((label, index) => (
           <button
             key={index}
-            style={buttonStyle}
+            style={{
+              ...buttonStyle,
+              ...(activeButton === label && buttonActiveStyle),
+            }}
             onClick={() =>
               handleMediaChange(
                 label === "Chart" ? "video" : "image",
@@ -92,7 +107,8 @@ const Home2 = () => {
                   ? img2
                   : label === "Analyze"
                   ? img3
-                  : img4
+                  : img4,
+                label
               )
             }
           >
@@ -105,7 +121,6 @@ const Home2 = () => {
           <video
             src={currentMedia.src}
             style={mediaStyle}
-            // controls
             autoPlay
             loop
           />
