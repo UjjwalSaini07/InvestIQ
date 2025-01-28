@@ -56,7 +56,7 @@ const Home2 = () => {
     borderRadius: "16px",
     padding: "0.7rem",
     textAlign: "center",
-    maxWidth: "1000px",
+    width: "75%",
     margin: "0 auto",
     boxShadow: "0 6px 16px rgba(88, 166, 255, 0.5)",
     border: "2px solid #58a6ff",
@@ -64,7 +64,7 @@ const Home2 = () => {
 
   const mediaStyle = {
     width: "100%",
-    height: "400px",
+    height: "500px",
     borderRadius: "12px",
     objectFit: "cover",
     marginBottom: "1rem",
@@ -95,10 +95,6 @@ const Home2 = () => {
                   : img4
               )
             }
-            onMouseEnter={(e) =>
-              Object.assign(e.target.style, buttonHoverStyle)
-            }
-            onMouseLeave={(e) => Object.assign(e.target.style, buttonStyle)}
           >
             {label}
           </button>
@@ -109,7 +105,7 @@ const Home2 = () => {
           <video
             src={currentMedia.src}
             style={mediaStyle}
-            controls
+            // controls
             autoPlay
             loop
           />
