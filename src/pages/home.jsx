@@ -18,13 +18,12 @@ function MainComponent() {
     <div className="main-container">
       <div className="text-content">
         <motion.h1
-          className="main-heading"
+          className={`${styles.heroHeadText} text-white p-0.5`}
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
-          // style={{ fontFamily: "'Noto Serif', serif", fontSize: '5.8rem', fontWeight:'600', marginLeft: '2rem'}}
-          style={{ fontFamily: "'Jacques Francois Shadow', serif", fontSize: '5.5rem', marginLeft: '2rem'}}
-          className={`${styles.heroHeadText} text-white`}
+          style={{ fontFamily: "'Noto Serif', serif", fontSize: '5.8rem', fontWeight:'600', marginLeft: '2rem'}}
+          // style={{ fontFamily: "'Jacques Francois Shadow', serif", fontSize: '5.5rem', marginLeft: '2rem'}}
         >         
         <span className="text-[#fff]">
           <TextSpan>I</TextSpan>
@@ -63,21 +62,3 @@ function MainComponent() {
 }
 
 export default MainComponent;
-
-
-// Todo: Emergency Checking Only...
-// import React from 'react';
-// import Sidebar from '../components/sidebar';
-
-// function HeadingWithParagraph() {
-//   return (
-//     <div>
-//       <h1 style={{ fontSize: '3rem', color: 'blue' }}>Welcome to My Website</h1>
-//       <p style={{ fontSize: '1.5rem', color: 'green' }}>
-//         This is a simple paragraph to describe the content of the website.
-//       </p>
-//     </div>
-//   );
-// }
-
-// export default HeadingWithParagraph;
