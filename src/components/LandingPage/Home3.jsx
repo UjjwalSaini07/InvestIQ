@@ -6,6 +6,9 @@ import img3 from "../../assets/Landing/Home3Compo/Img3.jpg";
 import img4 from "../../assets/Landing/Home3Compo/Img4.jpeg";
 import img5 from "../../assets/Landing/Home3Compo/Img5.jpg";
 import img6 from "../../assets/Landing/Home3Compo/Img6.jpeg";
+import img7 from "../../assets/Landing/Home3Compo/Img7.jpg";
+import img8 from "../../assets/Landing/Home3Compo/Img8.jpg";
+import img9 from "../../assets/Landing/Home3Compo/Img9.jpeg";
 
 const StatCard = ({ number, suffix, label, highlight }) => {
   return (
@@ -188,7 +191,7 @@ const TradingViewStats = () => {
     },
   ];
 
-  const slidingImages = [img1, img2, img3, img4, img5, img6];
+  const slidingImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
   return (
     <div
