@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import vid1 from "../../assets/Landing/Home2Compo/Trade1.mp4";
-import img1 from "../../assets/Landing/Home2Compo/Trade2.png";
-import img2 from "../../assets/Landing/Home2Compo/Trade3.png";
-import img3 from "../../assets/Landing/Home2Compo/Trade4.png";
-import img4 from "../../assets/Landing/Home2Compo/Trade5.png";
+import vid2 from "../../assets/Landing/Home2Compo/Trade2.mp4";
+import img1 from "../../assets/Landing/Home2Compo/Trade3.png";
+import img2 from "../../assets/Landing/Home2Compo/Trade4.png";
+import img3 from "../../assets/Landing/Home2Compo/Trade5.png";
+import img4 from "../../assets/Landing/Home2Compo/Trade6.png";
 
 const Home2 = () => {
   const [currentMedia, setCurrentMedia] = useState({ type: "video", src: vid1 });
@@ -89,7 +90,7 @@ const Home2 = () => {
         Join 90 million traders and investors taking the future into their own hands.
       </div>
       <nav style={navStyle}>
-        {["Chart", "Trade", "Screen", "Analyze", "Learn"].map((label, index) => (
+        {["Chart", "SChart","Trade", "Screen", "Analyze", "Learn"].map((label, index) => (
           <button
             key={index}
             style={{
@@ -98,16 +99,8 @@ const Home2 = () => {
             }}
             onClick={() =>
               handleMediaChange(
-                label === "Chart" ? "video" : "image",
-                label === "Chart"
-                  ? vid1
-                  : label === "Trade"
-                  ? img1
-                  : label === "Screen"
-                  ? img2
-                  : label === "Analyze"
-                  ? img3
-                  : img4,
+                label === "Chart" || label === "SChart" ? "video" : "image",
+                label === "Chart" ? vid1 : label === "SChart" ? vid2 : label === "Trade" ? img1 : label === "Screen" ? img2 : label === "Analyze" ? img3 : img4,
                 label
               )
             }
