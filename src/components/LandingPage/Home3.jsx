@@ -141,8 +141,17 @@ const SlidingImageGallery = ({ images }) => {
               width: "300px",
               height: "auto",
               borderRadius: "15px",
+              objectFit: "cover",
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
               transition: "transform 0.3s",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.boxShadow = "0 6px 16px rgba(88, 166, 255, 0.5)";
+              e.target.style.border = "2px solid #58a6ff";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.boxShadow = "none";
+              e.target.style.border = "none";
             }}
           />
         ))}
