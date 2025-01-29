@@ -11,12 +11,9 @@ const StatCard = ({ number, suffix, label, highlight }) => {
   return (
     <div
       style={{
-        padding: "20px",
+        padding: "10px",
         textAlign: "center",
-        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
-        width: "220px",
-        backgroundColor: "#1a1a1a",
-        borderRadius: "12px",
+        width: "260px",
         transition: "transform 0.3s",
       }}
     >
@@ -55,10 +52,11 @@ const Section = ({ title, description, children }) => {
     >
       <h2
         style={{
-          fontSize: "2.5rem",
+          fontSize: "3.5rem",
           fontWeight: "bold",
-          marginBottom: "10px",
-          color: "#6b6bff",
+          marginBottom: "8px",
+          fontFamily: "'Noto Serif', serif",
+          color: "#fff",
         }}
       >
         {title}
@@ -166,27 +164,26 @@ const TradingViewStats = () => {
   const stats = [
     {
       number: 90,
-      suffix: "M+",
-      label: "Traders and investors use our platform.",
+      suffix: "+",
+      label: "Traders and investors trust our platform for informed decisions.",
       highlight: "Traders",
     },
     {
       number: 1,
       suffix: "#",
-      label: "Top website in the world when it comes to all things investing.",
+      label: "The Top website for comprehensive investing insights and resources.",
       highlight: "Top website",
     },
     {
-      number: 1.5,
-      suffix: "M+",
-      label:
-        "Mobile reviews with a 4.9 average rating. No other fintech apps are more loved.",
-      highlight: "Mobile reviews",
+      number: 350,
+      suffix: "+",
+      label: "Our website features numerous crypto and stock analysts providing expert insights.",
+      highlight: "crypto and stock",
     },
     {
-      number: 10,
-      suffix: "M+",
-      label: "Custom scripts and ideas shared by our users.",
+      number: 50,
+      suffix: "+",
+      label: "Our users actively share custom scripts and innovative ideas for better trading and analysis.",
       highlight: "scripts",
     },
   ];
@@ -203,7 +200,11 @@ const TradingViewStats = () => {
       }}
     >
       <Section
-        title="Love in every #INVESTIQ"
+        title={
+          <>
+            Love in every <span style={{ display: "block" }}>#INVESTIQ</span>
+          </>
+        }
         description="Trusted by hundreds of traders and investors."
       >
         {stats.map((stat, index) => (
@@ -218,8 +219,8 @@ const TradingViewStats = () => {
       </Section>
 
       <Section
-        title="Why Choose TradingView?"
-        description="Empowering millions of users with cutting-edge tools and unmatched reliability."
+        title="Why Choose INVESTIQ?"
+        description="Empowering hundreds of users with cutting-edge tools and unmatched reliability."
       >
         <SlidingImageGallery images={slidingImages} />
       </Section>
