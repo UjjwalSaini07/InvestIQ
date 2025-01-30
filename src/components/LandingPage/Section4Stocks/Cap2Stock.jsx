@@ -214,7 +214,7 @@ const Cap2Stock = () => {
           alignItems: "center",
           transition: "color 0.3s",
         }}
-        onMouseEnter={(e) => e.target.style.color = 'blue'}
+        onMouseEnter={(e) => e.target.style.color = '#0582e8'}
         onMouseLeave={(e) => e.target.style.color = '#fff'}
       >
         Mid Cap Stocks
@@ -226,7 +226,7 @@ const Cap2Stock = () => {
           class="bi bi-chevron-right"
           viewBox="0 0 16 16"
           style={{ marginLeft: "6px", transition: "fill 0.3s" }}
-          onMouseEnter={(e) => e.target.style.fill = 'blue'}
+          onMouseEnter={(e) => e.target.style.fill = '#0582e8'}
           onMouseLeave={(e) => e.target.style.fill = 'currentColor'}
         >
           <path
