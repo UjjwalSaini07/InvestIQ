@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Section1 from './Section4Stocks/Cap1Stock';
 import Section2 from './Section4Stocks/Cap2Stock';
+import Section3 from './Section4Stocks/TradeNews';
 
 const Home4 = () => {
   useEffect(() => {
@@ -11,6 +12,7 @@ const Home4 = () => {
       <div>
         <Section1 />
         <Section2 />
+        <Section3 />
       </div>
   );
 };
