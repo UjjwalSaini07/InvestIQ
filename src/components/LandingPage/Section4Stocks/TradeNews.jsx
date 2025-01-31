@@ -1,55 +1,54 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-const TradingNews = () => {
+const NewsComponent = () => {
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    // Create the script element to load TradingView's News widget
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src =
-      "https://s3.tradingview.com/external-embedding/embed-widget-news.js";
-    script.async = true;
+    const fetchNews = async () => {
+      try {
+        const apiKey = import.meta.env.VITE_NEWS_APIKEY; // Use process.env.REACT_APP_NEWS_APIKEY for Create React App
+        const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&from=us,in&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
+        const response = await fetch(url);
 
-    // Setting the widget's configuration as a JSON object
-    script.innerHTML = JSON.stringify({
-      colorTheme: "dark",
-      isTransparent: false,
-      width: "100%",
-      height: "400",
-      locale: "en",
-    });
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
 
-    // Find the container div by its id and append the script
-    const widgetContainer = document.getElementById(
-      "tradingview-widget-container"
-    );
-    if (widgetContainer) {
-      widgetContainer.appendChild(script);
-    }
-
-    // Cleanup the script when the component unmounts
-    return () => {
-      if (widgetContainer) {
-        widgetContainer.innerHTML = ""; // Clean up the widget when the component is unmounted
+        const data = await response.json();
+        setNews(data.articles || []);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
       }
     };
+
+    fetchNews();
   }, []);
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   return (
-    <div>
-      <h1>Finance News</h1>
-      <div
-        id="tradingview-widget-container"
-        style={{
-          width: "100%",
-          height: "400px",
-          border: "1px solid #ddd",
-          marginTop: "20px",
-        }}
-      >
-        {/* The TradingView widget will be injected here */}
-      </div>
+    <div className="news-container">
+      <h1 className="text-xl font-bold">Trading Stocks & Bitcoin News</h1>
+      <ul className="space-y-4">
+        {news.map((article, index) => (
+          <li key={index} className="p-4 border rounded-lg shadow-sm">
+            <a href={article.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+              <h2 className="font-semibold">{article.title}</h2>
+            </a>
+            <p className="text-gray-600">{article.description}</p>
+            <span className="text-sm text-gray-500">
+              {article.source.name} - {new Date(article.publishedAt).toLocaleString()}
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default TradingNews;
+export default NewsComponent;
