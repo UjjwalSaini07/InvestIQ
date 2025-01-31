@@ -5,20 +5,23 @@ const TradingNews = () => {
     // Create the script element to load TradingView's News widget
     const script = document.createElement("script");
     script.type = "text/javascript";
-    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-news.js";
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-news.js";
     script.async = true;
 
     // Setting the widget's configuration as a JSON object
     script.innerHTML = JSON.stringify({
-      "colorTheme": "dark",
-      "isTransparent": false,
-      "width": "100%",
-      "height": "400",
-      "locale": "en"
+      colorTheme: "dark",
+      isTransparent: false,
+      width: "100%",
+      height: "400",
+      locale: "en",
     });
 
     // Find the container div by its id and append the script
-    const widgetContainer = document.getElementById("tradingview-widget-container");
+    const widgetContainer = document.getElementById(
+      "tradingview-widget-container"
+    );
     if (widgetContainer) {
       widgetContainer.appendChild(script);
     }
