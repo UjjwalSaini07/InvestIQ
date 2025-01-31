@@ -61,7 +61,7 @@ const NewsComponent = () => {
     );
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black flex flex-col">
       <div className="max-w-7xl mx-auto px-7 py-10">
         <h1 className="text-4xl font-extrabold text-center text-white mb-12">
           📰 Latest News on{" "}
@@ -94,7 +94,7 @@ const NewsComponent = () => {
             {displayedNews.map((article, index) => (
               <div
                 key={index}
-                className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105"
+                className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105 flex flex-col h-full"
               >
                 <div className="relative">
                   {article.urlToImage ? (
@@ -115,11 +115,11 @@ const NewsComponent = () => {
                     {new Date(article.publishedAt).toLocaleDateString()}
                   </div>
                 </div>
-                <div className="p-5 flex flex-col">
+                <div className="p-5 flex flex-col flex-grow">
                   <h5 className="text-white text-lg font-semibold">
                     {article.title}
                   </h5>
-                  <p className="text-gray-400 mt-2 text-sm">
+                  <p className="text-gray-400 mt-2 text-sm flex-grow">
                     {article.description || "No description available."}
                   </p>
                   <a
@@ -162,93 +162,3 @@ const NewsComponent = () => {
 };
 
 export default NewsComponent;
-
-
-// Todo: Previous Basic Code Of API Data fetching...
-// import React, { useState, useEffect } from "react";
-
-// const NewsComponent = () => {
-//   const [news, setNews] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     const fetchNews = async () => {
-//       try {
-//         const apiKey = import.meta.env.VITE_NEWS_APIKEY; // Use process.env.REACT_APP_NEWS_APIKEY for CRA
-//         const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&from=us,in&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
-//         const response = await fetch(url);
-
-//         if (!response.ok) {
-//           throw new Error(`Error: ${response.statusText}`);
-//         }
-
-//         const data = await response.json();
-//         setNews(data.articles || []);
-//       } catch (err) {
-//         setError(err.message);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchNews();
-//   }, []);
-
-//   if (loading) return <div className="flex justify-center items-center h-screen text-2xl font-bold text-gray-700">Loading...</div>;
-//   if (error) return <div className="text-center text-red-600 mt-4 text-lg">Error: {error}</div>;
-
-//   return (
-//     <div className="min-h-screen">
-//       <div className="max-w-7xl mx-auto px-6 py-10">
-//         <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-12">
-//           📰 Latest News on <span className="text-blue-500">Stocks & Bitcoin</span>
-//         </h1>
-//         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-//           {news.map((article, index) => (
-//             <div
-//               key={index}
-//               className="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden"
-//             >
-//               {article.urlToImage ? (
-//                 <img
-//                   src={article.urlToImage}
-//                   alt={article.title}
-//                   className="h-48 w-full object-cover"
-//                 />
-//               ) : (
-//                 <div className="h-48 w-full bg-gray-200 flex items-center justify-center text-gray-500 text-lg">
-//                   No Image Available
-//                 </div>
-//               )}
-//               <div className="p-6">
-//                 <a
-//                   href={article.url}
-//                   target="_blank"
-//                   rel="noopener noreferrer"
-//                   className="text-lg font-bold text-gray-800 hover:text-blue-500 transition-colors duration-200"
-//                 >
-//                   {article.title}
-//                 </a>
-//                 <p className="mt-3 text-gray-600 text-sm">
-//                   {article.description
-//                     ? article.description
-//                     : "No description available."}
-//                 </p>
-//                 <div className="mt-4 flex justify-between items-center text-gray-500 text-sm">
-//                   <span>{article.source.name}</span>
-//                   <span>{new Date(article.publishedAt).toLocaleDateString()}</span>
-//                 </div>
-//               </div>
-//               <div className="absolute top-0 left-0 bg-blue-500 text-white text-xs font-bold uppercase py-1 px-3 rounded-br-2xl">
-//                 {article.source.name}
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default NewsComponent;
