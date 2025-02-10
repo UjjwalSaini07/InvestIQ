@@ -4,7 +4,7 @@ import ujjwal from "../../assets/Landing/BoyImage.jpg";
 import gayatri from "../../assets/Landing/GirlImage.jpg";
 
 const TeamCard = ({ image, name, description, github, linkedin }) => (
-  <div className="relative group w-80 md:w-100 rounded-3xl overflow-hidden shadow-lg transition-all duration-500 transform hover:scale-105 hover:shadow-[0px_5px_15px_rgba(59,130,246,0.5)] bg-opacity-30 backdrop-blur-lg border border-gray-700">
+  <div className="relative group w-80 md:w-100 mb-10 rounded-3xl overflow-hidden shadow-lg transition-all duration-500 transform hover:scale-105 hover:shadow-[0px_5px_15px_rgba(59,130,246,0.5)] bg-opacity-30 backdrop-blur-lg border border-gray-700">
     <img
       src={image}
       alt={name}
@@ -40,14 +40,14 @@ const TeamCard = ({ image, name, description, github, linkedin }) => (
 );
 
 const TechSavvyTeam = () => (
-  <div className="flex flex-col items-center justify-center gap-10 py-10">
+  <div className="flex flex-col items-center justify-center gap-10">
     <h1 className="text-4xl md:text-6xl font-extrabold text-center tracking-tight text-white">
       Meet Our
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 drop-shadow-md">
         {" "}Tech-Savvy Team
       </span>
     </h1>
-    <div className="flex flex-wrap justify-center gap-12">
+    <div className="flex flex-wrap justify-center gap-8">
       <TeamCard
         image={ujjwal}
         name="Ujjwal Saini"
