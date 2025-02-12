@@ -87,7 +87,6 @@ Contributions are always welcome!
 **--Website Under Maintenance--**
 
 ## Contact:
-
 Feel free to reach out if you have any questions or suggestions!
 
 - Raise an issue for the same [Issue](https://github.com/UjjwalSaini07/InvestIQ/issues/new)
