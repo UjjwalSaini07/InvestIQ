@@ -1,5 +1,4 @@
 # InvestIQ
-
 Welcome to InvestIQ! It is a cutting-edge fintech platform designed for crypto enthusiasts. Designed to be visually appealing and interactive, it empowers users with intelligent tools for trading, analytics, and portfolio management. It include real-time data fetching, InvestIQ simplifies the complexities of crypto trading, helping you make informed, smarter investment decisions.
 
 <table align="left">
