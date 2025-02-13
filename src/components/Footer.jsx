@@ -63,7 +63,47 @@ const Footer = () => {
           Quick Links
         </h4>
         <ul style={{ listStyle: "none", padding: "0" }}>
-          {["Washlist", "Profile", "Dashboard"].map((text, index) => (
+          {["Profile", "Washlist", "Dashboard"].map((text, index) => (
+            <li key={index} style={{ marginBottom: "12px" }}>
+              <a
+                href="#"
+                style={{
+                  color: "#fff",
+                  textDecoration: "none",
+                  opacity: "0.8",
+                  transition: "0.3s",
+                  fontSize: "16px",
+                }}
+                onMouseOver={(e) => (e.target.style.opacity = "1")}
+                onMouseOut={(e) => (e.target.style.opacity = "0.8")}
+              >
+                {text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div
+        style={{
+          flex: "1",
+          maxWidth: "250px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <h4
+          style={{
+            fontSize: "20px",
+            marginBottom: "18px",
+            fontWeight: "600",
+            color: "#EDE7F6",
+          }}
+        >
+          Help Zone
+        </h4>
+        <ul style={{ listStyle: "none", padding: "0" }}>
+          {["About Us", "Contact Us", "Help Center"].map((text, index) => (
             <li key={index} style={{ marginBottom: "12px" }}>
               <a
                 href="#"
