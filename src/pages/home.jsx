@@ -4,6 +4,7 @@ import Home2 from '../components/LandingPage/Home2.jsx';
 import Home3 from '../components/LandingPage/Home3.jsx';
 import Home4 from '../components/LandingPage/Home4.jsx';
 import Team from '../components/LandingPage/TeamCard.jsx';
+import Footer from '../components/Footer.jsx';
 import { Helmet } from 'react-helmet';
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
         <Home3 />
         <Home4 />
         <Team />
+        <Footer />
       </div>
     </>
   );
