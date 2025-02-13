@@ -19,8 +19,6 @@ const NewsComponent = () => {
         }
 
         const data = await response.json();
-        
-        // Filter articles to only include those with images
         const filteredNews = data.articles?.filter(article => article.urlToImage) || [];
         setNews(filteredNews);
       } catch (err) {
@@ -52,35 +50,33 @@ const NewsComponent = () => {
 
   if (loading)
     return (
-      <div className="flex justify-center items-center h-screen text-2xl font-bold text-gray-700">
+      <div className="flex justify-center items-center h-screen text-2xl font-bold text-white">
         Loading...
       </div>
     );
 
   if (error)
     return (
-      <div className="text-center text-red-600 mt-4 text-lg">
+      <div className="text-center text-red-500 mt-4 text-lg">
         Error: {error}
       </div>
     );
 
   return (
-    <div className="min-h-screen bg-black flex flex-col">
-      <div className="max-w-7xl mx-auto px-7 py-10">
-        <h1 className="text-4xl font-extrabold text-center text-white mb-12">
-          📰 Latest News on{" "}
-          <span className="text-blue-500">Stocks & Bitcoin</span>
+    <div className="bg-black flex flex-col">
+      <div className="max-w-7xl mx-auto px-7 py-10 mb-12">
+        <h1 className="text-5xl font-extrabold text-center text-white mb-12 tracking-wide">
+          Latest <span className="text-blue-500">Stocks & Bitcoin</span> News
         </h1>
 
         {news.length === 0 ? (
           <div className="text-center text-gray-400 text-lg">
-            No articles with images available at the moment.
+            No articles available.
           </div>
         ) : (
           <div className="flex items-center justify-between">
-            {/* Previous Button */}
             <button
-              className="p-3 mr-3 border border-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition"
+              className="p-3 mr-3 border border-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition shadow-lg hover:shadow-blue-500/50 disabled:opacity-50 disabled:cursor-not-allowed"
               onClick={handlePrevious}
               disabled={currentPage === 0}
             >
@@ -99,38 +95,37 @@ const NewsComponent = () => {
               </svg>
             </button>
 
-            {/* News Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
               {displayedNews.map((article, index) => (
                 <div
                   key={index}
-                  className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105 flex flex-col h-full"
+                  className="bg-gray-900/70 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden transition-all transform hover:scale-100 hover:shadow-blue-500/50 flex flex-col h-full border border-gray-800"
                 >
                   <div className="relative">
                     <img
                       src={article.urlToImage}
-                      className="w-full h-52 object-cover"
+                      className="w-full h-52 object-cover rounded-t-2xl"
                       alt={article.title}
                     />
                     <div className="absolute top-0 left-0 bg-blue-500 text-white text-xs font-bold uppercase py-1 px-3 rounded-br-lg shadow-md">
                       {article.source.name}
                     </div>
-                    <div className="absolute bottom-0 right-0 bg-gray-900 text-white text-xs font-bold uppercase py-1 px-3 rounded-tl-lg shadow-md">
+                    <div className="absolute bottom-0 right-0 bg-gray-800/80 text-white text-xs font-bold uppercase py-1 px-3 rounded-tl-lg shadow-md">
                       {new Date(article.publishedAt).toLocaleDateString()}
                     </div>
                   </div>
-                  <div className="p-5 flex flex-col flex-grow">
-                    <h5 className="text-white text-lg font-semibold">
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h5 className="text-white text-lg font-semibold leading-tight">
                       {article.title}
                     </h5>
-                    <p className="text-gray-400 mt-2 text-sm flex-grow">
+                    <p className="text-gray-400 mt-3 text-sm flex-grow">
                       {article.description || "No description available."}
                     </p>
                     <a
                       href={article.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-auto bg-blue-500 text-white px-4 py-2 rounded-md text-center hover:bg-blue-600 transition"
+                      className="mt-auto bg-blue-500 text-white px-5 py-2 rounded-lg text-center hover:bg-blue-600 transition font-semibold tracking-wide shadow-lg"
                     >
                       Read More
                     </a>
@@ -139,9 +134,8 @@ const NewsComponent = () => {
               ))}
             </div>
 
-            {/* Next Button */}
             <button
-              className="p-3 ml-3 border border-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition"
+              className="p-3 ml-3 border border-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition shadow-lg hover:shadow-blue-500/50 disabled:opacity-50 disabled:cursor-not-allowed"
               onClick={handleNext}
               disabled={(currentPage + 1) * itemsPerPage >= news.length}
             >

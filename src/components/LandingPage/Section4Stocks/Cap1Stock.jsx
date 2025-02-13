@@ -260,7 +260,7 @@ const Cap1Stock = () => {
               maxHeight: '85%',
               borderRadius: "18px",
               boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.2)",
-              background: "rgba(255, 255, 255, 0.9)",
+              background: "rgba(255, 255, 255, 0.07)",
               padding: "12px",
               transition: "transform 0.3s, box-shadow 0.3s",
               cursor: "pointer",
@@ -294,7 +294,7 @@ const Cap1Stock = () => {
                 style={{
                   fontSize: "14px",
                   fontWeight: "bold",
-                  color: "#333",
+                  color: "#fff",
                   textAlign: "center",
                 }}
               >
@@ -311,7 +311,7 @@ const Cap1Stock = () => {
               <div
                 style={{
                   fontSize: "14px",
-                  color: "#555",
+                  color: "#fff",
                 }}
               >
                 {company.price}
