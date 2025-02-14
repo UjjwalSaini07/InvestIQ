@@ -97,7 +97,6 @@ const CryptoStockGraph = () => {
         Crypto Market Overview
       </h2>
 
-      {/* ✅ Corrected Crypto Selection Dropdown */}
       <div className="flex justify-center mt-5">
         <Select value={crypto} onValueChange={setCrypto}>
           <SelectTrigger className="w-[200px] bg-gray-800 text-white px-4 py-2 rounded-md">
