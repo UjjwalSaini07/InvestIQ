@@ -11,9 +11,9 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "/src/",
+    "components": "/src/@",
     "utils": "@/lib/utils",
-    "ui": "/src//ui",
-    "magicui": "/src//magicui"
+    "ui": "@/ui",
+    "magicui": "/src/magicui"
   }
 }
