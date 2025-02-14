@@ -40,7 +40,7 @@ const TeamCard = ({ image, name, description, github, linkedin }) => (
 );
 
 const TechSavvyTeam = () => (
-  <div className="flex flex-col items-center justify-center gap-10">
+  <div className="flex flex-col items-center justify-center gap-10 mt-7">
     <h1 className="text-4xl md:text-6xl font-extrabold text-center tracking-tight text-white">
       Meet Our
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 drop-shadow-md">
