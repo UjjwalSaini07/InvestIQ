@@ -7,6 +7,7 @@ import Home4 from '../components/LandingPage/Home4';
 import CryptoMarketChart from '../components/LandingPage/CryptoMarketChart';
 import CryptoStockGraph from '../components/LandingPage/CryptoStockGraph';
 import TeamCard from '../components/LandingPage/TeamCard';
+import Testinomails from '../components/LandingPage/Testinomails';
 import Footer from '../components/Footer';
 
 const Home = () => {
@@ -28,6 +29,7 @@ const Home = () => {
         <CryptoMarketChart />
         <CryptoStockGraph />
         <TeamCard />
+        <Testinomails />
       </main>
 
       <Footer />
