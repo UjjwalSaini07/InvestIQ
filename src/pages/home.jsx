@@ -5,6 +5,7 @@ import Home2 from '../components/LandingPage/Home2';
 import Home3 from '../components/LandingPage/Home3';
 import Home4 from '../components/LandingPage/Home4';
 import CryptoMarketChart from '../components/LandingPage/CryptoMarketChart';
+import CryptoStockGraph from '../components/LandingPage/CryptoStockGraph';
 import TeamCard from '../components/LandingPage/TeamCard';
 import Footer from '../components/Footer';
 
@@ -25,6 +26,7 @@ const Home = () => {
         <Home3 />
         <Home4 />
         <CryptoMarketChart />
+        <CryptoStockGraph />
         <TeamCard />
       </main>
 
