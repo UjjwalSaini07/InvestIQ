@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from "./components/Layout.jsx";
 import Header from './components/header.jsx';
 import Home from './pages/Home.jsx';
+import Compare from './pages/compare.jsx';
 import './App.scss';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
+              <Route path="/compare" element={<Compare />} />
             </Route>
           </Routes>
         </>
