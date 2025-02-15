@@ -9,11 +9,26 @@ function SelectDays({ days, handleDaysChange, noPTag }) {
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-start",
-        gap: "0.5rem",
+        gap: "1rem",
         marginBottom: noPTag ? "0" : "1.5rem",
+        fontFamily: "'Poppins', sans-serif",
       }}
     >
-      {!noPTag && <p style={{ margin: 0 }}>Price change in</p>}
+      {!noPTag && (
+        <p
+          style={{
+            margin: 0,
+            color: "#ccc",
+            fontSize: "16px",
+            fontWeight: "600",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
+          }}
+        >
+          Price change in
+        </p>
+      )}
+
       <Select
         onValueChange={(value) => handleDaysChange(Number(value))}
         value={String(days)}
@@ -21,12 +36,27 @@ function SelectDays({ days, handleDaysChange, noPTag }) {
         <SelectTrigger
           className="w-[12rem] h-[2.5rem] text-white"
           style={{
-            backgroundColor: "transparent",
-            border: "1px solid var(--white)",
-            color: "var(--white)",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            border: "1px solid rgba(255, 255, 255, 0.3)",
+            borderRadius: "8px",
+            color: "white",
+            padding: "0.5rem 1rem",
+            fontSize: "16px",
+            transition: "background-color 0.3s ease, border-color 0.3s ease",
+            cursor: "pointer",
           }}
-        />
-        <SelectContent>
+        >
+          <span>Select Days</span>
+        </SelectTrigger>
+
+        <SelectContent
+          style={{
+            backgroundColor: "#2c2c2c",
+            borderRadius: "8px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)",
+            padding: "0.5rem",
+          }}
+        >
           <SelectItem value="7">7 Days</SelectItem>
           <SelectItem value="30">30 Days</SelectItem>
           <SelectItem value="60">60 Days</SelectItem>
