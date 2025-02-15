@@ -9,13 +9,19 @@ function SelectCoins({ allCoins, crypto1, crypto2, onCoinChange, days, handleDay
         <p className="m-0 text-white font-semibold">Crypto 1</p>
         <Select onValueChange={(value) => onCoinChange(value, false)} value={crypto1}>
           <SelectTrigger
-            className="w-48 h-10 text-white border border-white rounded-md pl-3 transition-all hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-accent-color"
-          />
-          <SelectContent>
+            className="w-48 h-10 text-white bg-[#2c2c2c] border border-gray-500 rounded-md pl-3 transition-all hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-accent-color"
+          >
+            {crypto1 ? allCoins.find(coin => coin.id === crypto1)?.name : "Select a crypto"}
+          </SelectTrigger>
+          <SelectContent className="bg-[#2c2c2c] rounded-md shadow-lg transition-all mt-1">
             {allCoins
               .filter((coin) => coin.id !== crypto2)
               .map((coin, i) => (
-                <SelectItem value={coin.id} key={i}>
+                <SelectItem
+                  value={coin.id}
+                  key={i}
+                  className="text-white hover:bg-gray-500 transition-all p-2 rounded-md"
+                >
                   {coin.name}
                 </SelectItem>
               ))}
@@ -27,13 +33,19 @@ function SelectCoins({ allCoins, crypto1, crypto2, onCoinChange, days, handleDay
         <p className="m-0 text-white font-semibold">Crypto 2</p>
         <Select onValueChange={(value) => onCoinChange(value, true)} value={crypto2}>
           <SelectTrigger
-            className="w-48 h-10 text-white border border-white rounded-md pl-3 transition-all hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-accent-color"
-          />
-          <SelectContent>
+            className="w-48 h-10 text-white bg-[#2c2c2c] border border-gray-500 rounded-md pl-3 transition-all hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-accent-color"
+          >
+            {crypto2 ? allCoins.find(coin => coin.id === crypto2)?.name : "Select a crypto"}
+          </SelectTrigger>
+          <SelectContent className="bg-[#2c2c2c] rounded-md shadow-lg transition-all mt-1">
             {allCoins
               .filter((coin) => coin.id !== crypto1)
               .map((coin, i) => (
-                <SelectItem value={coin.id} key={i}>
+                <SelectItem
+                  value={coin.id}
+                  key={i}
+                  className="text-white hover:bg-gray-500 transition-all p-2 rounded-md"
+                >
                   {coin.name}
                 </SelectItem>
               ))}
@@ -47,4 +59,3 @@ function SelectCoins({ allCoins, crypto1, crypto2, onCoinChange, days, handleDay
 }
 
 export default SelectCoins;
-
