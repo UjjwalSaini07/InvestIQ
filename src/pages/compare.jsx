@@ -116,7 +116,7 @@ function Compare() {
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center py-8">
-      <h1 className="text-4xl font-semibold text-blue-500 mb-6">
+      <h1 className="text-5xl font-semibold text-blue-500 mb-6">
         Cryptocurrency Comparison
       </h1>
 
