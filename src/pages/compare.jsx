@@ -3,6 +3,7 @@ import Info from "../components/compare/Info";
 import LineChart from "../components/compare/LineChart";
 import ToggleComponents from "../components/compare/ToggleComponent";
 import SelectCoins from "../components/compare/SelectCoins";
+import Loader from "../components/Loader";
 import { get100Coins } from "../components/functions/get100Coins";
 import { getCoinData } from "../components/functions/getCoinData";
 import { getPrices } from "../components/functions/getPrices";
@@ -153,7 +154,7 @@ function Compare() {
         </div>
       </div>
 
-      {loading && (
+      {/* {loading && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
           <div className="relative w-16 h-16">
             <div className="absolute inset-0 border-4 border-t-4 border-transparent border-blue-400 rounded-full animate-spin"></div>
@@ -161,7 +162,8 @@ function Compare() {
             <div className="absolute w-4 h-4 bg-blue-400 rounded-full inset-center"></div>
           </div>
         </div>
-      )}
+      )} */}
+      <Loader loading={loading} />
 
       <button
         onClick={fetchData}
