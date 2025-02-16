@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Button } from "../../@/ui/button";
 import { cn } from "../../@/lib/utils";
 
@@ -33,7 +32,7 @@ export default function ToggleComponents({ priceType, handlePriceTypeChange }) {
             className={cn(
               "px-6 py-2 text-md font-semibold tracking-wider",
               priceType === option.value
-                ? "bg-blue-600 text-white transition-all duration-300 ease-in-out transform" 
+                ? "bg-blue-600 text-white transition-all duration-300 ease-in-out transform"
                 : "text-blue-600 hover:bg-blue-200 hover:text-blue-700 transition-all duration-300"
             )}
             onClick={() => handlePriceTypeChange(option.value)}
