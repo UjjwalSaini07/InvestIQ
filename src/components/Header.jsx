@@ -160,7 +160,7 @@ function Header() {
               <ul style={{ listStyleType: "none", margin: 0, padding: 0 }}>
                 <li style={{ margin: "0.5rem 0" }}>
                   <a
-                    href="/sign-in"
+                    href="/signin"
                     style={{
                       textDecoration: "none",
                       color: "black",
@@ -173,7 +173,7 @@ function Header() {
                 </li>
                 <li style={{ margin: "0.5rem 0" }}>
                   <a
-                    href="/help-center"
+                    href="/helpcenter"
                     style={{
                       textDecoration: "none",
                       color: "black",
