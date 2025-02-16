@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
 function Header() {
-
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -107,22 +106,43 @@ function Header() {
           </p>
         </a>
 
-        <div 
+        <div
           ref={dropdownRef}
-          style={{ position: "relative", display: "inline-block" }}>
+          style={{ position: "relative", display: "inline-block" }}
+        >
           <a
-            href="#" style={{ textDecoration: "none" }}
+            href="#"
+            style={{ textDecoration: "none" }}
             onClick={(e) => {
               e.preventDefault();
               toggleDropdown();
             }}
           >
             <p
-              style={{ fontSize: "1.6rem", color: "var(--grey)", cursor: "pointer", }}
+              style={{
+                fontSize: "1.6rem",
+                color: "var(--grey)",
+                cursor: "pointer",
+                transition: "color 0.3s, transform 0.3s",
+                display: "inline-flex",
+                alignItems: "center",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.color = "var(--hoverColor)";
+                e.target.style.transform = "scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.color = "var(--grey)";
+                e.target.style.transform = "scale(1)";
+              }}
             >
-              <i className="bi bi-person-fill"></i>
+              <i
+                className="bi bi-person-fill"
+                style={{ marginRight: "0.5rem", transition: "transform 0.3s" }}
+              ></i>
             </p>
           </a>
+
           {isOpen && (
             <div
               style={{
