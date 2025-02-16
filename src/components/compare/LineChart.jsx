@@ -32,11 +32,13 @@ function LineChart({ chartData, multiAxis }) {
       intersect: false,
     },
     scales: {
-      crypto1: {
+      // crypto1: {
+      x: {
         position: "left",
         grid: {
           color: "rgba(255, 255, 255, 0.2)",
-          borderDash: [5, 5],
+          borderDash: [0, 0],
+          lineWidth: 1,
         },
         ticks: {
           color: "#fff",
@@ -49,7 +51,8 @@ function LineChart({ chartData, multiAxis }) {
         position: "right",
         grid: {
           color: "rgba(255, 255, 255, 0.2)",
-          borderDash: [5, 5],
+          borderDash: [0, 0],
+          lineWidth: 1,
         },
         ticks: {
           color: "#fff",
@@ -64,8 +67,6 @@ function LineChart({ chartData, multiAxis }) {
         tension: 0.4,
         borderWidth: 3,
         borderColor: "rgba(0, 255, 255, 0.8)",
-        shadowColor: "rgba(0, 255, 255, 0.5)",
-        shadowBlur: 15,
       },
       point: {
         radius: 6,

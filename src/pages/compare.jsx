@@ -28,19 +28,23 @@ function Compare() {
       try {
         setLoading(true);
         const coins = await get100Coins();
-        if (coins) {
-          setAllCoins(coins);
-          const data1 = await getCoinData(crypto1);
-          const data2 = await getCoinData(crypto2);
-          settingCoinObject(data1, setCoin1Data);
-          settingCoinObject(data2, setCoin2Data);
-
-          if (data1 && data2) {
-            const prices1 = await getPrices(crypto1, days, priceType);
-            const prices2 = await getPrices(crypto2, days, priceType);
-            settingChartData(setChartData, prices1, prices2);
-          }
+        if (!coins || coins.length === 0) {
+          throw new Error("Failed to fetch coin list");
         }
+        setAllCoins(coins);
+
+        const [data1, data2] = await Promise.all([
+          getCoinData(crypto1),
+          getCoinData(crypto2),
+        ]);
+        settingCoinObject(data1, setCoin1Data);
+        settingCoinObject(data2, setCoin2Data);
+
+        const [prices1, prices2] = await Promise.all([
+          getPrices(crypto1, days, priceType),
+          getPrices(crypto2, days, priceType),
+        ]);
+        settingChartData(setChartData, prices1, prices2);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -52,10 +56,11 @@ function Compare() {
   }, [crypto1, crypto2, days, priceType]);
 
   const handleCoinChange = async (e, isCoin2) => {
+    const newCrypto = e.target.value;
+    if ((isCoin2 && newCrypto === crypto2) || (!isCoin2 && newCrypto === crypto1)) return;
+
     try {
       setLoading(true);
-      const newCrypto = e.target.value;
-
       if (isCoin2) {
         setCrypto2(newCrypto);
         const data2 = await getCoinData(newCrypto);
@@ -66,16 +71,10 @@ function Compare() {
         settingCoinObject(data1, setCoin1Data);
       }
 
-      const prices1 = await getPrices(
-        isCoin2 ? crypto1 : newCrypto,
-        days,
-        priceType
-      );
-      const prices2 = await getPrices(
-        isCoin2 ? newCrypto : crypto2,
-        days,
-        priceType
-      );
+      const [prices1, prices2] = await Promise.all([
+        getPrices(isCoin2 ? crypto1 : newCrypto, days, priceType),
+        getPrices(isCoin2 ? newCrypto : crypto2, days, priceType),
+      ]);
       settingChartData(setChartData, prices1, prices2);
     } catch (error) {
       console.error("Error updating coin data:", error);
@@ -85,12 +84,17 @@ function Compare() {
   };
 
   const handleDaysChange = async (e) => {
+    const newDays = e.target.value;
+    if (newDays === days) return;
+
     try {
       setLoading(true);
-      const newDays = e.target.value;
       setDays(newDays);
-      const prices1 = await getPrices(crypto1, newDays, priceType);
-      const prices2 = await getPrices(crypto2, newDays, priceType);
+
+      const [prices1, prices2] = await Promise.all([
+        getPrices(crypto1, newDays, priceType),
+        getPrices(crypto2, newDays, priceType),
+      ]);
       settingChartData(setChartData, prices1, prices2);
     } catch (error) {
       console.error("Error updating days:", error);
@@ -100,12 +104,17 @@ function Compare() {
   };
 
   const handlePriceTypeChange = async (e) => {
+    const newPriceType = e.target.value;
+    if (newPriceType === priceType) return;
+
     try {
       setLoading(true);
-      const newPriceType = e.target.value;
       setPriceType(newPriceType);
-      const prices1 = await getPrices(crypto1, days, newPriceType);
-      const prices2 = await getPrices(crypto2, days, newPriceType);
+
+      const [prices1, prices2] = await Promise.all([
+        getPrices(crypto1, days, newPriceType),
+        getPrices(crypto2, days, newPriceType),
+      ]);
       settingChartData(setChartData, prices1, prices2);
     } catch (error) {
       console.error("Error updating price type:", error);
@@ -116,12 +125,10 @@ function Compare() {
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center py-8">
-      {/* Title */}
       <h1 className="text-4xl font-semibold text-blue-500 mb-6">
         Cryptocurrency Comparison
       </h1>
 
-      {/* SelectCoins */}
       <SelectCoins
         allCoins={allCoins}
         crypto1={crypto1}
@@ -131,7 +138,6 @@ function Compare() {
         handleDaysChange={handleDaysChange}
       />
 
-      {/* Toggle Button */}
       <div className="mt-6">
         <ToggleComponents
           priceType={priceType}
@@ -139,32 +145,23 @@ function Compare() {
         />
       </div>
 
-      {/* Centered Chart Container */}
       <div className="w-full flex justify-center mt-8 mb-6">
         <div className="w-full max-w-screen-xl">
-          <div className="ml-20 h-[40vh] sm:h-[50vh] md:h-[50vh] lg:h-[70vh]">
+          <div className="ml-20 h-[40vh] sm:h-[50vh] lg:h-[70vh]">
             <LineChart chartData={chartData} multiAxis={true} />
           </div>
         </div>
       </div>
 
-      {/* Info Containers */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full mt-8">
         <div className="p-5 border border-gray-600 rounded-lg">
-          <Info
-            title={coin1Data.name || "Loading..."}
-            desc={coin1Data.desc || ""}
-          />
+          <Info title={coin1Data.name || "Loading..."} desc={coin1Data.desc || ""} />
         </div>
         <div className="p-6 border border-gray-600 rounded-lg">
-          <Info
-            title={coin2Data.name || "Loading..."}
-            desc={coin2Data.desc || ""}
-          />
+          <Info title={coin2Data.name || "Loading..."} desc={coin2Data.desc || ""} />
         </div>
       </div>
 
-      {/* Loading Spinner */}
       {loading && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
           <div className="w-16 h-16 border-4 border-t-4 border-blue-500 rounded-full animate-spin"></div>
