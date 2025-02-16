@@ -23,35 +23,35 @@ function Compare() {
     datasets: [],
   });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const coins = await get100Coins();
-        if (!coins || coins.length === 0) {
-          throw new Error("Failed to fetch coin list");
-        }
-        setAllCoins(coins);
-
-        const [data1, data2] = await Promise.all([
-          getCoinData(crypto1),
-          getCoinData(crypto2),
-        ]);
-        settingCoinObject(data1, setCoin1Data);
-        settingCoinObject(data2, setCoin2Data);
-
-        const [prices1, prices2] = await Promise.all([
-          getPrices(crypto1, days, priceType),
-          getPrices(crypto2, days, priceType),
-        ]);
-        settingChartData(setChartData, prices1, prices2);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false);
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const coins = await get100Coins();
+      if (!coins || coins.length === 0) {
+        throw new Error("Failed to fetch coin list");
       }
-    };
+      setAllCoins(coins);
 
+      const [data1, data2] = await Promise.all([
+        getCoinData(crypto1),
+        getCoinData(crypto2),
+      ]);
+      settingCoinObject(data1, setCoin1Data);
+      settingCoinObject(data2, setCoin2Data);
+
+      const [prices1, prices2] = await Promise.all([
+        getPrices(crypto1, days, priceType),
+        getPrices(crypto2, days, priceType),
+      ]);
+      settingChartData(setChartData, prices1, prices2);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchData();
   }, [crypto1, crypto2, days, priceType]);
 
@@ -115,7 +115,7 @@ function Compare() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center py-8">
+    <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center py-8 relative">
       <h1 className="text-5xl font-semibold text-blue-500 mb-6">
         Cryptocurrency Comparison
       </h1>
@@ -158,6 +158,27 @@ function Compare() {
           <div className="w-16 h-16 border-4 border-t-4 border-blue-500 rounded-full animate-spin"></div>
         </div>
       )}
+
+      <button
+        onClick={fetchData}
+        className="absolute top-4 right-4 p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600"
+        aria-label="Refresh Data"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          strokeWidth="2"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M17 11l4-4m0 0l-4-4m4 4H3m7 4l-4 4m0 0l4 4m-4-4h14"
+          />
+        </svg>
+      </button>
     </div>
   );
 }
