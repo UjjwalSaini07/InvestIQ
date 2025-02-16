@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa"; // Optional icon for toggling
 
 function Info({ title, desc }) {
   const [toggle, setToggle] = useState(false);
@@ -8,12 +7,7 @@ function Info({ title, desc }) {
     <>
       {desc.slice(0, 300)}
       <span
-        style={{
-          color: "#007BFF",
-          cursor: "pointer",
-          fontWeight: "bold",
-          transition: "color 0.3s ease-in-out",
-        }}
+        className="text-blue-500 cursor-pointer font-bold transition-colors duration-300"
         onClick={() => setToggle(true)}
       >
         {" "}
@@ -26,12 +20,7 @@ function Info({ title, desc }) {
     <>
       {desc}
       <span
-        style={{
-          color: "#007BFF",
-          cursor: "pointer",
-          fontWeight: "bold",
-          transition: "color 0.3s ease-in-out",
-        }}
+        className="text-blue-500 cursor-pointer font-bold transition-colors duration-300"
         onClick={() => setToggle(false)}
       >
         {" "}
@@ -41,36 +30,11 @@ function Info({ title, desc }) {
   );
 
   return (
-    <div
-      style={{
-        padding: "1rem",
-        borderRadius: "8px",
-        maxWidth: "680px",
-        transition: "all 0.3s ease",
-      }}
-    >
-      <h1
-        style={{
-          fontSize: "1.7rem",
-          margin: 0,
-          color: "#fff",
-          fontWeight: "600",
-          letterSpacing: "0.5px",
-          textAlign: "center",
-        }}
-      >
+    <div className="p-4 rounded-lg max-w-2xl transition-all duration-300">
+      <h1 className="text-2xl text-white font-semibold tracking-wide text-center mb-4">
         {title}
       </h1>
-      <p
-        style={{
-          margin: "1rem 0",
-          color: "#fff",
-          lineHeight: "1.6",
-          fontSize: "1rem",
-          fontFamily: "'Arial', sans-serif",
-          textAlign: "justify",
-        }}
-      >
+      <p className="text-white text-justify leading-7 text-base font-sans">
         {desc.length > 300 ? (toggle ? longDesc : shortDesc) : desc}
       </p>
     </div>

@@ -9,31 +9,17 @@ export default function ToggleComponents({ priceType, handlePriceTypeChange }) {
   ];
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          border: "1px solid #3b82f6",
-          borderRadius: "50px",
-          overflow: "hidden",
-          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
-        }}
-      >
+    <div className="flex justify-center items-center">
+      <div className="flex border border-blue-500 rounded-full overflow-hidden shadow-md">
         {toggleOptions.map((option) => (
           <Button
             key={option.value}
             variant="ghost"
             className={cn(
-              "px-6 py-2 text-md font-semibold tracking-wider",
+              "px-6 py-2 text-md font-semibold tracking-wider transition-all",
               priceType === option.value
-                ? "bg-blue-600 text-white transition-all duration-300 ease-in-out transform"
-                : "text-blue-600 hover:bg-blue-200 hover:text-blue-700 transition-all duration-300"
+                ? "bg-blue-600 text-white transform scale-105"
+                : "text-blue-600 hover:bg-blue-100 hover:text-blue-700"
             )}
             onClick={() => handlePriceTypeChange(option.value)}
           >

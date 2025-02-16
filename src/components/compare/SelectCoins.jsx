@@ -3,28 +3,34 @@ import { Select, SelectTrigger, SelectContent, SelectItem } from "../../@/ui/sel
 import SelectDays from "./SelectDays";
 
 function SelectCoins({ allCoins, crypto1, crypto2, onCoinChange, days, handleDaysChange }) {
-  const handleCoinChange = (value, isCrypto2) => {
-    onCoinChange(value, isCrypto2);
+  const handleCoinChange = (coinId, isCrypto2) => {
+    onCoinChange(coinId, isCrypto2);
+  };
+
+  const getCoinName = (coinId) => {
+    const coin = allCoins.find((coin) => coin.id === coinId);
+    return coin ? coin.name : "Select a crypto";
   };
 
   return (
-    <div className="flex flex-wrap justify-start items-center gap-6 m-6">
+    <div className="flex flex-wrap justify-center items-center gap-6 m-6">
       <div className="flex items-center gap-4">
         <p className="m-0 text-white font-semibold">Crypto 1</p>
-        <Select onValueChange={(value) => handleCoinChange(value, false)} value={crypto1}>
-          <SelectTrigger
-            className="w-48 h-10 text-white bg-[#2c2c2c] border border-gray-500 rounded-md pl-3 transition-all hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-accent-color"
-          >
-            {crypto1 ? allCoins.find(coin => coin.id === crypto1)?.name : "Select a crypto"}
+        <Select
+          value={crypto1}
+          onValueChange={(value) => handleCoinChange(value, false)}
+        >
+          <SelectTrigger className="w-48 h-10 text-white bg-[#2c2c2c] border border-gray-500 rounded-md pl-3 transition-all hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            {getCoinName(crypto1)}
           </SelectTrigger>
-          <SelectContent className="bg-[#2c2c2c] rounded-md shadow-lg transition-all mt-1">
+          <SelectContent className="bg-[#2c2c2c] rounded-md shadow-lg mt-1">
             {allCoins
               .filter((coin) => coin.id !== crypto2)
-              .map((coin, i) => (
+              .map((coin) => (
                 <SelectItem
+                  key={coin.id}
                   value={coin.id}
-                  key={i}
-                  className="text-white hover:bg-gray-500 transition-all p-2 rounded-md"
+                  className="text-white hover:bg-gray-500 p-2 rounded-md"
                 >
                   {coin.name}
                 </SelectItem>
@@ -35,20 +41,21 @@ function SelectCoins({ allCoins, crypto1, crypto2, onCoinChange, days, handleDay
 
       <div className="flex items-center gap-4">
         <p className="m-0 text-white font-semibold">Crypto 2</p>
-        <Select onValueChange={(value) => handleCoinChange(value, true)} value={crypto2}>
-          <SelectTrigger
-            className="w-48 h-10 text-white bg-[#2c2c2c] border border-gray-500 rounded-md pl-3 transition-all hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-accent-color"
-          >
-            {crypto2 ? allCoins.find(coin => coin.id === crypto2)?.name : "Select a crypto"}
+        <Select
+          value={crypto2}
+          onValueChange={(value) => handleCoinChange(value, true)}
+        >
+          <SelectTrigger className="w-48 h-10 text-white bg-[#2c2c2c] border border-gray-500 rounded-md pl-3 transition-all hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            {getCoinName(crypto2)}
           </SelectTrigger>
-          <SelectContent className="bg-[#2c2c2c] rounded-md shadow-lg transition-all mt-1">
+          <SelectContent className="bg-[#2c2c2c] rounded-md shadow-lg mt-1">
             {allCoins
               .filter((coin) => coin.id !== crypto1)
-              .map((coin, i) => (
+              .map((coin) => (
                 <SelectItem
+                  key={coin.id}
                   value={coin.id}
-                  key={i}
-                  className="text-white hover:bg-gray-500 transition-all p-2 rounded-md"
+                  className="text-white hover:bg-gray-500 p-2 rounded-md"
                 >
                   {coin.name}
                 </SelectItem>
@@ -57,7 +64,7 @@ function SelectCoins({ allCoins, crypto1, crypto2, onCoinChange, days, handleDay
         </Select>
       </div>
 
-      <SelectDays days={days} handleDaysChange={handleDaysChange} noPTag={true} />
+      <SelectDays days={days} handleDaysChange={handleDaysChange} noPTag={true}/>
     </div>
   );
 }
