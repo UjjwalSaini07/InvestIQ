@@ -147,10 +147,16 @@ function Compare() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full mt-8">
         <div className="p-5 border border-gray-600 rounded-lg">
-          <Info title={coin1Data.name || "Loading..."} desc={coin1Data.desc || ""} />
+          <Info
+            title={coin1Data.name || "Loading..."}
+            desc={coin1Data.desc || ""}
+          />
         </div>
         <div className="p-6 border border-gray-600 rounded-lg">
-          <Info title={coin2Data.name || "Loading..."} desc={coin2Data.desc || ""} />
+          <Info
+            title={coin2Data.name || "Loading..."}
+            desc={coin2Data.desc || ""}
+          />
         </div>
       </div>
 
@@ -163,17 +169,17 @@ function Compare() {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          strokeWidth="2"
+          width="22"
+          height="22"
+          fill="currentColor"
+          class="bi bi-arrow-clockwise"
+          viewBox="0 0 35 35"
         >
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M17 11l4-4m0 0l-4-4m4 4H3m7 4l-4 4m0 0l4 4m-4-4h14"
+            fill-rule="evenodd"
+            d="M17.5 6.563a10.938 10.938 0 1 0 9.944 6.374 1.094 1.094 0 0 1 1.986 -0.912A13.125 13.125 0 1 1 17.5 4.375z"
           />
+          <path d="M17.5 9.769V1.168a0.547 0.547 0 0 1 0.897 -0.42l5.162 4.301c0.263 0.219 0.263 0.621 0 0.84L18.397 10.189A0.547 0.547 0 0 1 17.5 9.769" />
         </svg>
       </button>
     </div>
