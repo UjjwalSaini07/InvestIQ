@@ -21,22 +21,38 @@ function Header() {
     };
   }, []);
 
+  const currentPath = window.location.pathname;
+
   return (
     <div className="flex justify-between items-center p-7 sticky top-0 bg-black z-50">
-      <h1 className="text-lg md:text-xl font-semibold text-white sm:ml-5">
+      <h1 className="text-lg md:text-xl font-semibold text-white sm:ml-7">
         Invest IQ<span className="text-blue-500">.</span>
       </h1>
 
-      {/* Navigation links for desktop */}
-      <div className="hidden md:flex justify-end items-center gap-7">
-        <a href="/" className="text-sm font-semibold text-gray-400 hover:text-white transition">Home</a>
-        <a href="/compare" className="text-sm font-semibold text-gray-400 hover:text-white transition">Compare</a>
-        <a href="/watchlist" className="text-sm font-semibold text-gray-400 hover:text-white transition">Watchlist</a>
-        <a href="/dashboard" className="text-sm font-semibold text-gray-400 hover:text-white transition">Dashboard</a>
-        <a href="/about" className="text-sm font-semibold text-gray-400 hover:text-white transition">About</a>
+      {/* Desktop */}
+      <div className="hidden md:flex justify-center items-center gap-7 flex-1 sm:mr-14">
+        {[
+          { name: "Home", path: "/" },
+          { name: "Compare", path: "/compare" },
+          { name: "Watchlist", path: "/watchlist" },
+          { name: "Dashboard", path: "/dashboard" },
+          { name: "About", path: "/about" },
+        ].map((link) => (
+          <a
+            key={link.path}
+            href={link.path}
+            className={`text-sm font-semibold ${
+              currentPath === link.path
+                ? "text-white"
+                : "text-gray-400 hover:text-white"
+            } transition`}
+          >
+            {link.name}
+          </a>
+        ))}
       </div>
 
-      {/* Mobile menu button */}
+      {/* Mobile*/}
       <div ref={dropdownRef} className="relative md:hidden">
         <button
           className="text-gray-400 text-2xl cursor-pointer focus:outline-none"
@@ -47,21 +63,26 @@ function Header() {
         {isOpen && (
           <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg z-50 p-4 w-48">
             <ul className="list-none space-y-2">
-              <li>
-                <a href="/" className="block text-black text-base hover:text-blue-500 transition">Home</a>
-              </li>
-              <li>
-                <a href="/compare" className="block text-black text-base hover:text-blue-500 transition">Compare</a>
-              </li>
-              <li>
-                <a href="/watchlist" className="block text-black text-base hover:text-blue-500 transition">Watchlist</a>
-              </li>
-              <li>
-                <a href="/dashboard" className="block text-black text-base hover:text-blue-500 transition">Dashboard</a>
-              </li>
-              <li>
-                <a href="/about" className="block text-black text-base hover:text-blue-500 transition">About</a>
-              </li>
+              {[
+                { name: "Home", path: "/" },
+                { name: "Compare", path: "/compare" },
+                { name: "Watchlist", path: "/watchlist" },
+                { name: "Dashboard", path: "/dashboard" },
+                { name: "About", path: "/about" },
+              ].map((link) => (
+                <li key={link.path}>
+                  <a
+                    href={link.path}
+                    className={`block text-base ${
+                      currentPath === link.path
+                        ? "text-blue-500"
+                        : "text-black hover:text-blue-500"
+                    } transition`}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         )}
@@ -78,13 +99,28 @@ function Header() {
           <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg z-50 p-4 w-48">
             <ul className="list-none space-y-2">
               <li>
-                <a href="/signin" className="block text-black text-base hover:text-blue-500 transition">Sign in / Sign Up</a>
+                <a
+                  href="/signin"
+                  className="block text-black text-base hover:text-blue-500 transition"
+                >
+                  Sign in / Sign Up
+                </a>
               </li>
               <li>
-                <a href="/contactus" className="block text-black text-base hover:text-blue-500 transition">Contact Us</a>
+                <a
+                  href="/contactus"
+                  className="block text-black text-base hover:text-blue-500 transition"
+                >
+                  Contact Us
+                </a>
               </li>
               <li>
-                <a href="/helpcenter" className="block text-black text-base hover:text-blue-500 transition">Help Center</a>
+                <a
+                  href="/helpcenter"
+                  className="block text-black text-base hover:text-blue-500 transition"
+                >
+                  Help Center
+                </a>
               </li>
             </ul>
           </div>
