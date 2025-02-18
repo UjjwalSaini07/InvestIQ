@@ -22,172 +22,73 @@ function Header() {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "1.5rem 3rem",
-        position: "sticky",
-        top: 0,
-        backgroundColor: "var(--black)",
-        zIndex: 1000,
-      }}
-    >
-      <h1 style={{ fontSize: "1.4rem", margin: 0, fontWeight: 600 }}>
-        Invest IQ<span style={{ color: "var(--blue)" }}>.</span>
+    <div className="flex justify-between items-center p-7 sticky top-0 bg-black z-50">
+      <h1 className="text-lg md:text-xl font-semibold text-white sm:ml-5">
+        Invest IQ<span className="text-blue-500">.</span>
       </h1>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          alignItems: "center",
-          gap: "1rem",
-        }}
-      >
-        <a href="/" style={{ textDecoration: "none" }}>
-          <p
-            style={{
-              fontSize: "0.85rem",
-              color: "var(--grey)",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
-          >
-            Home
-          </p>
-        </a>
-        <a href="/compare" style={{ textDecoration: "none" }}>
-          <p
-            style={{
-              fontSize: "0.85rem",
-              color: "var(--grey)",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
-          >
-            Compare
-          </p>
-        </a>
-        <a href="/watchlist" style={{ textDecoration: "none" }}>
-          <p
-            style={{
-              fontSize: "0.85rem",
-              color: "var(--grey)",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
-          >
-            Watchlist
-          </p>
-        </a>
-        <a href="/dashboard" style={{ textDecoration: "none" }}>
-          <p
-            style={{
-              fontSize: "0.85rem",
-              color: "var(--grey)",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
-          >
-            Dashboard
-          </p>
-        </a>
-        <a href="/about" style={{ textDecoration: "none" }}>
-          <p
-            style={{
-              fontSize: "0.85rem",
-              color: "var(--grey)",
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
-          >
-            About
-          </p>
-        </a>
 
-        <div
-          ref={dropdownRef}
-          style={{ position: "relative", display: "inline-block" }}
+      {/* Navigation links for desktop */}
+      <div className="hidden md:flex justify-end items-center gap-7">
+        <a href="/" className="text-sm font-semibold text-gray-400 hover:text-white transition">Home</a>
+        <a href="/compare" className="text-sm font-semibold text-gray-400 hover:text-white transition">Compare</a>
+        <a href="/watchlist" className="text-sm font-semibold text-gray-400 hover:text-white transition">Watchlist</a>
+        <a href="/dashboard" className="text-sm font-semibold text-gray-400 hover:text-white transition">Dashboard</a>
+        <a href="/about" className="text-sm font-semibold text-gray-400 hover:text-white transition">About</a>
+      </div>
+
+      {/* Mobile menu button */}
+      <div ref={dropdownRef} className="relative md:hidden">
+        <button
+          className="text-gray-400 text-2xl cursor-pointer focus:outline-none"
+          onClick={toggleDropdown}
         >
-          <a
-            href="#"
-            style={{ textDecoration: "none" }}
-            onClick={(e) => {
-              e.preventDefault();
-              toggleDropdown();
-            }}
-          >
-            <p
-              style={{
-                fontSize: "1.6rem",
-                color: "var(--grey)",
-                cursor: "pointer",
-                transition: "color 0.3s, transform 0.3s",
-                display: "inline-flex",
-                alignItems: "center",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.color = "var(--hoverColor)";
-                e.target.style.transform = "scale(1.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.color = "var(--grey)";
-                e.target.style.transform = "scale(1)";
-              }}
-            >
-              <i
-                className="bi bi-person-fill"
-                style={{ marginRight: "0.5rem", transition: "transform 0.3s" }}
-              ></i>
-            </p>
-          </a>
+          <i className="bi bi-list"></i>
+        </button>
+        {isOpen && (
+          <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg z-50 p-4 w-48">
+            <ul className="list-none space-y-2">
+              <li>
+                <a href="/" className="block text-black text-base hover:text-blue-500 transition">Home</a>
+              </li>
+              <li>
+                <a href="/compare" className="block text-black text-base hover:text-blue-500 transition">Compare</a>
+              </li>
+              <li>
+                <a href="/watchlist" className="block text-black text-base hover:text-blue-500 transition">Watchlist</a>
+              </li>
+              <li>
+                <a href="/dashboard" className="block text-black text-base hover:text-blue-500 transition">Dashboard</a>
+              </li>
+              <li>
+                <a href="/about" className="block text-black text-base hover:text-blue-500 transition">About</a>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
 
-          {isOpen && (
-            <div
-              style={{
-                position: "absolute",
-                top: "2.5rem",
-                right: "-1rem",
-                backgroundColor: "white",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                borderRadius: "8px",
-                zIndex: 1000,
-                padding: "0.6rem",
-                width: "170px",
-              }}
-            >
-              <ul style={{ listStyleType: "none", margin: 0, padding: 0 }}>
-                <li style={{ margin: "0.5rem 0" }}>
-                  <a
-                    href="/signin"
-                    style={{
-                      textDecoration: "none",
-                      color: "black",
-                      fontSize: "1rem",
-                      display: "block",
-                    }}
-                  >
-                    Sign in / Sign Up
-                  </a>
-                </li>
-                <li style={{ margin: "0.5rem 0" }}>
-                  <a
-                    href="/helpcenter"
-                    style={{
-                      textDecoration: "none",
-                      color: "black",
-                      fontSize: "1rem",
-                      display: "block",
-                    }}
-                  >
-                    Help Center
-                  </a>
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
+      <div ref={dropdownRef} className="relative hidden md:inline-block">
+        <button
+          className="text-gray-400 hover:text-blue-400 text-2xl cursor-pointer flex items-center focus:outline-none"
+          onClick={toggleDropdown}
+        >
+          <i className="bi bi-person-fill mr-2 transition-transform transform hover:scale-110"></i>
+        </button>
+        {isOpen && (
+          <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg z-50 p-4 w-48">
+            <ul className="list-none space-y-2">
+              <li>
+                <a href="/signin" className="block text-black text-base hover:text-blue-500 transition">Sign in / Sign Up</a>
+              </li>
+              <li>
+                <a href="/contactus" className="block text-black text-base hover:text-blue-500 transition">Contact Us</a>
+              </li>
+              <li>
+                <a href="/helpcenter" className="block text-black text-base hover:text-blue-500 transition">Help Center</a>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
