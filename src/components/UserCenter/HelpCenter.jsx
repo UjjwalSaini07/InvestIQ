@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "../../@/ui/button";
-import videoSrc from "../../assets/Landing/Home2Compo/TradeVidColorShift.mp4";
-import { PiNumberOneBold, PiNumberTwoBold, PiNumberThreeBold, PiNumberFourBold, PiNumberFiveBold, PiNumberSixBold} from "react-icons/pi";
+import video1 from "../../assets/Landing/Home2Compo/TradeVidColorShift.mp4";
+import video2 from "../../assets/Landing/Home2Compo/Trade2.mp4";
+import { PiNumberOneBold, PiNumberTwoBold, PiNumberThreeBold, PiNumberFourBold, PiNumberFiveBold, PiNumberSixBold, } from "react-icons/pi";
 
 const textVariant = (delay) => ({
   hidden: { y: -50, opacity: 0 },
@@ -14,44 +15,43 @@ const textVariant = (delay) => ({
 });
 
 const steps = [
-    {
-      title: "Create Your InvestIQ Account",
-      description:
-        "Sign up or log in to access your personalized dashboard and start building your crypto and stock watchlist.",
-      icon: <PiNumberOneBold className="text-white text-[1.8rem]" />,
-    },
-    {
-      title: "Set Up Your Watchlist",
-      description:
-        "Add your favorite stocks and cryptocurrencies to monitor real-time price movements and trends.",
-      icon: <PiNumberTwoBold className="text-white text-[1.8rem]" />,
-    },
-    {
-      title: "Stay Informed with Market Feeds",
-      description:
-        "Access business news and insights to stay updated on factors influencing the markets.",
-      icon: <PiNumberThreeBold className="text-white text-[1.8rem]" />,
-    },
-    {
-      title: "Compare Cryptos and Stocks",
-      description:
-        "Evaluate assets side-by-side with advanced comparison tools and make informed decisions.",
-      icon: <PiNumberFourBold className="text-white text-[1.8rem]" />,
-    },
-    {
-      title: "Analyze Trends with Graphs",
-      description:
-        "Use powerful graphing tools and AI-driven insights to identify trends and optimize strategies.",
-      icon: <PiNumberFiveBold className="text-white text-[1.8rem]" />,
-    },
-    {
-      title: "Backtest and Scale Your Strategies",
-      description:
-        "Test your trading strategies in a secure environment and scale confidently with data-driven insights.",
-      icon: <PiNumberSixBold className="text-white text-[1.8rem]" />,
-    },
-  ];
-  
+  {
+    title: "Create Your InvestIQ Account",
+    description:
+      "Sign up or log in to access your personalized dashboard and start building your crypto and stock watchlist.",
+    icon: <PiNumberOneBold className="text-white text-[1.8rem]" />,
+  },
+  {
+    title: "Set Up Your Watchlist",
+    description:
+      "Add your favorite stocks and cryptocurrencies to monitor real-time price movements and trends.",
+    icon: <PiNumberTwoBold className="text-white text-[1.8rem]" />,
+  },
+  {
+    title: "Stay Informed with Market Feeds",
+    description:
+      "Access business news and insights to stay updated on factors influencing the markets.",
+    icon: <PiNumberThreeBold className="text-white text-[1.8rem]" />,
+  },
+  {
+    title: "Compare Cryptos and Stocks",
+    description:
+      "Evaluate assets side-by-side with advanced comparison tools and make informed decisions.",
+    icon: <PiNumberFourBold className="text-white text-[1.8rem]" />,
+  },
+  {
+    title: "Analyze Trends with Graphs",
+    description:
+      "Use powerful graphing tools and AI-driven insights to identify trends and optimize strategies.",
+    icon: <PiNumberFiveBold className="text-white text-[1.8rem]" />,
+  },
+  {
+    title: "Backtest and Scale Your Strategies",
+    description:
+      "Test your trading strategies in a secure environment and scale confidently with data-driven insights.",
+    icon: <PiNumberSixBold className="text-white text-[1.8rem]" />,
+  },
+];
 
 export default function HelpCenter() {
   return (
@@ -70,7 +70,7 @@ export default function HelpCenter() {
         </motion.div>
         <motion.div variants={textVariant(0.9)} initial="hidden" animate="show">
           <p className="text-lg text-white mt-4 max-w-2xl mx-auto opacity-90">
-            A simple, efficient way to collaborate in real-time. Follow these
+            A simple, efficient way to analysis of Stock and Crpto Market. Follow these
             steps to get started.
           </p>
         </motion.div>
@@ -79,20 +79,41 @@ export default function HelpCenter() {
         </motion.div>
       </div>
 
-      <div className="grid lg:grid-cols-2 items-center gap-12">
-        <motion.div variants={textVariant(1.8)} initial="hidden" animate="show">
-          <div className="relative mx-auto">
+      <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="space-y-20">
+          <motion.div
+            variants={textVariant(1.8)}
+            initial="hidden"
+            animate="show"
+            className="relative rounded-3xl shadow-2xl overflow-hidden group transition-all duration-700 transform hover:scale-105"
+          >
+            <div className="absolute inset-0 group-hover:opacity-40"></div>
             <video
-              src={videoSrc}
+              src={video1}
               alt="Help Center Template"
-              className="rounded-2xl shadow-xl w-full h-auto object-cover object-center transition-all duration-700 transform hover:scale-105"
+              className="w-full h-auto object-cover object-center"
               autoPlay
               loop
               muted
             ></video>
-            <div className="absolute -top-4 -right-4 w-12 h-12 bg-blue-400 rounded-full opacity-75 blur-lg animate-pulse"></div>
-          </div>
-        </motion.div>
+          </motion.div>
+          <motion.div
+            variants={textVariant(2.5)}
+            initial="hidden"
+            animate="show"
+            className="relative rounded-3xl shadow-2xl overflow-hidden group transition-all duration-700 transform hover:scale-105 mt-6"
+          >
+            <div className="absolute inset-0 opacity-20 group-hover:opacity-40"></div>
+            <video
+              src={video2}
+              alt="Help Center Template 2"
+              className="w-full h-auto object-cover object-center"
+              autoPlay
+              loop
+              muted
+            ></video>
+          </motion.div>
+        </div>
 
         <div className="space-y-10 relative">
           <div className="absolute left-4 top-0 h-full w-1 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full opacity-80"></div>
@@ -104,40 +125,34 @@ export default function HelpCenter() {
               animate="show"
               className="flex items-center gap-6 text-white group"
             >
-              <div
-                key={index}
-                className="flex items-center gap-6 text-white group"
-              >
-                <div className="w-12 h-10 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-lg transform transition-all group-hover:scale-110">
-                  {step.icon}
-                </div>
-                <div className="transition-all duration-300 group-hover:translate-x-2">
-                  <h3 className="text-2xl font-semibold mb-2">{step.title}</h3>
-                  <p className="opacity-90">{step.description}</p>
-                </div>
+              <div className="w-12 h-10 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-lg transform transition-all group-hover:scale-110">
+                {step.icon}
+              </div>
+              <div className="transition-all duration-300 group-hover:translate-x-2">
+                <h3 className="text-2xl font-semibold mb-2">{step.title}</h3>
+                <p className="opacity-90">{step.description}</p>
               </div>
             </motion.div>
           ))}
 
-          <div className="mt-10 text-center">
-            <motion.div
-              variants={textVariant(4.5)}
-              initial="hidden"
-              animate="show"
+          <motion.div
+            variants={textVariant(7)}
+            initial="hidden"
+            animate="show"
+            className="mt-10 text-center"
+          >
+            <Button
+              size="sm"
+              className="transform hover:scale-110 transition-transform duration-300 shadow-xl"
             >
-              <Button
-                size="sm"
-                className="transform hover:scale-110 transition-transform duration-300 shadow-xl"
+              <a
+                href="/"
+                className="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-10 py-4 rounded-full font-bold shadow-lg hover:shadow-2xl transition-all duration-300"
               >
-                <a
-                  href="/"
-                  className="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-10 py-4 rounded-full font-bold shadow-lg hover:shadow-2xl transition-all duration-300"
-                >
-                  Get Started
-                </a>
-              </Button>
-            </motion.div>
-          </div>
+                Let's Explore
+              </a>
+            </Button>
+          </motion.div>
         </div>
       </div>
     </section>
