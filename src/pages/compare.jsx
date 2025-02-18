@@ -3,7 +3,7 @@ import Info from "../components/compare/Info";
 import LineChart from "../components/compare/LineChart";
 import ToggleComponents from "../components/compare/ToggleComponent";
 import SelectCoins from "../components/compare/SelectCoins";
-import Loader from "../components/Loader";
+import Loader from "../components/common/Loader";
 import { get100Coins } from "../components/functions/get100Coins";
 import { getCoinData } from "../components/functions/getCoinData";
 import { getPrices } from "../components/functions/getPrices";

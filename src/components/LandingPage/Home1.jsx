@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import "../../styles/home.scss";
-import TextSpan from "../TextSpan.jsx";
+import TextSpan from "../common/TextSpan";
 import gradient from "../../assets/gradient.png";
 import iphone from "../../assets/PhoneDemo.png";
 
