@@ -8,7 +8,7 @@ import CryptoMarketChart from '../components/LandingPage/CryptoMarketChart';
 import CryptoStockGraph from '../components/LandingPage/CryptoStockGraph';
 import TeamCard from '../components/LandingPage/TeamCard';
 import Testinomails from '../components/LandingPage/Testinomails';
-import Footer from '../components/Footer';
+import Footer from '../components/common/Footer';
 
 const Home = () => {
   useEffect(() => {
