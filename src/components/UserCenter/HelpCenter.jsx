@@ -70,8 +70,7 @@ export default function HelpCenter() {
         </motion.div>
         <motion.div variants={textVariant(0.9)} initial="hidden" animate="show">
           <p className="text-lg text-white mt-4 max-w-2xl mx-auto opacity-90">
-            A simple, efficient way to analysis of Stock and Crpto Market. Follow these
-            steps to get started.
+            A simple, efficient way to analyze the Stock and Crypto Markets. Follow these steps to get started.
           </p>
         </motion.div>
         <motion.div variants={textVariant(1.1)} initial="hidden" animate="show">
@@ -125,7 +124,7 @@ export default function HelpCenter() {
               animate="show"
               className="flex items-center gap-6 text-white group"
             >
-              <div className="w-12 h-10 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-lg transform transition-all group-hover:scale-110">
+              <div className="w-12 h-11 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-lg transform transition-all group-hover:scale-110">
                 {step.icon}
               </div>
               <div className="transition-all duration-300 group-hover:translate-x-2">
