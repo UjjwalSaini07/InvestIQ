@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema(
   {
@@ -36,11 +36,11 @@ const userSchema = new mongoose.Schema(
     resetPasswordExpiresAt: {
       type: Date,
       default: Date.now,
-    }
+    },
   },
   { timestamps: true }
 );
 
 const UserSchema = mongoose.model("User", userSchema);
 
-export default UserSchema;
+module.exports = UserSchema;
