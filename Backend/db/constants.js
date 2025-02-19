@@ -1,4 +1,4 @@
-const DB_NAME = "Clusters";
-// const DB_NAME = "investiqcrypto";
+const DB_NAME = "investiqdb";
+// const DB_NAME = "Clusters";
 
 module.exports = { DB_NAME };
