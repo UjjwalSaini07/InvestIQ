@@ -128,7 +128,7 @@ const OtpVerification = () => {
             </div>
             <Button
               onClick={handleOtpSubmit}
-              className="w-full p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white transition hover:bg-[#5A3CBF]"
+              className="w-full p-2 rounded-full bg-purple-600 hover:bg-[#5A3CBF] text-white transition hover:bg-[#5A3CBF]"
             >
               {loading ? "Verifying..." : "Continue"}
             </Button>
