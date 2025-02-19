@@ -100,7 +100,7 @@ function Header() {
             <ul className="list-none space-y-2">
               <li>
                 <a
-                  href="/signin"
+                  href="/login"
                   className="block text-black text-base hover:text-blue-500 transition"
                 >
                   Sign in / Sign Up
