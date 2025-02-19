@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const investmentSchema = new mongoose.Schema(
   {
@@ -23,6 +23,11 @@ const investmentSchema = new mongoose.Schema(
     notes: {
       type: String,
     },
+    status: {
+      type: String,
+      enum: ['active', 'sold', 'archived'],
+      default: 'active',
+    },
   },
   {
     timestamps: true,
@@ -31,4 +36,4 @@ const investmentSchema = new mongoose.Schema(
 
 const Investment = mongoose.model('Investment', investmentSchema);
 
-export default Investment;
+module.exports = Investment;
