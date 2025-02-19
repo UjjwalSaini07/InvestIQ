@@ -1,7 +1,7 @@
 {
   "name": "investiq-backend",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -r dotenv/config --experimental-json-modules index.js"
@@ -14,7 +14,7 @@
     "bitcoin",
     "API integration"
   ],
-  "author": "Ujjwal",
+  "author": "UjjwalS",
   "license": "ISC",
   "description": "Separate Backend of InvestIQ",
   "dependencies": {

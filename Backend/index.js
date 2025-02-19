@@ -1,15 +1,15 @@
-import dotenv from "dotenv";
-import express from "express";
-import cors from "cors";
-import cookieParser from "cookie-parser";
-import connectDB from "./db/serverdb.js";
-import { app } from "./app.js";
-import { morganLogger } from "./middlewares/loggers.js";
-import AuthRoutes from "./routers/auth/authRoutes.js";
-import { corsOptions } from "./config/cors.js";
-import globalErrorHandler from "./middlewares/globalErrorHandler.js";
-import versionHandler from "./middlewares/versionHandler.js";
-import UniversalRateLimiter from "./middlewares/rate-limiter.js";
+const dotenv = require("dotenv");
+const express = require("express");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const connectDB = require("./db/serverdb.js");
+const { app } = require("./app.js");
+const { morganLogger } = require("./middlewares/loggers.js");
+const AuthRoutes = require("./routers/auth/authRoutes.js");
+const { corsOptions } = require("./config/cors");
+const globalErrorHandler = require("./middlewares/globalErrorHandler.js");
+const versionHandler = require("./middlewares/versionHandler.js");
+const UniversalRateLimiter = require("./middlewares/rate-limitter.js");
 
 // Load environment variables
 dotenv.config({ path: '../.env' });
@@ -43,7 +43,7 @@ app.use("/api/v1/auth", AuthRoutes);
 app.use(globalErrorHandler);
 
 // Start the server
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`⚙️ Server is running at port: ${PORT}`);
 });

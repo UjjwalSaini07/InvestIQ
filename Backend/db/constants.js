@@ -1,1 +1,3 @@
-export const DB_NAME = "investiqcrypto"
+const DB_NAME = "investiqcrypto";
+
+module.exports = { DB_NAME };
