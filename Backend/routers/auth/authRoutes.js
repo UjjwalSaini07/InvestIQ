@@ -11,12 +11,12 @@ const {
   loginSchema,
   forgotPasswordSchema,
   resetPasswordSchema,
-} = require("../../middleware/reqSchema");
+} = require("../../middlewares/reqSchema");
 const {
   forgotPassword,
   newPassword,
 } = require("../../controllers/auth/password-recovery");
-const asyncHandler = require("../../middleware/asyncHandler");
+const asyncHandler = require("../../middlewares/asyncHandler");
 
 router.post(
   "/register",
