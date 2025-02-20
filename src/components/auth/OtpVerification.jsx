@@ -75,7 +75,7 @@ const OtpVerification = () => {
           {isMobile ? (
             <button
               onClick={handleBack}
-              className="fixed top-8 left-5 flex items-center justify-center w-8 h-8 rounded-full bg-black border-2 border-blue-700 hover:bg-blue-500 text-[#06b6d4] hover:text-white transition-all z-50"
+              className="fixed top-8 left-5 flex items-center justify-center w-8 h-8 rounded-full bg-black border-2 border-[#06b6d4] hover:bg-blue-500 text-[#06b6d4] hover:text-white transition-all z-50"
               aria-label="Go back"
             >
               <ArrowLeft size={15} />
@@ -83,7 +83,7 @@ const OtpVerification = () => {
           ) : (
             <button
               onClick={handleBack}
-              className="fixed top-12 left-1/2 ml-4 transform -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-black border-2 border-blue-700 hover:bg-blue-500 text-[#06b6d4] hover:text-white transition-all z-50"
+              className="fixed top-12 left-1/2 ml-4 transform -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-black border-2 border-[#06b6d4] hover:bg-blue-500 text-[#06b6d4] hover:text-white transition-all z-50"
               aria-label="Go back"
             >
               <ArrowLeft size={20} />
