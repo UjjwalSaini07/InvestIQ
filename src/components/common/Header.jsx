@@ -135,6 +135,16 @@ function Header() {
                   Help Center
                 </a>
               </li>
+              {user && (
+                <li>
+                  <a
+                    href="#"
+                    className="block text-black text-base hover:text-blue-500 transition"
+                  >
+                    Logout
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         )}
