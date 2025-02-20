@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, } from "react-router-dom";
 
 import Layout from "./components/common/Layout";
 import Header from "./components/common/Header";
@@ -11,14 +11,16 @@ import AuthPage from "./pages/authPage";
 import ProtectedRoute from "./components/utils/ProtectedRoutes";
 import { useSelector } from "react-redux";
 import "./App.scss";
-
 function App() {
+  const location = useLocation();
+  const hideHeaderRoutes = ["/login", "/register", "/forgot", "/verifyotp"];
+  const shouldHideHeader = hideHeaderRoutes.includes(location.pathname);
   const user = useSelector((state) => state.auth.user);
   const otpRequested = useSelector((state) => state.auth.otpRequested);
 
   return (
-    <Router>
-      <Header />
+    <>
+      {!shouldHideHeader && <Header />}
       <div>
         <Routes>
           <Route element={<Layout />}>
@@ -47,8 +49,14 @@ function App() {
           </Route>
         </Routes>
       </div>
-    </Router>
+    </>
   );
 }
 
-export default App;
+export default function Root() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+}
