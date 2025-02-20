@@ -7,56 +7,59 @@ const Verification_Email_Template = `
       <title>Verify Your Email</title>
       <style>
           body {
-              font-family: Arial, sans-serif;
+              font-family: 'Poppins', Arial, sans-serif;
               margin: 0;
               padding: 0;
-              background-color: #f4f4f4;
+              background-color: #f0f4f8;
+              color: #333;
           }
           .container {
               max-width: 600px;
-              margin: 30px auto;
+              margin: 40px auto;
               background: #ffffff;
-              border-radius: 8px;
-              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+              border-radius: 15px;
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
               overflow: hidden;
-              border: 1px solid #ddd;
           }
           .header {
-              background-color: #4CAF50;
+              background: linear-gradient(135deg, #4cafef, #1976d2);
               color: white;
-              padding: 20px;
+              padding: 25px 20px;
               text-align: center;
-              font-size: 26px;
+              font-size: 24px;
               font-weight: bold;
+              letter-spacing: 1px;
           }
           .content {
-              padding: 25px;
-              color: #333;
+              padding: 30px;
+              font-size: 16px;
               line-height: 1.8;
+              color: #555;
           }
           .verification-code {
               display: block;
-              margin: 20px 0;
+              margin: 20px auto;
               font-size: 22px;
-              color: #4CAF50;
-              background: #e8f5e9;
-              border: 1px dashed #4CAF50;
-              padding: 10px;
+              color: #4cafef;
+              background: #e3f2fd;
+              border: 1px dashed #4cafef;
+              padding: 12px;
               text-align: center;
-              border-radius: 5px;
+              border-radius: 8px;
               font-weight: bold;
               letter-spacing: 2px;
+              width: fit-content;
           }
           .footer {
-              background-color: #f4f4f4;
-              padding: 15px;
+              background-color: #f9f9f9;
+              padding: 20px;
               text-align: center;
               color: #777;
-              font-size: 12px;
-              border-top: 1px solid #ddd;
+              font-size: 14px;
+              border-top: 1px solid #e0e0e0;
           }
           p {
-              margin: 0 0 15px;
+              margin: 0 0 20px;
           }
       </style>
   </head>
@@ -79,94 +82,121 @@ const Verification_Email_Template = `
 
 const Welcome_Email_Template = `
   <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Welcome to Our WebPlatform</title>
-      <style>
-          body {
-              font-family: Arial, sans-serif;
-              margin: 0;
-              padding: 0;
-              background-color: #f4f4f4;
-              color: #333;
-          }
-          .container {
-              max-width: 600px;
-              margin: 30px auto;
-              background: #ffffff;
-              border-radius: 8px;
-              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-              overflow: hidden;
-              border: 1px solid #ddd;
-          }
-          .header {
-              background-color:rgb(0, 106, 255);
-              color: white;
-              padding: 20px;
-              text-align: center;
-              font-size: 26px;
-              font-weight: bold;
-          }
-          .content {
-              padding: 25px;
-              line-height: 1.8;
-          }
-          .welcome-message {
-              font-size: 18px;
-              margin: 20px 0;
-          }
-          .button {
-              display: inline-block;
-              padding: 12px 25px;
-              margin: 20px 0;
-              background-color: #007BFF;
-              color: white;
-              text-decoration: none;
-              border-radius: 5px;
-              text-align: center;
-              font-size: 16px;
-              font-weight: bold;
-              transition: background-color 0.3s;
-          }
-          .button:hover {
-              background-color: #0056b3;
-          }
-          .footer {
-              background-color: #f4f4f4;
-              padding: 15px;
-              text-align: center;
-              color: #777;
-              font-size: 12px;
-              border-top: 1px solid #ddd;
-          }
-          p {
-              margin: 0 0 15px;
-          }
-      </style>
-  </head>
-  <body>
-      <div class="container">
-          <div class="header">Welcome to InvestIQ!</div>
-          <div class="content">
-              <p class="welcome-message">Hello {name},</p>
-              <p>We’re thrilled to have you join us! Your registration was successful, and we’re committed to providing you with the best experience possible.</p>
-              <p>Here’s how you can get started:</p>
-              <ul>
-                  <li>Explore our features and customize your experience.</li>
-                  <li>Stay informed by checking out our blog for the latest updates and tips.</li>
-                  <li>Reach out to our support team if you have any questions or need assistance.</li>
-              </ul>
-              <a href="#" class="button">Get Started</a>
-              <p>If you need any help, don’t hesitate to contact us. We’re here to support you every step of the way.</p>
-          </div>
-          <div class="footer">
-              <p>&copy; ${new Date().getFullYear()} InvestIQ. All rights reserved.</p>
-          </div>
-      </div>
-  </body>
-  </html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to InvestIQ</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #4cafef, #1976d2);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .content {
+            padding: 35px;
+            line-height: 1.7;
+            font-size: 16px;
+            color: #555;
+        }
+        .welcome-message {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+            list-style: disc;
+        }
+        ul li {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .button {
+            display: block;
+            width: max-content;
+            margin: 25px auto 0;
+            padding: 12px 40px;
+            background-color: #4cafef;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px rgba(76, 175, 239, 0.2);
+        }
+        .button:hover {
+            background-color: #1976d2;
+            box-shadow: 0 8px 20px rgba(76, 175, 239, 0.3);
+            transform: translateY(-2px);
+        }
+        .footer {
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .footer a {
+            color: #4cafef;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        p {
+            margin: 0 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Welcome to InvestIQ!</div>
+        <div class="content">
+            <p class="welcome-message">Hello <strong>{name}</strong>,</p>
+            <p>We’re excited to welcome you to InvestIQ, your trusted platform for smarter financial decisions. Here, you can discover tools, resources, and insights tailored to your unique financial journey.</p>
+            <p>Start exploring now to unlock a wealth of opportunities:</p>
+            <ul>
+                <li>Analyze and manage your investments with ease.</li>
+                <li>Access exclusive insights and market trends.</li>
+                <li>Compare different cryptocurrencies effectively.</li>
+                <li>Stay updated with the latest business and stock market news.</li>
+            </ul>
+            <a href="#" class="button">Get Started</a>
+            <br/>
+            <p>If you have any questions or need guidance, our support team is just a click away. Let’s embark on this journey to financial success together!</p>
+        </div>
+        <div class="footer">
+            <p>&copy; <script>document.write(new Date().getFullYear());</script> InvestIQ. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
 `;
 
 module.exports = { Verification_Email_Template, Welcome_Email_Template };
