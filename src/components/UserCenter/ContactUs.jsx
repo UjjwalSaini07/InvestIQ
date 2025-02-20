@@ -80,15 +80,14 @@ export default function ContactUs() {
           <p className="text-lg font-semibold text-gray-700">Loading...</p>
         </div>
       )}
-
       <div
         className={`visme_d ${isLoading ? "hidden" : "block"}`}
-        data-title="SkyShare ContactForm"
-        data-url="ojkj33vy-skyshare-contactform"
+        data-title="InvestIQ-ContactForm"
+        data-url="pvok9zx4-investiq-contactform"
         data-domain="forms"
         data-full-page="false"
         data-min-height="500px"
-        data-form-id="112506"
+        data-form-id="116086"
       ></div>
 
       <ToastContainer />
