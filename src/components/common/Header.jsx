@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const user = useSelector((state) => state.auth.user);
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
@@ -98,14 +100,25 @@ function Header() {
         {isOpen && (
           <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg z-50 p-4 w-48">
             <ul className="list-none space-y-2">
-              <li>
-                <a
-                  href="/login"
-                  className="block text-black text-base hover:text-blue-500 transition"
-                >
-                  Sign in / Sign Up
-                </a>
-              </li>
+              {user ? (
+                <li>
+                  <a
+                    href="/profile"
+                    className="block text-black text-base hover:text-blue-500 transition"
+                  >
+                    User Profile
+                  </a>
+                </li>
+              ) : (
+                <li>
+                  <a
+                    href="/login"
+                    className="block text-black text-base hover:text-blue-500 transition"
+                  >
+                    Sign in / Sign Up
+                  </a>
+                </li>
+              )}
               <li>
                 <a
                   href="/contactus"
