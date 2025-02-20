@@ -12,6 +12,7 @@ import { FaGithub } from "react-icons/fa";
 import { ArrowLeft } from "lucide-react";
 import { handleError, handleSuccess } from "../utils/utilsToast";
 import { loginUser } from "../utils/authSlice";
+import Logo from '../../assets/Logo.png'
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -69,33 +70,23 @@ const LoginPage = () => {
     <div className="flex items-center justify-center sm:min-h-screen">
       <Card className="w-full max-w-md">
         <CardContent>
-          {isMobile ? (
             <button
               onClick={handleBack}
-              className="fixed top-8 left-5 flex items-center justify-center w-8 h-8 rounded-full bg-white border-2 border-purple-500 hover:bg-purple-500 text-purple-500 hover:text-white transition-all z-50"
+              className="fixed top-8 left-5 flex items-center justify-center w-8 h-8 rounded-full bg-black border-2 border-blue-700 hover:bg-blue-500 text-[#06b6d4] hover:text-white transition-all z-50"
               aria-label="Go back"
             >
-              <ArrowLeft size={30} />
+              <ArrowLeft size={20} />
             </button>
-          ) : (
-            <button
-              onClick={handleBack}
-              className="fixed top-8 left-5 transform -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-white border-2 border-purple-500 hover:border-[#5A3CBF] text-purple-500 hover:bg-[#5A3CBF] hover:text-white transition-all z-50"
-              aria-label="Go back"
-            >
-              <ArrowLeft size={30} />
-            </button>
-          )}
-          <div className="flex justify-center mb-4 sm:mt-4 -mt-30">
+          <div className="flex justify-center mb-2 sm:mt-4 -mt-30">
             <div className="w-21 h-21 rounded-full overflow-hidden">
               <img
-                src={"/profile.png"}
-                alt="Profile"
-                className="w-[100px] h-[100px] object-cover hidden md:block"
+                src={Logo}
+                alt="InvestIQ Logo"
+                className="w-[120px] h-[120px] object-cover hidden md:block"
               />
             </div>
           </div>
-          <h2 className="text-xl font-bold text-center text-gray-800 mb-7">
+          <h2 className="text-2xl font-bold text-center text-white mb-7">
             Sign in to your Account
           </h2>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -104,8 +95,8 @@ const LoginPage = () => {
                 htmlFor="email"
                 className={`absolute left-4 transition-all ${
                   isFocused || watch("email")
-                    ? "-top-3 left-4 text-sm font-medium text-[#868686] bg-white px-1"
-                    : "top-2 text-[#868686]"
+                    ? "-top-3 left-4 text-sm font-medium text-[#fff] bg-black px-1"
+                    : "top-3 text-[#fff]"
                 }`}
               >
                 Email
@@ -122,10 +113,10 @@ const LoginPage = () => {
                 })}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(!!watch("email"))}
-                className={`border px-5 w-full rounded-xl focus:outline-none focus:ring-2 ${
+                className={`border px-5 w-full bg-black rounded-xl focus:outline-none focus:ring-2 ${
                   errors.email
                     ? "border-red-500 focus:ring-red-500"
-                    : "focus:ring-purple-500"
+                    : "focus:ring-black"
                 }`}
               />
               {errors.email && (
@@ -142,8 +133,8 @@ const LoginPage = () => {
                 htmlFor="password"
                 className={`absolute left-4 transition-all ${
                   isFocusedsec || watch("password")
-                    ? "-top-3 left-4 text-sm font-medium text-[#868686] bg-white px-1"
-                    : "top-2 text-[#868686]"
+                    ? "-top-3 left-4 text-sm font-medium text-[#fff] bg-black px-1"
+                    : "top-3 text-[#fff]"
                 }`}
               >
                 Password
@@ -161,16 +152,16 @@ const LoginPage = () => {
                 })}
                 onFocus={() => setIsFocusedsec(true)}
                 onBlur={() => setIsFocusedsec(!!watch("password"))}
-                className={`border px-5 w-full rounded-xl focus:outline-none focus:ring-2 ${
+                className={`border px-5 w-full bg-black rounded-xl focus:outline-none focus:ring-2 ${
                   errors.password
                     ? "border-red-500 focus:ring-red-500"
-                    : "focus:ring-purple-500"
+                    : "focus:ring-black"
                 }`}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-2 text-gray-500 focus:outline-none"
+                className="absolute right-3 top-2 text-white focus:outline-none"
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
@@ -183,39 +174,38 @@ const LoginPage = () => {
                 </p>
               )}
             </div>
-            {/* {error && <p className="text-red-500 text-center">{error}</p>} */}
             <div className="flex items-center justify-between">
               <label className="flex items-center">
                 <input
                   type="checkbox"
                   {...register("rememberMe")}
-                  className="mr-2"
+                  className="mr-2 bg-black"
                 />
                 Remember me
               </label>
               <a
                 href="/forgot"
-                className="text-sm text-purple-600 hover:text-[#5A3CBF] hover:underline"
+                className="text-sm text-[#06b6d4] hover:text-blue-600 hover:underline"
               >
                 Forgot Password?
               </a>
             </div>
 
-            <button
+            <Button
               type="submit"
-              className={`w-full p-2 rounded-full text-white transition hover:bg-[#5A3CBF] ${
+              className={`w-full rounded-full text-white text-sm transition hover:bg-[#06b6d4] ${
                 isValid
-                  ? "bg-purple-600 hover:bg-purple-700"
-                  : "bg-gray-400 cursor-not-allowed"
+                  ? "bg-[#06b6d4] hover:bg-blue-700"
+                  : "bg-gray-300 text-grey-700 cursor-not-allowed"
               }`}
               disabled={loading || disableButton}
             >
               {loading ? "Signing in..." : "Sign In"}
-            </button>
+            </Button>
           </form>
 
           <div className="w-full flex flex-col items-center justify-center gap-6">
-            <p className="text-gray-600 mt-4">OR SIGN IN WITH</p>
+            <p className="text-white mt-4">OR SIGN IN WITH</p>
             <div className="flex gap-5">
               <div
                 className="cursor-pointer flex items-center justify-center hover:scale-110 transition-transform"
@@ -237,7 +227,7 @@ const LoginPage = () => {
               Don’t Have an Account?{" "}
               <a
                 href="/register"
-                className="text-purple-600 hover:underline hover:text-[#5A3CBF]"
+                className="text-[#06b6d4] hover:underline hover:text-blue-700"
               >
                 Sign up
               </a>
