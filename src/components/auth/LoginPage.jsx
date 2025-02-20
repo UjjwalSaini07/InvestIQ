@@ -12,7 +12,7 @@ import { FaGithub } from "react-icons/fa";
 import { ArrowLeft } from "lucide-react";
 import { handleError, handleSuccess } from "../utils/utilsToast";
 import { loginUser } from "../utils/authSlice";
-import Logo from '../../assets/Logo.png'
+import Logo from '../../assets/Logo.png';
 
 const LoginPage = () => {
   const navigate = useNavigate();
