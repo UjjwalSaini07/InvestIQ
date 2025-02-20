@@ -240,7 +240,7 @@ const Footer = () => {
                   width: "40px",
                   height: "40px",
                 }}
-                onMouseOver={(e) => (e.target.style.color = "#6A0DAD")}
+                onMouseOver={(e) => (e.target.style.color = "#06b6d4")}
                 onMouseOut={(e) => (e.target.style.color = "#fff")}
               >
                 <Icon />

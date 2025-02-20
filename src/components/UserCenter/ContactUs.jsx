@@ -47,30 +47,19 @@ export default function ContactUs() {
       <div className="absolute bottom-10 right-10 w-20 h-20 bg-purple-600 rounded-full blur-2xl opacity-40 animate-pulse"></div>
 
       <div className="text-center mb-2">
-        <motion.div
-          variants={textVariant(0.4)}
-          initial="hidden"
-          animate="show"
-        >
-        <h2 className="text-5xl md:text-6xl font-extrabold text-white leading-tight tracking-tight">
-          Contact Form
-        </h2>
+        <motion.div variants={textVariant(0.4)} initial="hidden" animate="show">
+          <h2 className="text-5xl md:text-6xl font-extrabold text-white leading-tight tracking-tight">
+            Contact Form
+          </h2>
         </motion.div>
-        <motion.div
-          variants={textVariant(1)}
-          initial="hidden"
-          animate="show"
-        >
-        <p className="text-lg text-white mt-4 max-w-2xl mx-auto opacity-90">
-          Easily connect with us through our contact page. Submit your details, and we’ll respond promptly to assist you.
-        </p>
+        <motion.div variants={textVariant(1)} initial="hidden" animate="show">
+          <p className="text-lg text-white mt-4 max-w-2xl mx-auto opacity-90">
+            Easily connect with us through our contact page. Submit your
+            details, and we’ll respond promptly to assist you.
+          </p>
         </motion.div>
-        <motion.div
-          variants={textVariant(1.4)}
-          initial="hidden"
-          animate="show"
-        >
-        <div className="mt-4 h-1 w-20 mx-auto bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
+        <motion.div variants={textVariant(1.4)} initial="hidden" animate="show">
+          <div className="mt-4 h-1 w-20 mx-auto bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
         </motion.div>
       </div>
 
@@ -80,16 +69,17 @@ export default function ContactUs() {
           <p className="text-lg font-semibold text-gray-700">Loading...</p>
         </div>
       )}
-
-      <div
-        className={`visme_d ${isLoading ? "hidden" : "block"}`}
-        data-title="SkyShare ContactForm"
-        data-url="ojkj33vy-skyshare-contactform"
-        data-domain="forms"
-        data-full-page="false"
-        data-min-height="500px"
-        data-form-id="112506"
-      ></div>
+      <div className="ml-2">
+        <div
+          className={`visme_d ${isLoading ? "hidden" : "block"}`}
+          data-title="InvestIQ-ContactForm"
+          data-url="pvok9zx4-investiq-contactform"
+          data-domain="forms"
+          data-full-page="false"
+          data-min-height="500px"
+          data-form-id="116086"
+        ></div>
+      </div>
 
       <ToastContainer />
     </section>

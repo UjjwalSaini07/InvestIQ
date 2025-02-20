@@ -1,9 +1,10 @@
 import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import ujjwal from "../../assets/Landing/BoyImage.jpg";
 import gayatri from "../../assets/Landing/GirlImage.jpg";
 
-const TeamCard = ({ image, name, description, github, linkedin }) => (
+const TeamCard = ({ image, name, description, github, twitter, linkedin }) => (
   <div className="relative group w-80 md:w-100 mb-10 rounded-3xl overflow-hidden shadow-lg transition-all duration-500 transform hover:scale-105 hover:shadow-[0px_5px_15px_rgba(59,130,246,0.5)] bg-opacity-30 backdrop-blur-lg border border-gray-700">
     <img
       src={image}
@@ -27,6 +28,14 @@ const TeamCard = ({ image, name, description, github, linkedin }) => (
           <FaGithub className="text-white text-3xl hover:text-gray-300 transition-colors" />
         </a>
         <a
+          href={twitter}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:scale-110 transition-transform"
+        >
+          <FaXTwitter className="text-white text-3xl hover:text-gray-300 transition-colors" />
+        </a>
+        <a
           href={linkedin}
           target="_blank"
           rel="noopener noreferrer"
@@ -39,31 +48,33 @@ const TeamCard = ({ image, name, description, github, linkedin }) => (
   </div>
 );
 
-const TechSavvyTeam = () => (
+const TeamName = () => (
   <div className="flex flex-col items-center justify-center gap-10 mt-7">
     <h1 className="text-4xl md:text-6xl font-extrabold text-center tracking-tight text-white">
       Meet Our
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 drop-shadow-md">
-        {" "}Tech-Savvy Team
+        {" "}U&G Trailblazers
       </span>
     </h1>
     <div className="flex flex-wrap justify-center gap-8">
       <TeamCard
         image={ujjwal}
         name="Ujjwal Saini"
-        description="Creative Frontend Developer with a passion for UI/UX."
+        description="Creative Frontend Developer with UI/UX design, with expertise in backend API integration for dynamic solutions."
         github="https://github.com/UjjwalSaini07"
+        twitter="https://x.com/UjjwalSaini0007"
         linkedin="https://www.linkedin.com/in/ujjwalsaini07/"
       />
       <TeamCard
         image={gayatri}
         name="Gayatri Singh"
-        description="Solving complex problems with elegant code and Designing."
+        description="Crafting elegant code and designs to solve complex problems with creativity and precision."
         github="https://github.com/Gayatrisin123"
+        twitter="#"
         linkedin="https://www.linkedin.com/in/gayatri-singh-5012b5301/"
       />
     </div>
   </div>
 );
 
-export default TechSavvyTeam;
+export default TeamName;
