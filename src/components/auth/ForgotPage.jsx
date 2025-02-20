@@ -6,6 +6,7 @@ import { Card, CardContent } from "../../@/ui/card";
 import { Button } from "../../@/ui/button";
 import { Input } from "../../@/ui/input";
 import { Label } from "../../@/ui/label";
+import Logo from "../../assets/Logo.png";
 
 const ForgotPage = () => {
   const navigate = useNavigate();
@@ -87,32 +88,36 @@ const ForgotPage = () => {
           {isMobile ? (
             <button
               onClick={handleBack}
-              className="fixed top-8 left-5 flex items-center justify-center w-8 h-8 rounded-full bg-white border-2 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white transition-all z-50"
+              className="fixed top-8 left-5 flex items-center justify-center w-8 h-8 rounded-full bg-black border-2 border-blue-700 hover:bg-blue-500 text-[#06b6d4] hover:text-white transition-all z-50"
               aria-label="Go back"
             >
-              <ArrowLeft size={25} />
+              <ArrowLeft size={16} />
             </button>
           ) : (
             <button
               onClick={handleBack}
-              className="fixed top-12 left-1/2 ml-4 flex items-center justify-center w-8 h-8 rounded-full bg-white border-2 border-purple-500 hover:border-[#5A3CBF] text-purple-500 hover:bg-[#5A3CBF] hover:text-white transition-all z-50"
+              className="fixed top-12 left-1/2 ml-4 flex items-center justify-center w-8 h-8 rounded-full bg-black border-2 border-blue-700 hover:bg-blue-500 text-[#06b6d4] hover:text-white transition-all z-50"
               aria-label="Go back"
             >
-              <ArrowLeft size={30} />
+              <ArrowLeft size={20} />
             </button>
           )}
-          <img
-            src={"logo.png"}
-            alt="Logo"
-            className="w-[100px] h-[100px] mb-6 hidden md:block"
-          />
+          <div className="flex justify-center mb-2 sm:mt-4 -mt-30">
+            <div className="w-21 h-21 rounded-full overflow-hidden">
+              <img
+                src={Logo}
+                alt="InvestIQ Logo"
+                className="w-[120px] h-[120px] object-cover hidden md:block"
+              />
+            </div>
+          </div>
 
           {step === 1 && (
             <>
-              <h2 className="text-xl font-bold text-gray-800 mb-7">
+              <h2 className="text-2xl font-bold text-white mb-7">
                 Forgot Password
               </h2>
-              <p className="text-[#868686] mb-12">
+              <p className="text-[#fff] mb-8">
                 Please enter your Email ID to reset the password.
               </p>
               <form
@@ -124,8 +129,8 @@ const ForgotPage = () => {
                     htmlFor="email"
                     className={`absolute left-4 transition-all ${
                       isFocused || watch("email")
-                        ? "-top-3 left-4 text-sm font-medium text-[#868686] bg-white px-1"
-                        : "top-2 text-[#868686]"
+                        ? "-top-3 left-4 text-sm font-medium text-[#fff] bg-black px-1"
+                        : "top-3 text-[#fff]"
                     }`}
                   >
                     Email
@@ -142,10 +147,10 @@ const ForgotPage = () => {
                     })}
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(!!watch("email"))}
-                    className={`border px-5 w-full rounded-xl focus:outline-none focus:ring-2 ${
+                    className={`border px-5 bg-black w-full rounded-xl focus:outline-none focus:ring-2 ${
                       errors.email
                         ? "border-red-500 focus:ring-red-500"
-                        : "focus:ring-purple-500"
+                        : "focus:ring-black"
                     }`}
                   />
                   {errors.email && (
@@ -155,27 +160,27 @@ const ForgotPage = () => {
                   )}
                 </div>
 
-                <button
+                <Button
                   type="submit"
-                  className={`w-full p-2 rounded-full text-white transition ${
+                  className={`w-full p-2 rounded-full text-white text-sm transition hover:bg-[#06b6d4] ${
                     isValid
-                      ? "bg-purple-600 hover:bg-purple-700"
-                      : "bg-gray-400 cursor-not-allowed"
+                      ? "bg-[#06b6d4] hover:bg-blue-700"
+                      : "bg-gray-300 text-grey-700 cursor-not-allowed"
                   }`}
                   disabled={!isValid}
                 >
                   Continue
-                </button>
+                </Button>
               </form>
             </>
           )}
 
           {step === 2 && (
             <>
-              <h2 className="text-xl font-bold text-gray-800 mb-5">
+              <h2 className="text-2xl font-bold text-white mb-5">
                 Verification Code
               </h2>
-              <p className="text-[#868686] mb-6">
+              <p className="text-[#fff] mb-6">
                 Enter the 6 digit code that is mentioned in the email to reset
                 your password.
               </p>
@@ -199,38 +204,38 @@ const ForgotPage = () => {
                         document.getElementById(`otp-${index - 1}`).focus();
                       }
                     }}
-                    className="w-10 h-10 border rounded-xl text-center text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-10 h-10 border rounded-xl bg-black text-center text-lg focus:outline-none focus:ring-2 focus:ring-black"
                     maxLength={1}
                   />
                 ))}
               </div>
-              <button
+              <Button
                 onClick={handleOtpSubmit}
-                className="w-full p-2 rounded-full bg-purple-600 text-white transition hover:bg-[#5A3CBF]"
+                className="w-full p-2 rounded-full bg-[#06b6d4] text-white text-sm transition hover:bg-[#06b6d4]"
               >
                 Continue
-              </button>
+              </Button>
             </>
           )}
 
           {step === 3 && (
             <>
-              <h2 className="text-xl font-bold text-gray-800 mb-5 sm:text-center text-left">
+              <h2 className="text-2xl font-bold text-white mb-4 sm:text-center text-left">
                 Set a New Password
               </h2>
 
-              <p className="text-[#868686] mb-6">
+              <p className="text-[#fff] mb-6">
                 Create a new password. Ensure it differs from previous ones for
                 security.
               </p>
               <div className="space-y-4">
-                <div className="relative sm:w-90 mb-6">
+                <div className="relative sm:w-80 mb-6">
                   <Label
                     htmlFor="old-password"
                     className={`absolute left-4 transition-all ${
                       isFocusedsec || watch("oldPassword")
-                        ? "-top-3 left-4 text-sm font-medium text-[#868686] bg-white px-1"
-                        : "top-2 text-[#868686]"
+                        ? "-top-3 left-4 text-sm font-medium text-[#fff] bg-black px-1"
+                        : "top-3 text-[#fff]"
                     }`}
                   >
                     Old Password
@@ -243,16 +248,16 @@ const ForgotPage = () => {
                     })}
                     onFocus={() => setIsFocusedsec(true)}
                     onBlur={() => setIsFocusedsec(!!watch("password"))}
-                    className={`border p-4 px-5 w-full rounded-xl focus:outline-none focus:ring-2 ${
+                    className={`border p-4 px-5 bg-black w-full rounded-xl focus:outline-none focus:ring-2 ${
                       errors.oldPassword
                         ? "border-red-500 focus:ring-red-500"
-                        : "focus:ring-purple-500"
+                        : "focus:ring-black"
                     }`}
                   />
                   <button
                     type="button"
                     onClick={() => setShowOldPassword(!showOldPassword)}
-                    className="absolute right-3 top-2 text-gray-500 focus:outline-none"
+                    className="absolute right-3 top-2 text-white focus:outline-none"
                   >
                     {showOldPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                   </button>
@@ -263,13 +268,13 @@ const ForgotPage = () => {
                   )}
                 </div>
 
-                <div className="relative sm:w-90 mb-6">
+                <div className="relative sm:w-80 mb-6">
                   <Label
                     htmlFor="new-password"
                     className={`absolute left-4 transition-all ${
                       isFocusedthir || watch("newPassword")
-                        ? "-top-3 left-4 text-sm font-medium text-[#868686] bg-white px-1"
-                        : "top-2 text-[#868686]"
+                        ? "-top-3 left-4 text-sm font-medium text-[#fff] bg-black px-1"
+                        : "top-3 text-[#fff]"
                     }`}
                   >
                     New Password
@@ -286,16 +291,16 @@ const ForgotPage = () => {
                     })}
                     onFocus={() => setIsFocusedthir(true)}
                     onBlur={() => setIsFocusedthir(!!watch("password"))}
-                    className={`border p-4 px-5 w-full rounded-xl focus:outline-none focus:ring-2 ${
+                    className={`border p-4 px-5 bg-black w-full rounded-xl focus:outline-none focus:ring-2 ${
                       errors.newPassword
                         ? "border-red-500 focus:ring-red-500"
-                        : "focus:ring-purple-500"
+                        : "focus:ring-black"
                     }`}
                   />
                   <button
                     type="button"
                     onClick={() => setShowNewPassword(!showNewPassword)}
-                    className="absolute right-3 top-2 text-gray-500 focus:outline-none"
+                    className="absolute right-3 top-2 text-white focus:outline-none"
                   >
                     {showNewPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                   </button>
@@ -306,12 +311,12 @@ const ForgotPage = () => {
                   )}
                 </div>
               </div>
-              <button
+              <Button
                 onClick={handleFinalSubmit}
-                className="w-full mt-10 p-2 rounded-full bg-purple-600 hover:text-[#5A3CBF] text-white transition"
+                className="w-full mt-10 p-2 rounded-full bg-[#06b6d4] text-white text-sm transition hover:bg-[#06b6d4]"
               >
                 Password Reset
-              </button>
+              </Button>
             </>
           )}
         </CardContent>
