@@ -10,6 +10,7 @@ import { Card, CardContent } from "../../@/ui/card";
 import { Button } from "../../@/ui/button";
 import { Input } from "../../@/ui/input";
 import { verifyOtp } from "../utils/authSlice";
+import Logo from "../../assets/Logo.png";
 
 const OtpVerification = () => {
   const dispatch = useDispatch();
@@ -74,30 +75,34 @@ const OtpVerification = () => {
           {isMobile ? (
             <button
               onClick={handleBack}
-              className="fixed top-8 left-5 flex items-center justify-center w-8 h-8 rounded-full bg-white border-2 border-purple-500 hover:bg-purple-500 text-purple-500 hover:text-white transition-all z-50"
+              className="fixed top-8 left-5 flex items-center justify-center w-8 h-8 rounded-full bg-black border-2 border-blue-700 hover:bg-blue-500 text-[#06b6d4] hover:text-white transition-all z-50"
               aria-label="Go back"
             >
-              <ArrowLeft size={25} />
+              <ArrowLeft size={15} />
             </button>
           ) : (
             <button
               onClick={handleBack}
-              className="fixed top-12 left-1/2 ml-4 transform -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-white border-2 border-purple-500 hover:border-[#5A3CBF] text-purple-500 hover:bg-[#5A3CBF] hover:text-white transition-all z-50"
+              className="fixed top-12 left-1/2 ml-4 transform -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full bg-black border-2 border-blue-700 hover:bg-blue-500 text-[#06b6d4] hover:text-white transition-all z-50"
               aria-label="Go back"
             >
-              <ArrowLeft size={30} />
+              <ArrowLeft size={20} />
             </button>
           )}
-          <img
-            src={"logo.png"}
-            alt="Logo"
-            className="w-[100px] h-[100px] mb-6 hidden md:block"
-          />
+          <div className="flex justify-center mb-2 sm:mt-4 -mt-30">
+            <div className="w-21 h-21 rounded-full overflow-hidden">
+              <img
+                src={Logo}
+                alt="InvestIQ Logo"
+                className="w-[120px] h-[120px] object-cover hidden md:block"
+              />
+            </div>
+          </div>
           <>
-            <h2 className="text-xl font-bold text-gray-800 mb-5 md:text-center text-left">
+            <h2 className="text-2xl font-bold text-white mb-5 md:text-center text-left">
               Verification Code
             </h2>
-            <p className="text-[#868686] mb-6 md:text-center text-left">
+            <p className="text-[#fff] mb-6 md:text-center text-left">
               We have sent the verification code to your email address.
             </p>
             <div className="flex gap-2 mb-8">
@@ -121,14 +126,14 @@ const OtpVerification = () => {
                       document.getElementById(`otp-${index - 1}`).focus();
                     }
                   }}
-                  className="w-10 h-10 border rounded-xl text-center text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-10 h-10 border rounded-xl bg-black text-center text-lg focus:outline-none focus:ring-2 focus:ring-black"
                   maxLength={1}
                 />
               ))}
             </div>
             <Button
               onClick={handleOtpSubmit}
-              className="w-full p-2 rounded-full bg-purple-600 hover:bg-[#5A3CBF] text-white transition"
+              className="w-full p-2 rounded-full bg-[#06b6d4] text-white text-sm transition hover:bg-[#06b6d4]"
             >
               {loading ? "Verifying..." : "Continue"}
             </Button>
