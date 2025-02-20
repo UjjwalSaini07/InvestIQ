@@ -8,6 +8,9 @@ import Compare from "./pages/Compare";
 import HelpCenter from "./components/UserCenter/HelpCenter";
 import ContactUs from "./components/UserCenter/ContactUs";
 import AuthPage from "./pages/authPage";
+import Watchlist from "./pages/watchlist";
+import Dashboard from "./pages/dashboard";
+import Userprofile from "./pages/userprofile";
 import ProtectedRoute from "./components/utils/ProtectedRoutes";
 import { useSelector } from "react-redux";
 import "./App.scss";
@@ -37,8 +40,9 @@ function App() {
           <Route
             element={<ProtectedRoute condition={user} redirectTo="/login" />}
           >
-            <Route path="/dashboard" element={<ContactUs />} />
-            <Route path="/watchlist" element={<ContactUs />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/watchlist" element={<Watchlist />} />
+            <Route path="/profile" element={<Userprofile />} />
           </Route>
           <Route
             element={
