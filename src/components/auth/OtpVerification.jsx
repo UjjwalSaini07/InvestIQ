@@ -49,7 +49,7 @@ const OtpVerification = () => {
     }
 
     await dispatch(verifyOtp(enteredOtp)).unwrap();
-    navigate("/signin");
+    navigate("/");
   };
 
   const handleBack = () => {
