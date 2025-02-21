@@ -1,3 +1,17 @@
+// import React from "react";
+// import CryptoDash from "../components/dashboard/cryptodashboard";
+
+// function Dashboard() {
+//   return (
+//     <main>
+//       <CryptoDash />
+//     </main>
+//   );
+// }
+
+// export default Dashboard;
+
+
 import react from "react";
 import { Button } from "../@/ui/button";
 
