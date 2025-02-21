@@ -7,7 +7,7 @@ import PaginationComponent from "./common/pagination/pagination";
 
 const ITEMS_PER_PAGE = 10;
 
-function CryptoDashboard() {
+function CryptoStockDashboard() {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
@@ -71,4 +71,4 @@ function CryptoDashboard() {
   );
 }
 
-export default CryptoDashboard;
+export default CryptoStockDashboard;

@@ -1,10 +1,10 @@
 import React from "react";
-import CryptoDashboard from "../components/dashboard/cryptodashboard";
+import CryptoStockDashboard from "../components/dashboard/cryptostockdashboard";
 
 function Dashboard() {
   return (
     <main>
-      <CryptoDashboard />
+      <CryptoStockDashboard />
     </main>
   );
 }
