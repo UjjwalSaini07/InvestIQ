@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import img1 from "../assets/Auth/Login-pana.svg";
 import img2 from "../assets/Auth/Login-amico.svg";
