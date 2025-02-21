@@ -5,40 +5,41 @@ import Search from "./crypto/search/searchbar";
 import TabsComponent from "./crypto/tabs/tabcomponent";
 import PaginationComponent from "./crypto/pagination/pagination";
 
+const ITEMS_PER_PAGE = 10;
+
 function CryptoDashboard() {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [paginatedCoins, setPaginatedCoins] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getData();
   }, []);
 
-  const getData = () => {
+  const getData = async () => {
     setLoading(true);
-    axios
-      .get(
+    try {
+      const response = await axios.get(
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      )
-      .then((response) => {
-        console.log("RESPONSE>>>", response.data);
-        setCoins(response.data);
-        setPaginatedCoins(response.data.slice(0, 10));
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log("ERROR>>>", error.message);
-      });
+      );
+      setCoins(response.data);
+      setPaginatedCoins(response.data.slice(0, ITEMS_PER_PAGE));
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+      setError("Failed to fetch data. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
     setSearch(e.target.value);
-    console.log(e.target.value);
   };
 
-  var filteredCoins = coins.filter(
+  const filteredCoins = coins.filter(
     (coin) =>
       coin.name.toLowerCase().includes(search.trim().toLowerCase()) ||
       coin.symbol.toLowerCase().includes(search.trim().toLowerCase())
@@ -46,28 +47,25 @@ function CryptoDashboard() {
 
   const handlePageChange = (event, value) => {
     setPage(value);
-    var initialCount = (value - 1) * 10;
-    setPaginatedCoins(coins.slice(initialCount, initialCount + 10));
+    const initialCount = (value - 1) * ITEMS_PER_PAGE;
+    setPaginatedCoins(coins.slice(initialCount, initialCount + ITEMS_PER_PAGE));
   };
+
+  if (loading) return <Loader />;
+  if (error) return <div>{error}</div>;
 
   return (
     <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <Search search={search} handleChange={handleChange} />
-          <TabsComponent
-            coins={search ? filteredCoins : paginatedCoins}
-            setSearch={setSearch}
-          />
-          {!search && (
-            <PaginationComponent
-              page={page}
-              handlePageChange={handlePageChange}
-            />
-          )}
-        </>
+      <Search search={search} handleChange={handleChange} />
+      <TabsComponent
+        coins={search ? filteredCoins : paginatedCoins}
+        setSearch={setSearch}
+      />
+      {!search && (
+        <PaginationComponent
+          page={page}
+          handlePageChange={handlePageChange}
+        />
       )}
     </>
   );
