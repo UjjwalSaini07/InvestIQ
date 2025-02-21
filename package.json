@@ -38,6 +38,7 @@
     "react-toastify": "^11.0.3",
     "recharts": "^2.15.1",
     "redux-persist": "^6.0.0",
+    "sweetalert2": "^11.17.2",
     "swiper": "^11.2.3",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"
