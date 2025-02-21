@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, useAnimationControls } from 'framer-motion';
 
 const TextSpan = ({ children }) => {

@@ -12,7 +12,7 @@
 // export default Dashboard;
 
 
-import react from "react";
+import React from "react";
 import { Button } from "../@/ui/button";
 
 function dashboard() {
