@@ -1,73 +1,82 @@
-import React from "react";
-import Tab from "@mui/material/Tab";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "@mui/lab/TabPanel";
+import React, { useState } from "react";
 import Grid from "../grid/gridview";
 import List from "../list/listview";
-import { Button } from "../../../../@/ui/button";
 
-export default function TabsComponent({ coins, setSearch }) {
-  const [value, setValue] = React.useState("grid");
+const Tabs = ({ coins, setSearch }) => {
+  const [activeTab, setActiveTab] = useState("grid");
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  const tabStyle = {
-    color: "#ffffff",
-    "& .Mui-selected": {
-      color: "#2563EB !important", // Tailwind blue-600
-    },
-    fontFamily: "Inter, sans-serif",
-    fontWeight: 600,
-    textTransform: "capitalize",
-  };
+  const tabStyle = (tab) =>
+    `px-4 py-2 text-sm font-semibold ${
+      activeTab === tab
+        ? "text-blue-600 border-b-2 border-blue-600"
+        : "text-gray-400 hover:text-gray-300"
+    }`;
 
   return (
-    <TabContext value={value}>
-      <div className="border-b border-gray-300">
-        <TabList onChange={handleChange} variant="fullWidth">
-          <Tab label="Grid" value="grid" sx={tabStyle} />
-          <Tab label="List" value="list" sx={tabStyle} />
-        </TabList>
+    <div>
+      <div className="border-b border-gray-700 flex justify-around">
+        <button
+          className={tabStyle("grid")}
+          onClick={() => setActiveTab("grid")}
+        >
+          Grid
+        </button>
+        <button
+          className={tabStyle("list")}
+          onClick={() => setActiveTab("list")}
+        >
+          List
+        </button>
       </div>
-      <TabPanel value="grid">
-        <div className="flex flex-wrap justify-center items-start gap-4 w-full">
+
+      {activeTab === "grid" && (
+        <div className="flex flex-wrap justify-center items-start gap-4 w-full py-4">
           {coins.length > 0 ? (
             coins.map((coin, i) => (
               <Grid coin={coin} key={i} delay={(i % 4) * 0.2} />
             ))
           ) : (
             <div>
-              <h1 className="text-center">
+              <h1 className="text-center text-lg text-gray-300">
                 Sorry, Couldn't find the coin you're looking for 😞
               </h1>
               <div className="flex justify-center my-8">
-                <Button text="Clear Search" onClick={() => setSearch("")} />
+                <button
+                  className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700"
+                  onClick={() => setSearch("")}
+                >
+                  Clear Search
+                </button>
               </div>
             </div>
           )}
         </div>
-      </TabPanel>
-      <TabPanel value="list">
-        <div className="w-11/12 mx-auto">
+      )}
+      {activeTab === "list" && (
+        <div className="w-11/12 mx-auto py-4">
           {coins.length > 0 ? (
             coins.map((coin, i) => (
               <List coin={coin} key={i} delay={(i % 8) * 0.2} />
             ))
           ) : (
             <div>
-              <h1 className="text-center">
+              <h1 className="text-center text-lg text-gray-300">
                 Sorry, Couldn't find the coin you're looking for 😞
               </h1>
               <div className="flex justify-center my-8">
-                <Button text="Clear Search" onClick={() => setSearch("")} />
+                <button
+                  className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700"
+                  onClick={() => setSearch("")}
+                >
+                  Clear Search
+                </button>
               </div>
             </div>
           )}
         </div>
-      </TabPanel>
-    </TabContext>
+      )}
+    </div>
   );
-}
+};
+
+export default Tabs;

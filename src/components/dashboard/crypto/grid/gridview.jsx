@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
-import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
-import StarOutlineIcon from "@mui/icons-material/StarOutline";
-import StarIcon from "@mui/icons-material/Star";
 import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
 
@@ -12,73 +8,95 @@ function GridView({ coin, delay }) {
   const [isCoinAdded, setIsCoinAdded] = useState(watchlist?.includes(coin.id));
 
   return (
-    <a href={`/coin/${coin.id}`}>
+    <a href={`/coin/${coin.id}`} className="block group">
       <motion.div
-        className={`flex flex-col gap-6 w-64 p-8 bg-gray-800 rounded-lg border-2 ${
-          coin.price_change_percentage_24h < 0 ? "border-red-500" : "border-gray-800"
-        } hover:border-green-500 transition-all duration-300`}
+        className={`relative flex flex-col gap-6 w-64 h-80 p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-md transform transition-all duration-300 group-hover:scale-105 ${
+          coin.price_change_percentage_24h >= 0
+            ? "group-hover:border-green-500"
+            : "group-hover:border-red-500"
+        } border-2 border-transparent`}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: delay }}
       >
-        <div className="flex items-center gap-4">
-          <img src={coin.image} className="h-12 w-12 rounded-full" alt={coin.name} />
-          <div className="flex justify-between w-full items-center">
-            <div className="flex flex-col gap-1">
-              <p className="uppercase font-semibold m-0">{coin.symbol}</p>
-              <p className="text-gray-400 text-sm font-medium m-0">{coin.name}</p>
-            </div>
-            <div
-              className={`flex items-center justify-center rounded-full p-2 h-6 w-6 cursor-pointer ${
-                coin.price_change_percentage_24h < 0
-                  ? "border-red-500 text-red-500"
-                  : "border-green-500 text-green-500"
-              }`}
-              onClick={(e) => {
-                e.preventDefault();
-                if (isCoinAdded) {
-                  removeItemToWatchlist(e, coin.id, setIsCoinAdded);
-                } else {
-                  setIsCoinAdded(true);
-                  saveItemToWatchlist(e, coin.id);
-                }
-              }}
+        <button
+          className={`absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
+            isCoinAdded
+              ? "bg-yellow-400 text-gray-800"
+              : "bg-gray-600 text-gray-300 hover:bg-gray-500"
+          }`}
+          onClick={(e) => {
+            e.preventDefault();
+            if (isCoinAdded) {
+              removeItemToWatchlist(e, coin.id, setIsCoinAdded);
+            } else {
+              setIsCoinAdded(true);
+              saveItemToWatchlist(e, coin.id);
+            }
+          }}
+        >
+          {isCoinAdded ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
             >
-              {isCoinAdded ? <StarIcon /> : <StarOutlineIcon />}
-            </div>
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+            </svg>
+          )}
+        </button>
+
+        <div className="flex items-center gap-4">
+          <img
+            src={coin.image}
+            className="h-12 w-12 rounded-full shadow-md group-hover:scale-105 transition-transform duration-300"
+            alt={coin.name}
+          />
+          <div className="flex flex-col">
+            <p className="uppercase font-semibold text-lg text-white">{coin.symbol}</p>
+            <p className="text-gray-400 text-sm">{coin.name}</p>
           </div>
         </div>
-        {coin.price_change_percentage_24h >= 0 ? (
-          <div className="flex items-center gap-3">
-            <div className="border-2 border-green-500 rounded-full px-4 py-1 font-semibold text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300">
-              {coin.price_change_percentage_24h.toFixed(2)}%
-            </div>
-            <div className="flex items-center justify-center border-2 border-green-500 rounded-full p-1 text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300">
-              <TrendingUpRoundedIcon />
-            </div>
+
+        {/* Price and Percentage Change */}
+        <div className="flex items-center gap-3">
+          <div
+            className={`px-4 py-1 rounded-full font-semibold text-sm ${
+              coin.price_change_percentage_24h >= 0
+                ? "bg-green-500 text-white group-hover:bg-green-400"
+                : "bg-red-500 text-white group-hover:bg-red-400"
+            }`}
+          >
+            {coin.price_change_percentage_24h.toFixed(2)}%
           </div>
-        ) : (
-          <div className="flex items-center gap-3">
-            <div className="border-2 border-red-500 rounded-full px-4 py-1 font-semibold text-red-500 hover:bg-red-500 hover:text-white transition-all duration-300">
-              {coin.price_change_percentage_24h.toFixed(2)}%
-            </div>
-            <div className="flex items-center justify-center border-2 border-red-500 rounded-full p-1 text-red-500 hover:bg-red-500 hover:text-white transition-all duration-300">
-              <TrendingDownRoundedIcon />
-            </div>
-          </div>
-        )}
-        <p
-          className={`font-semibold text-lg m-0 ${
-            coin.price_change_percentage_24h >= 0 ? "text-green-500" : "text-red-500"
-          }`}
-        >
+        </div>
+
+        {/* Current Price */}
+        <p className="text-xl font-bold text-white">
           ${coin.current_price.toLocaleString()}
         </p>
-        <p className="text-gray-400 text-sm font-medium m-0">
-          Total Volume : {coin.total_volume.toLocaleString()}
+
+        {/* Volume and Market Cap */}
+        <p className="text-gray-400 text-sm">
+          Total Volume: <span className="text-white">{coin.total_volume.toLocaleString()}</span>
         </p>
-        <p className="text-gray-400 text-sm font-medium m-0">
-          Market Capital : ${coin.market_cap.toLocaleString()}
+        <p className="text-gray-400 text-sm">
+          Market Capital:{" "}
+          <span className="text-white">${coin.market_cap.toLocaleString()}</span>
         </p>
       </motion.div>
     </a>

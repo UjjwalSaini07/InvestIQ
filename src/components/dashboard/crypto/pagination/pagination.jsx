@@ -1,57 +1,66 @@
 import React from "react";
-import { Pagination } from "../../../../@/ui/pagination";
+import { Button } from "../../../../@/ui/button";
 
-export default function PaginationControlled({ page, handlePageChange, totalPages = 10 }) {
+export default function PaginationControlled({
+  page,
+  handlePageChange,
+  totalPages = 10,
+}) {
+  const getButtonClasses = (isActive) =>
+    isActive
+      ? "bg-blue-600 text-white shadow-lg"
+      : "bg-gray-800 text-gray-300 hover:bg-gray-700";
+
   return (
-    <div className="flex justify-center my-12">
-      <Pagination
-        total={totalPages}
-        currentPage={page}
-        onPageChange={(newPage) => handlePageChange(null, newPage)}
-      />
+    <div className="flex items-center justify-center my-12 gap-3">
+      <Button
+        variant="outline"
+        disabled={page === 1}
+        onClick={() => handlePageChange(null, page - 1)}
+        aria-label="Previous Page"
+        className={`px-4 py-2 rounded-lg ${
+          page === 1
+            ? "bg-gray-700 text-gray-500 cursor-not-allowed"
+            : "hover:bg-gray-700"
+        }`}
+      >
+        Previous
+      </Button>
+
+      <div className="flex gap-2">
+        {[...Array(totalPages)].map((_, index) => {
+          const pageNumber = index + 1;
+          const isActive = page === pageNumber;
+
+          return (
+            <Button
+              key={pageNumber}
+              onClick={() => handlePageChange(null, pageNumber)}
+              aria-current={isActive ? "page" : undefined}
+              aria-label={`Go to page ${pageNumber}`}
+              className={`px-4 py-2 rounded-lg transition duration-200 ease-in-out ${getButtonClasses(
+                isActive
+              )}`}
+            >
+              {pageNumber}
+            </Button>
+          );
+        })}
+      </div>
+
+      <Button
+        variant="outline"
+        disabled={page === totalPages}
+        onClick={() => handlePageChange(null, page + 1)}
+        aria-label="Next Page"
+        className={`px-4 py-2 rounded-lg ${
+          page === totalPages
+            ? "bg-gray-700 text-gray-500 cursor-not-allowed"
+            : "hover:bg-gray-700"
+        }`}
+      >
+        Next
+      </Button>
     </div>
   );
 }
-
-
-// import React from "react";
-// import { Button } from "../../../../@/ui/button";
-
-// export default function PaginationControlled({ page, handlePageChange, totalPages = 10 }) {
-//   return (
-//     <div className="flex items-center justify-center my-12 gap-2">
-//       {/* Previous Page Button */}
-//       <Button
-//         variant="outline"
-//         disabled={page === 1}
-//         onClick={() => handlePageChange(null, page - 1)}
-//       >
-//         Previous
-//       </Button>
-
-//       {/* Pagination Numbers */}
-//       {[...Array(totalPages)].map((_, index) => {
-//         const pageNumber = index + 1;
-//         return (
-//           <Button
-//             key={pageNumber}
-//             variant={page === pageNumber ? "default" : "outline"}
-//             onClick={() => handlePageChange(null, pageNumber)}
-//             className={`${page === pageNumber ? "bg-blue-600 text-white" : ""}`}
-//           >
-//             {pageNumber}
-//           </Button>
-//         );
-//       })}
-
-//       {/* Next Page Button */}
-//       <Button
-//         variant="outline"
-//         disabled={page === totalPages}
-//         onClick={() => handlePageChange(null, page + 1)}
-//       >
-//         Next
-//       </Button>
-//     </div>
-//   );
-// }
