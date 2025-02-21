@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import GridCrypto from "../grid/gridview";
-import ListCrypto from "../list/listview";
-import GridStock from "../grid/gridview";
-import ListStock from "../list/listview";
+import GridCrypto from "../../crypto/grid/gridview";
+import ListCrypto from "../../crypto/list/listview";
+import GridStock from "../../stocks/grid/gridview";
+import ListStock from "../../stocks/list/listview";
 
 const Tabs = ({ coins, setSearch }) => {
   const [activeTab, setActiveTab] = useState("crypto");

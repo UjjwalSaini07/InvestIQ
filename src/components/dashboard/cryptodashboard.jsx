@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Loader from "../common/Loader";
-import Search from "./crypto/search/searchbar";
-import TabsComponent from "./crypto/tabs/tabcomponent";
-import PaginationComponent from "./crypto/pagination/pagination";
+import Search from "./common/search/searchbar";
+import TabsComponent from "./common/tabs/tabcomponent";
+import PaginationComponent from "./common/pagination/pagination";
 
 const ITEMS_PER_PAGE = 10;
 
