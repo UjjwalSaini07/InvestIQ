@@ -12,7 +12,7 @@ const Tabs = ({ coins, setSearch }) => {
   `px-8 py-3 text-base font-medium rounded-t-lg transition-all duration-300 ${
     activeTab === tab
       ? "bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg"
-      : "bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white"
+      : "bg-black text-gray-300 hover:bg-gray-600 hover:text-white"
   }`;
 
   const viewTabStyle = (view) =>
@@ -24,7 +24,7 @@ const Tabs = ({ coins, setSearch }) => {
 
   return (
     <div>
-      <div className="border-b border-gray-700 flex justify-center gap-4 bg-black">
+      <div className="flex justify-center gap-4 bg-black">
         <button
           className={mainTabStyle("crypto")}
           onClick={() => setActiveTab("crypto")}
@@ -39,7 +39,7 @@ const Tabs = ({ coins, setSearch }) => {
         </button>
       </div>
 
-      <div className="border-b border-gray-700 flex justify-around mt-2">
+      <div className="flex justify-around mt-2">
         <button
           className={viewTabStyle("grid")}
           onClick={() => setActiveView("grid")}
