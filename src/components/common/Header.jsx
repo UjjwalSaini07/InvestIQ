@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+import Logo from '../../assets/InvestIQ_Logo.png';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,9 +36,12 @@ function Header() {
 
   return (
     <div className="flex justify-between items-center p-7 sticky top-0 bg-black z-50">
-      <h1 className="text-lg md:text-xl font-semibold text-white sm:ml-7">
-        Invest IQ<span className="text-blue-500">.</span>
-      </h1>
+      <div style={{ display: "flex", alignItems: "center"}}>
+        <img src={Logo} alt="Logo" style={{ width: "35px" }} className="sm:ml-2"/>
+        <h1 className="text-lg md:text-xl font-semibold text-white sm:ml-2">
+          Invest IQ<span className="text-blue-500">.</span>
+        </h1>
+      </div>
 
       {/* Desktop */}
       <div className="hidden md:flex justify-center items-center gap-7 flex-1 sm:mr-14">
