@@ -9,6 +9,15 @@ function Header() {
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
   };
+  const logoutUser = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('persist:auth');
+    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('watchlist');
+
+    window.location.href = '/login';
+  };
+  
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -140,6 +149,10 @@ function Header() {
                   <a
                     href="#"
                     className="block text-black text-base hover:text-blue-500 transition"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      logoutUser();
+                    }}
                   >
                     Logout
                   </a>
