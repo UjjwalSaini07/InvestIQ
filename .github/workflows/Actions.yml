@@ -1,0 +1,46 @@
+name: CryptoCurrency Price Automation
+
+on:
+  schedule:
+    - cron: "0 23 * * * *"
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: |
+          cd ActionWorkFlow_Integration
+          npm install
+
+      - name: Update README and Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd ActionWorkFlow_Integration
+          npm run dev
+          git config user.email "ujjwalsaini0007+workflow@gmail.com"
+          git config user.name "UjjwalSaini07"
+          # Stash any unstaged changes
+          git stash --include-untracked
+          # Pull the latest changes to avoid conflicts
+          git pull origin main --rebase
+          # Apply the stashed changes
+          git stash pop || true
+          # Check if there are any changes before committing
+          if [ -n "$(git status --porcelain)" ]; then
+            git add README.md
+            git commit -m "Update Price List of Crypto Currencies - Updated README on $(TZ=Asia/Kolkata date +'%Y-%m-%d %H:%M')"
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/UjjwalSaini07/InvestIQ.git main
+          else
+            echo "No changes to commit."
+          fi
