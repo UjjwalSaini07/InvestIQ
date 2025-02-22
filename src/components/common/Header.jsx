@@ -15,7 +15,7 @@ function Header() {
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("watchlist");
 
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   useEffect(() => {
