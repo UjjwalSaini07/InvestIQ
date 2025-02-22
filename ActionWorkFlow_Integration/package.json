@@ -1,0 +1,22 @@
+{
+  "name": "actionworkflow_integration",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "ts-node index.ts",
+    "build": "tsc",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "UjjwalS",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@types/node": "^22.13.5",
+    "ts-node": "^10.9.2"
+  }
+}
