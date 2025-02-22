@@ -11,7 +11,6 @@ import About from "./components/UserCenter/About";
 import AuthPage from "./pages/authPage";
 import Watchlist from "./pages/watchlist";
 import Dashboard from "./pages/dashboard";
-import Userprofile from "./pages/userprofile";
 import ProtectedRoute from "./components/utils/ProtectedRoutes";
 import { useSelector } from "react-redux";
 import Error404 from "./components/common/Error404";
@@ -46,7 +45,6 @@ function App() {
           >
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/watchlist" element={<Watchlist />} />
-            <Route path="/profile" element={<Userprofile />} />
           </Route>
           <Route
             element={
