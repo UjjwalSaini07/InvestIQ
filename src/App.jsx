@@ -14,6 +14,7 @@ import Dashboard from "./pages/dashboard";
 import Userprofile from "./pages/userprofile";
 import ProtectedRoute from "./components/utils/ProtectedRoutes";
 import { useSelector } from "react-redux";
+import Error404 from "./components/common/Error404";
 import "./App.scss";
 function App() {
   const location = useLocation();
@@ -37,6 +38,7 @@ function App() {
             <Route path="/login" element={<AuthPage />} />
             <Route path="/register" element={<AuthPage />} />
             <Route path="/forgot" element={<AuthPage />} />
+            <Route path="*" element={<Error404 />} />
           </Route>
 
           <Route
