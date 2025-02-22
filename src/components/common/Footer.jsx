@@ -1,162 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import Logo from '../../assets/InvestIQ_Logo.png';
+import { FaArrowUp } from "react-icons/fa";
+import Logo from "../../assets/InvestIQ_Logo.png";
 
 const Footer = () => {
+  const [showScroll, setShowScroll] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScroll(window.scrollY > 200);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer
-      style={{
-        color: "#fff",
-        padding: "25px 40px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexWrap: "wrap",
-        textAlign: "center",
-        fontFamily: "Arial, sans-serif",
-      }}
-    >
-      <div style={{ maxWidth: "300px", textAlign: "left" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-          <img src={Logo} alt="Logo" style={{ width: "40px" }} />
-          <h2
-            style={{
-              fontSize: "28px",
-              fontWeight: "bold",
-            //   color: "#FFD700",
-              color: "#fff",
-              letterSpacing: "1px",
-            }}
-          >
-            InvestIQ
-          </h2>
-        </div>
-        <p
-          style={{
-            fontSize: "15px",
-            lineHeight: "1.8",
-            opacity: "0.85",
-            marginTop: "12px",
-          }}
-        >
-          Analyze stocks and crypto trends with advanced tools. Stay informed with insights, real-time news, and analysis.
+    <footer className="text-white p-6 md:p-10 flex flex-wrap justify-between items-center text-center font-sans">
+      <div className="max-w-xs text-left mb-6 md:mb-0">
+        <Link to="/">
+          <div className="flex items-center gap-3">
+            <img src={Logo} alt="Logo" className="w-10" />
+            <h2 className="text-2xl font-bold tracking-wide">InvestIQ</h2>
+          </div>
+        </Link>
+        <p className="text-sm leading-relaxed opacity-85 mt-3">
+          Analyze stocks and crypto trends with advanced tools. Stay informed
+          with insights, real-time news, and analysis with Personailsed Dashboard.
         </p>
       </div>
 
-      <div
-        style={{
-          flex: "1",
-          maxWidth: "250px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <h4
-          style={{
-            fontSize: "20px",
-            marginBottom: "18px",
-            fontWeight: "600",
-            color: "#EDE7F6",
-          }}
-        >
+      <div className="flex-1 max-w-xs flex flex-col items-center mb-6 md:mb-0">
+        <h4 className="text-lg mb-4 font-semibold text-gray-200">
           Quick Links
         </h4>
-        <ul style={{ listStyle: "none", padding: "0" }}>
+        <ul className="list-none p-0">
           {["Profile", "Washlist", "Dashboard"].map((text, index) => (
-            <li key={index} style={{ marginBottom: "12px" }}>
+            <li key={index} className="mb-3">
               <a
                 href="#"
-                style={{
-                  color: "#fff",
-                  textDecoration: "none",
-                  opacity: "0.8",
-                  transition: "0.3s",
-                  fontSize: "16px",
-                }}
-                onMouseOver={(e) => (e.target.style.opacity = "1")}
-                onMouseOut={(e) => (e.target.style.opacity = "0.8")}
-              >
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div
-        style={{
-          flex: "1",
-          maxWidth: "250px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <h4
-          style={{
-            fontSize: "20px",
-            marginBottom: "18px",
-            fontWeight: "600",
-            color: "#EDE7F6",
-          }}
-        >
-          Help Zone
-        </h4>
-        <ul style={{ listStyle: "none", padding: "0" }}>
-          {["About Us", "Contact Us", "Help Center"].map((text, index) => (
-            <li key={index} style={{ marginBottom: "12px" }}>
-              <a
-                href="#"
-                style={{
-                  color: "#fff",
-                  textDecoration: "none",
-                  opacity: "0.8",
-                  transition: "0.3s",
-                  fontSize: "16px",
-                }}
-                onMouseOver={(e) => (e.target.style.opacity = "1")}
-                onMouseOut={(e) => (e.target.style.opacity = "0.8")}
-              >
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div
-        style={{
-          flex: "1",
-          maxWidth: "250px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <h4
-          style={{
-            fontSize: "20px",
-            marginBottom: "18px",
-            fontWeight: "600",
-            color: "#EDE7F6",
-          }}
-        >
-          Help Zone
-        </h4>
-        <ul style={{ listStyle: "none", padding: "0" }}>
-          {["About Us", "Contact Us", "Help Center"].map((text, index) => (
-            <li key={index} style={{ marginBottom: "12px" }}>
-              <a
-                href="#"
-                style={{
-                  color: "#fff",
-                  textDecoration: "none",
-                  opacity: "0.8",
-                  transition: "0.3s",
-                  fontSize: "16px",
-                }}
-                onMouseOver={(e) => (e.target.style.opacity = "1")}
-                onMouseOut={(e) => (e.target.style.opacity = "0.8")}
+                className="text-white text-base opacity-80 hover:opacity-100 transition duration-300"
               >
                 {text}
               </a>
@@ -165,84 +53,59 @@ const Footer = () => {
         </ul>
       </div>
 
-      <div style={{ maxWidth: "350px", textAlign: "center" }}>
-        <h3
-          style={{
-            fontSize: "22px",
-            marginBottom: "18px",
-            fontWeight: "600",
-            color: "#fff",
-          }}
-        >
+      <div className="flex-1 max-w-xs flex flex-col items-center mb-6 md:mb-0">
+        <h4 className="text-lg mb-4 font-semibold text-gray-200">User Help Zone</h4>
+        <ul className="list-none p-0">
+          {["About Us", "Contact Us", "Help Center"].map((text, index) => (
+            <li key={index} className="mb-3">
+              <a
+                href="#"
+                className="text-white text-base opacity-80 hover:opacity-100 transition duration-300"
+              >
+                {text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="flex-1 max-w-xs flex flex-col items-center mb-6 md:mb-0">
+        <h4 className="text-lg mb-4 font-semibold text-gray-200">Explore Some Tools</h4>
+        <ul className="list-none p-0">
+          {["Compare", "Chat with Bot", "Calculations Tools"].map((text, index) => (
+            <li key={index} className="mb-3">
+              <a
+                href="#"
+                className="text-white text-base opacity-80 hover:opacity-100 transition duration-300"
+              >
+                {text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="max-w-md text-center">
+        <h3 className="text-xl mb-4 font-semibold">
           Subscribe to Our Newsletter
         </h3>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            backdropFilter: "blur(10px)",
-            borderRadius: "30px",
-            width: "100%",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-            overflow: "hidden",
-          }}
-        >
+        <div className="flex items-center backdrop-blur-lg rounded-full border border-white/30 overflow-hidden w-full">
           <input
             type="email"
             placeholder="Enter your email"
-            style={{
-              flex: 1,
-              padding: "10px",
-              border: "none",
-              background: "transparent",
-              outline: "none",
-              fontSize: "15px",
-              color: "#fff",
-            }}
+            className="flex-1 p-3 bg-transparent text-white text-sm placeholder-white/70 outline-none"
           />
-          <button
-            style={{
-              padding: "10px 25px",
-              backgroundColor: "#0582e8",
-              color: "#fff",
-              border: "none",
-              cursor: "pointer",
-              fontSize: "15px",
-              fontWeight: "bold",
-              borderRadius: "25px",
-              transition: "0.3s",
-            }}
-            onMouseOver={(e) => (e.target.style.backgroundColor = "#4A148C")}
-            onMouseOut={(e) => (e.target.style.backgroundColor = "#0582e8")}
-          >
+          <button className="p-3 px-6 bg-blue-600 text-white font-bold rounded-full hover:bg-purple-800 transition duration-300">
             Subscribe
           </button>
         </div>
-
-        <div
-          style={{
-            marginTop: "25px",
-            display: "flex",
-            justifyContent: "center",
-            gap: "18px",
-          }}
-        >
+        <div className="flex justify-center gap-4 mt-6">
           {[FaGithub, FaXTwitter, FaInstagram, FaLinkedinIn].map(
             (Icon, index) => (
               <a
                 key={index}
                 href="#"
-                style={{
-                  color: "#fff",
-                  fontSize: "24px",
-                  transition: "0.3s",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "40px",
-                  height: "40px",
-                }}
-                onMouseOver={(e) => (e.target.style.color = "#06b6d4")}
-                onMouseOut={(e) => (e.target.style.color = "#fff")}
+                className="text-white text-xl hover:text-cyan-500 transition duration-300 flex items-center justify-center w-10 h-10"
               >
                 <Icon />
               </a>
@@ -250,24 +113,22 @@ const Footer = () => {
           )}
         </div>
       </div>
-      <div
-        style={{
-          borderTop: "1px solid rgba(255, 255, 255, 0.1)",
-          marginTop: "20px",
-          width: "100%",
-          textAlign: "center",
-          paddingTop: "12px",
-        }}
-      >
-        <p
-          style={{
-            fontSize: "16px",
-            opacity: "0.8",
-          }}
-        >
+      <div className="border-t border-white/10 mt-6 w-full text-center pt-3">
+        <p className="text-sm opacity-80">
           © 2025 InvestIQ. All rights reserved.
         </p>
       </div>
+      {showScroll && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-gradient-to-r from-cyan-500 to-cyan-400 text-white p-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition duration-300 flex items-center justify-center"
+          style={{
+            animation: "bounce 2.2s infinite",
+          }}
+        >
+          <FaArrowUp className="text-xl" />
+        </button>
+      )}
     </footer>
   );
 };
