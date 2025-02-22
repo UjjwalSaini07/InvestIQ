@@ -109,100 +109,196 @@ export default function About() {
           </div>
         </motion.div>
       </div>
+      <motion.div variants={textVariant(4.6)} initial="hidden" animate="show">
+        <div className="mt-16 text-center">
+          <div>
+            <motion.div
+              variants={textVariant(4.9)}
+              initial="hidden"
+              animate="show"
+            >
+              <h3 className="text-4xl font-bold text-white">
+                Meet Our Team - U & G Trailbrazzer
+              </h3>
+            </motion.div>
+            <motion.div
+              variants={textVariant(5.1)}
+              initial="hidden"
+              animate="show"
+            >
+              <p className="mt-4 text-lg text-white opacity-90">
+                As the driving forces behind this remarkable vision, we combine
+                innovation and creativity to revolutionize the future of
+                investment solutions. Together, we are shaping a smarter, more
+                dynamic approach to empower tomorrow's financial landscape.
+              </p>
+            </motion.div>
+          </div>
+          <motion.div
+            variants={textVariant(5.4)}
+            initial="hidden"
+            animate="show"
+          >
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <motion.div
+                variants={textVariant(5.8)}
+                initial="hidden"
+                animate="show"
+              >
+                <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl shadow-lg flex py-4 items-center text-white">
+                  <div className="flex-shrink-0 flex flex-col items-center w-1/4">
+                    <motion.div
+                      variants={textVariant(6.1)}
+                      initial="hidden"
+                      animate="show"
+                    >
+                      <div className="w-24 h-24 bg-white rounded-full overflow-hidden mb-4">
+                        <img
+                          src={ujjwal}
+                          alt="Ujjwal"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </motion.div>
+                    <motion.div
+                      variants={textVariant(6.3)}
+                      initial="hidden"
+                      animate="show"
+                    >
+                      <h4 className="text-2xl font-semibold mb-3">Ujjwal</h4>
+                    </motion.div>
+                    <motion.div
+                      variants={textVariant(6.6)}
+                      initial="hidden"
+                      animate="show"
+                    >
+                      <div className="flex gap-3">
+                        <a
+                          href="https://github.com/UjjwalSaini07"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-gray-200 transition"
+                        >
+                          <i className="fab fa-github text-2xl"></i>
+                        </a>
+                        <a
+                          href="https://www.linkedin.com/in/ujjwalsaini07/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-gray-200 transition"
+                        >
+                          <i className="fab fa-linkedin text-2xl"></i>
+                        </a>
+                      </div>
+                    </motion.div>
+                  </div>
+                  <div className="flex-grow w-3/4 mr-2">
+                    <motion.div
+                      variants={textVariant(6.9)}
+                      initial="hidden"
+                      animate="show"
+                    >
+                      <p className="text-2sm text-gray-200 leading-relaxed">
+                        Creative Frontend Developer with UI/UX expertise,
+                        skilled in backend API integration and modern
+                        frameworks. Passionate about delivering responsive,
+                        accessible, and performance-driven web applications that
+                        balance aesthetics with functionality, while exploring
+                        innovative solutions.
+                      </p>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                variants={textVariant(7.3)}
+                initial="hidden"
+                animate="show"
+              >
+                <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl shadow-lg py-4 flex items-center text-white">
+                  <div className="flex-shrink-0 flex flex-col items-center w-1/4">
+                    <motion.div
+                      variants={textVariant(7.6)}
+                      initial="hidden"
+                      animate="show"
+                    >
+                      <div className="w-24 h-24 bg-white rounded-full overflow-hidden mb-4">
+                        <img
+                          src={gayatri}
+                          alt="Gayatri"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </motion.div>
+                    <motion.div
+                      variants={textVariant(7.9)}
+                      initial="hidden"
+                      animate="show"
+                    >
+                      <h4 className="text-2xl font-semibold mb-3">Gayatri</h4>
+                    </motion.div>
+                    <motion.div
+                      variants={textVariant(8.2)}
+                      initial="hidden"
+                      animate="show"
+                    >
+                      <div className="flex gap-3">
+                        <a
+                          href="https://github.com/Gayatrisin123"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-gray-200 transition"
+                        >
+                          <i className="fab fa-github text-2xl"></i>
+                        </a>
+                        <a
+                          href="https://www.linkedin.com/in/gayatri-singh-5012b5301/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white hover:text-gray-200 transition"
+                        >
+                          <i className="fab fa-linkedin text-2xl"></i>
+                        </a>
+                      </div>
+                    </motion.div>
+                  </div>
+                  <div className="w-3/4 mr-2">
+                    <motion.div
+                      variants={textVariant(8.6)}
+                      initial="hidden"
+                      animate="show"
+                    >
+                      <p className="text-2sm text-gray-200 leading-relaxed">
+                        Crafting elegant code and designs to solve complex
+                        problems with creativity and precision. Dedicated to
+                        delivering innovative, user-centric solutions,
+                        optimizing workflows, and pushing technological
+                        boundaries to turn ideas into impactful experiences that
+                        empower businesses and delight users.
+                      </p>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
 
       <div className="mt-16 text-center">
-        <div>
-          <h3 className="text-4xl font-bold text-white">
-            Meet Our Team - U & G Trailbrazzer
-          </h3>
-          <p className="mt-4 text-lg text-white opacity-90">
-            We both are the driving forces behind this incredible vision.
-            Together, we bring innovation and creativity to redefine the
-            future of investment solutions.
-          </p>
-        </div>
-        
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl shadow-lg p-5 flex flex-col items-center text-white">
-            <p className="uppercase text-sm tracking-wider mb-4">#Innovator</p>
-            <div className="w-24 h-24 bg-white rounded-full overflow-hidden">
-              <img
-                src={ujjwal}
-                alt="Ujjwal"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <h4 className="mt-4 text-2xl font-semibold">Ujjwal</h4>
-            <p className="mt-2 text-sm text-gray-200 text-center">
-                Creative Frontend Developer with UI/UX design, with expertise in backend API integration for dynamic solutions.
-            </p>
-            <div className="mt-4 flex justify-center gap-4">
-              <a
-                href="https://github.com/ujjwal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-gray-200 transition"
-              >
-                <i className="fab fa-github text-3xl"></i>
-              </a>
-              <a
-                href="https://linkedin.com/in/ujjwal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-gray-200 transition"
-              >
-                <i className="fab fa-linkedin text-3xl"></i>
-              </a>
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl shadow-lg p-6 flex flex-col items-center text-white">
-            <p className="uppercase text-sm tracking-wider mb-4">#Designer</p>
-            <div className="w-24 h-24 bg-white rounded-full overflow-hidden">
-              <img
-                src={gayatri}
-                alt="Gayatri"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <h4 className="mt-4 text-2xl font-semibold">Gayatri</h4>
-            <p className="mt-2 text-sm text-gray-200 text-center">
-                Crafting elegant code and designs to solve complex problems with creativity and precision.
-            </p>
-            <div className="mt-4 flex justify-center gap-4">
-              <a
-                href="https://github.com/gayatri"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-gray-200 transition"
-              >
-                <i className="fab fa-github text-3xl"></i>
-              </a>
-              <a
-                href="https://linkedin.com/in/gayatri"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-gray-200 transition"
-              >
-                <i className="fab fa-linkedin text-3xl"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-16 text-center">
-        <motion.div variants={textVariant(5.6)} initial="hidden" animate="show">
+        <motion.div variants={textVariant(9)} initial="hidden" animate="show">
           <h3 className="text-4xl font-bold text-white">
             Explore Our Crypto and Stock Platform
           </h3>
         </motion.div>
-        <motion.div variants={textVariant(6.1)} initial="hidden" animate="show">
+        <motion.div variants={textVariant(9.4)} initial="hidden" animate="show">
           <p className="mt-4 text-lg text-white opacity-90">
             Discover Invest IQ effortlessly. Dive into features like insights,
             comparisons, and dashboards—all designed for seamless navigation.
           </p>
         </motion.div>
-        <motion.div variants={textVariant(6.6)} initial="hidden" animate="show">
+        <motion.div variants={textVariant(9.8)} initial="hidden" animate="show">
           <div className="mt-5">
             <Link
               to="/"
