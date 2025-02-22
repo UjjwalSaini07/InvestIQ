@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Compare from "./pages/Compare";
 import HelpCenter from "./components/UserCenter/HelpCenter";
 import ContactUs from "./components/UserCenter/ContactUs";
+import About from "./components/UserCenter/About";
 import AuthPage from "./pages/authPage";
 import Watchlist from "./pages/watchlist";
 import Dashboard from "./pages/dashboard";
@@ -30,6 +31,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/helpcenter" element={<HelpCenter />} />
+            <Route path="/about" element={<About />} />
             <Route path="/contactus" element={<ContactUs />} />
             {/* Auth Pages - Public */}
             <Route path="/login" element={<AuthPage />} />
