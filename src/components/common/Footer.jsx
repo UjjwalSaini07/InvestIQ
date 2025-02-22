@@ -1,6 +1,7 @@
 import React from "react";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Logo from '../../assets/InvestIQ_Logo.png';
 
 const Footer = () => {
   return (
@@ -18,7 +19,7 @@ const Footer = () => {
     >
       <div style={{ maxWidth: "300px", textAlign: "left" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-          <img src="./logo.png" alt="Logo" style={{ width: "55px" }} />
+          <img src={Logo} alt="Logo" style={{ width: "40px" }} />
           <h2
             style={{
               fontSize: "28px",

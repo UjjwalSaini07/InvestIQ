@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Logo from '../../assets/InvestIQ_Logo.png';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,6 +10,14 @@ function Header() {
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
+  };
+  const logoutUser = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("persist:auth");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("watchlist");
+
+    window.location.href = "/";
   };
 
   useEffect(() => {
@@ -27,9 +37,14 @@ function Header() {
 
   return (
     <div className="flex justify-between items-center p-7 sticky top-0 bg-black z-50">
-      <h1 className="text-lg md:text-xl font-semibold text-white sm:ml-7">
-        Invest IQ<span className="text-blue-500">.</span>
-      </h1>
+      <Link to="/">
+        <div style={{ display: "flex", alignItems: "center"}}>
+          <img src={Logo} alt="Logo" style={{ width: "35px" }} className="sm:ml-2"/>
+          <h1 className="text-lg md:text-xl font-semibold text-white sm:ml-2">
+            Invest IQ<span className="text-blue-500">.</span>
+          </h1>
+        </div>
+      </Link>
 
       {/* Desktop */}
       <div className="hidden md:flex justify-center items-center gap-7 flex-1 sm:mr-14">
@@ -95,7 +110,20 @@ function Header() {
           className="text-gray-400 hover:text-blue-400 text-2xl cursor-pointer flex items-center focus:outline-none"
           onClick={toggleDropdown}
         >
-          <i className="bi bi-person-fill mr-2 transition-transform transform hover:scale-110"></i>
+          <i className="bi bi-person-fill transition-transform transform hover:scale-110"></i>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
         </button>
         {isOpen && (
           <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg z-50 p-4 w-48">
@@ -140,6 +168,10 @@ function Header() {
                   <a
                     href="#"
                     className="block text-black text-base hover:text-blue-500 transition"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      logoutUser();
+                    }}
                   >
                     Logout
                   </a>

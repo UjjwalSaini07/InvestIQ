@@ -7,12 +7,13 @@ import Home from "./pages/Home";
 import Compare from "./pages/Compare";
 import HelpCenter from "./components/UserCenter/HelpCenter";
 import ContactUs from "./components/UserCenter/ContactUs";
+import About from "./components/UserCenter/About";
 import AuthPage from "./pages/authPage";
 import Watchlist from "./pages/watchlist";
 import Dashboard from "./pages/dashboard";
-import Userprofile from "./pages/userprofile";
 import ProtectedRoute from "./components/utils/ProtectedRoutes";
 import { useSelector } from "react-redux";
+import Error404 from "./components/common/Error404";
 import "./App.scss";
 function App() {
   const location = useLocation();
@@ -30,11 +31,13 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/helpcenter" element={<HelpCenter />} />
+            <Route path="/about" element={<About />} />
             <Route path="/contactus" element={<ContactUs />} />
             {/* Auth Pages - Public */}
             <Route path="/login" element={<AuthPage />} />
             <Route path="/register" element={<AuthPage />} />
             <Route path="/forgot" element={<AuthPage />} />
+            <Route path="*" element={<Error404 />} />
           </Route>
 
           <Route
@@ -42,7 +45,6 @@ function App() {
           >
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/watchlist" element={<Watchlist />} />
-            <Route path="/profile" element={<Userprofile />} />
           </Route>
           <Route
             element={
