@@ -4,7 +4,7 @@ import Section2 from './Section4Stocks/Cap2Stock';
 import Section3 from './Section4Stocks/TradeNews';
 import Section4 from './TopStories';
 import Section5 from "./WorldInflation";
-import Section6 from "./BarPattern";
+import Section6 from "./TradingPatterns";
 
 const Home4 = () => {
   useEffect(() => {
