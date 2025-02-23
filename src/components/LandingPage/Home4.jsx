@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Section1 from './Section4Stocks/Cap1Stock';
 import Section2 from './Section4Stocks/Cap2Stock';
 import Section3 from './Section4Stocks/TradeNews';
+import Section4 from './TopStories';
 
 const Home4 = () => {
   useEffect(() => {
@@ -13,6 +14,7 @@ const Home4 = () => {
         <Section1 />
         <Section2 />
         <Section3 />
+        <Section4 />
       </div>
   );
 };
