@@ -10,11 +10,11 @@ function ListView({ coin, delay }) {
   return (
     <a href={`/coin/${coin.id}`} className="block group">
       <motion.div
-        className={`flex items-center justify-between w-full p-4 rounded-lg bg-gradient-to-br from-gray-900 to-gray-800 shadow-md hover:shadow-lg transition-all duration-300 ${
+        className={`flex items-center justify-between w-full p-4 rounded-lg bg-black shadow-md hover:shadow-lg transition-all duration-300 ${
           coin.price_change_percentage_24h >= 0
             ? "group-hover:border-green-500"
             : "group-hover:border-red-500"
-        } border-2 border-transparent mb-4`}
+        } border-2 border-gray-600 mb-4`}
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: delay }}
