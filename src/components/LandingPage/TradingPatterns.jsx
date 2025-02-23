@@ -5,7 +5,7 @@ import SessionVolumeProfile from "../../assets/Landing/TradingPatterns/SessionVo
 import Candles from "../../assets/Landing/TradingPatterns/Candles.jpg";
 import Bars from "../../assets/Landing/TradingPatterns/Bars.jpg";
 import VolumeCandles from "../../assets/Landing/TradingPatterns/VolumeCandles.jpg";
-import Range from "../../assets/Landing/TradingPatterns/Range.svg";
+import Range from "../../assets/Landing/TradingPatterns/Range.jpg";
 import HeikinAshi from "../../assets/Landing/TradingPatterns/HeikinAshi.jpg";
 import Renko from "../../assets/Landing/TradingPatterns/Renko.jpg";
 import LineBreak from "../../assets/Landing/TradingPatterns/LineBreak.jpg";
