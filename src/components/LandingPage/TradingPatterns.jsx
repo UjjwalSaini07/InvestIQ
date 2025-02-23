@@ -149,12 +149,10 @@ const TradingPatterns = () => {
   };
 
   return (
-    <div className="bg-black text-white min-h-screen flex items-center justify-center p-8">
-      {/* Transparent Container */}
-      <div className="border border-green-400 rounded-xl w-[80%] h-[600px] relative bg-opacity-0">
+    <div className="bg-black text-white flex items-center justify-center p-8">
+      <div className="border border-green-500 rounded-2xl w-[95%] h-[600px] relative bg-opacity-0">
         <div className="flex h-full">
-          {/* Left Vertical Text Section */}
-          <div className="w-1/3 p-6 space-y-6 overflow-hidden">
+          <div className="p-8 space-y-6 overflow-hidden">
             {data.map((item, index) => (
               <div
                 key={index}
@@ -164,15 +162,13 @@ const TradingPatterns = () => {
                     : "transform scale-100 text-gray-400"
                 }`}
               >
-                <h2 className="text-2xl font-semibold">{item.title}</h2>
+                <h2 className="text-3xl font-semibold">{item.title}</h2>
                 {index === currentIndex && (
                   <p className="mt-2 text-sm">{item.description}</p>
                 )}
               </div>
             ))}
           </div>
-
-          {/* Right Image Section */}
           <div className="w-2/3 flex items-center justify-center">
             <img
               src={data[currentIndex].image}
@@ -182,17 +178,16 @@ const TradingPatterns = () => {
           </div>
         </div>
 
-        {/* Navigation Buttons */}
         <div className="absolute bottom-6 right-6 flex space-x-4">
           <button
             onClick={handlePrevious}
-            className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 shadow-lg text-lg font-bold"
+            className="w-12 h-12 flex items-center justify-center rounded-full text-lg font-bold"
           >
             {"<"}
           </button>
           <button
             onClick={handleNext}
-            className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 shadow-lg text-lg font-bold"
+            className="w-12 h-12 flex items-center justify-center rounded-full text-lg font-bold"
           >
             {">"}
           </button>
