@@ -1,8 +1,8 @@
 import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import ujjwal from "../../assets/Landing/BoyImage.jpg";
-import gayatri from "../../assets/Landing/GirlImage.jpg";
+import ujjwal from "../../../assets/Landing/BoyImage.jpg";
+import gayatri from "../../../assets/Landing/GirlImage.jpg";
 
 const TeamCard = ({ image, name, description, github, twitter, linkedin }) => (
   <div className="relative group w-80 md:w-100 mb-10 rounded-3xl overflow-hidden shadow-lg transition-all duration-500 transform hover:scale-105 hover:shadow-[0px_5px_15px_rgba(59,130,246,0.5)] bg-opacity-30 backdrop-blur-lg border border-gray-700">

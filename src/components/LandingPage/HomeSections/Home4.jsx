@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import Section1 from './Section4Stocks/Cap1Stock';
-import Section2 from './Section4Stocks/Cap2Stock';
-import Section3 from './Section4Stocks/TradeNews';
-import Section4 from './TopStories';
-import Section5 from "./WorldInflation";
-import Section6 from "./TradingPatterns";
+import Section1 from '../StockSlider/Cap1Stock';
+import Section2 from '../StockSlider/Cap2Stock';
+import Section3 from '../FeedSection/TradeNews';
+import Section4 from '../FeedSection/TopStories';
+import Section5 from "../Geographical/WorldInflation";
+import Section6 from "../Patterns/TradingPatterns";
 
 const Home4 = () => {
   useEffect(() => {

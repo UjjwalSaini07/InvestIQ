@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import vid1 from "../../assets/Landing/Home2Compo/Trade1.mp4";
-import vid2 from "../../assets/Landing/Home2Compo/Trade2.mp4";
-import img1 from "../../assets/Landing/Home2Compo/Trade3.png";
-import img2 from "../../assets/Landing/Home2Compo/Trade4.png";
-import img3 from "../../assets/Landing/Home2Compo/Trade5.png";
-import img4 from "../../assets/Landing/Home2Compo/Trade6.png";
+import vid1 from "../../../assets/Landing/Home2Compo/Trade1.mp4";
+import vid2 from "../../../assets/Landing/Home2Compo/Trade2.mp4";
+import img1 from "../../../assets/Landing/Home2Compo/Trade3.png";
+import img2 from "../../../assets/Landing/Home2Compo/Trade4.png";
+import img3 from "../../../assets/Landing/Home2Compo/Trade5.png";
+import img4 from "../../../assets/Landing/Home2Compo/Trade6.png";
 
 const Home2 = () => {
   const [currentMedia, setCurrentMedia] = useState({ type: "video", src: vid1 });
