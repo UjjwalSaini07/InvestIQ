@@ -10,11 +10,11 @@ function GridView({ coin, delay }) {
   return (
     <a href={`/coin/${coin.id}`} className="block group">
       <motion.div
-        className={`relative flex flex-col gap-6 w-64 h-80 p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-md transform transition-all duration-300 group-hover:scale-105 ${
+        className={`relative flex flex-col gap-6 w-64 h-80 p-6 bg-black rounded-2xl shadow-md transform transition-transform duration-300 group group-hover:scale-105 ${
           coin.price_change_percentage_24h >= 0
             ? "group-hover:border-green-500"
             : "group-hover:border-red-500"
-        } border-2 border-transparent`}
+        } border-2 border-gray-600`}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: delay }}
