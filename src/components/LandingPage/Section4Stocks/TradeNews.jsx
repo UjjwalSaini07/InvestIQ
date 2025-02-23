@@ -99,7 +99,7 @@ const NewsComponent = () => {
               {displayedNews.map((article, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900/70 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden transition-all transform hover:scale-100 hover:shadow-blue-500/50 flex flex-col h-full border border-gray-800"
+                  className="bg-black backdrop-blur-md rounded-2xl shadow-lg overflow-hidden transition-all transform hover:scale-100 hover:shadow-blue-500/50 flex flex-col h-full border border-gray-800"
                 >
                   <div className="relative">
                     <img
