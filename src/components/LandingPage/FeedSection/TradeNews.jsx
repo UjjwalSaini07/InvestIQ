@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Error404 from "../../../assets/Landing/Error404.png";
 
-const NewsComponent = () => {
+const TradeNews = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -164,4 +164,4 @@ const NewsComponent = () => {
   );
 };
 
-export default NewsComponent;
+export default TradeNews;

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Error404 from "../../../assets/Landing/Error404.png";
 import Logo from "../../../assets/InvestIQ_Logo.png";
 
-
 const TopStories = () => {
   const [stories, setStories] = useState([]);
   const [loading, setLoading] = useState(true);

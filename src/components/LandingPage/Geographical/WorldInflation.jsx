@@ -52,9 +52,9 @@ export default function GlobalInflationMap() {
     .range(["#4D280B", "#8C400A", "#C76305", "#FF8C00", "#FF4500"]);
 
   return (
-    <div className="bg-black text-white -mt-12 mb-14 flex flex-col items-center">
-      <h1 className="text-4xl font-bold mt-8 tracking-wide">Economy</h1>
-      <h2 className="text-2xl mt-4 tracking-wide">Global Inflation Map</h2>
+    <div className="bg-black text-white -mt-14 mb-14 flex flex-col items-center">
+      <h1 className="text-5xl font-bold mt-8 tracking-wide">Global Economy</h1>
+      <h2 className="text-2xl mt-4 tracking-wide">Economic Pulse: Inflation Map</h2>
       <div className="mt-6 flex-grow w-full h-full">
         <ComposableMap
           projection="geoMercator"
