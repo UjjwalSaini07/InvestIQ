@@ -8,7 +8,7 @@ import img4 from "../../../assets/Landing/Home2Compo/Trade6.png";
 
 const Home2 = () => {
   const [currentMedia, setCurrentMedia] = useState({ type: "video", src: vid1 });
-  const [activeButton, setActiveButton] = useState(null);
+  const [activeButton, setActiveButton] = useState("Chart");
 
   const handleMediaChange = (type, src, label) => {
     setCurrentMedia({ type, src });
@@ -51,7 +51,7 @@ const Home2 = () => {
     color: "#c9d1d9",
     fontSize: "0.9rem",
     fontWeight: "bold",
-    padding: "0.75rem 1rem",
+    padding: "0.50rem 0.9rem",
     border: "none",
     backgroundColor: "transparent",
     borderRadius: "8px",
