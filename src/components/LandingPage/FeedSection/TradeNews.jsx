@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Error404 from "../../../assets/Landing/Error404.png";
 
-const NewsComponent = () => {
+const TradeNews = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -19,8 +20,7 @@ const NewsComponent = () => {
         }
 
         const data = await response.json();
-        const filteredNews = data.articles?.filter(article => article.urlToImage) || [];
-        setNews(filteredNews);
+        setNews(data.articles || []);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -99,13 +99,17 @@ const NewsComponent = () => {
               {displayedNews.map((article, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900/70 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden transition-all transform hover:scale-100 hover:shadow-blue-500/50 flex flex-col h-full border border-gray-800"
+                  className="bg-black backdrop-blur-md rounded-2xl shadow-lg overflow-hidden transition-all transform hover:scale-100 hover:shadow-blue-500/50 flex flex-col h-full border border-gray-800"
                 >
                   <div className="relative">
                     <img
-                      src={article.urlToImage}
+                      src={article.urlToImage || Error404}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = Error404;
+                      }}
                       className="w-full h-52 object-cover rounded-t-2xl"
-                      alt={article.title}
+                      alt={article.title || "No Image Available"}
                     />
                     <div className="absolute top-0 left-0 bg-blue-500 text-white text-xs font-bold uppercase py-1 px-3 rounded-br-lg shadow-md">
                       {article.source.name}
@@ -160,4 +164,4 @@ const NewsComponent = () => {
   );
 };
 
-export default NewsComponent;
+export default TradeNews;

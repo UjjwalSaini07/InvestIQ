@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
-import { Card } from "../../@/ui/card";
-import { Button } from "../../@/ui/button";
+import { Card } from "../../../@/ui/card";
+import { Button } from "../../../@/ui/button";
 
 const timeframes = [
   { label: "1D", days: 1 },
@@ -67,6 +67,14 @@ const CryptoMarketChart = () => {
       fetchMarketData(selectedTimeframe.days);
     }
   }, [timeframe]);
+
+  useEffect(() => {
+      const timer = setTimeout(() => {
+        setTimeframe("1W");
+      }, 85000);
+  
+      return () => clearTimeout(timer);
+    }, []);
 
   const selectedConfig = datasetsConfig.find((d) => d.key === selectedDataset);
 

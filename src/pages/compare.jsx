@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Info from "../components/compare/Info";
 import LineChart from "../components/compare/LineChart";
 import ToggleComponents from "../components/compare/ToggleComponent";
@@ -23,6 +25,8 @@ function Compare() {
     labels: [],
     datasets: [],
   });
+  const hasShownToast = useRef(false);
+  const compareRef = useRef(null);
 
   const fetchData = async () => {
     try {
@@ -53,7 +57,37 @@ function Compare() {
   };
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasShownToast.current) {
+          toast.info(
+            "This Crypto Comparison page is loading data. Please wait... After making changes from the dropdown, press the refresh button (located at the top-right) to fetch the data.",
+            {
+              position: "top-right",
+              autoClose: 10000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: false,
+            }
+          );
+          hasShownToast.current = true;
+        }
+      },
+      { threshold: 0.5 }
+    );
+
     fetchData();
+
+    if (compareRef.current) {
+      observer.observe(compareRef.current);
+    }
+
+    return () => {
+      if (compareRef.current) {
+        observer.unobserve(compareRef.current);
+      }
+    };
   }, [crypto1, crypto2, days, priceType]);
 
   const handleCoinChange = async (coinId, isCoin2) => {
@@ -116,7 +150,11 @@ function Compare() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center py-8 relative">
+    <div
+      className="min-h-screen bg-black text-white flex flex-col justify-center items-center py-8 relative"
+      ref={compareRef}
+    >
+      <ToastContainer />
       <h1 className="text-5xl font-semibold text-blue-500 mb-6">
         Cryptocurrency Comparison
       </h1>
@@ -172,11 +210,11 @@ function Compare() {
           width="22"
           height="22"
           fill="currentColor"
-          class="bi bi-arrow-clockwise"
+          className="bi bi-arrow-clockwise"
           viewBox="0 0 35 35"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M17.5 6.563a10.938 10.938 0 1 0 9.944 6.374 1.094 1.094 0 0 1 1.986 -0.912A13.125 13.125 0 1 1 17.5 4.375z"
           />
           <path d="M17.5 9.769V1.168a0.547 0.547 0 0 1 0.897 -0.42l5.162 4.301c0.263 0.219 0.263 0.621 0 0.84L18.397 10.189A0.547 0.547 0 0 1 17.5 9.769" />

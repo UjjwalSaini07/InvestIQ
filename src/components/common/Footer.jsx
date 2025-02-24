@@ -31,7 +31,8 @@ const Footer = () => {
         </Link>
         <p className="text-sm leading-relaxed opacity-85 mt-3">
           Analyze stocks and crypto trends with advanced tools. Stay informed
-          with insights, real-time news, and analysis with Personailsed Dashboard.
+          with insights, real-time news, and analysis with Personailsed
+          Dashboard.
         </p>
       </div>
 
@@ -40,13 +41,17 @@ const Footer = () => {
           Quick Links
         </h4>
         <ul className="list-none p-0">
-          {["Profile", "Washlist", "Dashboard"].map((text, index) => (
+          {[
+            { text: "Profile", href: "/profile" },
+            { text: "Washlist", href: "/watchlist" },
+            { text: "Dashboard", href: "/dashboard" },
+          ].map((item, index) => (
             <li key={index} className="mb-3">
               <a
-                href="#"
+                href={item.href}
                 className="text-white text-base opacity-80 hover:opacity-100 transition duration-300"
               >
-                {text}
+                {item.text}
               </a>
             </li>
           ))}
@@ -54,15 +59,21 @@ const Footer = () => {
       </div>
 
       <div className="flex-1 max-w-xs flex flex-col items-center mb-6 md:mb-0">
-        <h4 className="text-lg mb-4 font-semibold text-gray-200">User Help Zone</h4>
+        <h4 className="text-lg mb-4 font-semibold text-gray-200">
+          User Help Zone
+        </h4>
         <ul className="list-none p-0">
-          {["About Us", "Contact Us", "Help Center"].map((text, index) => (
+          {[
+            { text: "About Us", href: "/about" },
+            { text: "Contact Us", href: "/contactus" },
+            { text: "Help Center", href: "/helpcenter" },
+          ].map((item, index) => (
             <li key={index} className="mb-3">
               <a
-                href="#"
+                href={item.href}
                 className="text-white text-base opacity-80 hover:opacity-100 transition duration-300"
               >
-                {text}
+                {item.text}
               </a>
             </li>
           ))}
@@ -70,15 +81,21 @@ const Footer = () => {
       </div>
 
       <div className="flex-1 max-w-xs flex flex-col items-center mb-6 md:mb-0">
-        <h4 className="text-lg mb-4 font-semibold text-gray-200">Explore Some Tools</h4>
+        <h4 className="text-lg mb-4 font-semibold text-gray-200">
+          Explore Some Tools
+        </h4>
         <ul className="list-none p-0">
-          {["Compare", "Chat with Bot", "Calculations Tools"].map((text, index) => (
+          {[
+            { text: "Compare", href: "/compare" },
+            { text: "Chat with Bot", href: "/chatwithbot" },
+            { text: "Calculations Tools", href: "/tools" },
+          ].map((item, index) => (
             <li key={index} className="mb-3">
               <a
-                href="#"
+                href={item.href}
                 className="text-white text-base opacity-80 hover:opacity-100 transition duration-300"
               >
-                {text}
+                {item.text}
               </a>
             </li>
           ))}
@@ -121,7 +138,7 @@ const Footer = () => {
       {showScroll && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-gradient-to-r from-cyan-500 to-cyan-400 text-white p-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition duration-300 flex items-center justify-center"
+          className="fixed bottom-6 right-6 bg-gradient-to-r from-cyan-500 to-cyan-400 text-white p-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition duration-300 flex items-center justify-center mid:block"
           style={{
             animation: "bounce 2.2s infinite",
           }}

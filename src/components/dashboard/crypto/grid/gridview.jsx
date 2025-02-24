@@ -1,20 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
 
 function GridView({ coin, delay }) {
-  const watchlist = JSON.parse(localStorage.getItem("watchlist"));
-  const [isCoinAdded, setIsCoinAdded] = useState(watchlist?.includes(coin.id));
+  const [isCoinAdded, setIsCoinAdded] = useState(false);
+
+  useEffect(() => {
+    const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+    setIsCoinAdded(watchlist.includes(coin.id));
+  }, [coin.id]);
+
+  const handleWatchlistToggle = (e) => {
+    e.preventDefault();
+
+    if (isCoinAdded) {
+      // Remove coin from watchlist
+      removeItemToWatchlist(e, coin.id, setIsCoinAdded);
+      const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+      const filteredWatchlist = updatedWatchlist.filter((id) => id !== coin.id);
+      localStorage.setItem("watchlist", JSON.stringify(filteredWatchlist));
+      setIsCoinAdded(false);
+    } else {
+      // Add coin to watchlist
+      saveItemToWatchlist(e, coin.id);
+      const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+      updatedWatchlist.push(coin.id);
+      localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
+      setIsCoinAdded(true);
+    }
+  };
 
   return (
     <a href={`/coin/${coin.id}`} className="block group">
       <motion.div
-        className={`relative flex flex-col gap-6 w-64 h-80 p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-md transform transition-all duration-300 group-hover:scale-105 ${
+        className={`relative flex flex-col gap-6 w-64 h-80 p-6 bg-black rounded-2xl shadow-md transform transition-transform duration-300 group group-hover:scale-105 ${
           coin.price_change_percentage_24h >= 0
             ? "group-hover:border-green-500"
             : "group-hover:border-red-500"
-        } border-2 border-transparent`}
+        } border-2 border-gray-600`}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: delay }}
@@ -25,15 +49,7 @@ function GridView({ coin, delay }) {
               ? "bg-yellow-400 text-gray-800"
               : "bg-gray-600 text-gray-300 hover:bg-gray-500"
           }`}
-          onClick={(e) => {
-            e.preventDefault();
-            if (isCoinAdded) {
-              removeItemToWatchlist(e, coin.id, setIsCoinAdded);
-            } else {
-              setIsCoinAdded(true);
-              saveItemToWatchlist(e, coin.id);
-            }
-          }}
+          onClick={handleWatchlistToggle}
         >
           {isCoinAdded ? (
             <svg

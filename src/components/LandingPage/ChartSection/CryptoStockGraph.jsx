@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
-import { Card } from "../../@/ui/card";
-import { Button } from "../../@/ui/button";
+import { Card } from "../../../@/ui/card";
+import { Button } from "../../../@/ui/button";
 import {
   Select,
   SelectTrigger,
   SelectContent,
   SelectItem,
   SelectValue,
-} from "../../@/ui/select";
+} from "../../../@/ui/select";
 
 const timeframes = [
   { label: "1D", days: 1 },
@@ -90,6 +90,14 @@ const CryptoStockGraph = () => {
       fetchMarketData(crypto, selectedTimeframe.days);
     }
   }, [timeframe, crypto]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeframe("1W");
+    }, 80000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="bg-black text-white rounded-lg p-5 max-w-7xl mx-auto">

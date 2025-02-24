@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import CountUp from "react-countup";
-import img1 from "../../assets/Landing/Home3Compo/Img1.jpeg";
-import img2 from "../../assets/Landing/Home3Compo/Img2.jpeg";
-import img3 from "../../assets/Landing/Home3Compo/Img3.jpg";
-import img4 from "../../assets/Landing/Home3Compo/Img4.jpeg";
-import img5 from "../../assets/Landing/Home3Compo/Img5.jpg";
-import img6 from "../../assets/Landing/Home3Compo/Img6.jpeg";
-import img7 from "../../assets/Landing/Home3Compo/Img7.jpg";
-import img8 from "../../assets/Landing/Home3Compo/Img8.jpg";
-import img9 from "../../assets/Landing/Home3Compo/Img9.jpeg";
-import img10 from "../../assets/Landing/Home3Compo/Img10.jpg";
+import img1 from "../../../assets/Landing/Home3Compo/Img1.jpeg";
+import img2 from "../../../assets/Landing/Home3Compo/Img2.jpeg";
+import img3 from "../../../assets/Landing/Home3Compo/Img3.jpg";
+import img4 from "../../../assets/Landing/Home3Compo/Img4.jpeg";
+import img5 from "../../../assets/Landing/Home3Compo/Img5.jpg";
+import img6 from "../../../assets/Landing/Home3Compo/Img6.jpeg";
+import img7 from "../../../assets/Landing/Home3Compo/Img7.jpg";
+import img8 from "../../../assets/Landing/Home3Compo/Img8.jpg";
+import img9 from "../../../assets/Landing/Home3Compo/Img9.jpeg";
+import img10 from "../../../assets/Landing/Home3Compo/Img10.jpg";
 
 const StatCard = ({ number, suffix, label, highlight }) => {
   return (

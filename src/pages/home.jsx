@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import Home1 from '../components/LandingPage/Home1';
-import Home2 from '../components/LandingPage/Home2';
-import Home3 from '../components/LandingPage/Home3';
-import Home4 from '../components/LandingPage/Home4';
-import CryptoMarketChart from '../components/LandingPage/CryptoMarketChart';
-import CryptoStockGraph from '../components/LandingPage/CryptoStockGraph';
-import TeamCard from '../components/LandingPage/TeamCard';
-import Testinomails from '../components/LandingPage/Testinomails';
+import Home1 from '../components/LandingPage/HomeSections/Home1';
+import Home2 from '../components/LandingPage/HomeSections/Home2';
+import Home3 from '../components/LandingPage/HomeSections/Home3';
+import Home4 from '../components/LandingPage/HomeSections/Home4';
+import Home5 from '../components/LandingPage/HomeSections/Home5';
+import TeamCard from '../components/LandingPage/TeamSection/TeamCard';
+import Testinomails from '../components/LandingPage/TeamSection/Testinomails';
 import Footer from '../components/common/Footer';
 
 const Home = () => {
@@ -18,7 +17,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Home | InvestIQ - Your Smart Investment Platform</title>
+        <title>Home | InvestIQ</title>
       </Helmet>
 
       <main>
@@ -26,8 +25,7 @@ const Home = () => {
         <Home2 />
         <Home3 />
         <Home4 />
-        <CryptoMarketChart />
-        <CryptoStockGraph />
+        <Home5 />
         <TeamCard />
         <Testinomails />
       </main>

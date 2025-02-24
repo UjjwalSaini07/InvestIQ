@@ -9,7 +9,7 @@ export default function PaginationControlled({
   const getButtonClasses = (isActive) =>
     isActive
       ? "bg-blue-600 text-white shadow-lg"
-      : "bg-gray-800 text-gray-300 hover:bg-gray-700";
+      : "bg-black text-white hover:bg-gray-700";
 
   return (
     <div className="flex items-center justify-center my-12 gap-3">
@@ -20,7 +20,7 @@ export default function PaginationControlled({
         aria-label="Previous Page"
         className={`px-4 py-2 rounded-lg ${
           page === 1
-            ? "bg-gray-700 text-gray-500 cursor-not-allowed"
+            ? "bg-transparent text-gray-500 cursor-not-allowed"
             : "hover:bg-gray-700"
         }`}
       >
@@ -55,7 +55,7 @@ export default function PaginationControlled({
         aria-label="Next Page"
         className={`px-4 py-2 rounded-lg ${
           page === totalPages
-            ? "bg-gray-700 text-gray-500 cursor-not-allowed"
+            ? "bg-transparent text-white cursor-not-allowed"
             : "hover:bg-gray-700"
         }`}
       >
