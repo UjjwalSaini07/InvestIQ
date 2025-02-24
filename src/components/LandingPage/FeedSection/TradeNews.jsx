@@ -20,8 +20,7 @@ const NewsComponent = () => {
         }
 
         const data = await response.json();
-        const filteredNews = data.articles?.filter(article => article.urlToImage) || [];
-        setNews(filteredNews);
+        setNews(data.articles || []);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -105,8 +104,12 @@ const NewsComponent = () => {
                   <div className="relative">
                     <img
                       src={article.urlToImage || Error404}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = Error404;
+                      }}
                       className="w-full h-52 object-cover rounded-t-2xl"
-                      alt={article.title}
+                      alt={article.title || "No Image Available"}
                     />
                     <div className="absolute top-0 left-0 bg-blue-500 text-white text-xs font-bold uppercase py-1 px-3 rounded-br-lg shadow-md">
                       {article.source.name}
