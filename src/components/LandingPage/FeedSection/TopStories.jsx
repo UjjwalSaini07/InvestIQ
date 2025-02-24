@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Error404 from "../../../assets/Landing/Error404.png";
+import Logo from "../../../assets/InvestIQ_Logo.png";
+
 
 const TopStories = () => {
   const [stories, setStories] = useState([]);
@@ -48,8 +51,8 @@ const TopStories = () => {
   const storiesToShow = stories.slice(0, visibleRows * 3);
 
   return (
-    <div className="bg-black text-white mb-14 p-6">
-      <div className="flex flex-row items-center space-x-2 hover:text-blue-500">
+    <div className="bg-black text-white mb-14 -mt-8 p-6">
+      <div className="flex flex-row items-center mb-4 space-x-2 hover:text-blue-500">
         <h1 className="text-3xl font-bold">Top Stories</h1>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +82,7 @@ const TopStories = () => {
               <div className="flex flex-col">
                 <div className="flex items-center space-x-2">
                   <img
-                    src="https://via.placeholder.com/20"
+                    src={Logo}
                     alt="flag"
                     className="w-4 h-4 rounded-full"
                   />
@@ -100,7 +103,7 @@ const TopStories = () => {
               </div>
             </div>
             <img
-              src={story.urlToImage || "https://via.placeholder.com/150"}
+              src={story.urlToImage || Error404}
               alt={story.title}
               className="w-20 h-20 rounded-xl object-cover border border-gray-700"
             />
@@ -108,17 +111,17 @@ const TopStories = () => {
         ))}
       </div>
       {storiesToShow.length < stories.length && (
-        <div className="flex flex-row text-left mt-2 -mb-6 space-x-1 hover:text-blue-500">
+        <div className="flex flex-row text-left mt-2 -mb-6 space-x-1 text-cyan-400 hover:text-blue-500">
           <span
             onClick={loadMoreRows}
-            className="text-sm text-gray-400 cursor-pointer hover:underline hover:text-blue-500"
+            className="text-2sm text-cyan-400 cursor-pointer hover:underline hover:text-blue-700"
           >
             See more stocks-related feed
           </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
+            width="18"
+            height="20"
             fill="currentColor"
             className="bi bi-chevron-right"
             viewBox="0 0 16 16"

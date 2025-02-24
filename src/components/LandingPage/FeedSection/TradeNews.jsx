@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Error404 from "../../../assets/Landing/Error404.png";
 
 const NewsComponent = () => {
   const [news, setNews] = useState([]);
@@ -103,7 +104,7 @@ const NewsComponent = () => {
                 >
                   <div className="relative">
                     <img
-                      src={article.urlToImage}
+                      src={article.urlToImage || Error404}
                       className="w-full h-52 object-cover rounded-t-2xl"
                       alt={article.title}
                     />
