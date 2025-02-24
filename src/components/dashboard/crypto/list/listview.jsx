@@ -1,11 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
 
 function ListView({ coin, delay }) {
-  const watchlist = JSON.parse(localStorage.getItem("watchlist"));
-  const [isCoinAdded, setIsCoinAdded] = useState(watchlist?.includes(coin.id));
+  const [isCoinAdded, setIsCoinAdded] = useState(false);
+
+  useEffect(() => {
+    const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+    setIsCoinAdded(watchlist.includes(coin.id));
+  }, [coin.id]);
+
+  const handleWatchlistToggle = (e) => {
+    e.preventDefault();
+
+    if (isCoinAdded) {
+      // Remove coin from watchlist
+      removeItemToWatchlist(e, coin.id, setIsCoinAdded);
+      const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+      const filteredWatchlist = updatedWatchlist.filter((id) => id !== coin.id);
+      localStorage.setItem("watchlist", JSON.stringify(filteredWatchlist));
+      setIsCoinAdded(false);
+    } else {
+      // Add coin to watchlist
+      saveItemToWatchlist(e, coin.id);
+      const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+      updatedWatchlist.push(coin.id);
+      localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
+      setIsCoinAdded(true);
+    }
+  };
 
   return (
     <a href={`/coin/${coin.id}`} className="block group">
@@ -81,15 +105,7 @@ function ListView({ coin, delay }) {
               ? "bg-yellow-400 text-gray-800 hover:bg-yellow-300"
               : "bg-gray-600 text-gray-300 hover:bg-gray-500"
           } mb-1`}
-          onClick={(e) => {
-            e.preventDefault();
-            if (isCoinAdded) {
-              removeItemToWatchlist(e, coin.id, setIsCoinAdded);
-            } else {
-              setIsCoinAdded(true);
-              saveItemToWatchlist(e, coin.id);
-            }
-          }}
+          onClick={handleWatchlistToggle}
         >
           {isCoinAdded ? (
             <svg
@@ -98,7 +114,7 @@ function ListView({ coin, delay }) {
               fill="currentColor"
               viewBox="0 0 24 24"
             >
-              <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 7.46 13.97 5.82 21z" />
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
             </svg>
           ) : (
             <svg
