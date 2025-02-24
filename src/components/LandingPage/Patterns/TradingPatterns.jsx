@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Data from "./data.json";
 
 import VolumeFootprint from "../../../assets/Landing/TradingPatterns/VolumeFootprint.jpg";
@@ -69,26 +69,49 @@ const TradingPatterns = () => {
     }
   };
 
+  const handleDirectSelect = (index) => {
+    setCurrentIndex(index);
+    const newStartIndex = Math.floor(index / visibleItems) * visibleItems;
+    setStartIndex(newStartIndex);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (currentIndex + 1 < Data.length) {
+        handleNext();
+      } else {
+        setCurrentIndex(0);
+        setStartIndex(0);
+      }
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [currentIndex, startIndex]);
+
   return (
     <div className="bg-black text-white flex items-center justify-center p-8">
       <div className="border border-grey-500 rounded-2xl w-[95%] h-[600px] relative bg-opacity-0">
         <div className="flex h-full">
           <div className="w-5/8 p-8 space-y-6 overflow-hidden">
-            {Data.slice(startIndex, startIndex + visibleItems).map((item, index) => (
-              <div
-                key={index}
-                className={`transition-transform duration-500 ${
-                  index + startIndex === currentIndex
-                    ? "transform scale-105 text-white border-l-4 border-green-400 pl-4"
-                    : "transform scale-100 text-gray-400"
-                }`}
-              >
-                <h2 className="text-5xl font-semibold">{item.title}</h2>
-                {index + startIndex === currentIndex && (
-                  <p className="mt-2 text-2sm">{item.description}</p>
-                )}
-              </div>
-            ))}
+            {Data.slice(startIndex, startIndex + visibleItems).map(
+              (item, index) => (
+                <div>
+                  <button
+                    key={index}
+                    onClick={() => handleDirectSelect(index + startIndex)}
+                    className={`w-full text-left transition-transform duration-500 ${
+                      index + startIndex === currentIndex
+                        ? "transform scale-105 text-white border-l-4 border-green-400 pl-4"
+                        : "transform scale-100 text-gray-400"
+                    }`}
+                  >
+                    <h2 className="text-5xl font-semibold">{item.title}</h2>
+                    {index + startIndex === currentIndex && (
+                      <p className="mt-2 text-2sm">{item.description}</p>
+                    )}
+                  </button>
+                </div>
+              )
+            )}
           </div>
           <div className="w-2/3 flex items-center justify-center">
             <img
@@ -101,16 +124,16 @@ const TradingPatterns = () => {
         <div className="absolute bottom-0 right-6 flex space-x-4 items-center">
           <button
             onClick={handlePrevious}
-            className="w-12 h-12 flex items-center justify-center rounded-full text-lg font-bold"
+            className="w-14 h-14 flex items-center justify-center rounded-full text-xl font-bold"
           >
             {"<"}
           </button>
-          <span className="text-lg">
+          <span className="text-xl font-bold">
             {currentIndex + 1}/{Data.length}
           </span>
           <button
             onClick={handleNext}
-            className="w-12 h-12 flex items-center justify-center rounded-full text-lg font-bold"
+            className="w-14 h-14 flex items-center justify-center rounded-full text-xl font-bold"
           >
             {">"}
           </button>
