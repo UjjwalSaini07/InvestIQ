@@ -138,7 +138,7 @@ const Footer = () => {
       {showScroll && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-gradient-to-r from-cyan-500 to-cyan-400 text-white p-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition duration-300 flex items-center justify-center"
+          className="fixed bottom-6 right-6 bg-gradient-to-r from-cyan-500 to-cyan-400 text-white p-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition duration-300 flex items-center justify-center mid:block"
           style={{
             animation: "bounce 2.2s infinite",
           }}
