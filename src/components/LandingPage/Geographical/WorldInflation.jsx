@@ -21,7 +21,7 @@ export default function GlobalInflationMap() {
     <div className="bg-black text-white -mt-14 mb-14 flex flex-col items-center">
       <h1 className="text-5xl font-bold mt-8 tracking-wide">Global Economy</h1>
       <h2 className="text-2xl mt-4 tracking-wide">Economic Pulse: Inflation Map</h2>
-      <div className="mt-6 flex-grow w-full h-full">
+      <div className="mt-6 flex-grow w-full h-full relative">
         <ComposableMap
           projection="geoMercator"
           className="w-full h-full"
@@ -43,10 +43,15 @@ export default function GlobalInflationMap() {
                     fill={
                       countryData
                         ? colorScale(countryData.yearly_rate_pct)
-                        : "#555"
+                        : "#2e2e2e"
                     }
                     stroke="#000"
-                    className="transition duration-300 hover:opacity-75 border hover:border-2 hover:border-white"
+                    className="transition duration-300 hover:border-2 hover:border-white hover:opacity-90"
+                    style={{
+                      default: { outline: "none" },
+                      hover: { outline: "none" },
+                      pressed: { outline: "none" },
+                    }}
                     data-tooltip-id="map-tooltip"
                     data-tooltip-content={
                       countryData
@@ -67,7 +72,13 @@ export default function GlobalInflationMap() {
             }
           </Geographies>
         </ComposableMap>
-        <ReactTooltip id="map-tooltip" />
+        <ReactTooltip
+          id="map-tooltip"
+          place="top"
+          effect="solid"
+          className="bg-gray-800 text-white rounded-md px-2 py-1 text-sm"
+          arrowColor="#000"
+        />
       </div>
     </div>
   );
