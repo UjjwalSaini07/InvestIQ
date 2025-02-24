@@ -68,6 +68,14 @@ const CryptoMarketChart = () => {
     }
   }, [timeframe]);
 
+  useEffect(() => {
+      const timer = setTimeout(() => {
+        setTimeframe("1W");
+      }, 85000);
+  
+      return () => clearTimeout(timer);
+    }, []);
+
   const selectedConfig = datasetsConfig.find((d) => d.key === selectedDataset);
 
   return (

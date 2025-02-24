@@ -91,6 +91,14 @@ const CryptoStockGraph = () => {
     }
   }, [timeframe, crypto]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeframe("1W");
+    }, 80000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="bg-black text-white rounded-lg p-5 max-w-7xl mx-auto">
       <h2 className="text-4xl font-semibold text-center text-cyan-400">
