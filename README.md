@@ -16,7 +16,7 @@ Welcome to InvestIQ! It is a cutting-edge fintech platform designed for crypto e
             <td><img alt="Stars" src="https://img.shields.io/github/stars/UjjwalSaini07/InvestIQ?style=flat&logo=github"/></td>
             <td><img alt="Issues" src="https://img.shields.io/github/issues/UjjwalSaini07/InvestIQ?style=flat&logo=github"/></td>
             <td><img alt="Repo Size" src="https://img.shields.io/github/repo-size/UjjwalSaini07/InvestIQ?style=flat&logo=github"/></td>
-            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/UjjwalSaini0/InvestIQ?style=flat&logo=github"/></td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/UjjwalSaini07/InvestIQ?style=flat&logo=github"/></td>
            <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/UjjwalSaini07/InvestIQ?style=flat&color=critical&logo=github"/></td>
         </tr>
     </tbody>
