@@ -14,7 +14,7 @@ import Dashboard from "./pages/dashboard";
 import ProtectedRoute from "./components/utils/ProtectedRoutes";
 import { useSelector } from "react-redux";
 import Error404 from "./components/common/Error404";
-import PythonDataScrapping from "./components/webScrappedData/AutoRunPython";
+import LogoFetcher from "./components/webScrappedData/ForeignCompanyLogo";
 import "./App.scss";
 function App() {
   const location = useLocation();
@@ -34,7 +34,7 @@ function App() {
             <Route path="/helpcenter" element={<HelpCenter />} />
             <Route path="/about" element={<About />} />
             <Route path="/contactus" element={<ContactUs />} />
-            <Route path="/run" element={<PythonDataScrapping />} />
+            <Route path="/logofetcher" element={<LogoFetcher />} />
             {/* Auth Pages - Public */}
             <Route path="/login" element={<AuthPage />} />
             <Route path="/register" element={<AuthPage />} />
