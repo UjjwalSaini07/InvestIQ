@@ -42,11 +42,22 @@ def fetch_stock_data(ticker, exchange):
         if high_low and ' / ' in high_low:
             high, low = map(parse_numeric, high_low.split(' / '))
 
+        # Fetch Previous Close data from Google Finance
+        google_finance_url = f'https://www.google.com/finance/quote/{ticker}:{exchange}'
+        google_response = requests.get(google_finance_url)
+        google_soup = BeautifulSoup(google_response.text, 'html.parser')
+        previous_close = None
+
+        previous_close_element = google_soup.select_one("div.gyFHrc div.P6K39c")
+        if previous_close_element:
+            previous_close = parse_numeric(previous_close_element.text)
+
         return {
             "ticker": ticker,
             "exchange": exchange,
             "market_cap": parse_numeric(market_cap),
             "current_price": parse_numeric(current_price),
+            "previous_close": previous_close,
             "high": high,
             "low": low,
             "stock_pe": parse_numeric(stock_pe),
@@ -84,7 +95,7 @@ for i in range(0, len(tickers), batch_size):
     batch_data = []
 
     for ticker in batch:
-        if ticker not in fetched_tickers:  # Skip tickers- already fetched
+        if ticker not in fetched_tickers:  # Skip tickers already fetched
             stock_data = fetch_stock_data(ticker, "NSE")
             batch_data.append(stock_data)
             fetched_tickers.add(ticker)
