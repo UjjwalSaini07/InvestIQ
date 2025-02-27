@@ -9,11 +9,11 @@ const Tabs = ({ coins, setSearch }) => {
   const [activeView, setActiveView] = useState("grid");
 
   const mainTabStyle = (tab) =>
-  `px-8 py-3 text-base font-medium rounded-t-lg transition-all duration-300 ${
-    activeTab === tab
-      ? "bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg"
-      : "bg-black text-gray-300 hover:bg-gray-600 hover:text-white"
-  }`;
+    `px-8 py-3 text-base font-medium rounded-t-lg transition-all duration-300 ${
+      activeTab === tab
+        ? "bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg"
+        : "bg-black text-gray-300 hover:bg-gray-600 hover:text-white"
+    }`;
 
   const viewTabStyle = (view) =>
     `px-4 py-2 text-sm font-semibold ${
