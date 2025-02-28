@@ -10,6 +10,9 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # Path to the ticker JSON file
 ticker_file_path = os.path.join(current_dir, 'IndianStockTicker.json')
 
+# Path to the output JSON file
+output_file = os.path.join(current_dir, 'StocksData.json')
+
 def fetch_stock_data(ticker, exchange):
     url = f'https://www.screener.in/company/{ticker}/'
     response = requests.get(url)
@@ -70,13 +73,15 @@ def fetch_stock_data(ticker, exchange):
     except Exception as e:
         return {"error": f"Failed to parse stock data: {e}"}
 
-with open(ticker_file_path, 'r') as ticker_file:
-    tickers = json.load(ticker_file)
+# Load tickers from file
+try:
+    with open(ticker_file_path, 'r') as ticker_file:
+        tickers = json.load(ticker_file)
+except Exception as e:
+    print(f"Error loading ticker file: {e}")
+    tickers = []
 
-batch_size = 20
-output_file = os.path.join(current_dir, 'StocksData.json')
-
-# Initialize the stock data list or handle an empty/invalid JSON file
+# Load existing data from the JSON file if it exists
 if os.path.exists(output_file) and os.path.getsize(output_file) > 0:
     try:
         with open(output_file, 'r') as json_file:
@@ -86,8 +91,10 @@ if os.path.exists(output_file) and os.path.getsize(output_file) > 0:
 else:
     all_stock_data = []
 
-# Track already fetched tickers
-fetched_tickers = {stock['ticker'] for stock in all_stock_data if 'ticker' in stock}
+# Create a dictionary for quick lookup of existing data by ticker
+existing_data = {stock["ticker"]: stock for stock in all_stock_data}
+
+batch_size = 20
 
 # Fetch data in batches
 for i in range(0, len(tickers), batch_size):
@@ -95,16 +102,17 @@ for i in range(0, len(tickers), batch_size):
     batch_data = []
 
     for ticker in batch:
-        if ticker not in fetched_tickers:  # Skip tickers already fetched
-            stock_data = fetch_stock_data(ticker, "NSE")
-            batch_data.append(stock_data)
-            fetched_tickers.add(ticker)
-            time.sleep(2)  # Delay to avoid rate limits
+        stock_data = fetch_stock_data(ticker, "NSE")
+        if "error" not in stock_data:
+            # Overwrite existing data for the same ticker
+            existing_data[ticker] = stock_data
+        batch_data.append(stock_data)
+        time.sleep(2)  # Delay to avoid rate limits
 
-    # Append new batch data to the main list
-    all_stock_data.extend(batch_data)
-
+    # Write updated data to the JSON file after every batch
     with open(output_file, 'w') as json_file:
-        json.dump(all_stock_data, json_file, indent=4)
+        json.dump(list(existing_data.values()), json_file, indent=4)
 
-print(f"All stock data saved to {output_file}")
+    print(f"Batch {i // batch_size + 1} processed")
+
+print(f"All stock data updated in {output_file}")
