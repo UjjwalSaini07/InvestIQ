@@ -12,6 +12,7 @@ const versionHandler = require("./middlewares/versionHandler.js");
 const UniversalRateLimiter = require("./middlewares/rate-limitter.js");
 const path = require("path");
 const { spawn } = require("child_process");
+const schedule = require("node-schedule");
 
 // Load environment variables
 dotenv.config({ path: '../.env' });
@@ -65,7 +66,33 @@ const runPythonScript = () => {
     });
 };
 
-// Endpoint to run the Python script
+// Schedule the script to run automatically
+const schedulePythonScript = () => {
+    const rule = new schedule.RecurrenceRule();
+    rule.dayOfWeek = [new schedule.Range(1, 5)]; // Monday to Friday
+    rule.hour = [new schedule.Range(9, 15)]; // From 9 AM to 3 PM
+    rule.minute = [0, 15, 30, 45]; // Every 15 minutes
+
+    schedule.scheduleJob(rule, async () => {
+        const now = new Date();
+        const startTime = new Date(now.setHours(9, 30, 0, 0)); // 9:30 AM
+        const endTime = new Date(now.setHours(15, 30, 0, 0)); // 3:30 PM
+
+        if (now >= startTime && now <= endTime) {
+            try {
+                console.log("Running Python script at:", new Date().toLocaleString());
+                await runPythonScript();
+            } catch (err) {
+                console.error("Error executing Python script:", err);
+            }
+        }
+    });
+};
+
+// Start the scheduler
+schedulePythonScript();
+
+// Endpoint to run the Python script manually
 app.get('/api/v1/run-script', async (req, res) => {
     try {
         await runPythonScript();
