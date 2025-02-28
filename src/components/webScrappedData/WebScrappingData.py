@@ -115,4 +115,4 @@ for i in range(0, len(tickers), batch_size):
 
     print(f"Batch {i // batch_size + 1} processed")
 
-print(f"All stock data updated in {output_file}")
+print(f"All stock data updated")
