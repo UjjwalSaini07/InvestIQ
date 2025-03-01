@@ -20,7 +20,7 @@ function GridView({ stock, delay }) {
       const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
       const filteredWatchlist = updatedWatchlist.filter((id) => id !== stock.ticker);
       localStorage.setItem("watchlist", JSON.stringify(filteredWatchlist));
-      setIsCoinAdded(false);
+      setIsStockAdded(false);
     } else {
       saveItemToWatchlist(e, stock.ticker);
       const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
@@ -156,7 +156,10 @@ function StockGrid() {
   const [stocks, setStocks] = useState([]);
 
   useEffect(() => {
-    setStocks(stockData);
+    // Assuming stockData has a format of { StockData: [{}] }
+    if (stockData && stockData.StockData) {
+      setStocks(stockData.StockData);
+    }
   }, []);
 
   return (

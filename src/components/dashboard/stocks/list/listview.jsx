@@ -22,7 +22,7 @@ function ListView({ stock, delay }) {
         (id) => id !== stock.ticker
       );
       localStorage.setItem("watchlist", JSON.stringify(filteredWatchlist));
-      setIsCoinAdded(false);
+      setIsStockAdded(false);
     } else {
       saveItemToWatchlist(e, stock.ticker);
       const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
@@ -147,7 +147,10 @@ function StockList() {
   const [stocks, setStocks] = useState([]);
 
   useEffect(() => {
-    setStocks(stockData);
+    // Assuming stockData has a format of { StockData: [{}] }
+    if (stockData && stockData.StockData) {
+      setStocks(stockData.StockData);
+    }
   }, []);
 
   return (
