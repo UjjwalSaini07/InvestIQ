@@ -85,7 +85,7 @@ except Exception as e:
 if os.path.exists(output_file) and os.path.getsize(output_file) > 0:
     try:
         with open(output_file, 'r') as json_file:
-            all_stock_data = json.load(json_file)
+            all_stock_data = json.load(json_file).get("StockData", [])
     except json.JSONDecodeError:
         all_stock_data = []
 else:
@@ -111,7 +111,7 @@ for i in range(0, len(tickers), batch_size):
 
     # Write updated data to the JSON file after every batch
     with open(output_file, 'w') as json_file:
-        json.dump(list(existing_data.values()), json_file, indent=4)
+        json.dump({"StockData": list(existing_data.values())}, json_file, indent=4)
 
     print(f"Batch {i // batch_size + 1} processed")
 
