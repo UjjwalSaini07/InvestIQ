@@ -83,7 +83,7 @@ function ListView({ coin, delay }) {
             coin.price_change_percentage_24h >= 0 ? "text-green-500" : "text-red-500"
           }`}
         >
-          ${coin.current_price.toLocaleString()}
+          ₹{coin.current_price.toLocaleString()}
         </p>
 
         {/* Volume and Market Cap */}
@@ -94,7 +94,7 @@ function ListView({ coin, delay }) {
           </p>
           <p className="text-sm text-gray-400 mb-1">
             Market Cap:{" "}
-            <span className="text-white">${coin.market_cap.toLocaleString()}</span>
+            <span className="text-white">₹{coin.market_cap.toLocaleString()}</span>
           </p>
         </div>
 
