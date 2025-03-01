@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import stockData from "../../../webScrappedData/StocksData.json";
 import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
 
@@ -143,23 +142,5 @@ function ListView({ stock, delay }) {
   );
 }
 
-function StockList() {
-  const [stocks, setStocks] = useState([]);
-
-  useEffect(() => {
-    // Assuming stockData has a format of { StockData: [{}] }
-    if (stockData && stockData.StockData) {
-      setStocks(stockData.StockData);
-    }
-  }, []);
-
-  return (
-    <div className="flex flex-col gap-4 p-6">
-      {stocks.map((stock, index) => (
-        <ListView key={stock.ticker} stock={stock} delay={index * 0.1} />
-      ))}
-    </div>
-  );
-}
-
-export default StockList;
+export default ListView
+;
