@@ -4,7 +4,7 @@ import ListCrypto from "../../crypto/list/listview";
 import GridStock from "../../stocks/grid/gridview";
 import ListStock from "../../stocks/list/listview";
 
-const Tabs = ({ coins, setSearch }) => {
+const Tabs = ({ coins, stocks, setSearch }) => {
   const [activeTab, setActiveTab] = useState("crypto");
   const [activeView, setActiveView] = useState("grid");
 
@@ -105,9 +105,9 @@ const Tabs = ({ coins, setSearch }) => {
 
         {activeTab === "stock" && activeView === "grid" && (
           <div className="flex flex-wrap justify-center items-start gap-4 w-full">
-            {coins.length > 0 ? (
-              coins.map((coin, i) => (
-                <GridStock coin={coin} key={i} delay={(i % 4) * 0.2} />
+            {stocks.length > 0 ? (
+              stocks.map((stock, i) => (
+                <GridStock stock={stock} key={i} delay={(i % 4) * 0.2} />
               ))
             ) : (
               <div>
@@ -129,9 +129,9 @@ const Tabs = ({ coins, setSearch }) => {
 
         {activeTab === "stock" && activeView === "list" && (
           <div className="w-11/12 mx-auto">
-            {coins.length > 0 ? (
-              coins.map((coin, i) => (
-                <ListStock coin={coin} key={i} delay={(i % 8) * 0.2} />
+            {stocks.length > 0 ? (
+              stocks.map((stock, i) => (
+                <ListStock stock={stock} key={i} delay={(i % 8) * 0.2} />
               ))
             ) : (
               <div>
