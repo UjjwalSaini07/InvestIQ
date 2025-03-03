@@ -37,7 +37,7 @@ function ListView({ stock, delay }) {
   ).toFixed(2);
 
   return (
-    <a href={`/coin/${stock.ticker}`} className="block group">
+    <a href={`/coin/${stock.ticker}`} className="block group mb-3">
       <motion.div
         className={`relative grid grid-cols-12 items-center w-full p-6 bg-black rounded-2xl shadow-lg transition-transform duration-300 group-hover:scale-105 border-2 ${
           percentageChange >= 0
@@ -61,7 +61,7 @@ function ListView({ stock, delay }) {
           <p className="text-sm text-gray-400">{stock.exchange}</p>
         </div>
 
-        <div className="flex items-center gap-1 -ml-14">
+        <div className="flex items-center gap-3 -ml-14">
           <div
             className={`px-4 py-1 rounded-full font-semibold text-sm ${
               percentageChange >= 0
@@ -70,6 +70,15 @@ function ListView({ stock, delay }) {
             }`}
           >
             {percentageChange}%
+          </div>
+          <div
+            className={`flex items-center justify-center w-8 h-8 rounded-full ${
+              percentageChange >= 0
+                ? "text-green-500 bg-green-500/10 group-hover:bg-green-500 group-hover:text-white"
+                : "text-red-500 bg-red-500/10 group-hover:bg-red-500 group-hover:text-white"
+            } transition-colors duration-300 mb-1`}
+          >
+            {percentageChange >= 0 ? "↑" : "↓"}
           </div>
         </div>
 
