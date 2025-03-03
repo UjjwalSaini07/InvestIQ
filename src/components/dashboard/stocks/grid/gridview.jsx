@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import stockData from "../../../webScrappedData/StocksData.json";
 import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
 
@@ -152,23 +151,4 @@ function GridView({ stock, delay }) {
   );
 }
 
-function StockGrid() {
-  const [stocks, setStocks] = useState([]);
-
-  useEffect(() => {
-    // Assuming stockData has a format of { StockData: [{}] }
-    if (stockData && stockData.StockData) {
-      setStocks(stockData.StockData);
-    }
-  }, []);
-
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 p-6">
-      {stocks.map((stock, index) => (
-        <GridView key={stock.ticker} stock={stock} delay={index * 0.1} />
-      ))}
-    </div>
-  );
-}
-
-export default StockGrid;
+export default GridView;

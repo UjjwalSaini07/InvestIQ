@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 import { Button } from "../@/ui/button";
 import TabsComponent from "../components/dashboard/common/tabs/tabcomponent";
 import { get100Coins } from "../components/functions/get100Coins";
+import Stockjson from "../components/webScrappedData/StocksData.json";
 
 function Watchlist() {
   const watchlist = JSON.parse(localStorage.getItem("watchlist"));
   const [coins, setCoins] = useState([]);
+  const [stocks, setStocks] = useState([]);
 
   useEffect(() => {
     if (watchlist) {
       getData();
+      getStocks();
     }
   }, []);
 
@@ -20,7 +23,13 @@ function Watchlist() {
       setCoins(allCoins.filter((coin) => watchlist.includes(coin.id)));
     }
   };
-
+  const getStocks = async () => {
+    const allStocks = Stockjson.StockData;
+    if (allStocks) {
+      setStocks(allStocks.filter((stock) => watchlist.includes(stock.ticker)));
+    }
+  };
+  console.log(stocks);
   return (
     <div className="min-h-screen">
       {watchlist?.length > 0 ? (
@@ -28,7 +37,7 @@ function Watchlist() {
           <h1 className="text-2xl font-semibold text-center mb-4">
             Your Watchlist
           </h1>
-          <TabsComponent coins={coins} />
+          <TabsComponent coins={coins} stocks={stocks}/>
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center h-full">
