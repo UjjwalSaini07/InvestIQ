@@ -99,7 +99,7 @@ export default function GlobalInflationMap() {
         <LegendCheckBox/>
         <ReactTooltip
           id="map-tooltip"
-          place="top"
+          place="bottom"
           effect="solid"
           className="bg-gray-800 text-white rounded-md px-2 py-1 text-sm"
           arrowColor="#000"
