@@ -6,6 +6,30 @@ import CountryData from "./countryData.json";
 
 const GEO_JSON_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
+const LegendCheckBox = () => {
+  const legendItems = [
+    { label: "Less than 0%", color: "bg-[#33261a]" },
+    { label: "0-3%", color: "bg-[#593a1b]" },
+    { label: "3-7%", color: "bg-[#8c541c]" },
+    { label: "7-12%", color: "bg-[#cc7014]" },
+    { label: "12-25%", color: "bg-[#e57e17]" },
+    { label: "More than 25%", color: "bg-[#ff9100]" },
+  ];
+
+  return (
+    <div className="flex justify-center items-center -mb-4">
+      <div className="flex text-center space-x-4 bg-black p-4 rounded-md">
+        {legendItems.map((item, index) => (
+          <div key={index} className="flex items-center space-x-2">
+            <div className={`w-4 h-4 ${item.color} rounded-sm`}></div>
+            <span className="text-sm text-gray-400">{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default function GlobalInflationMap() {
   const [tooltipContent, setTooltipContent] = useState("");
 
@@ -72,6 +96,7 @@ export default function GlobalInflationMap() {
             }
           </Geographies>
         </ComposableMap>
+        <LegendCheckBox/>
         <ReactTooltip
           id="map-tooltip"
           place="top"
