@@ -39,7 +39,7 @@ export default function GlobalInflationMap() {
 
   const colorScale = scaleQuantile()
     .domain(CountryData.map((d) => d.yearly_rate_pct))
-    .range(["#593a1b", "#8c541c", "#593a1b", "#8c541c", "#cc7014", "#ff9100"]);
+    .range(["#33261a", "#593a1b", "#8c541c", "#cc7014", "#e57e17", "#ff9100"]);
 
   return (
     <div className="bg-black text-white -mt-14 mb-14 flex flex-col items-center">
