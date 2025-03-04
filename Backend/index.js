@@ -71,7 +71,8 @@ const schedulePythonScript = () => {
     const rule = new schedule.RecurrenceRule();
     rule.dayOfWeek = [new schedule.Range(1, 5)]; // Monday to Friday
     rule.hour = [new schedule.Range(9, 15)]; // From 9 AM to 3 PM
-    rule.minute = [0, 15, 30, 45]; // Every 15 minutes
+    rule.minute = [0, 10, 20, 30, 40, 50]; // Every 10 minutes
+    // rule.minute = [0, 15, 30, 45]; // Every 15 minutes
 
     schedule.scheduleJob(rule, async () => {
         const now = new Date();
