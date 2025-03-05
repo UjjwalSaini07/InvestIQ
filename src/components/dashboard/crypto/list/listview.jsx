@@ -69,8 +69,8 @@ function ListView({ coin, delay }) {
           <div
             className={`flex items-center justify-center w-8 h-8 rounded-full ${
               coin.price_change_percentage_24h >= 0
-                ? "text-green-500 bg-green-500/10 group-hover:bg-green-500"
-                : "text-red-500 bg-red-500/10 group-hover:bg-red-500"
+                ? "text-green-500 bg-green-500/10 group-hover:bg-green-500 group-hover:text-white"
+                : "text-red-500 bg-red-500/10 group-hover:bg-red-500 group-hover:text-white"
             } transition-colors duration-300 mb-1`}
           >
             {coin.price_change_percentage_24h >= 0 ? "↑" : "↓"}
@@ -83,7 +83,7 @@ function ListView({ coin, delay }) {
             coin.price_change_percentage_24h >= 0 ? "text-green-500" : "text-red-500"
           }`}
         >
-          ${coin.current_price.toLocaleString()}
+          ₹{coin.current_price.toLocaleString()}
         </p>
 
         {/* Volume and Market Cap */}
@@ -94,7 +94,7 @@ function ListView({ coin, delay }) {
           </p>
           <p className="text-sm text-gray-400 mb-1">
             Market Cap:{" "}
-            <span className="text-white">${coin.market_cap.toLocaleString()}</span>
+            <span className="text-white">₹{coin.market_cap.toLocaleString()}</span>
           </p>
         </div>
 

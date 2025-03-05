@@ -88,7 +88,8 @@ const TradingPatterns = () => {
   }, [currentIndex, startIndex]);
 
   return (
-    <div className="bg-black text-white flex items-center justify-center p-8 mb-8">
+    <div className="bg-black text-white flex flex-col items-center justify-center p-8 mb-8">
+      <h1 className="text-5xl font-bold -mt-7 mb-5 tracking-wide">Trading CandleStick Patterns</h1>
       <div className="border border-grey-500 rounded-2xl w-[95%] h-[600px] relative bg-opacity-0">
         <div className="flex h-full">
           <div className="w-5/8 p-8 space-y-6 overflow-hidden">

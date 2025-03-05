@@ -88,7 +88,7 @@ const Footer = () => {
           {[
             { text: "Compare", href: "/compare" },
             { text: "Chat with Bot", href: "/chatwithbot" },
-            { text: "Calculations Tools", href: "/tools" },
+            { text: "Finance Tools", href: "/tools" },
           ].map((item, index) => (
             <li key={index} className="mb-3">
               <a

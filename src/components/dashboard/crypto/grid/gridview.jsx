@@ -103,7 +103,7 @@ function GridView({ coin, delay }) {
 
         {/* Current Price */}
         <p className="text-xl font-bold text-white">
-          ${coin.current_price.toLocaleString()}
+          ₹ {coin.current_price.toLocaleString()}
         </p>
 
         {/* Volume and Market Cap */}
@@ -112,7 +112,7 @@ function GridView({ coin, delay }) {
         </p>
         <p className="text-gray-400 text-sm">
           Market Capital:{" "}
-          <span className="text-white">${coin.market_cap.toLocaleString()}</span>
+          <span className="text-white">₹{coin.market_cap.toLocaleString()}</span>
         </p>
       </motion.div>
     </a>
