@@ -15,6 +15,7 @@ import ProtectedRoute from "./components/utils/ProtectedRoutes";
 import { useSelector } from "react-redux";
 import Error404 from "./components/common/Error404";
 import LogoFetcher from "./components/webScrappedData/ForeignCompanyLogo";
+import Tools from "./components/FinanceTools/FinanceTools";
 import "./App.scss";
 function App() {
   const location = useLocation();
@@ -35,6 +36,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/logofetcher" element={<LogoFetcher />} />
+            <Route path="/tools" element={<Tools />} />
             {/* Auth Pages - Public */}
             <Route path="/login" element={<AuthPage />} />
             <Route path="/register" element={<AuthPage />} />
