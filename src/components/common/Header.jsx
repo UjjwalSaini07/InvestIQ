@@ -149,6 +149,14 @@ function Header() {
               )}
               <li>
                 <a
+                  href="/tools"
+                  className="block text-black text-base hover:text-blue-500 transition"
+                >
+                  Finance Tools
+                </a>
+              </li>
+              <li>
+                <a
                   href="/contactus"
                   className="block text-black text-base hover:text-blue-500 transition"
                 >
