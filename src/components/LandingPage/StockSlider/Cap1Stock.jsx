@@ -20,12 +20,12 @@ const Cap1Stock = () => {
     },
     {
       name: "Bharti Airtel",
-      ticker: "AIRTEL",
+      ticker: "BHARTIARTL",
       logo: "https://w1.pngwing.com/pngs/751/393/png-transparent-india-business-bharti-airtel-logo-mobile-phones-quiz-directtohome-television-in-india-mobile-service-provider-company-airtel-tanzania-thumbnail.png",
     },
     {
       name: "ICICI Bank",
-      ticker: "ICICI",
+      ticker: "ICICIBANK",
       logo: "https://w1.pngwing.com/pngs/670/83/png-transparent-india-design-icici-bank-icici-bank-canada-mobile-banking-privatesector-banks-in-india-finance-icici-prudential-mutual-fund-recurring-deposit.png",
     },
     {
