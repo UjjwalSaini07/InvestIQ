@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "../../@/ui/button";
+import { Button } from "../ui/button";
 import video1 from "../../assets/Landing/Home2Compo/TradeVidColorShift.mp4";
 import video2 from "../../assets/Landing/Home2Compo/Trade2.mp4";
 import { PiNumberOneBold, PiNumberTwoBold, PiNumberThreeBold, PiNumberFourBold, PiNumberFiveBold, PiNumberSixBold, } from "react-icons/pi";

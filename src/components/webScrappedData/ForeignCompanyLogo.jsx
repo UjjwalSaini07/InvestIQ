@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Input } from "../../@/ui/input";
-import { Button } from "../../@/ui/button";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 
 const ForeignCompanyLogo = () => {
   const [ticker, setTicker] = useState("");

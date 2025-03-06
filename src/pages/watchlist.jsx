@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "../@/ui/button";
+import { Button } from "../components/ui/button";
 import TabsComponent from "../components/dashboard/common/tabs/tabcomponent";
 import { get100Coins } from "../components/functions/get100Coins";
 import Stockjson from "../components/webScrappedData/StocksData.json";

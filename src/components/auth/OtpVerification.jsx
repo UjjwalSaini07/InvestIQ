@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ArrowLeft } from "lucide-react";
-import { Card, CardContent } from "../../@/ui/card";
-import { Button } from "../../@/ui/button";
-import { Input } from "../../@/ui/input";
+import { Card, CardContent } from "../ui/card";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 import { verifyOtp } from "../utils/authSlice";
 import Logo from "../../assets/Logo.png";
 
