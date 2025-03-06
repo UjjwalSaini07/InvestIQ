@@ -10,9 +10,10 @@ const { corsOptions } = require("./config/cors");
 const globalErrorHandler = require("./middlewares/globalErrorHandler.js");
 const versionHandler = require("./middlewares/versionHandler.js");
 const UniversalRateLimiter = require("./middlewares/rate-limitter.js");
+const schedule = require("node-schedule");
 const path = require("path");
 const { spawn } = require("child_process");
-const schedule = require("node-schedule");
+const Stock = require("./models/stocks.model.js");
 
 // Load environment variables
 dotenv.config({ path: '../.env' });
@@ -72,7 +73,6 @@ const schedulePythonScript = () => {
     rule.dayOfWeek = [new schedule.Range(1, 5)]; // Monday to Friday
     rule.hour = [new schedule.Range(9, 15)]; // From 9 AM to 3 PM
     rule.minute = [0, 10, 20, 30, 40, 50]; // Every 10 minutes
-    // rule.minute = [0, 15, 30, 45]; // Every 15 minutes
 
     schedule.scheduleJob(rule, async () => {
         const now = new Date();
@@ -100,6 +100,17 @@ app.get('/api/v1/run-script', async (req, res) => {
         res.json({ success: true, message: 'Python script executed successfully.' });
     } catch (err) {
         res.json({ success: false, error: err.message });
+    }
+});
+
+// API Route to Fetch Stocks
+app.get('/api/v1/fetchStocksData', async (req, res) => {
+    try {
+        res.setHeader("Cache-Control", "no-store");
+        const stocks = await Stock.find({}, { ticker: 1, current_price: 1, _id: 0 });
+        res.json(stocks);
+    } catch (error) {
+        res.status(500).json({ error: "Failed to fetch stocks" });
     }
 });
 
