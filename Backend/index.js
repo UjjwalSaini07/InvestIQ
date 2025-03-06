@@ -107,9 +107,28 @@ app.get('/api/v1/run-script', async (req, res) => {
 app.get('/api/v1/fetchStocksData', async (req, res) => {
     try {
         res.setHeader("Cache-Control", "no-store");
-        const stocks = await Stock.find({}, { ticker: 1, current_price: 1, _id: 0 });
-        res.json(stocks);
+
+        const stocks = await Stock.find({}, { 
+            ticker: 1, 
+            current_price: 1, 
+            dividend_yield: 1, 
+            exchange: 1, 
+            face_value: 1, 
+            high: 1, 
+            low: 1, 
+            market_cap: 1, 
+            previous_close: 1, 
+            _id: 0 
+        });
+
+        if (!stocks || stocks.length === 0) {
+            console.warn("No stock data available in the database.");
+            return res.status(404).json({ error: "No stock data available." });
+        }
+
+        res.status(200).json(stocks);
     } catch (error) {
+        console.error("Error fetching stock data:", error);
         res.status(500).json({ error: "Failed to fetch stocks" });
     }
 });
