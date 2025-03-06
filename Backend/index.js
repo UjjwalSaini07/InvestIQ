@@ -46,7 +46,8 @@ app.use("/api/v1/auth", AuthRoutes);
 // Function to run the Python script
 const runPythonScript = () => {
     return new Promise((resolve, reject) => {
-        const scriptPath = path.resolve(__dirname, '../src/components/webScrappedData/WebScrappingData.py');
+        // const scriptPath = path.resolve(__dirname, '../src/components/webScrappedData/WebScrappingData.py'); //!Frontend Load
+        const scriptPath = path.resolve(__dirname, './utlis/ScrapedData/DataWebScrapping.py'); //!Backend Load
         const process = spawn('python', [scriptPath]);
 
         process.stdout.on('data', (data) => {
