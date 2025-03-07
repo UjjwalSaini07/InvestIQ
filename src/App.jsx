@@ -14,7 +14,8 @@ import Dashboard from "./pages/dashboard";
 import ProtectedRoute from "./components/utils/ProtectedRoutes";
 import { useSelector } from "react-redux";
 import Error404 from "./components/common/Error404";
-import LogoFetcher from "./components/webScrappedData/ForeignCompanyLogo";
+import LogoFetcher from "./components/extra/ForeignCompanyLogo";
+import StockFetcher from "./components/extra/FetchingStockData";
 import Tools from "./components/FinanceTools/FinanceTools";
 import "./App.scss";
 function App() {
@@ -36,6 +37,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/logofetcher" element={<LogoFetcher />} />
+            <Route path="/stockfetcher" element={<StockFetcher />} />
             <Route path="/tools" element={<Tools />} />
             {/* Auth Pages - Public */}
             <Route path="/login" element={<AuthPage />} />
