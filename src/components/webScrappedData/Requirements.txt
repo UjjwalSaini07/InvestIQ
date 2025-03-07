@@ -1,8 +1,0 @@
-python.exe -m pip install --upgrade pip
-
-pip install json
-pip install time
-pip install os
-pip install requests
-pip install beautifulsoup4
-pip install pymongo
