@@ -10,9 +10,10 @@ const { corsOptions } = require("./config/cors");
 const globalErrorHandler = require("./middlewares/globalErrorHandler.js");
 const versionHandler = require("./middlewares/versionHandler.js");
 const UniversalRateLimiter = require("./middlewares/rate-limitter.js");
+const schedule = require("node-schedule");
 const path = require("path");
 const { spawn } = require("child_process");
-const schedule = require("node-schedule");
+const Stock = require("./models/stocks.model.js");
 
 // Load environment variables
 dotenv.config({ path: '../.env' });
@@ -45,7 +46,8 @@ app.use("/api/v1/auth", AuthRoutes);
 // Function to run the Python script
 const runPythonScript = () => {
     return new Promise((resolve, reject) => {
-        const scriptPath = path.resolve(__dirname, '../src/components/webScrappedData/WebScrappingData.py');
+        // const scriptPath = path.resolve(__dirname, '../src/components/webScrappedData/WebScrappingData.py'); //!Frontend Load
+        const scriptPath = path.resolve(__dirname, './utlis/ScrapedData/DataWebScrapping.py'); //!Backend Load
         const process = spawn('python', [scriptPath]);
 
         process.stdout.on('data', (data) => {
@@ -72,7 +74,6 @@ const schedulePythonScript = () => {
     rule.dayOfWeek = [new schedule.Range(1, 5)]; // Monday to Friday
     rule.hour = [new schedule.Range(9, 15)]; // From 9 AM to 3 PM
     rule.minute = [0, 10, 20, 30, 40, 50]; // Every 10 minutes
-    // rule.minute = [0, 15, 30, 45]; // Every 15 minutes
 
     schedule.scheduleJob(rule, async () => {
         const now = new Date();
@@ -100,6 +101,36 @@ app.get('/api/v1/run-script', async (req, res) => {
         res.json({ success: true, message: 'Python script executed successfully.' });
     } catch (err) {
         res.json({ success: false, error: err.message });
+    }
+});
+
+// API Route to Fetch Stocks
+app.get('/api/v1/fetchStocksData', async (req, res) => {
+    try {
+        res.setHeader("Cache-Control", "no-store");
+
+        const stocks = await Stock.find({}, { 
+            ticker: 1, 
+            current_price: 1, 
+            dividend_yield: 1, 
+            exchange: 1, 
+            face_value: 1, 
+            high: 1, 
+            low: 1, 
+            market_cap: 1, 
+            previous_close: 1, 
+            _id: 0 
+        });
+
+        if (!stocks || stocks.length === 0) {
+            console.warn("No stock data available in the database.");
+            return res.status(404).json({ error: "No stock data available." });
+        }
+
+        res.status(200).json(stocks);
+    } catch (error) {
+        console.error("Error fetching stock data:", error);
+        res.status(500).json({ error: "Failed to fetch stocks" });
     }
 });
 

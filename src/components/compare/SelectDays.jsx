@@ -1,5 +1,5 @@
 import React from "react";
-import { Select, SelectTrigger, SelectContent, SelectItem } from "../../@/ui/select";
+import { Select, SelectTrigger, SelectContent, SelectItem } from "../ui/select";
 
 function SelectDays({ days, handleDaysChange, noPTag }) {
   const options = [

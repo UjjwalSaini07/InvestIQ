@@ -4,7 +4,6 @@ import Loader from "../common/Loader";
 import Search from "./common/search/searchbar";
 import TabsComponent from "./common/tabs/tabcomponent";
 import PaginationControlled from "./common/pagination/pagination";
-import StocksInfo from "../webScrappedData/StocksData.json";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -30,7 +29,7 @@ function CryptoStockDashboard() {
       setCoins(response.data);
     } catch (error) {
       console.error("Error fetching data:", error.message);
-      setError("Failed to fetch data. Please try again later.");
+      setError("Failed to fetch Crypto data. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -39,12 +38,13 @@ function CryptoStockDashboard() {
   const getStocks = async () => {
     setLoading(true);
     try {
-      setStocks(StocksInfo.StockData);
+      const response = await axios.get('http://localhost:5000/api/v1/fetchStocksData');
+      setStocks(response.data);
     } catch (error) {
-      console.error("Error fetching data:", error.message);
-      setError("Failed to fetch data. Please try again later.");
+        console.error("Error fetching stocks:", error);
+        setError("Failed to fetch stocks data. Please try again later...");
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
   };
 

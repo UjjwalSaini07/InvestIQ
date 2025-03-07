@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet";
 import CryptoStockDashboard from "../components/dashboard/cryptostockdashboard";
 
 function Dashboard() {
@@ -8,6 +9,8 @@ function Dashboard() {
   const hasShownToast = useRef(false);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasShownToast.current) {
@@ -40,10 +43,15 @@ function Dashboard() {
   }, []);
 
   return (
-    <main ref={dashboardRef}>
-      <ToastContainer />
-      <CryptoStockDashboard />
-    </main>
+    <>
+      <Helmet>
+        <title>Dashboard | InvestIQ</title>
+      </Helmet>
+      <main ref={dashboardRef}>
+        <ToastContainer />
+        <CryptoStockDashboard />
+      </main>
+    </>
   );
 }
 

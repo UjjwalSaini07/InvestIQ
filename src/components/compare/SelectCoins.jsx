@@ -1,5 +1,5 @@
 import React from "react";
-import { Select, SelectTrigger, SelectContent, SelectItem } from "../../@/ui/select";
+import { Select, SelectTrigger, SelectContent, SelectItem } from "../ui/select";
 import SelectDays from "./SelectDays";
 
 function SelectCoins({ allCoins, crypto1, crypto2, onCoinChange, days, handleDaysChange }) {

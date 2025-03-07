@@ -3,15 +3,19 @@ from bs4 import BeautifulSoup
 import json
 import time
 import os
+from pymongo import MongoClient
 
-# Get the absolute path of the current script
+# MongoDB Configuration
+MONGO_URI = "mongodb://localhost:27017/"
+DB_NAME = "investiqdb"
+COLLECTION_NAME = "Stocks"
+
+# Connect to MongoDB
+client = MongoClient(MONGO_URI)
+db = client[DB_NAME]
+collection = db[COLLECTION_NAME]
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Path to the ticker JSON file
-ticker_file_path = os.path.join(current_dir, 'IndianStockTicker.json')
-
-# Path to the output JSON file
-output_file = os.path.join(current_dir, 'StocksData.json')
 
 def fetch_stock_data(ticker, exchange):
     url = f'https://www.screener.in/company/{ticker}/'
@@ -74,6 +78,8 @@ def fetch_stock_data(ticker, exchange):
         return {"error": f"Failed to parse stock data: {e}"}
 
 # Load tickers from file
+ticker_file_path = os.path.join(current_dir, 'IndianStockTicker.json')
+
 try:
     with open(ticker_file_path, 'r') as ticker_file:
         tickers = json.load(ticker_file)
@@ -81,38 +87,25 @@ except Exception as e:
     print(f"Error loading ticker file: {e}")
     tickers = []
 
-# Load existing data from the JSON file if it exists
-if os.path.exists(output_file) and os.path.getsize(output_file) > 0:
-    try:
-        with open(output_file, 'r') as json_file:
-            all_stock_data = json.load(json_file).get("StockData", [])
-    except json.JSONDecodeError:
-        all_stock_data = []
-else:
-    all_stock_data = []
-
-# Create a dictionary for quick lookup of existing data by ticker
-existing_data = {stock["ticker"]: stock for stock in all_stock_data}
-
 batch_size = 20
 
 # Fetch data in batches
 for i in range(0, len(tickers), batch_size):
     batch = tickers[i:i + batch_size]
-    batch_data = []
 
     for ticker in batch:
         stock_data = fetch_stock_data(ticker, "NSE")
         if "error" not in stock_data:
-            # Overwrite existing data for the same ticker
-            existing_data[ticker] = stock_data
-        batch_data.append(stock_data)
+            collection.update_one(
+                {"ticker": stock_data["ticker"]},  # Find document by ticker
+                {"$set": stock_data},  # Update with new data
+                upsert=True  # Insert if not found
+            )
         time.sleep(2)  # Delay to avoid rate limits
-
-    # Write updated data to the JSON file after every batch
-    with open(output_file, 'w') as json_file:
-        json.dump({"StockData": list(existing_data.values())}, json_file, indent=4)
 
     print(f"Batch {i // batch_size + 1} processed")
 
-print(f"All stock data updated")
+print("All stock data updated in MongoDB.")
+
+# Close MongoDB connection
+client.close()
