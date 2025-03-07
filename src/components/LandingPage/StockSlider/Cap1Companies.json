@@ -1,0 +1,127 @@
+[
+  {
+    "name": "Reliance Industries",
+    "ticker": "RELIANCE",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsOc0_P4Ll-ExcqUit4R0aLHcto-3hbsoPWw&s"
+  },
+  {
+    "name": "Tata Consultancy Services",
+    "ticker": "TCS",
+    "logo": "https://companieslogo.com/img/orig/TCS.NS-7401f1bd.png?t=1720244494"
+  },
+  {
+    "name": "HDFC Bank",
+    "ticker": "HDFC",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNoQMLUXxpQbDeMQ_RUh-jjYxMqRR0xqfC-g&s"
+  },
+  {
+    "name": "Bharti Airtel",
+    "ticker": "BHARTIARTL",
+    "logo": "https://w1.pngwing.com/pngs/751/393/png-transparent-india-business-bharti-airtel-logo-mobile-phones-quiz-directtohome-television-in-india-mobile-service-provider-company-airtel-tanzania-thumbnail.png"
+  },
+  {
+    "name": "ICICI Bank",
+    "ticker": "ICICIBANK",
+    "logo": "https://w1.pngwing.com/pngs/670/83/png-transparent-india-design-icici-bank-icici-bank-canada-mobile-banking-privatesector-banks-in-india-finance-icici-prudential-mutual-fund-recurring-deposit.png"
+  },
+  {
+    "name": "Infosys",
+    "ticker": "INFY",
+    "logo": "https://w7.pngwing.com/pngs/563/912/png-transparent-infosys-technologies-hd-logo.png"
+  },
+  {
+    "name": "State Bank of India",
+    "ticker": "SBIN",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/c/cc/SBI-logo.svg"
+  },
+  {
+    "name": "Hindustan Unilever",
+    "ticker": "HINDUNILVR",
+    "logo": "https://e7.pngegg.com/pngimages/716/500/png-clipart-unilever-logo-brand-personal-care-company-hindustan-miscellaneous-text.png"
+  },
+  {
+    "name": "ITC Ltd",
+    "ticker": "ITC",
+    "logo": "https://w7.pngwing.com/pngs/40/945/png-transparent-itc-limited-company-business-conglomerate-business-thumbnail.png"
+  },
+  {
+    "name": "Life Insurance Corporation",
+    "ticker": "LICI",
+    "logo": "https://w7.pngwing.com/pngs/246/242/png-transparent-blue-hands-logo-life-insurance-corporation-lic-jeevan-lakshya-lic-housing-finance-others-miscellaneous-text-investment-thumbnail.png"
+  },
+  {
+    "name": "Bajaj Finance",
+    "ticker": "BAJFINANCE",
+    "logo": "https://w7.pngwing.com/pngs/887/91/png-transparent-bajaj-auto-bajaj-finserv-ltd-mortgage-loan-finance-finance-blue-company-text.png"
+  },
+  {
+    "name": "Larsen and Toubro",
+    "ticker": "LT",
+    "logo": "https://e7.pngegg.com/pngimages/604/618/png-clipart-larsen-toubro-limited-mmh-architectural-engineering-business-l-t-hydrocarbon-engineering-business-blue-text-thumbnail.png"
+  },
+  {
+    "name": "HCL Technologies",
+    "ticker": "HCLTECH",
+    "logo": "https://e7.pngegg.com/pngimages/490/686/png-clipart-hcl-technologies-logo-company-information-technology-technology-blue-angle.png"
+  },
+  {
+    "name": "Sun Pharmaceutical",
+    "ticker": "SUNPHARMA",
+    "logo": "https://e7.pngegg.com/pngimages/734/292/png-clipart-sun-pharmaceutical-bangladesh-limited-pharmaceutical-industry-logo-company-deesawat-industries-company-limited-company-orange.png"
+  },
+  {
+    "name": "Kotak Mahindra Bank",
+    "ticker": "KOTAKBANK",
+    "logo": "https://companieslogo.com/img/orig/KOTAKBANK.NS-36440c5e.png?t=1720244492"
+  },
+  {
+    "name": "Maruti Suzuki India",
+    "ticker": "MARUTI",
+    "logo": "https://w7.pngwing.com/pngs/215/94/png-transparent-suzuki-carry-suzuki-carry-honda-logo-suzuki-jimny-suzuki-angle-logo-car-thumbnail.png"
+  },
+  {
+    "name": "Mahindra and Mahindra",
+    "ticker": "M&M",
+    "logo": "https://w7.pngwing.com/pngs/547/351/png-transparent-mahindra-mahindra-car-logo-automotive-industry-tractor-lincoln-motor-company-company-text-trademark.png"
+  },
+  {
+    "name": "UltraTech Cement",
+    "ticker": "ULTRACEMCO",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCKwuIE6dRC6k_tm36OvuBB2nAITW4Xk4mgg&s"
+  },
+  {
+    "name": "Wipro Ltd",
+    "ticker": "WIPRO",
+    "logo": "https://i.pinimg.com/736x/16/f8/7a/16f87a2a909a06634e61d63d57e79bb0.jpg"
+  },
+  {
+    "name": "ONGC Ltd",
+    "ticker": "ONGC",
+    "logo": "https://e7.pngegg.com/pngimages/626/110/png-clipart-oil-and-natural-gas-corporation-indian-oil-corporation-logo-business-india-text-rectangle-thumbnail.png"
+  },
+  {
+    "name": "NTPC Ltd",
+    "ticker": "NTPC",
+    "logo": "https://www.m1xchange.com/wp-content/uploads/2023/10/NTPC-logos.png"
+  },
+  {
+    "name": "Axis Bank",
+    "ticker": "AXISBANK",
+    "logo": "https://w7.pngwing.com/pngs/509/329/png-transparent-axis-bank-connaught-place-new-delhi-security-business-bank-purple-angle-violet-thumbnail.png"
+  },
+  {
+    "name": "Titan Company",
+    "ticker": "TITAN",
+    "logo": "https://toppng.com/uploads/preview/titan-vector-logo-download-free-11574029507aj7fv0mril.png"
+  },
+  {
+    "name": "Tata Motors Ltd",
+    "ticker": "TATAMOTORS",
+    "logo": "https://e7.pngegg.com/pngimages/423/40/png-clipart-tata-motors-european-technical-centre-car-tata-group-tata-steel-car-blue-company.png"
+  },
+  {
+    "name": "Adani Enterprises Ltd",
+    "ticker": "ADANIENT",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Adani_logo_2012.svg/1200px-Adani_logo_2012.svg.png"
+  }
+]
