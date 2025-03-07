@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import StockJson from "../../webScrappedData/StocksData.json";
+import axios from "axios";
 
 const Cap2Stock = () => {
   const [companies, setCompanies] = useState([
@@ -125,17 +125,20 @@ const Cap2Stock = () => {
     },
   ]);
 
-  const [stock, setStock] = useState([]);
+  const [stocks, setStocks] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const getStocks = async () => {
     setLoading(true);
     try {
-      setStock(StockJson.StockData);
+      const response = await axios.get('http://localhost:5000/api/v1/fetchStocksData');
+      setStocks(response.data);
     } catch (error) {
-      console.error("Error fetching data:", error.message);
+        console.error("Error fetching stocks:", error.message);
+        setError("Failed to fetch stocks data. Please try again later...");
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
   };
 
@@ -145,7 +148,7 @@ const Cap2Stock = () => {
 
   useEffect(() => {
     const updatedCompanies = companies.map((company) => {
-      const matchedStock = stock.find((s) => s.ticker === company.ticker);
+      const matchedStock = stocks.find((s) => s.ticker === company.ticker);
       if (matchedStock) {
         const percentageChange = (
           ((matchedStock.current_price - matchedStock.previous_close) /
@@ -163,7 +166,7 @@ const Cap2Stock = () => {
       return company;
     });
     setCompanies(updatedCompanies);
-  }, [stock]);
+  }, [stocks]);
 
   const containerRef = useRef(null);
 
