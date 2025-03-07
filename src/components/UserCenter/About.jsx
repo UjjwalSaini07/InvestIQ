@@ -313,7 +313,7 @@ export default function About() {
       <div className="mt-16 text-center text-white text-lg hidden md:block">
         <a
           className="fixed bottom-2 right-2 backdrop-blur-md opacity-80 hover:opacity-95 p-2 rounded"
-          href="https://github.com/UjjwalSaini07"
+          href="/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -321,7 +321,7 @@ export default function About() {
           <span role="img" aria-label="heart">
             ❤️
           </span>{" "}
-          by Ujjwal & Gayatri
+          by U & G
         </a>
       </div>
     </section>
