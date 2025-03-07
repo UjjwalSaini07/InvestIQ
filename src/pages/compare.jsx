@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { Helmet } from "react-helmet";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Info from "../components/compare/Info";
@@ -55,6 +56,10 @@ function Compare() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -150,77 +155,82 @@ function Compare() {
   };
 
   return (
-    <div
-      className="min-h-screen bg-black text-white flex flex-col justify-center items-center py-8 relative"
-      ref={compareRef}
-    >
-      <ToastContainer />
-      <h1 className="text-5xl font-semibold text-blue-500 mb-6">
-        Cryptocurrency Comparison
-      </h1>
+    <>
+      <Helmet>
+        <title>Compare | InvestIQ</title>
+      </Helmet>
+      <div
+        className="min-h-screen bg-black text-white flex flex-col justify-center items-center py-8 relative"
+        ref={compareRef}
+      >
+        <ToastContainer />
+        <h1 className="text-5xl font-semibold text-blue-500 mb-6">
+          Cryptocurrency Comparison
+        </h1>
 
-      <SelectCoins
-        allCoins={allCoins}
-        crypto1={crypto1}
-        crypto2={crypto2}
-        onCoinChange={handleCoinChange}
-        days={days}
-        handleDaysChange={handleDaysChange}
-      />
-
-      <div className="mt-6">
-        <ToggleComponents
-          priceType={priceType}
-          handlePriceTypeChange={handlePriceTypeChange}
+        <SelectCoins
+          allCoins={allCoins}
+          crypto1={crypto1}
+          crypto2={crypto2}
+          onCoinChange={handleCoinChange}
+          days={days}
+          handleDaysChange={handleDaysChange}
         />
-      </div>
 
-      <div className="w-full flex justify-center mt-8 mb-6">
-        <div className="w-full max-w-screen-xl">
-          <div className="ml-20 h-[40vh] sm:h-[50vh] lg:h-[70vh]">
-            <LineChart chartData={chartData} multiAxis={true} />
+        <div className="mt-6">
+          <ToggleComponents
+            priceType={priceType}
+            handlePriceTypeChange={handlePriceTypeChange}
+          />
+        </div>
+
+        <div className="w-full flex justify-center mt-8 mb-6">
+          <div className="w-full max-w-screen-xl">
+            <div className="ml-20 h-[40vh] sm:h-[50vh] lg:h-[70vh]">
+              <LineChart chartData={chartData} multiAxis={true} />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full mt-8">
-        <div className="p-5 border border-gray-600 rounded-lg">
-          <Info
-            title={coin1Data.name || "Loading..."}
-            desc={coin1Data.desc || ""}
-          />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full mt-8">
+          <div className="p-5 border border-gray-600 rounded-lg">
+            <Info
+              title={coin1Data.name || "Loading..."}
+              desc={coin1Data.desc || ""}
+            />
+          </div>
+          <div className="p-6 border border-gray-600 rounded-lg">
+            <Info
+              title={coin2Data.name || "Loading..."}
+              desc={coin2Data.desc || ""}
+            />
+          </div>
         </div>
-        <div className="p-6 border border-gray-600 rounded-lg">
-          <Info
-            title={coin2Data.name || "Loading..."}
-            desc={coin2Data.desc || ""}
-          />
-        </div>
-      </div>
 
-      <Loader loading={loading} />
+        <Loader loading={loading} />
 
-      <button
-        onClick={fetchData}
-        className="absolute top-4 right-4 p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600"
-        aria-label="Refresh Data"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
-          fill="currentColor"
-          className="bi bi-arrow-clockwise"
-          viewBox="0 0 35 35"
+        <button
+          onClick={fetchData}
+          className="absolute top-4 right-4 p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600"
+          aria-label="Refresh Data"
         >
-          <path
-            fillRule="evenodd"
-            d="M17.5 6.563a10.938 10.938 0 1 0 9.944 6.374 1.094 1.094 0 0 1 1.986 -0.912A13.125 13.125 0 1 1 17.5 4.375z"
-          />
-          <path d="M17.5 9.769V1.168a0.547 0.547 0 0 1 0.897 -0.42l5.162 4.301c0.263 0.219 0.263 0.621 0 0.84L18.397 10.189A0.547 0.547 0 0 1 17.5 9.769" />
-        </svg>
-      </button>
-    </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            fill="currentColor"
+            className="bi bi-arrow-clockwise"
+            viewBox="0 0 35 35"
+          >
+            <path
+              fillRule="evenodd"
+              d="M17.5 6.563a10.938 10.938 0 1 0 9.944 6.374 1.094 1.094 0 0 1 1.986 -0.912A13.125 13.125 0 1 1 17.5 4.375z"
+            />
+            <path d="M17.5 9.769V1.168a0.547 0.547 0 0 1 0.897 -0.42l5.162 4.301c0.263 0.219 0.263 0.621 0 0.84L18.397 10.189A0.547 0.547 0 0 1 17.5 9.769" />
+          </svg>
+        </button>
+      </div>
+    </>
   );
 }
 
