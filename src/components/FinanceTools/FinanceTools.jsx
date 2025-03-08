@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Combobox } from "../ui/combobox";
 import { Card, CardContent } from "../ui/card";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "../ui/select";
 
 import SIPCalculator from "./tools/SIPCalculator";
 import EMICalculator from "./tools/EMICalculator";
@@ -20,6 +21,7 @@ import ExpenditureSavingCalculator from "./tools/ExpenditureSavingCalculator";
 
 const FinanceTools = () => {
   const [selectedTool, setSelectedTool] = useState(null);
+  const [selectedCurrency, setSelectedCurrency] = useState("INR");
 
   const tools = [
     { label: "📊 SIP Lump Calculator", component: SIPCalculator },
@@ -53,12 +55,26 @@ const FinanceTools = () => {
       </p>
       <div className="mt-4  mb-2 h-1 w-20 mx-auto bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
 
-      <div className="relative z-50 mb-8">
-        <Combobox
-          options={tools.map((tool) => tool.label)}
-          placeholder="Select a financial tool..."
-          onChange={setSelectedTool}
-        />
+      <div className="flex justify-between mb-8">
+        <div className="w-1/2 z-50 ">
+          <Combobox
+            options={tools.map((tool) => tool.label)}
+            placeholder="Select a financial tool..."
+            onChange={setSelectedTool}
+          />
+        </div>
+
+        <div className="ml-4 w-32">
+          <Select value={selectedCurrency} onValueChange={setSelectedCurrency}>
+            <SelectTrigger className="bg-black text-white border border-gray-200 rounded-lg shadow-lg">
+              <SelectValue placeholder="Select Currency" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="INR">INR</SelectItem>
+              <SelectItem value="USD">USD</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       <Card className="bg-black border-2 border-gray-200 rounded-lg shadow-xl">
