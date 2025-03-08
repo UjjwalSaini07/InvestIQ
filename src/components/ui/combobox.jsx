@@ -30,7 +30,7 @@ export function Combobox({ options, placeholder = "Select an option...", onChang
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[235px] justify-between"
+          className="w-[290px] justify-between"
         >
           {value
             ? options.find((option) => option === value) || value
@@ -38,7 +38,7 @@ export function Combobox({ options, placeholder = "Select an option...", onChang
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[235px] p-0 bg-[#FFFFFF] z-10">
+      <PopoverContent className="w-[290px] p-0 bg-[#FFFFFF] z-10">
         <Command>
           <CommandInput placeholder={`Search ${placeholder.toLowerCase()}...`} />
           <CommandList>
