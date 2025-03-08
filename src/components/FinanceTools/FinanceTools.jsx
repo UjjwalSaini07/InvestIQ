@@ -69,9 +69,9 @@ const FinanceTools = () => {
             <SelectTrigger className="bg-black text-white border border-gray-200 rounded-lg shadow-lg">
               <SelectValue placeholder="Select Currency" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="INR">INR</SelectItem>
-              <SelectItem value="USD">USD</SelectItem>
+            <SelectContent className="bg-[#FFFFFF]">
+              <SelectItem className="text-black font-bold" value="INR">INR</SelectItem>
+              <SelectItem className="text-black font-bold" value="USD">USD</SelectItem>
             </SelectContent>
           </Select>
         </div>
