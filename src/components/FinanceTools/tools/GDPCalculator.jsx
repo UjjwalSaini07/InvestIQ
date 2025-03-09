@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Label } from "../../ui/label";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@radix-ui/react-tooltip";
+import { Info } from "lucide-react";
 
 const GDPCalculator = () => {
   const [consumption, setConsumption] = useState("");
@@ -24,7 +30,25 @@ const GDPCalculator = () => {
       <h2 className="text-2xl font-bold mb-4">GDP Calculator</h2>
       <div className="space-y-4">
         <div>
-          <Label className="font-bold">Consumption</Label>
+          <Label className="font-bold flex item-center">
+            Consumption
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The total value of goods and services consumed by households
+                within a country.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"
@@ -35,7 +59,25 @@ const GDPCalculator = () => {
         </div>
 
         <div>
-          <Label className="font-bold">Investment</Label>
+          <Label className="font-bold flex item-center">
+            Investment
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The total amount spent on capital goods, such as equipment,
+                machinery, and infrastructure.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"
@@ -46,7 +88,25 @@ const GDPCalculator = () => {
         </div>
 
         <div>
-          <Label className="font-bold">Government Spending</Label>
+          <Label className="font-bold flex item-center">
+            Government Spending
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The total expenditure by the government on goods, services, and
+                public projects.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"
@@ -57,7 +117,25 @@ const GDPCalculator = () => {
         </div>
 
         <div>
-          <Label className="font-bold">Net Exports</Label>
+          <Label className="font-bold flex item-center">
+            Net Exports
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The difference between a country's exports and imports of goods
+                and services.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"

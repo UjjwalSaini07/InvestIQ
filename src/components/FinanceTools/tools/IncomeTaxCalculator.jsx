@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Label } from "../../ui/label";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@radix-ui/react-tooltip";
+import { Info } from "lucide-react";
 
 const IncomeTaxCalculator = () => {
   const [income, setIncome] = useState("");
@@ -18,7 +24,24 @@ const IncomeTaxCalculator = () => {
       <h2 className="text-2xl font-bold mb-4">Income Tax Calculator</h2>
       <div className="space-y-4">
         <div>
-          <Label className="font-bold">Annual Income</Label>
+          <Label className="font-bold flex item-center">
+            Annual Income
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The total income you earn in a year from all sources before any deductions or exemptions.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"
@@ -29,7 +52,24 @@ const IncomeTaxCalculator = () => {
         </div>
 
         <div>
-          <Label className="font-bold">Tax Rate (%)</Label>
+          <Label className="font-bold flex item-center">
+            Tax Rate (%)
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The percentage of your annual income that is charged as tax, based on your income bracket.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"
