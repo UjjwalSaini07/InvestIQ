@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Label } from "../../ui/label";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@radix-ui/react-tooltip";
+import { Info } from "lucide-react";
 
 const ROICalculator = () => {
   const [gain, setGain] = useState("");
@@ -20,7 +26,24 @@ const ROICalculator = () => {
       </h2>
       <div className="space-y-4">
         <div>
-          <Label className="font-bold">Total Gain</Label>
+          <Label className="font-bold flex item-center">
+            Total Gain
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The total profit or gain you have earned from the investment, including capital appreciation and income.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"
@@ -31,7 +54,24 @@ const ROICalculator = () => {
         </div>
 
         <div>
-          <Label className="font-bold">Total Cost</Label>
+          <Label className="font-bold flex item-center">
+            Total Cost
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The total amount you have spent or invested, including the initial investment and any associated costs.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"
