@@ -7,12 +7,15 @@ import "react-toastify/ReactToastify.css";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./store/store.jsx";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <App />
+        <TooltipProvider>
+          <App />
+        </TooltipProvider>
         <ToastContainer />
       </PersistGate>
     </Provider>
