@@ -17,28 +17,39 @@ const NetProfitValueCalculator = () => {
     <div>
       <h2 className="text-2xl font-bold mb-4">Net Profit Value Calculator</h2>
       <div className="space-y-4">
-        <Label>Total Revenue</Label>
-        <Input
-          type="number"
-          placeholder="Enter revenue"
-          value={revenue}
-          onChange={(e) => setRevenue(e.target.value)}
-        />
+        <div>
+          <Label className="font-bold">Total Revenue</Label>
+          <Input
+            className="mt-2"
+            type="number"
+            placeholder="Enter revenue"
+            value={revenue}
+            onChange={(e) => setRevenue(e.target.value)}
+          />
+        </div>
 
-        <Label>Total Expenses</Label>
-        <Input
-          type="number"
-          placeholder="Enter expenses"
-          value={expenses}
-          onChange={(e) => setExpenses(e.target.value)}
-        />
+        <div>
+          <Label className="font-bold">Total Expenses</Label>
+          <Input
+            className="mt-2"
+            type="number"
+            placeholder="Enter expenses"
+            value={expenses}
+            onChange={(e) => setExpenses(e.target.value)}
+          />
+        </div>
 
-        <Button className="mt-4" onClick={calculateNetProfit}>
+        <Button
+          onClick={calculateNetProfit}
+          className="w-full mt-4 bg-blue-600 text-white font-semibold py-3 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-[1.01]"
+        >
           Calculate
         </Button>
 
         {netProfit && (
-          <p className="mt-4 text-green-600 font-semibold">Net Profit: ₹{netProfit}</p>
+          <p className="mt-4 text-green-600 font-semibold text-lg bg-green-100 p-4 rounded-lg shadow-xl text-center">
+            Net Profit: ₹{netProfit}
+          </p>
         )}
       </div>
     </div>
