@@ -19,28 +19,37 @@ const SplitBillCalculator = () => {
     <div>
       <h2 className="text-2xl font-bold mb-4">Split Bill Calculator</h2>
       <div className="space-y-4">
-        <Label>Total Amount</Label>
-        <Input
-          type="number"
-          placeholder="Enter total amount"
-          value={totalAmount}
-          onChange={(e) => setTotalAmount(e.target.value)}
-        />
+        <div>
+          <Label className="font-bold">Total Amount</Label>
+          <Input
+            className="mt-2"
+            type="number"
+            placeholder="Enter total amount"
+            value={totalAmount}
+            onChange={(e) => setTotalAmount(e.target.value)}
+          />
+        </div>
 
-        <Label>Number of People</Label>
-        <Input
-          type="number"
-          placeholder="Enter number of people"
-          value={numberOfPeople}
-          onChange={(e) => setNumberOfPeople(e.target.value)}
-        />
+        <div>
+          <Label className="font-bold">Number of People</Label>
+          <Input
+            className="mt-2"
+            type="number"
+            placeholder="Enter number of people"
+            value={numberOfPeople}
+            onChange={(e) => setNumberOfPeople(e.target.value)}
+          />
+        </div>
 
-        <Button className="mt-4" onClick={calculateSplitAmount}>
+        <Button
+          onClick={calculateSplitAmount}
+          className="w-full mt-4 bg-blue-600 text-white font-semibold py-3 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-[1.01]"
+        >
           Calculate
         </Button>
 
         {amountPerPerson && (
-          <p className="mt-4 text-green-600 font-semibold">
+          <p className="mt-4 text-green-600 font-semibold text-lg bg-green-100 p-4 rounded-lg shadow-xl text-center">
             Each person should pay ₹{amountPerPerson}.
           </p>
         )}

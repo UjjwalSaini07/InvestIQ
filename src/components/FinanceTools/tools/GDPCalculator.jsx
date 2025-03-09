@@ -23,44 +23,61 @@ const GDPCalculator = () => {
     <div>
       <h2 className="text-2xl font-bold mb-4">GDP Calculator</h2>
       <div className="space-y-4">
-        <Label>Consumption</Label>
-        <Input
-          type="number"
-          placeholder="Enter consumption"
-          value={consumption}
-          onChange={(e) => setConsumption(e.target.value)}
-        />
+        <div>
+          <Label className="font-bold">Consumption</Label>
+          <Input
+            className="mt-2"
+            type="number"
+            placeholder="Enter consumption"
+            value={consumption}
+            onChange={(e) => setConsumption(e.target.value)}
+          />
+        </div>
 
-        <Label>Investment</Label>
-        <Input
-          type="number"
-          placeholder="Enter investment"
-          value={investment}
-          onChange={(e) => setInvestment(e.target.value)}
-        />
+        <div>
+          <Label className="font-bold">Investment</Label>
+          <Input
+            className="mt-2"
+            type="number"
+            placeholder="Enter investment"
+            value={investment}
+            onChange={(e) => setInvestment(e.target.value)}
+          />
+        </div>
 
-        <Label>Government Spending</Label>
-        <Input
-          type="number"
-          placeholder="Enter government spending"
-          value={governmentSpending}
-          onChange={(e) => setGovernmentSpending(e.target.value)}
-        />
+        <div>
+          <Label className="font-bold">Government Spending</Label>
+          <Input
+            className="mt-2"
+            type="number"
+            placeholder="Enter government spending"
+            value={governmentSpending}
+            onChange={(e) => setGovernmentSpending(e.target.value)}
+          />
+        </div>
 
-        <Label>Net Exports</Label>
-        <Input
-          type="number"
-          placeholder="Enter net exports"
-          value={netExports}
-          onChange={(e) => setNetExports(e.target.value)}
-        />
+        <div>
+          <Label className="font-bold">Net Exports</Label>
+          <Input
+            className="mt-2"
+            type="number"
+            placeholder="Enter net exports"
+            value={netExports}
+            onChange={(e) => setNetExports(e.target.value)}
+          />
+        </div>
 
-        <Button className="mt-4" onClick={calculateGDP}>
+        <Button
+          onClick={calculateGDP}
+          className="w-full mt-4 bg-blue-600 text-white font-semibold py-3 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-[1.01]"
+        >
           Calculate
         </Button>
 
         {gdp && (
-          <p className="mt-4 text-green-600 font-semibold">GDP: ₹{gdp}</p>
+          <p className="mt-4 text-green-600 font-semibold text-lg bg-green-100 p-4 rounded-lg shadow-xl text-center">
+            GDP: ₹{gdp}
+          </p>
         )}
       </div>
     </div>
