@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Label } from "../../ui/label";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@radix-ui/react-tooltip";
+import { Info } from "lucide-react";
 
 const CreditCardPayoff = () => {
   const [balance, setBalance] = useState("");
@@ -23,7 +29,25 @@ const CreditCardPayoff = () => {
       <h2 className="text-2xl font-bold mb-4">Credit Card Payoff Calculator</h2>
       <div className="space-y-4">
         <div>
-          <Label className="font-bold">Balance</Label>
+          <Label className="font-bold flex item-center">
+            Balance
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The current amount due on your credit card that needs to be paid
+                off.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"
@@ -34,7 +58,25 @@ const CreditCardPayoff = () => {
         </div>
 
         <div>
-          <Label className="font-bold">Interest Rate (%)</Label>
+          <Label className="font-bold flex item-center">
+            Interest Rate (%)
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The annual percentage rate (APR) applied to your credit card
+                balance.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"
@@ -45,7 +87,25 @@ const CreditCardPayoff = () => {
         </div>
 
         <div>
-          <Label className="font-bold">Monthly Payment</Label>
+          <Label className="font-bold flex item-center">
+            Monthly Payment
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The fixed amount you plan to pay toward your credit card balance
+                every month.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"
