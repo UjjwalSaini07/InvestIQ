@@ -56,7 +56,7 @@ const FinanceTools = () => {
       <div className="mt-4  mb-2 h-1 w-20 mx-auto bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
 
       <div className="flex justify-between mb-8">
-        <div className="w-1/2 z-50 ">
+        <div className="w-1/2">
           <Combobox
             options={tools.map((tool) => tool.label)}
             placeholder="Select a financial tool..."
@@ -70,8 +70,8 @@ const FinanceTools = () => {
               <SelectValue placeholder="Select Currency" />
             </SelectTrigger>
             <SelectContent className="bg-[#FFFFFF]">
-              <SelectItem className="text-black font-bold" value="INR">INR</SelectItem>
-              <SelectItem className="text-black font-bold" value="USD">USD</SelectItem>
+              <SelectItem className="text-black" value="INR">INR</SelectItem>
+              <SelectItem className="text-black" value="USD">USD</SelectItem>
             </SelectContent>
           </Select>
         </div>
