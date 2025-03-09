@@ -17,30 +17,41 @@ const EPFCalculator = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Employee Provident Fund (EPF) Calculator</h2>
+      <h2 className="text-2xl font-bold mb-4">
+        Employee Provident Fund (EPF) Calculator
+      </h2>
       <div className="space-y-4">
-        <Label>Basic Salary</Label>
-        <Input
-          type="number"
-          placeholder="Enter basic salary"
-          value={basicSalary}
-          onChange={(e) => setBasicSalary(e.target.value)}
-        />
+        <div>
+          <Label className="font-bold">Basic Salary</Label>
+          <Input
+            className="mt-2"
+            type="number"
+            placeholder="Enter basic salary"
+            value={basicSalary}
+            onChange={(e) => setBasicSalary(e.target.value)}
+          />
+        </div>
 
-        <Label>EPF Contribution Rate (%)</Label>
-        <Input
-          type="number"
-          placeholder="Enter EPF contribution rate"
-          value={epfRate}
-          onChange={(e) => setEpfRate(e.target.value)}
-        />
+        <div>
+          <Label className="font-bold">EPF Contribution Rate (%)</Label>
+          <Input
+            className="mt-2"
+            type="number"
+            placeholder="Enter EPF contribution rate"
+            value={epfRate}
+            onChange={(e) => setEpfRate(e.target.value)}
+          />
+        </div>
 
-        <Button className="mt-4" onClick={calculateEPF}>
+        <Button
+          onClick={calculateEPF}
+          className="w-full mt-4 bg-blue-600 text-white font-semibold py-3 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-[1.01]"
+        >
           Calculate
         </Button>
 
         {contribution && (
-          <p className="mt-4 text-green-600 font-semibold">
+          <p className="mt-4 text-green-600 font-semibold text-lg bg-green-100 p-4 rounded-lg shadow-xl text-center">
             EPF Contribution: ₹{contribution}
           </p>
         )}

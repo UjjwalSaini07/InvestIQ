@@ -17,30 +17,41 @@ const ExpenditureSavingCalculator = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Expenditure and Saving Calculator</h2>
+      <h2 className="text-2xl font-bold mb-4">
+        Expenditure and Saving Calculator
+      </h2>
       <div className="space-y-4">
-        <Label>Monthly Income</Label>
-        <Input
-          type="number"
-          placeholder="Enter monthly income"
-          value={income}
-          onChange={(e) => setIncome(e.target.value)}
-        />
+        <div>
+          <Label className="font-bold">Monthly Income</Label>
+          <Input
+            className="mt-2"
+            type="number"
+            placeholder="Enter monthly income"
+            value={income}
+            onChange={(e) => setIncome(e.target.value)}
+          />
+        </div>
 
-        <Label>Monthly Expenditure</Label>
-        <Input
-          type="number"
-          placeholder="Enter monthly expenditure"
-          value={expenditure}
-          onChange={(e) => setExpenditure(e.target.value)}
-        />
+        <div>
+          <Label className="font-bold">Monthly Expenditure</Label>
+          <Input
+            className="mt-2"
+            type="number"
+            placeholder="Enter monthly expenditure"
+            value={expenditure}
+            onChange={(e) => setExpenditure(e.target.value)}
+          />
+        </div>
 
-        <Button className="mt-4" onClick={calculateSavings}>
+        <Button
+          onClick={calculateSavings}
+          className="w-full mt-4 bg-blue-600 text-white font-semibold py-3 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-[1.01]"
+        >
           Calculate
         </Button>
 
         {savings && (
-          <p className="mt-4 text-green-600 font-semibold">
+          <p className="mt-4 text-green-600 font-semibold text-lg bg-green-100 p-4 rounded-lg shadow-xl text-center">
             Monthly Savings: ₹{savings}
           </p>
         )}
