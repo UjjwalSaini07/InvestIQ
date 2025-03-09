@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Label } from "../../ui/label";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@radix-ui/react-tooltip";
+import { Info } from "lucide-react";
 
 const InsuranceCalculator = () => {
   const [sumAssured, setSumAssured] = useState("");
@@ -18,7 +24,24 @@ const InsuranceCalculator = () => {
       <h2 className="text-2xl font-bold mb-4">Insurance Calculator</h2>
       <div className="space-y-4">
         <div>
-          <Label className="font-bold">Sum Assured</Label>
+          <Label className="font-bold flex item-center">
+            Sum Assured
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The amount of money that the insurance company will pay out in case of a claim or at the end of the policy term.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"
@@ -29,7 +52,24 @@ const InsuranceCalculator = () => {
         </div>
 
         <div>
-          <Label className="font-bold">Premium Rate (%)</Label>
+          <Label className="font-bold flex item-center">
+            Premium Rate (%)
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Info
+                  className="ml-2 text-gray-500 hover:text-white cursor-pointer"
+                  size={16}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                side="right"
+                align="center"
+                className="ml-2 mb-1 bg-transparent border border-gray200 text-white p-2 rounded"
+              >
+                The percentage of the sum assured that you need to pay annually as the insurance premium.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
           <Input
             className="mt-2"
             type="number"
