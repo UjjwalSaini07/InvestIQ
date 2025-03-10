@@ -8,6 +8,7 @@ import Section6 from "./WidgetWraper";
 import Section7 from "../gainerloserCoins/CoinGainerLoser";
 import Section8 from "../TradingWidgets/ForexHeatmap";
 import Section9 from "../Patterns/TradingPatterns";
+import Section10 from "../TradingWidgets/SymbolOverviewChart";
 
 const Home4 = () => {
   useEffect(() => {
@@ -28,6 +29,9 @@ const Home4 = () => {
           <Section8 />
         </div>
         <Section9 />
+        <div className='h-auto mb-14'>
+        <Section10 />
+        </div>
       </div>
   );
 };
