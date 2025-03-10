@@ -80,7 +80,7 @@ const CryptoMarketChart = () => {
 
   return (
     <div className="bg-black text-white rounded-lg p-5 -mt-8 mb-8 max-w-7xl mx-auto">
-      <h2 className="text-4xl font-semibold text-center text-cyan-400">
+      <h2 className="text-5xl font-semibold text-center text-cyan-400 mb-5">
         Crypto Market Analysis
       </h2>
 
@@ -142,7 +142,7 @@ const CryptoMarketChart = () => {
         )}
       </Card>
 
-      <div className="flex flex-wrap justify-center mt-5 space-x-2">
+      <div className="flex flex-wrap justify-center mt-1 space-x-2">
         {timeframes.map((t) => (
           <Button
             key={t.label}
