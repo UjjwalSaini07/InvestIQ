@@ -26,8 +26,8 @@ const CoinGainerLoser = () => {
             b.price_change_percentage_24h - a.price_change_percentage_24h
         );
 
-        setGainers(sortedByChange.slice(0, 6));
-        setLosers(sortedByChange.slice(-6).reverse());
+        setGainers(sortedByChange.slice(0, 8));
+        setLosers(sortedByChange.slice(-8).reverse());
       } catch (error) {
         console.error("Error fetching coin data:", error);
       }
@@ -41,8 +41,8 @@ const CoinGainerLoser = () => {
       <div className="flex items-center space-x-2">
         <img src={coin.image} alt={coin.name} className="w-12 h-12" />
         <div>
-          <p className="font-semibold text-lg text-white">{coin.name}</p>
-          <p className="text-xs text-gray-400">{coin.symbol.toUpperCase()}</p>
+          <p className="font-semibold ml-1 text-xl text-white">{coin.name}</p>
+          <p className="text-xs ml-1 text-gray-400">{coin.symbol.toUpperCase()}</p>
         </div>
       </div>
       <div className="flex items-center">
@@ -55,7 +55,7 @@ const CoinGainerLoser = () => {
         >
           {coin?.price_change_percentage_24h?.toFixed(2)}%
         </div>
-        <p className="text-white ml-4">₹ {coin?.current_price?.toFixed(3)}</p>
+        <p className="text-white font-bold ml-6">₹ {coin?.current_price?.toFixed(3)}</p>
       </div>
     </div>
   );
