@@ -33,13 +33,13 @@ const Home4 = () => {
       </div>
       <Section9 />
       <div>
-      <h1 className="text-5xl text-center font-bold tracking-wide mb-8 -mt-5">
-        Real-Time Data Triggering
-      </h1>
-      <div className="h-auto mb-14 flex flex-row justify-between">
-        <Section10 />
-        <Section11 />
-      </div>
+        <h1 className="text-5xl text-center font-bold tracking-wide mb-8 -mt-5">
+          Real-Time Data Triggering
+        </h1>
+        <div className="h-auto mb-14 flex flex-col md:flex-row justify-between">
+          <Section10 />
+          <Section11 />
+        </div>
       </div>
     </div>
   );
