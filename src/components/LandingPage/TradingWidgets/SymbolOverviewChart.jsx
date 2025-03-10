@@ -41,7 +41,7 @@ function SymbolOverviewChart() {
             ["NYSE:JPM|1D"]
           ],
           "chartOnly": false,
-          "width": "50%",
+          "width": "46%",
           "locale": "en",
           "colorTheme": "dark",
           "autosize": true,
@@ -87,7 +87,7 @@ function SymbolOverviewChart() {
     <div
       className="tradingview-widget-container"
       ref={container}
-      style={{ height: `${height}px`, marginLeft: '4rem' }}
+      style={{ height: `${height}px`, marginLeft: '2.5rem' }}
     >
       <div className="tradingview-widget-container__widget"></div>
       <div className="tradingview-widget-copyright"></div>
