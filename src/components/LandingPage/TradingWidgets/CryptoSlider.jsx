@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 const CryptoSlider = () => {
   useEffect(() => {
-    const widgetContainer = document.querySelector(".tradingview-widget-container__widget-2");
+    const widgetContainer = document.querySelector(".tradingview-widget-container__widget-1");
     if (widgetContainer && widgetContainer.children.length === 0) {
       const script = document.createElement("script");
       script.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
@@ -54,7 +54,7 @@ const CryptoSlider = () => {
   return (
     <div className="flex justify-center items-center mb-5">
       <div className="tradingview-widget-container rounded-xl overflow-hidden shadow-lg" style={{ width: "100%" }}>
-        <div className="tradingview-widget-container__widget-2"></div>
+        <div className="tradingview-widget-container__widget-1"></div>
       </div>
     </div>
   );

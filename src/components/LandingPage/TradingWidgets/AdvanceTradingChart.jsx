@@ -65,7 +65,7 @@ function AdvanceTradingChart() {
       style={{ height: `${height}px` }}
     >
       <div
-        className="tradingview-widget-container__widget w-80% h-full"
+        className="tradingview-widget-container__widget-2 w-80% h-full"
       ></div>
       <div className="tradingview-widget-copyright mt-2 text-center text-white">
       </div>

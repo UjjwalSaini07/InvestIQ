@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 const StockSlider = () => {
   useEffect(() => {
-    const widgetContainer = document.querySelector(".tradingview-widget-container__widget");
+    const widgetContainer = document.querySelector(".tradingview-widget-container__widget-3");
     if (widgetContainer && widgetContainer.children.length === 0) {
       const script = document.createElement("script");
       script.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
@@ -52,7 +52,7 @@ const StockSlider = () => {
 
   return (
     <div className="tradingview-widget-container rounded-xl overflow-hidden shadow-lg py-6">
-      <div className="tradingview-widget-container__widget"></div>
+      <div className="tradingview-widget-container__widget-3"></div>
       <div className="tradingview-widget-copyright">
       </div>
     </div>
