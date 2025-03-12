@@ -8,21 +8,39 @@ const Cap2Stock = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const isMarketOpenHours = () => {
+    const now = new Date();
+    const day = now.getDay();
+    const hour = now.getHours();
+    const minutes = now.getMinutes();
+
+    // Checking- Monday to Friday (day 1-5) and 9am-4pm (9-16)
+    return day >= 1 && day <= 5 && hour >= 9 && hour < 16;
+  };
+
   const getStocks = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:5000/api/v1/fetchStocksData');
+      const response = await axios.get(
+        "http://localhost:5000/api/v1/fetchStocksData"
+      );
       setStocks(response.data);
     } catch (error) {
-        console.error("Error fetching stocks:", error.message);
-        setError("Failed to fetch stocks data. Please try again later...");
+      console.error("Error fetching stocks:", error.message);
+      setError("Failed to fetch stocks data. Please try again later...");
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     getStocks();
+    const intervalId = setInterval(() => {
+      if (isMarketOpenHours()) {
+        getStocks();
+      }
+    }, 5 * 60 * 1000);
+    return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {
