@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
 
+import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUp";
+import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDown";
+
 function GridView({ coin, delay }) {
   const [isCoinAdded, setIsCoinAdded] = useState(false);
 
@@ -17,14 +20,16 @@ function GridView({ coin, delay }) {
     if (isCoinAdded) {
       // Remove coin from watchlist
       removeItemToWatchlist(e, coin.id, setIsCoinAdded);
-      const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+      const updatedWatchlist =
+        JSON.parse(localStorage.getItem("watchlist")) || [];
       const filteredWatchlist = updatedWatchlist.filter((id) => id !== coin.id);
       localStorage.setItem("watchlist", JSON.stringify(filteredWatchlist));
       setIsCoinAdded(false);
     } else {
       // Add coin to watchlist
       saveItemToWatchlist(e, coin.id);
-      const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+      const updatedWatchlist =
+        JSON.parse(localStorage.getItem("watchlist")) || [];
       updatedWatchlist.push(coin.id);
       localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
       setIsCoinAdded(true);
@@ -83,7 +88,9 @@ function GridView({ coin, delay }) {
             alt={coin.name}
           />
           <div className="flex flex-col">
-            <p className="uppercase font-semibold text-lg text-white">{coin.symbol}</p>
+            <p className="uppercase font-semibold text-lg text-white">
+              {coin.symbol}
+            </p>
             <p className="text-gray-400 text-sm">{coin.name}</p>
           </div>
         </div>
@@ -102,17 +109,38 @@ function GridView({ coin, delay }) {
         </div>
 
         {/* Current Price */}
-        <p className="text-xl font-bold text-white">
-          ₹ {coin.current_price.toLocaleString()}
-        </p>
+        {coin.price_change_percentage_24h >= 0 ? (
+          <div className="flex items-center">
+            <p className="text-xl font-bold text-white">
+              ₹ {coin.current_price.toLocaleString()}
+            </p>
+            <div className="text-green-400 font-bold ml-2">
+              <TrendingUpRoundedIcon />
+            </div>
+          </div>
+        ) : (
+          <div className="flex items-center">
+            <p className="text-xl font-bold text-white">
+              ₹ {coin.current_price.toLocaleString()}
+            </p>
+            <div className="text-red-400 font-bold ml-2">
+              <TrendingDownRoundedIcon />
+            </div>
+          </div>
+        )}
 
         {/* Volume and Market Cap */}
         <p className="text-gray-400 text-sm">
-          Total Volume: <span className="text-white">{coin.total_volume.toLocaleString()}</span>
+          Total Volume:{" "}
+          <span className="text-white">
+            {coin.total_volume.toLocaleString()}
+          </span>
         </p>
         <p className="text-gray-400 text-sm">
           Market Capital:{" "}
-          <span className="text-white">₹{coin.market_cap.toLocaleString()}</span>
+          <span className="text-white">
+            ₹{coin.market_cap.toLocaleString()}
+          </span>
         </p>
       </motion.div>
     </a>
