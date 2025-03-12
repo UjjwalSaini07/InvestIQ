@@ -107,31 +107,24 @@ const Cap2Stock = () => {
 
       <div
         ref={containerRef}
-        className="flex overflow-hidden gap-5 py-2 whitespace-nowrap rounded-2xl"
+        className="flex overflow-hidden gap-7 py-2 px-4 w-auto whitespace-nowrap rounded-xl bg-[#121212]"
       >
         {[...companies, ...companies].map((company, index) => (
           <div
             key={index}
-            className="flex flex-col min-w-[235px] max-h-full rounded-2xl shadow-lg bg-white bg-opacity-10 p-3 bg-[#FFFFFF12] transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-pointer"
+            className="flex items-center gap-3 py-2 px-4 bg-transaprent rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
           >
-            <div className="flex items-center gap-2 mb-2">
-              <img
-                src={company.logo}
-                alt={`${company.name} logo`}
-                className="w-8 h-8 object-contain"
-              />
-              <span className="text-sm font-bold text-center">
-                {company.name}
-              </span>
+            <img
+              src={company.logo}
+              alt={`${company.name} logo`}
+              className="w-7 h-7 object-contain"
+            />
+              <span className="text-sm font-bold text-white">{company.name}</span>
+              <span className="text-sm text-gray-300">₹ {company.price ? company.price : "N/A"}</span>
+            <div className={`text-sm font-bold ${company.changeColor}`}>
+              {company.change ? company.change : "N/A"}
             </div>
-            <div className="flex justify-between mt-2">
-              <div className="text-sm font-semibold">
-                {company.price ? `₹ ${company.price}` : "N/A"}
-              </div>
-              <div className={`text-sm font-bold ${company.changeColor}`}>
-                {company.change ? company.change : "N/A"}
-              </div>
-            </div>
+            <div className="border-l-2 border-gray-600 h-6 ml-5"></div>
           </div>
         ))}
       </div>
