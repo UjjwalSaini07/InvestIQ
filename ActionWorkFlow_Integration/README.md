@@ -9,11 +9,11 @@ Welcome to the InvestIQ - **Cryptocurrency Dashboard**, where you can find the l
 
 | **Cryptocurrency** | **Price (USD)**       | **Price (INR)**        |
 |---------------------|-----------------------|------------------------|
-| **Bitcoin**   | $82,814.00 | ₹72,25,224.00 |
-| **Ethereum**   | $1,934.77 | ₹1,68,801.00 |
-| **Dogecoin**   | $0.17 | ₹14.50 |
-| **Tether**   | $1.00 | ₹87.22 |
-| **Solana**   | $125.70 | ₹10,966.90 |
+| **Bitcoin**   | $83,556.00 | ₹72,82,747.00 |
+| **Ethereum**   | $1,905.26 | ₹1,66,064.00 |
+| **Dogecoin**   | $0.17 | ₹14.96 |
+| **Tether**   | $1.00 | ₹87.14 |
+| **Solana**   | $126.17 | ₹10,997.32 |
 
 ---
 
@@ -21,46 +21,46 @@ Welcome to the InvestIQ - **Cryptocurrency Dashboard**, where you can find the l
 
 ### Bitcoin
 
-- **USD Price:** $82,814.00
-- **INR Price:** ₹72,25,224.00
-- **Last Updated:** 3/11/2025, 11:09:21 PM (GMT)
+- **USD Price:** $83,556.00
+- **INR Price:** ₹72,82,747.00
+- **Last Updated:** 3/12/2025, 11:09:44 PM (GMT)
 ---
 
 
 ### Ethereum
 
-- **USD Price:** $1,934.77
-- **INR Price:** ₹1,68,801.00
-- **Last Updated:** 3/11/2025, 11:09:21 PM (GMT)
+- **USD Price:** $1,905.26
+- **INR Price:** ₹1,66,064.00
+- **Last Updated:** 3/12/2025, 11:09:44 PM (GMT)
 ---
 
 
 ### Dogecoin
 
 - **USD Price:** $0.17
-- **INR Price:** ₹14.50
-- **Last Updated:** 3/11/2025, 11:09:21 PM (GMT)
+- **INR Price:** ₹14.96
+- **Last Updated:** 3/12/2025, 11:09:44 PM (GMT)
 ---
 
 
 ### Tether
 
 - **USD Price:** $1.00
-- **INR Price:** ₹87.22
-- **Last Updated:** 3/11/2025, 11:09:21 PM (GMT)
+- **INR Price:** ₹87.14
+- **Last Updated:** 3/12/2025, 11:09:44 PM (GMT)
 ---
 
 
 ### Solana
 
-- **USD Price:** $125.70
-- **INR Price:** ₹10,966.90
-- **Last Updated:** 3/11/2025, 11:09:21 PM (GMT)
+- **USD Price:** $126.17
+- **INR Price:** ₹10,997.32
+- **Last Updated:** 3/12/2025, 11:09:44 PM (GMT)
 ---
 
 
 > _This data is powered by [CoinGecko](https://www.coingecko.com)._  
-> _Last updated: 3/11/2025, 11:09:21 PM_  
+> _Last updated: 3/12/2025, 11:09:44 PM_  
 
 ---
 🪙 Made with ❤️ by your cryptocurrency tracker - Developer: UjjwalSaini07!
