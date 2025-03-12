@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
 
-import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUp";
-import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDown";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 
 function GridView({ coin, delay }) {
   const [isCoinAdded, setIsCoinAdded] = useState(false);
@@ -115,7 +115,7 @@ function GridView({ coin, delay }) {
               ₹ {coin.current_price.toLocaleString()}
             </p>
             <div className="text-green-400 font-bold ml-2">
-              <TrendingUpRoundedIcon />
+              <TrendingUpIcon />
             </div>
           </div>
         ) : (
@@ -124,7 +124,7 @@ function GridView({ coin, delay }) {
               ₹ {coin.current_price.toLocaleString()}
             </p>
             <div className="text-red-400 font-bold ml-2">
-              <TrendingDownRoundedIcon />
+              <TrendingDownIcon />
             </div>
           </div>
         )}
