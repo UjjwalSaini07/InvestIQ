@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import companyLogos from "../../common/Companies_Logo.json";
 
 const StockGainerLoser = () => {
   const [stocks, setStocks] = useState([]);
@@ -56,29 +57,45 @@ const StockGainerLoser = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const renderStock = (stock) => (
-    <div key={stock.ticker} className="flex items-center justify-between p-3">
-      <div className="flex items-center space-x-2">
-      <img src={"https://logo.clearbit.com/"} alt={stock.ticker} className="w-12 h-12" />
-        <div>
-          <p className="font-semibold text-lg text-white ml-2">{stock.ticker}</p>
-          <p className="text-xs text-gray-400 ml-2">{stock.exchange}</p>
+  const renderStock = (stock) => {
+    const matchingLogo = companyLogos.CompaniesLogo.find(
+      (logo) => logo.ticker === stock.ticker
+    );
+
+    return (
+      <div key={stock.ticker} className="flex items-center justify-between p-3">
+        <div className="flex items-center space-x-2">
+          <img
+            src={
+              matchingLogo
+                ? matchingLogo.logo
+                : "https://media.licdn.com/dms/image/v2/C5112AQEw1fXuabCTyQ/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1581099611064?e=1746057600&v=beta&t=9GSzc1PGYMupEZiyJnnSOx7ULZSd3vrYLxZ1VJ8YO_4"
+            }
+            alt={stock.ticker}
+            className="w-12 h-12 object-contain rounded-full"
+          />
+          <div>
+            <p className="font-semibold text-lg text-white ml-2">
+              {stock.ticker}
+            </p>
+            <p className="text-xs text-gray-400 ml-2">{stock.exchange}</p>
+          </div>
+        </div>
+        <div className="flex items-center">
+          <div
+            className={`px-4 py-1 rounded-full font-semibold text-sm ${
+              stock.percentage_change >= 0 ? "bg-green-500" : "bg-red-500"
+            } text-white`}
+          >
+            {stock.percentage_change.toFixed(2)}%
+          </div>
+          <p className="text-white font-bold ml-4">
+            ₹{stock.current_price.toFixed(2)}
+          </p>
         </div>
       </div>
-      <div className="flex items-center">
-        <div
-          className={`px-4 py-1 rounded-full font-semibold text-sm ${
-            stock.percentage_change >= 0 ? "bg-green-500" : "bg-red-500"
-          } text-white`}
-        >
-          {stock.percentage_change.toFixed(2)}%
-        </div>
-        <p className="text-white font-bold ml-4">
-          ₹{stock.current_price.toFixed(2)}
-        </p>
-      </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div className="p-6 text-white -mt-3 mb-4">
