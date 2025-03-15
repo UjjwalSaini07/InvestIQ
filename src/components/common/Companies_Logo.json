@@ -326,11 +326,11 @@
     },
     {
       "ticker": "JINDALSTEL",
-      "logo": "No LOGO"
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Jindal_Steel_and_Power_Logo.svg/2560px-Jindal_Steel_and_Power_Logo.svg.png"
     },
     {
       "ticker": "MARICO",
-      "logo": "No LOGO"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/9/90/Marico_Logo.svg/220px-Marico_Logo.svg.png"
     },
     {
       "ticker": "PETRONET",
@@ -346,7 +346,7 @@
     },
     {
       "ticker": "MUTHOOTFIN",
-      "logo": "No LOGO"
+      "logo": "https://companieslogo.com/img/orig/MUTHOOTFIN.NS-276f7615.png?t=1720244493"
     },
     {
       "ticker": "BHARTIARTL",
@@ -354,59 +354,59 @@
     },
     {
       "ticker": "ADANIENSOL",
-      "logo": "No LOGO"
+      "logo": "https://companieslogo.com/img/orig/ADANIENSOL.NS_BIG-2fc4ca22.png?t=1720244490"
     },
     {
       "ticker": "RVNL",
-      "logo": "No LOGO"
+      "logo": "https://hblapis.cmots.com/complogodata/IImagesNew/RailVikasNigam_10861613_26721.png"
     },
     {
       "ticker": "DIXON",
-      "logo": "No LOGO"
+      "logo": "https://seeklogo.com/images/D/dixon-logo-6CC658978B-seeklogo.com.png"
     },
     {
       "ticker": "SOLARINDS",
-      "logo": "No LOGO"
+      "logo": "https://companieslogo.com/img/orig/SOLARINDS.NS_BIG-20a4867c.png?t=1720244494"
     },
     {
       "ticker": "UNIONBANK",
-      "logo": "No LOGO"
+      "logo": "https://companieslogo.com/img/orig/UNIONBANK.NS-5bba728d.png?t=1720244494"
     },
     {
       "ticker": "IDBI",
-      "logo": "No LOGO"
+      "logo": "https://res-console.cloudinary.com/dzqtkljsw/media_explorer_thumbnails/701388f5dfb8a27a4a267bdaf15d5ec9/detailed"
     },
     {
       "ticker": "JSWENERGY",
-      "logo": "No LOGO"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/JSW_Group_logo.svg/1200px-JSW_Group_logo.svg.png"
     },
     {
       "ticker": "OFSS",
-      "logo": "No LOGO"
+      "logo": "https://5.imimg.com/data5/UH/BN/MY-8220234/oracle-financial-services.png"
     },
     {
       "ticker": "CUMMINSIND",
-      "logo": "No LOGO"
+      "logo": "https://logos-world.net/wp-content/uploads/2021/08/Cummins-Logo-1976-present.png"
     },
     {
       "ticker": "POLICYBZR",
-      "logo": "No LOGO"
+      "logo": "https://companieslogo.com/img/orig/POLICYBZR.NS-f77c5a5d.png?t=1720244493"
     },
     {
       "ticker": "GMRAIRPORT",
-      "logo": "No LOGO"
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/GMR_Group_%28logo%29.svg/1200px-GMR_Group_%28logo%29.svg.png"
     },
     {
       "ticker": "NHPC",
-      "logo": "No LOGO"
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NHPC_Logo_PNG_File.png/640px-NHPC_Logo_PNG_File.png"
     },
     {
       "ticker": "TORNTPOWER",
-      "logo": "No LOGO"
+      "logo": "https://companieslogo.com/img/orig/TORNTPOWER.NS-7bfc1a00.png?t=1720244494"
     },
     {
       "ticker": "HINDPETRO",
-      "logo": "No LOGO"
+      "logo": "https://companieslogo.com/img/orig/HINDPETRO.NS-6dfea446.png?t=1720244492"
     },
     {
       "ticker": "ICICIBANK",
@@ -414,7 +414,7 @@
     },
     {
       "ticker": "LICI",
-      "logo": "No LOGO"
+      "logo": "https://companieslogo.com/img/orig/LICI.NS-189af092.png?t=1720244492"
     }
   ]
 }
