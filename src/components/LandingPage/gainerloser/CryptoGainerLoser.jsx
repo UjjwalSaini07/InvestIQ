@@ -36,7 +36,7 @@ const CryptoGainerLoser = () => {
     fetchCoinData();
   }, []);
 
-  const renderCoin = (coin, isGainer) => (
+  const renderCoin = (coin) => (
     <div key={coin.id} className="flex items-center justify-between p-3">
       <div className="flex items-center space-x-2">
         <img src={coin.image} alt={coin.name} className="w-12 h-12" />
@@ -91,7 +91,7 @@ const CryptoGainerLoser = () => {
         </div>
 
         <div className="bg-black rounded-lg shadow-lg divide-y divide-gray-700">
-          {gainers.map((coin) => renderCoin(coin, true))}
+          {gainers.map((coin) => renderCoin(coin))}
         </div>
       </div>
 
@@ -120,7 +120,7 @@ const CryptoGainerLoser = () => {
         </div>
 
         <div className="bg-black rounded-lg shadow-lg divide-y divide-gray-700">
-          {losers.map((coin) => renderCoin(coin, false))}
+          {losers.map((coin) => renderCoin(coin))}
         </div>
       </div>
     </div>
