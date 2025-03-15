@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GridCrypto from "../../crypto/grid/gridview";
 import ListCrypto from "../../crypto/list/listview";
 import GridStock from "../../stocks/grid/gridview";
 import ListStock from "../../stocks/list/listview";
 
 const Tabs = ({ coins, stocks, setSearch }) => {
-  const [activeTab, setActiveTab] = useState("crypto");
-  const [activeView, setActiveView] = useState("grid");
+  const [activeTab, setActiveTab] = useState(
+    localStorage.getItem("activeTab") || "crypto"
+  );
+  const [activeView, setActiveView] = useState(
+    localStorage.getItem("activeView") || "grid"
+  );
+
+  useEffect(() => {
+    localStorage.setItem("activeTab", activeTab);
+  }, [activeTab]);
+
+  useEffect(() => {
+    localStorage.setItem("activeView", activeView);
+  }, [activeView]);
 
   const mainTabStyle = (tab) =>
     `px-8 py-3 text-base font-medium rounded-t-lg transition-all duration-300 ${
@@ -29,7 +41,7 @@ const Tabs = ({ coins, stocks, setSearch }) => {
           className={mainTabStyle("crypto")}
           onClick={() => setActiveTab("crypto")}
         >
-          Cryptocurrenies
+          Cryptocurrencies
         </button>
         <button
           className={mainTabStyle("stock")}

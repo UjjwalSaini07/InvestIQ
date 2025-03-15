@@ -11,12 +11,28 @@ function Watchlist() {
   const [coins, setCoins] = useState([]);
   const [stocks, setStocks] = useState([]);
 
+  const isMarketOpenHours = () => {
+    const now = new Date();
+    const day = now.getDay();
+    const hour = now.getHours();
+    const minutes = now.getMinutes();
+
+    // Checking- Monday to Friday (day 1-5) and 9am-4pm (9-16)
+    return day >= 1 && day <= 5 && hour >= 9 && hour < 16;
+  };
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     if (watchlist) {
       getData();
       getStocks();
+      const intervalId = setInterval(() => {
+        if (isMarketOpenHours()) {
+          getStocks();
+        }
+      }, 5 * 60 * 1000);
+      return () => clearInterval(intervalId);
     }
   }, []);
 

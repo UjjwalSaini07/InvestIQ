@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
 
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import TrendingDownIcon from "@mui/icons-material/TrendingDown";
+
 function GridView({ stock, delay }) {
   const [isStockAdded, setIsStockAdded] = useState(false);
 
@@ -16,13 +19,17 @@ function GridView({ stock, delay }) {
 
     if (isStockAdded) {
       removeItemToWatchlist(e, stock.ticker, setIsStockAdded);
-      const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
-      const filteredWatchlist = updatedWatchlist.filter((id) => id !== stock.ticker);
+      const updatedWatchlist =
+        JSON.parse(localStorage.getItem("watchlist")) || [];
+      const filteredWatchlist = updatedWatchlist.filter(
+        (id) => id !== stock.ticker
+      );
       localStorage.setItem("watchlist", JSON.stringify(filteredWatchlist));
       setIsStockAdded(false);
     } else {
       saveItemToWatchlist(e, stock.ticker);
-      const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+      const updatedWatchlist =
+        JSON.parse(localStorage.getItem("watchlist")) || [];
       updatedWatchlist.push(stock.ticker);
       localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
       setIsStockAdded(true);
@@ -30,7 +37,8 @@ function GridView({ stock, delay }) {
   };
 
   const percentageChange = (
-    ((stock.current_price - stock.previous_close) / stock.previous_close) * 100
+    ((stock.current_price - stock.previous_close) / stock.previous_close) *
+    100
   ).toFixed(2);
 
   return (
@@ -109,9 +117,25 @@ function GridView({ stock, delay }) {
         </div>
 
         <div className="flex flex-row justify-between">
-          <p className="text-xl font-bold text-white">
-            ₹{stock.current_price.toLocaleString()}
-          </p>
+          {percentageChange >= 0 ? (
+            <div className="flex items-center">
+              <p className="text-xl font-bold text-white">
+                ₹{stock.current_price.toLocaleString()}
+              </p>
+              <div className="text-green-400 font-bold ml-2">
+                <TrendingUpIcon />
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center">
+              <p className="text-xl font-bold text-white">
+                ₹{stock.current_price.toLocaleString()}
+              </p>
+              <div className="text-red-400 font-bold ml-2">
+                <TrendingDownIcon />
+              </div>
+            </div>
+          )}
           <p className="text-2lg font-bold text-red-500">
             ₹{stock.previous_close.toLocaleString()}
           </p>
