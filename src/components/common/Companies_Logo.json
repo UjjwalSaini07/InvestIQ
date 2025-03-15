@@ -1,0 +1,420 @@
+{
+  "CompaniesLogo": [
+    {
+      "ticker": "RELIANCE",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsOc0_P4Ll-ExcqUit4R0aLHcto-3hbsoPWw&s"
+    },
+    {
+      "ticker": "TCS",
+      "logo": "https://companieslogo.com/img/orig/TCS.NS-7401f1bd.png?t=1720244494"
+    },
+    {
+      "ticker": "HDFCBANK",
+      "logo": "https://w7.pngwing.com/pngs/636/81/png-transparent-hdfc-thumbnail-bank-logos.png"
+    },
+    {
+      "ticker": "ICICIBANK",
+      "logo": "https://companieslogo.com/img/orig/IBN-af38b5c0.png?t=1720244492"
+    },
+    {
+      "ticker": "INFY",
+      "logo": "https://companieslogo.com/img/orig/INFY-bf47e1fb.png?t=1720244492"
+    },
+    {
+      "ticker": "HINDUNILVR",
+      "logo": "https://cdn.pixabay.com/photo/2021/10/26/12/17/unilever-6743502_960_720.png"
+    },
+    {
+      "ticker": "SBIN",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/c/cc/SBI-logo.svg"
+    },
+    {
+      "ticker": "ITC",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/ITC_Limited_Logo.svg/737px-ITC_Limited_Logo.svg.png"
+    },
+    {
+      "ticker": "BHARTIARTL",
+      "logo": "https://cdn.freelogovectors.net/wp-content/uploads/2023/05/airtel-logo-01-freelogovectors.net_.png"
+    },
+    {
+      "ticker": "ADANIENT",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Adani_logo_2012.svg/1200px-Adani_logo_2012.svg.png"
+    },
+    {
+      "ticker": "SUNPHARMA",
+      "logo": "https://companieslogo.com/img/orig/SUNPHARMA.NS-b721761b.png?t=1720244494"
+    },
+    {
+      "ticker": "MARUTI",
+      "logo": "https://pngimg.com/d/suzuki_PNG12291.png"
+    },
+    {
+      "ticker": "KOTAKBANK",
+      "logo": "https://companieslogo.com/img/orig/KOTAKBANK.NS-36440c5e.png?t=1720244492"
+    },
+    {
+      "ticker": "LT",
+      "logo": "https://w7.pngwing.com/pngs/22/287/png-transparent-larsen-toubro-hd-logo.png"
+    },
+    {
+      "ticker": "BAJFINANCE",
+      "logo": "https://trendlyne-media-mumbai-new.s3.amazonaws.com/profilepicture/150_profilepicture.png"
+    },
+    {
+      "ticker": "HCLTECH",
+      "logo": "https://logos-world.net/wp-content/uploads/2022/07/HCL-Technologies-Symbol.png"
+    },
+    {
+      "ticker": "TITAN",
+      "logo": "https://cdn.iconscout.com/icon/free/png-256/free-titan-3442926-2875387.png"
+    },
+    {
+      "ticker": "ASIANPAINT",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "AXISBANK",
+      "logo": "https://companieslogo.com/img/orig/AXISBANK.BO-8f59e95b.png?t=1720244490"
+    },
+    {
+      "ticker": "DMART",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "ULTRACEMCO",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCKwuIE6dRC6k_tm36OvuBB2nAITW4Xk4mgg&s"
+    },
+    {
+      "ticker": "NESTLEIND",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "WIPRO",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg"
+    },
+    {
+      "ticker": "COALINDIA",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "ONGC",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Jd-rzBDJ-D0hrlT4fBVXlJPL--5mq_9IEA&s"
+    },
+    {
+      "ticker": "JSWSTEEL",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "POWERGRID",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "TATAMOTORS",
+      "logo": "https://seeklogo.com/images/T/TATA-logo-B17191F4CA-seeklogo.com.png"
+    },
+    {
+      "ticker": "GRASIM",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "HDFCLIFE",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "NTPC",
+      "logo": "https://www.m1xchange.com/wp-content/uploads/2023/10/NTPC-logos.png"
+    },
+    {
+      "ticker": "SBILIFE",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "TECHM",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "BAJAJFINSV",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "ADANIGREEN",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "BPCL",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "HEROMOTOCO",
+      "logo": "https://seeklogo.com/images/H/hero-motorcycle-logo-A386DC4844-seeklogo.com.png"
+    },
+    {
+      "ticker": "DABUR",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "M&M",
+      "logo": "https://1000logos.net/wp-content/uploads/2020/04/Mahindra-Logo-2021.png"
+    },
+    {
+      "ticker": "INDUSINDBK",
+      "logo": "https://www.gupshup.io/resources/wp-content/uploads/2023/03/Group-38130.png?x96312"
+    },
+    {
+      "ticker": "DIVISLAB",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "BRITANNIA",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "CIPLA",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "PIDILITIND",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "EICHERMOT",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "GODREJCP",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "HAVELLS",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "ICICIGI",
+      "logo": "https://cdn.freelogovectors.net/svg07/icici_lombard_logo.svg"
+    },
+    {
+      "ticker": "ICICIPRULI",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "GAIL",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "TATACONSUM",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "SIEMENS",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "BANDHANBNK",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "ADANIPORTS",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "PNB",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "LUPIN",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "AUROPHARMA",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "MOTHERSON",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "DRREDDY",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "BERGEPAINT",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "BOSCHLTD",
+      "logo": "https://res-console.cloudinary.com/dzqtkljsw/media_explorer_thumbnails/f23e83c81983d41cb1eb18d67810a788/detailed"
+    },
+    {
+      "ticker": "CHOLAFIN",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "SHREECEM",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "TATAPOWER",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "AMBUJACEM",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "TORNTPHARM",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "CANBK",
+      "logo": "https://companieslogo.com/img/orig/CANBK.NS-94324ae3.png?t=1720244491"
+    },
+    {
+      "ticker": "POLYCAB",
+      "logo": "https://assets-netstorage.groww.in/stock-assets/logos2/PolycabIndiaLtd_84608181_26603.png"
+    },
+    {
+      "ticker": "HINDZINC",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "BHEL",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "NAM-INDIA",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "IDFCFIRSTB",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "UBL",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "IRCTC",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "ABBOTINDIA",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "BEL",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "ESCORTS",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "TRENT",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "TVSMOTOR",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "BALKRISIND",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "INDIGO",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "JINDALSTEL",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "MARICO",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "PETRONET",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "SUNTV",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "VOLTAS",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "MUTHOOTFIN",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "BHARTIARTL",
+      "logo": "https://cdn.freelogovectors.net/wp-content/uploads/2023/05/airtel-logo-01-freelogovectors.net_.png"
+    },
+    {
+      "ticker": "ADANIENSOL",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "RVNL",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "DIXON",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "SOLARINDS",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "UNIONBANK",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "IDBI",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "JSWENERGY",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "OFSS",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "CUMMINSIND",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "POLICYBZR",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "GMRAIRPORT",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "NHPC",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "TORNTPOWER",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "HINDPETRO",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "ICICIBANK",
+      "logo": "No LOGO"
+    },
+    {
+      "ticker": "LICI",
+      "logo": "No LOGO"
+    }
+  ]
+}
