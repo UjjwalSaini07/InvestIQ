@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import CountUp from "react-countup";
 import img1 from "../../../assets/Landing/Home3Compo/Img1.jpeg";
 import img2 from "../../../assets/Landing/Home3Compo/Img2.jpeg";
@@ -11,7 +11,7 @@ import img8 from "../../../assets/Landing/Home3Compo/Img8.jpg";
 import img9 from "../../../assets/Landing/Home3Compo/Img9.jpeg";
 import img10 from "../../../assets/Landing/Home3Compo/Img10.jpg";
 
-const StatCard = ({ number, suffix, label, highlight }) => {
+const StatCard = ({ number, suffix, label, highlight, startCount }) => {
   return (
     <div
       style={{
@@ -29,7 +29,7 @@ const StatCard = ({ number, suffix, label, highlight }) => {
           color: "#fff",
         }}
       >
-        <CountUp end={number} duration={3} />
+        <CountUp start={0} end={startCount ? number : 0} duration={10} />
         {suffix}
       </h2>
       <p style={{ color: "#ccc", margin: "10px 0", fontSize: "1.1rem" }}>
@@ -202,6 +202,29 @@ const TradingViewStats = () => {
   ];
 
   const slidingImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+  const statsRef = useRef();
+  const [startCount, setStartCount] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartCount(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div
@@ -220,15 +243,18 @@ const TradingViewStats = () => {
         }
         description="Trusted by hundreds of traders and investors."
       >
-        {stats.map((stat, index) => (
-          <StatCard
-            key={index}
-            number={stat.number}
-            suffix={stat.suffix}
-            label={stat.label}
-            highlight={stat.highlight}
-          />
-        ))}
+        <div ref={statsRef} className="flex flex-row">
+          {stats.map((stat, index) => (
+            <StatCard
+              key={index}
+              number={stat.number}
+              suffix={stat.suffix}
+              label={stat.label}
+              highlight={stat.highlight}
+              startCount={startCount}
+            />
+          ))}
+        </div>
       </Section>
 
       <Section
