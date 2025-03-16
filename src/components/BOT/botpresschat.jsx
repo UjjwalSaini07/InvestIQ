@@ -61,7 +61,7 @@ const BotpressChat = () => {
 
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[300px] h-[300px] rounded-full bg-gradient-to-br from-blue-500 to-purple-600 blur-3xl opacity-30"></div>
-        <div className="absolute bottom-10 right-10 w-[200px] h-[200px] rounded-full bg-gradient-to-br from-purple-500 to-pink-600 blur-3xl opacity-40"></div>
+        <div className="absolute top-20 right-10 w-[200px] h-[200px] rounded-full bg-gradient-to-br from-purple-500 to-pink-600 blur-3xl opacity-40"></div>
         <div className="absolute top-10 left-10 w-[200px] h-[200px] rounded-full bg-gradient-to-br from-blue-400 to-teal-500 blur-3xl opacity-40"></div>
       </div>
     </div>
