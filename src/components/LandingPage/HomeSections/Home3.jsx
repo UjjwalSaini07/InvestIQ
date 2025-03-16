@@ -215,7 +215,7 @@ const TradingViewStats = () => {
       <Section
         title={
           <>
-            Love in every <span style={{ display: "block" }}>#INVESTIQ</span>
+            Love in every <span style={{ display: "block" }}>#INVEST-IQ</span>
           </>
         }
         description="Trusted by hundreds of traders and investors."
@@ -232,7 +232,7 @@ const TradingViewStats = () => {
       </Section>
 
       <Section
-        title="Why Choose INVESTIQ?"
+        title="Why Choose INVEST-IQ?"
         description="Empowering hundreds of users with cutting-edge tools and unmatched reliability."
       >
         <SlidingImageGallery images={slidingImages} />
