@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 
-const CoinGainerLoser = () => {
+const CryptoGainerLoser = () => {
   const [gainers, setGainers] = useState([]);
   const [losers, setLosers] = useState([]);
 
@@ -26,8 +28,8 @@ const CoinGainerLoser = () => {
             b.price_change_percentage_24h - a.price_change_percentage_24h
         );
 
-        setGainers(sortedByChange.slice(0, 8));
-        setLosers(sortedByChange.slice(-8).reverse());
+        setGainers(sortedByChange.slice(0, 7));
+        setLosers(sortedByChange.slice(-7).reverse());
       } catch (error) {
         console.error("Error fetching coin data:", error);
       }
@@ -36,15 +38,26 @@ const CoinGainerLoser = () => {
     fetchCoinData();
   }, []);
 
-  const renderCoin = (coin, isGainer) => (
+  const renderCoin = (coin) => (
     <div key={coin.id} className="flex items-center justify-between p-3">
       <div className="flex items-center space-x-2">
         <img src={coin.image} alt={coin.name} className="w-12 h-12" />
-        <div>
-          <p className="font-semibold ml-1 text-xl text-white">{coin.name}</p>
-          <p className="text-xs ml-1 text-gray-400">
-            {coin.symbol.toUpperCase()}
-          </p>
+        <div className="flex flex-row justify-between">
+          <div>
+            <p className="font-semibold ml-1 text-xl text-white">{coin.name}</p>
+            <p className="text-xs ml-1 text-gray-400">
+              {coin.symbol.toUpperCase()}
+            </p>
+          </div>
+          {coin?.price_change_percentage_24h >= 0 ? (
+            <div className="text-green-400 font-bold ml-2">
+              <TrendingUpIcon />
+            </div>
+          ) : (
+            <div className="text-red-400 font-bold ml-2">
+              <TrendingDownIcon />
+            </div>
+          )}
         </div>
       </div>
       <div className="flex items-center">
@@ -65,9 +78,9 @@ const CoinGainerLoser = () => {
   );
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-black text-white mb-7 -mt-3">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-black text-white mb-4 -mt-3">
       <div>
-      <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center">
           <h2 className="text-2xl font-bold mb-4">Crypto Gainer</h2>
           <div className="ml-2 -mt-4">
             <svg
@@ -91,7 +104,7 @@ const CoinGainerLoser = () => {
         </div>
 
         <div className="bg-black rounded-lg shadow-lg divide-y divide-gray-700">
-          {gainers.map((coin) => renderCoin(coin, true))}
+          {gainers.map((coin) => renderCoin(coin))}
         </div>
       </div>
 
@@ -120,11 +133,11 @@ const CoinGainerLoser = () => {
         </div>
 
         <div className="bg-black rounded-lg shadow-lg divide-y divide-gray-700">
-          {losers.map((coin) => renderCoin(coin, false))}
+          {losers.map((coin) => renderCoin(coin))}
         </div>
       </div>
     </div>
   );
 };
 
-export default CoinGainerLoser;
+export default CryptoGainerLoser;

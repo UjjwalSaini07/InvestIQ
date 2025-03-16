@@ -17,6 +17,7 @@ import Error404 from "./components/common/Error404";
 import LogoFetcher from "./components/extra/ForeignCompanyLogo";
 import StockFetcher from "./components/extra/FetchingStockData";
 import Tools from "./components/FinanceTools/FinanceTools";
+import ChatBot from "./components/BOT/botpresschat";
 import "./App.scss";
 function App() {
   const location = useLocation();
@@ -39,6 +40,7 @@ function App() {
             <Route path="/logofetcher" element={<LogoFetcher />} />
             <Route path="/stockfetcher" element={<StockFetcher />} />
             <Route path="/tools" element={<Tools />} />
+            <Route path="/chatwithbot" element={<ChatBot />} />
             {/* Auth Pages - Public */}
             <Route path="/login" element={<AuthPage />} />
             <Route path="/register" element={<AuthPage />} />

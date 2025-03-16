@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import CountUp from "react-countup";
 import img1 from "../../../assets/Landing/Home3Compo/Img1.jpeg";
 import img2 from "../../../assets/Landing/Home3Compo/Img2.jpeg";
@@ -11,7 +11,7 @@ import img8 from "../../../assets/Landing/Home3Compo/Img8.jpg";
 import img9 from "../../../assets/Landing/Home3Compo/Img9.jpeg";
 import img10 from "../../../assets/Landing/Home3Compo/Img10.jpg";
 
-const StatCard = ({ number, suffix, label, highlight }) => {
+const StatCard = ({ number, suffix, label, highlight, startCount }) => {
   return (
     <div
       style={{
@@ -29,7 +29,7 @@ const StatCard = ({ number, suffix, label, highlight }) => {
           color: "#fff",
         }}
       >
-        <CountUp end={number} duration={3} />
+        <CountUp start={0} end={startCount ? number : 0} duration={10} />
         {suffix}
       </h2>
       <p style={{ color: "#ccc", margin: "10px 0", fontSize: "1.1rem" }}>
@@ -65,7 +65,7 @@ const Section = ({ title, description, children }) => {
       >
         {title}
       </h2>
-      <p style={{ fontSize: "1.2rem", marginBottom: "30px", color: "#ccc" }}>
+      <p style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#ccc" }}>
         {description}
       </p>
       <div
@@ -103,6 +103,19 @@ const SlidingImageGallery = ({ images }) => {
     images[(startIndex + 3) % images.length],
   ];
 
+  const descriptions = [
+    "Reliable & Trustworthy platform",
+    "Expert insights with Advance Logic",
+    "Advanced analytics Tools for Perfection",
+    "User-friendly tools with Key Insights",
+    "Secure & Fast trading Analytic Platform",
+    "Comprehensive data",
+    "Innovative script & Key Logic Ideas",
+    "Global Market Data",
+    "Access from Anywhere get Real Time Data",
+    "Cutting-edge techonlogy used",
+  ];
+
   return (
     <div
       style={{
@@ -134,27 +147,49 @@ const SlidingImageGallery = ({ images }) => {
         }}
       >
         {visibleImages.map((image, index) => (
-          <img
+          <div
             key={index}
-            src={image}
-            alt={`Slide ${index + 1}`}
             style={{
+              textAlign: "center",
               width: "300px",
-              height: "auto",
-              borderRadius: "15px",
-              objectFit: "cover",
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
-              transition: "transform 0.3s",
+              height: "480px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
             }}
-            onMouseEnter={(e) => {
-              e.target.style.boxShadow = "0 6px 16px rgba(88, 166, 255, 0.5)";
-              e.target.style.border = "2px solid #58a6ff";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.boxShadow = "none";
-              e.target.style.border = "none";
-            }}
-          />
+          >
+            <img
+              src={image}
+              alt={`Slide ${index + 1}`}
+              style={{
+                width: "100%",
+                height: "80%",
+                borderRadius: "18px",
+                objectFit: "cover",
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
+                transition: "transform 0.3s",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.boxShadow = "0 6px 16px rgba(88, 166, 255, 0.5)";
+                e.target.style.border = "2px solid #58a6ff";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.boxShadow = "none";
+                e.target.style.border = "none";
+              }}
+            />
+            <p
+              style={{
+                color: "#ccc",
+                marginTop: "8px",
+                fontSize: "0.9rem",
+                fontWeight: "bold"
+              }}
+            >
+              {descriptions[(startIndex + index) % descriptions.length]}
+            </p>
+          </div>
         ))}
       </div>
       <button
@@ -202,6 +237,29 @@ const TradingViewStats = () => {
   ];
 
   const slidingImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+  const statsRef = useRef();
+  const [startCount, setStartCount] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartCount(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div
@@ -215,24 +273,27 @@ const TradingViewStats = () => {
       <Section
         title={
           <>
-            Love in every <span style={{ display: "block" }}>#INVESTIQ</span>
+            Love in every <span style={{ display: "block" }}>#INVEST-IQ</span>
           </>
         }
         description="Trusted by hundreds of traders and investors."
       >
-        {stats.map((stat, index) => (
-          <StatCard
-            key={index}
-            number={stat.number}
-            suffix={stat.suffix}
-            label={stat.label}
-            highlight={stat.highlight}
-          />
-        ))}
+        <div ref={statsRef} className="flex flex-row">
+          {stats.map((stat, index) => (
+            <StatCard
+              key={index}
+              number={stat.number}
+              suffix={stat.suffix}
+              label={stat.label}
+              highlight={stat.highlight}
+              startCount={startCount}
+            />
+          ))}
+        </div>
       </Section>
 
       <Section
-        title="Why Choose INVESTIQ?"
+        title="Why Choose INVEST-IQ?"
         description="Empowering hundreds of users with cutting-edge tools and unmatched reliability."
       >
         <SlidingImageGallery images={slidingImages} />

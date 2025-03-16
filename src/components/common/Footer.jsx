@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaArrowUp } from "react-icons/fa";
+import { MessageCircle } from "lucide-react";
+import { Button } from "../ui/button";
 import Logo from "../../assets/InvestIQ_Logo.png";
 
 const Footer = () => {
@@ -135,16 +137,42 @@ const Footer = () => {
           © 2025 InvestIQ. All rights reserved.
         </p>
       </div>
+
       {showScroll && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-gradient-to-r from-cyan-500 to-cyan-400 text-white p-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition duration-300 flex items-center justify-center mid:block"
-          style={{
-            animation: "bounce 2.2s infinite",
-          }}
-        >
-          <FaArrowUp className="text-xl" />
-        </button>
+        <>
+          <a
+            href="/chatwithbot"
+            className="fixed bottom-16 right-6 w-12 h-12 p-3 rounded-full items-center justify-center text-white bg-gradient-to-br from-cyan-500 to-blue-500 shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300 lg:block hidden"
+            style={{
+              boxShadow: "0 4px 15px rgba(0, 180, 255, 0.6)",
+            }}
+          >
+            <MessageCircle className="w-6 h-6 font-extrabold" />
+          </a>
+
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-2 right-6 bg-gradient-to-br from-cyan-500 to-blue-500 text-white p-3 rounded-full items-center justify-center shadow-lg hover:shadow-2xl hover:scale-110 transition-transform duration-300 lg:block hidden"
+            style={{
+              animation: "bounce 4s infinite",
+              boxShadow: "0 4px 10px rgba(0, 180, 255, 0.6)",
+            }}
+          >
+            <FaArrowUp className="text-xl" />
+          </button>
+
+          <style jsx>{`
+            @keyframes bounce {
+              0%,
+              100% {
+                transform: translateY(0);
+              }
+              50% {
+                transform: translateY(-6px);
+              }
+            }
+          `}</style>
+        </>
       )}
     </footer>
   );

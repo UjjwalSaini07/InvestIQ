@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
+import companyLogos from "../../../common/Companies_Logo.json";
 
 function ListView({ stock, delay }) {
   const [isStockAdded, setIsStockAdded] = useState(false);
@@ -16,7 +17,8 @@ function ListView({ stock, delay }) {
 
     if (isStockAdded) {
       removeItemToWatchlist(e, stock.ticker, setIsStockAdded);
-      const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+      const updatedWatchlist =
+        JSON.parse(localStorage.getItem("watchlist")) || [];
       const filteredWatchlist = updatedWatchlist.filter(
         (id) => id !== stock.ticker
       );
@@ -24,7 +26,8 @@ function ListView({ stock, delay }) {
       setIsStockAdded(false);
     } else {
       saveItemToWatchlist(e, stock.ticker);
-      const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+      const updatedWatchlist =
+        JSON.parse(localStorage.getItem("watchlist")) || [];
       updatedWatchlist.push(stock.ticker);
       localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
       setIsStockAdded(true);
@@ -35,6 +38,10 @@ function ListView({ stock, delay }) {
     ((stock.current_price - stock.previous_close) / stock.previous_close) *
     100
   ).toFixed(2);
+
+  const matchingLogo = companyLogos.CompaniesLogo.find(
+    (logo) => logo.ticker === stock.ticker
+  );
 
   return (
     <a href={`/coin/${stock.ticker}`} className="block group mb-3">
@@ -50,9 +57,13 @@ function ListView({ stock, delay }) {
       >
         <div className="col-span-1 -ml-5 flex items-center justify-center">
           <img
-            src={stock.image}
+            src={
+              matchingLogo
+                ? matchingLogo.logo
+                : "https://media.licdn.com/dms/image/v2/C5112AQEw1fXuabCTyQ/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1581099611064?e=1746057600&v=beta&t=9GSzc1PGYMupEZiyJnnSOx7ULZSd3vrYLxZ1VJ8YO_4"
+            }
             alt={stock.ticker}
-            className="w-12 h-12 rounded-full"
+            className="w-12 h-12 object-contain"
           />
         </div>
 
@@ -151,5 +162,4 @@ function ListView({ stock, delay }) {
   );
 }
 
-export default ListView
-;
+export default ListView;

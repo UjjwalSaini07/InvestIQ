@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "../../../ui/button";
 
 export default function PaginationControlled({
@@ -6,6 +6,10 @@ export default function PaginationControlled({
   handlePageChange,
   totalPages = 10,
 }) {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [page]); // Dependency on `page` ensures this runs when `page` changes
+
   const getButtonClasses = (isActive) =>
     isActive
       ? "bg-blue-600 text-white shadow-lg"

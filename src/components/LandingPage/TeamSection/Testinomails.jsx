@@ -37,21 +37,21 @@ function Testimonials() {
       id="testimonials"
       className="flex justify-center items-center py-8 mb-6"
     >
-      <div className="max-w-6xl mx-auto text-center px-1">
-        <h2 className="text-white text-5xl font-extrabold mb-10 tracking-wide">
+      <div className="max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 className="text-white text-4xl sm:text-5xl font-extrabold mb-10 tracking-wide">
           Testimonials
         </h2>
         <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
+          slidesPerView={1}
+          spaceBetween={20}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           speed={1000}
           loop={true}
           modules={[Autoplay]}
           breakpoints={{
-            700: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-            1280: { slidesPerView: 3 },
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 30 },
           }}
         >
           {testimonials.map(({ name, review }, index) => (
@@ -59,10 +59,12 @@ function Testimonials() {
               key={index}
               className="h-full relative p-5 rounded-2xl backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg transition-transform duration-500 hover:scale-105"
             >
-              <div className="h-full flex flex-col justify-between relative transition-transform duration-500 hover:scale-105">
+              <div className="h-full flex flex-col justify-between">
                 <div className="relative z-10 flex-grow">
-                  <h3 className="text-white text-xl font-semibold">{name}</h3>
-                  <p className="text-gray-300 mt-3 text-sm leading-relaxed">
+                  <h3 className="text-white text-lg sm:text-xl font-semibold">
+                    {name}
+                  </h3>
+                  <p className="text-gray-300 mt-3 text-sm sm:text-base leading-relaxed">
                     {review}
                   </p>
                 </div>

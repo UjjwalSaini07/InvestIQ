@@ -53,6 +53,7 @@ function Header() {
           { name: "Compare", path: "/compare" },
           { name: "Watchlist", path: "/watchlist" },
           { name: "Dashboard", path: "/dashboard" },
+          { name: "Tools", path: "/tools" },
           { name: "About", path: "/about" },
         ].map((link) => (
           <a
@@ -85,6 +86,7 @@ function Header() {
                 { name: "Compare", path: "/compare" },
                 { name: "Watchlist", path: "/watchlist" },
                 { name: "Dashboard", path: "/dashboard" },
+                { name: "Tools", path: "/tools" },
                 { name: "About", path: "/about" },
               ].map((link) => (
                 <li key={link.path}>

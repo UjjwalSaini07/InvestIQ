@@ -3,6 +3,10 @@ import { motion } from "framer-motion";
 import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
 
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import TrendingDownIcon from "@mui/icons-material/TrendingDown";
+import companyLogos from "../../../common/Companies_Logo.json";
+
 function GridView({ stock, delay }) {
   const [isStockAdded, setIsStockAdded] = useState(false);
 
@@ -16,13 +20,17 @@ function GridView({ stock, delay }) {
 
     if (isStockAdded) {
       removeItemToWatchlist(e, stock.ticker, setIsStockAdded);
-      const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
-      const filteredWatchlist = updatedWatchlist.filter((id) => id !== stock.ticker);
+      const updatedWatchlist =
+        JSON.parse(localStorage.getItem("watchlist")) || [];
+      const filteredWatchlist = updatedWatchlist.filter(
+        (id) => id !== stock.ticker
+      );
       localStorage.setItem("watchlist", JSON.stringify(filteredWatchlist));
       setIsStockAdded(false);
     } else {
       saveItemToWatchlist(e, stock.ticker);
-      const updatedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+      const updatedWatchlist =
+        JSON.parse(localStorage.getItem("watchlist")) || [];
       updatedWatchlist.push(stock.ticker);
       localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
       setIsStockAdded(true);
@@ -30,8 +38,13 @@ function GridView({ stock, delay }) {
   };
 
   const percentageChange = (
-    ((stock.current_price - stock.previous_close) / stock.previous_close) * 100
+    ((stock.current_price - stock.previous_close) / stock.previous_close) *
+    100
   ).toFixed(2);
+
+  const matchingLogo = companyLogos.CompaniesLogo.find(
+    (logo) => logo.ticker === stock.ticker
+  );
 
   return (
     <a href={`/coin/${stock.ticker}`} className="block group">
@@ -47,11 +60,15 @@ function GridView({ stock, delay }) {
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center">
+            <div className="w-12 h-12 rounded-full flex items-center">
               <img
-                src={stock.image}
+                src={
+                  matchingLogo
+                    ? matchingLogo.logo
+                    : "https://media.licdn.com/dms/image/v2/C5112AQEw1fXuabCTyQ/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1581099611064?e=1746057600&v=beta&t=9GSzc1PGYMupEZiyJnnSOx7ULZSd3vrYLxZ1VJ8YO_4"
+                }
                 alt={stock.ticker}
-                className="w-12 h-12 rounded-full"
+                className="w-12 h-12 object-contain"
               />
             </div>
             <div className="flex flex-col">
@@ -109,9 +126,25 @@ function GridView({ stock, delay }) {
         </div>
 
         <div className="flex flex-row justify-between">
-          <p className="text-xl font-bold text-white">
-            ₹{stock.current_price.toLocaleString()}
-          </p>
+          {percentageChange >= 0 ? (
+            <div className="flex items-center">
+              <p className="text-xl font-bold text-white">
+                ₹{stock.current_price.toLocaleString()}
+              </p>
+              <div className="text-green-400 font-bold ml-2">
+                <TrendingUpIcon />
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center">
+              <p className="text-xl font-bold text-white">
+                ₹{stock.current_price.toLocaleString()}
+              </p>
+              <div className="text-red-400 font-bold ml-2">
+                <TrendingDownIcon />
+              </div>
+            </div>
+          )}
           <p className="text-2lg font-bold text-red-500">
             ₹{stock.previous_close.toLocaleString()}
           </p>
