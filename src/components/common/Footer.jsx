@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaArrowUp } from "react-icons/fa";
+import { MessageCircle } from "lucide-react";
+import { Button } from "../ui/button";
 import Logo from "../../assets/InvestIQ_Logo.png";
 
 const Footer = () => {
@@ -135,16 +137,25 @@ const Footer = () => {
           © 2025 InvestIQ. All rights reserved.
         </p>
       </div>
+
       {showScroll && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-gradient-to-r from-cyan-500 to-cyan-400 text-white p-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition duration-300 items-center justify-center hidden lg:block"
-          style={{
-            animation: "bounce 2.2s infinite",
-          }}
-        >
-          <FaArrowUp className="text-xl" />
-        </button>
+        <>
+          <a
+            href="/chatwithbot"
+            className="fixed bottom-16 right-6 w-12 h-12 p-3 rounded-full items-center justify-center text-white bg-gradient-to-r from-cyan-500 to-cyan-400 shadow-xl hover:shadow-2xl transform transition-all hidden lg:block"
+          >
+            <MessageCircle className="w-6 h-6 text-xl" />
+          </a>
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-4 right-6 bg-gradient-to-r from-cyan-500 to-cyan-400 text-white p-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition duration-300 items-center justify-center hidden lg:block"
+            style={{
+              animation: "bounce 2.2s infinite",
+            }}
+          >
+            <FaArrowUp className="text-xl" />
+          </button>
+        </>
       )}
     </footer>
   );
