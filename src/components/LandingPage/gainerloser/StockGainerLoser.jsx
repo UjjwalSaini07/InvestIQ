@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import companyLogos from "../../common/Companies_Logo.json";
 
 const StockGainerLoser = () => {
@@ -74,11 +76,22 @@ const StockGainerLoser = () => {
             alt={stock.ticker}
             className="w-12 h-12 object-contain rounded-full"
           />
-          <div>
-            <p className="font-semibold text-lg text-white ml-2">
-              {stock.ticker}
-            </p>
-            <p className="text-xs text-gray-400 ml-2">{stock.exchange}</p>
+          <div className="flex flex-row justify-between">
+            <div>
+              <p className="font-semibold text-lg text-white ml-2">
+                {stock.ticker}
+              </p>
+              <p className="text-xs text-gray-400 ml-2">{stock.exchange}</p>
+            </div>
+            {stock.percentage_change >= 0 ? (
+              <div className="text-green-400 font-bold ml-2">
+                <TrendingUpIcon />
+              </div>
+            ) : (
+              <div className="text-red-400 font-bold ml-2">
+                <TrendingDownIcon />
+              </div>
+            )}
           </div>
         </div>
         <div className="flex items-center">

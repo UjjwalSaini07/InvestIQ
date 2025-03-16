@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 
 const CryptoGainerLoser = () => {
   const [gainers, setGainers] = useState([]);
@@ -40,11 +42,22 @@ const CryptoGainerLoser = () => {
     <div key={coin.id} className="flex items-center justify-between p-3">
       <div className="flex items-center space-x-2">
         <img src={coin.image} alt={coin.name} className="w-12 h-12" />
-        <div>
-          <p className="font-semibold ml-1 text-xl text-white">{coin.name}</p>
-          <p className="text-xs ml-1 text-gray-400">
-            {coin.symbol.toUpperCase()}
-          </p>
+        <div className="flex flex-row justify-between">
+          <div>
+            <p className="font-semibold ml-1 text-xl text-white">{coin.name}</p>
+            <p className="text-xs ml-1 text-gray-400">
+              {coin.symbol.toUpperCase()}
+            </p>
+          </div>
+          {coin?.price_change_percentage_24h >= 0 ? (
+            <div className="text-green-400 font-bold ml-2">
+              <TrendingUpIcon />
+            </div>
+          ) : (
+            <div className="text-red-400 font-bold ml-2">
+              <TrendingDownIcon />
+            </div>
+          )}
         </div>
       </div>
       <div className="flex items-center">
@@ -67,7 +80,7 @@ const CryptoGainerLoser = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-black text-white mb-4 -mt-3">
       <div>
-      <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center">
           <h2 className="text-2xl font-bold mb-4">Crypto Gainer</h2>
           <div className="ml-2 -mt-4">
             <svg
