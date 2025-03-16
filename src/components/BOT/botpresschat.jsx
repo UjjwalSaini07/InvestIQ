@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Spline from "@splinetool/react-spline";
 import { MessageCircle } from "lucide-react";
-import Logo from "../../assets/InvestIQ_Logo.png"
+import Logo from "../../assets/InvestIQ_Logo.png";
 
 const BotpressChat = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -36,13 +36,13 @@ const BotpressChat = () => {
       </button>
 
       <div
-        className={`fixed z-50 bottom-6 right-6 w-[380px] h-[550px] bg-black text-white rounded-3xl shadow-2xl border border-gray-600 transform transition-transform duration-500 overflow-hidden ${
+        className={`fixed z-50 bottom-7 right-6 w-[380px] h-[550px] bg-black text-white rounded-3xl shadow-2xl border border-gray-600 transform transition-transform duration-500 overflow-visible ${
           isChatOpen ? "translate-y-0 scale-100" : "translate-y-full scale-95"
         }`}
       >
-        <div className="flex justify-between p-3 text-white rounded-t-2xl">
+        <div className="flex justify-between p-4 text-white rounded-t-2xl">
           <div className="flex flex-row">
-            <img src={Logo} alt="InvestIQ Logo" className="w-6 h-6 ml-1 object-contain"/>
+            <img src={Logo} alt="InvestIQ Logo" className="w-6 h-6 ml-1 object-contain" />
             <h3 className="text-sm font-bold mt-1 ml-2">Chat with AlphaBot</h3>
           </div>
           <button
@@ -54,7 +54,7 @@ const BotpressChat = () => {
         </div>
         <iframe
           src="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/03/16/08/20250316082012-E8HHIRQH.json"
-          className="w-full h-full rounded-3xl"
+          className="w-full h-full"
           title="Botpress Chat"
         ></iframe>
       </div>
