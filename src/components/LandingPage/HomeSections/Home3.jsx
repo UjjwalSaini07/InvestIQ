@@ -65,7 +65,7 @@ const Section = ({ title, description, children }) => {
       >
         {title}
       </h2>
-      <p style={{ fontSize: "1.2rem", marginBottom: "30px", color: "#ccc" }}>
+      <p style={{ fontSize: "1.2rem", marginBottom: "8px", color: "#ccc" }}>
         {description}
       </p>
       <div
@@ -103,6 +103,19 @@ const SlidingImageGallery = ({ images }) => {
     images[(startIndex + 3) % images.length],
   ];
 
+  const descriptions = [
+    "Reliable & Trustworthy platform",
+    "Expert insights with Advance Logic",
+    "Advanced analytics Tools for Perfection",
+    "User-friendly tools with Key Insights",
+    "Secure & Fast trading Analytic Platform",
+    "Comprehensive data",
+    "Innovative script & Key Logic Ideas",
+    "Global Market Data",
+    "Access from Anywhere get Real Time Data",
+    "Cutting-edge techonlogy used",
+  ];
+
   return (
     <div
       style={{
@@ -134,27 +147,49 @@ const SlidingImageGallery = ({ images }) => {
         }}
       >
         {visibleImages.map((image, index) => (
-          <img
+          <div
             key={index}
-            src={image}
-            alt={`Slide ${index + 1}`}
             style={{
+              textAlign: "center",
               width: "300px",
-              height: "auto",
-              borderRadius: "15px",
-              objectFit: "cover",
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
-              transition: "transform 0.3s",
+              height: "480px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
             }}
-            onMouseEnter={(e) => {
-              e.target.style.boxShadow = "0 6px 16px rgba(88, 166, 255, 0.5)";
-              e.target.style.border = "2px solid #58a6ff";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.boxShadow = "none";
-              e.target.style.border = "none";
-            }}
-          />
+          >
+            <img
+              src={image}
+              alt={`Slide ${index + 1}`}
+              style={{
+                width: "100%",
+                height: "80%",
+                borderRadius: "18px",
+                objectFit: "cover",
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
+                transition: "transform 0.3s",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.boxShadow = "0 6px 16px rgba(88, 166, 255, 0.5)";
+                e.target.style.border = "2px solid #58a6ff";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.boxShadow = "none";
+                e.target.style.border = "none";
+              }}
+            />
+            <p
+              style={{
+                color: "#ccc",
+                marginTop: "8px",
+                fontSize: "0.9rem",
+                fontWeight: "bold"
+              }}
+            >
+              {descriptions[(startIndex + index) % descriptions.length]}
+            </p>
+          </div>
         ))}
       </div>
       <button
