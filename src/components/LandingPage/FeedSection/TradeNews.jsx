@@ -66,7 +66,7 @@ const TradeNews = () => {
     <div className="bg-black flex flex-col">
       <div className="max-w-7xl mx-auto px-7 py-10 mb-12">
         <h1 className="text-5xl font-extrabold text-center text-white mb-12 tracking-wide">
-          Latest <span className="text-blue-500">Stocks & Bitcoin</span> News
+          Latest <span className="text-blue-500">Stocks & Crypto</span> News
         </h1>
 
         {news.length === 0 ? (

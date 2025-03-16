@@ -86,7 +86,7 @@ const Cap1Stock = () => {
   }, []);
 
   return (
-    <div className="font-sans p-6 text-white">
+    <div className="font-sans p-6 text-white -mt-12">
       <h2 className="text-3xl font-bold mb-5 flex items-center transition-colors duration-300 hover:text-blue-500">
         Large Cap Stocks
         <svg
