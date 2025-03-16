@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import Spline from "@splinetool/react-spline";
+import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import Logo from "../../assets/Bot.png";
+
+const textVariant = (delay) => ({
+  hidden: { y: -50, opacity: 0 },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: { type: "spring", duration: 1.25, delay: delay },
+  },
+});
 
 const BotpressChat = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -13,27 +23,33 @@ const BotpressChat = () => {
   return (
     <div className="relative flex flex-col items-center justify-center bg-black text-white p-4">
       <div className="text-center space-y-5 z-20">
-        <h1 className="text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-          Welcome to Invest-IQ
-        </h1>
-        <p className="text-lg text-gray-300 max-w-xl mx-auto">
-          Unlock smart investments. Interact with our AI assistant for expert
-          guidance. Click the bot icon to chat!
-        </p>
+        <motion.div variants={textVariant(1)} initial="hidden" animate="show">
+          <h1 className="text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+            Welcome to Invest-IQ
+          </h1>
+        </motion.div>
+        <motion.div variants={textVariant(1.8)} initial="hidden" animate="show">
+          <p className="text-lg text-gray-300 max-w-xl mx-auto">
+            Unlock smart investments. Interact with our AI assistant for expert
+            guidance. Click the bot icon to chat!
+          </p>
+        </motion.div>
       </div>
 
       <div className="absolute top-32 z-10 w-full h-[500px] rounded-xl overflow-hidden shadow-2xl">
         <Spline scene="https://prod.spline.design/Rh8Bo6LsLxP-ADbG/scene.splinecode" />
       </div>
 
-      <button
-        onClick={toggleChat}
-        className={`fixed bottom-6 right-6 z-30 w-14 h-14 rounded-full flex items-center justify-center text-white bg-gradient-to-r from-blue-500 to-purple-600 shadow-xl hover:shadow-2xl transform transition-all ${
-          isChatOpen ? "scale-0" : "scale-100"
-        }`}
-      >
-        <MessageCircle className="w-6 h-6" />
-      </button>
+        <div>
+          <button
+            onClick={toggleChat}
+            className={`fixed bottom-6 right-6 z-30 w-14 h-14 rounded-full flex items-center justify-center text-white bg-gradient-to-r from-blue-500 to-purple-600 shadow-xl hover:shadow-2xl transform transition-all ${
+              isChatOpen ? "scale-0" : "scale-100"
+            }`}
+          >
+            <MessageCircle className="w-6 h-6" />
+          </button>
+        </div>
 
       <div
         className={`fixed z-50 bottom-7 right-6 w-[380px] h-[550px] bg-black text-white rounded-3xl shadow-2xl border border-gray-600 transform transition-transform duration-500 overflow-visible ${
