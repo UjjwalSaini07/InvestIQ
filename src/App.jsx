@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation, } from "react-rout
 
 import Layout from "./components/common/Layout";
 import Header from "./components/common/Header";
-import Home from "./pages/Home";
-import Compare from "./pages/Compare";
+import Home from "./pages/home";
+import Compare from "./pages/compare";
 import HelpCenter from "./components/UserCenter/HelpCenter";
 import ContactUs from "./components/UserCenter/ContactUs";
 import About from "./components/UserCenter/About";
