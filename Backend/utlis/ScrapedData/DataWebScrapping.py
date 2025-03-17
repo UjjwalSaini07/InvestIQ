@@ -3,10 +3,16 @@ from bs4 import BeautifulSoup
 import json
 import time
 import os
+from dotenv import load_dotenv
 from pymongo import MongoClient
 
+load_dotenv()
+
 # MongoDB Configuration
-MONGO_URI = "mongodb://localhost:27017/"
+MONGO_URI = os.getenv("MONGODB_URI")
+# MONGO_URI = "mongodb://localhost:27017/"
+if not MONGO_URI:
+    raise ValueError("MONGODB_URI is not set. Check your .env file.")
 DB_NAME = "investiqdb"
 COLLECTION_NAME = "Stocks"
 
@@ -15,6 +21,7 @@ client = MongoClient(MONGO_URI)
 db = client[DB_NAME]
 collection = db[COLLECTION_NAME]
 
+# Get current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 def fetch_stock_data(ticker, exchange):
@@ -52,12 +59,13 @@ def fetch_stock_data(ticker, exchange):
         # Fetch Previous Close data from Google Finance
         google_finance_url = f'https://www.google.com/finance/quote/{ticker}:{exchange}'
         google_response = requests.get(google_finance_url)
-        google_soup = BeautifulSoup(google_response.text, 'html.parser')
         previous_close = None
 
-        previous_close_element = google_soup.select_one("div.gyFHrc div.P6K39c")
-        if previous_close_element:
-            previous_close = parse_numeric(previous_close_element.text)
+        if google_response.status_code == 200:
+            google_soup = BeautifulSoup(google_response.text, 'html.parser')
+            previous_close_element = google_soup.select_one("div.gyFHrc div.P6K39c")
+            if previous_close_element:
+                previous_close = parse_numeric(previous_close_element.text)
 
         return {
             "ticker": ticker,
@@ -79,6 +87,9 @@ def fetch_stock_data(ticker, exchange):
 
 # Load tickers from file
 ticker_file_path = os.path.join(current_dir, 'IndianStockTicker.json')
+if not os.path.exists(ticker_file_path):
+    print("Ticker file not found - IndianStockTicker.json. Checkout is in the same directory or not.")
+    exit(1)
 
 try:
     with open(ticker_file_path, 'r') as ticker_file:
@@ -89,23 +100,34 @@ except Exception as e:
 
 batch_size = 20
 
-# Fetch data in batches
-for i in range(0, len(tickers), batch_size):
-    batch = tickers[i:i + batch_size]
+try:
+    # Fetch data in batches
+    for i in range(0, len(tickers), batch_size):
+        batch = tickers[i:i + batch_size]
 
-    for ticker in batch:
-        stock_data = fetch_stock_data(ticker, "NSE")
-        if "error" not in stock_data:
-            collection.update_one(
-                {"ticker": stock_data["ticker"]},  # Find document by ticker
-                {"$set": stock_data},  # Update with new data
-                upsert=True  # Insert if not found
-            )
-        time.sleep(2)  # Delay to avoid rate limits
+        for ticker in batch:
+            try:
+                stock_data = fetch_stock_data(ticker, "NSE")
+                if "error" not in stock_data:
+                    collection.update_one(
+                        {"ticker": stock_data["ticker"]},  # Find document by ticker
+                        {"$set": stock_data},  # Update with new data
+                        upsert=True  # Insert if not found
+                    )
+                else:
+                    print(f"Error fetching data for {ticker}: {stock_data['error']}")
+            except Exception as e:
+                print(f"Unexpected error for {ticker}: {e}")
+            time.sleep(2)  # Delay to avoid rate limits
 
-    print(f"Batch {i // batch_size + 1} processed")
+        print(f"Batch {i // batch_size + 1} processed")
 
-print("All stock data updated in MongoDB.")
+    print("All stock data updated in MongoDB.")
 
-# Close MongoDB connection
-client.close()
+except Exception as e:
+    print(f"Critical error occurred: {e}")
+
+finally:
+    # Close MongoDB connection
+    client.close()
+    print("MongoDB connection closed.")
