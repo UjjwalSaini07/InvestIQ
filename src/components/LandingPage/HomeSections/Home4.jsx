@@ -21,8 +21,10 @@ const Home4 = () => {
     <div>
       <Section1 />
       <Section2 />
-      <Section3 />
-      <Section4 />
+      <div className="h-auto mb-14">
+        <Section3 />
+        <Section4 />
+      </div>
       <Section5 />
       <Section6 />
       <div>
