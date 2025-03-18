@@ -353,16 +353,12 @@ const TradingViewStats = () => {
         </Section>
       </div>
 
-      <div data-aos="flip-right">
         <Section
           title="Why Choose INVEST-IQ?"
           description="Empowering hundreds of users with cutting-edge tools and unmatched reliability."
         >
-          <div>
             <SlidingImageGallery images={slidingImages} />
-          </div>
         </Section>
-      </div>
     </div>
   );
 };
