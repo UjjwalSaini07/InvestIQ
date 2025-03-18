@@ -45,7 +45,17 @@ function CryptoStockDashboard() {
       setCoins(response.data);
     } catch (error) {
       console.error("Error fetching data:", error.message);
-      setError("Failed to fetch Crypto data. Please try again later.");
+      // setError("Failed to fetch Crypto data. Please try again later.");
+      <div className="flex flex-col items-center justify-center h-full">
+        <h1 className="text-3xl font-bold text-white mt-5 text-center mb-4">
+          Sorry, Failed to fetch Crypto data, Please try again later...
+        </h1>
+        <Link to="/">
+          <Button className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600">
+            Explore Home Page
+          </Button>
+        </Link>
+      </div>;
     } finally {
       setLoading(false);
     }
@@ -54,13 +64,25 @@ function CryptoStockDashboard() {
   const getStocks = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:5000/api/v1/fetchStocksData');
+      const response = await axios.get(
+        "http://localhost:5000/api/v1/fetchStocksData"
+      );
       setStocks(response.data);
     } catch (error) {
-        console.error("Error fetching stocks:", error);
-        setError("Failed to fetch stocks data. Please try again later...");
+      console.error("Error fetching stocks:", error);
+      // setError("Failed to fetch stocks data. Please try again later...");
+      <div className="flex flex-col items-center justify-center h-full">
+        <h1 className="text-3xl font-bold text-white mt-5 text-center mb-4">
+          Sorry, Failed to fetch stocks data, Please try again later...
+        </h1>
+        <Link to="/">
+          <Button className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600">
+            Explore Home Page
+          </Button>
+        </Link>
+      </div>
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
   };
 
