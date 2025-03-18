@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import vid1 from "../../../assets/Landing/Home2Compo/Trade1.mp4";
 import vid2 from "../../../assets/Landing/Home2Compo/Trade2.mp4";
 import img1 from "../../../assets/Landing/Home2Compo/Trade3.png";
@@ -10,9 +13,29 @@ const Home2 = () => {
   const [currentMedia, setCurrentMedia] = useState({ type: "video", src: vid1 });
   const [activeButton, setActiveButton] = useState("Chart");
 
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      delay: 10,
+      duration: 2000,
+      easing: "ease",
+      once: false,
+    });
+  }, []);
+
   const handleMediaChange = (type, src, label) => {
     setCurrentMedia({ type, src });
     setActiveButton(label);
+    AOS.refresh();
+  };
+
+  const mediaMapping = {
+    Chart: { type: "video", src: vid1 },
+    SChart: { type: "video", src: vid2 },
+    Trade: { type: "image", src: img1 },
+    Screen: { type: "image", src: img2 },
+    Analyze: { type: "image", src: img3 },
+    Learn: { type: "image", src: img4 },
   };
 
   const containerStyle = {
@@ -51,7 +74,7 @@ const Home2 = () => {
     color: "#c9d1d9",
     fontSize: "0.9rem",
     fontWeight: "bold",
-    padding: "0.50rem 0.9rem",
+    padding: "0.5rem 0.9rem",
     border: "none",
     backgroundColor: "transparent",
     borderRadius: "8px",
@@ -84,32 +107,28 @@ const Home2 = () => {
   };
 
   return (
-    <div style={containerStyle}>
-      <div style={headlineStyle}>Where the world does markets</div>
-      <div style={subheadlineStyle}>
+    <div className="App" style={containerStyle}>
+      <div data-aos="fade-right" style={headlineStyle}>
+        Where the world does markets
+      </div>
+      <div data-aos="fade-left" style={subheadlineStyle}>
         Join 90 million traders and investors taking the future into their own hands.
       </div>
-      <nav style={navStyle}>
-        {["Chart", "SChart","Trade", "Screen", "Analyze", "Learn"].map((label, index) => (
+      <nav data-aos="zoom-in" style={navStyle}>
+        {Object.keys(mediaMapping).map((label, index) => (
           <button
             key={index}
             style={{
               ...buttonStyle,
               ...(activeButton === label && buttonActiveStyle),
             }}
-            onClick={() =>
-              handleMediaChange(
-                label === "Chart" || label === "SChart" ? "video" : "image",
-                label === "Chart" ? vid1 : label === "SChart" ? vid2 : label === "Trade" ? img1 : label === "Screen" ? img2 : label === "Analyze" ? img3 : img4,
-                label
-              )
-            }
+            onClick={() => handleMediaChange(mediaMapping[label].type, mediaMapping[label].src, label)}
           >
             {label}
           </button>
         ))}
       </nav>
-      <div style={tradeIdeaBoxStyle}>
+      <div data-aos="flip-left" style={tradeIdeaBoxStyle}>
         {currentMedia.type === "video" ? (
           <video
             src={currentMedia.src}

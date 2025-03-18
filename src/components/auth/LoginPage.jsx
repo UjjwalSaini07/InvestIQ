@@ -51,9 +51,9 @@ const LoginPage = () => {
   }, [user, navigate]);
 
   const handleBack = () => {
-    window.history.back();
+    navigate("/");
   };
-
+  
   useEffect(() => {
     const updateLayout = () => {
       setIsMobile(window.innerWidth < 768);
