@@ -109,7 +109,6 @@ const StockGainerLoser = () => {
       </div>
     );
   };
-
   return (
     <div className="p-6 text-white -mt-3 mb-4">
       {loading && (
@@ -118,8 +117,7 @@ const StockGainerLoser = () => {
           <p className="ml-4 text-lg font-medium text-blue-500">Loading...</p>
         </div>
       )}
-      {/* {error && <p className="text-center text-red-500">{error}</p>} */}
-      {error && (
+      {error ? (
         <div className="flex items-center justify-center bg-gradient-to-r from-red-400 to-red-600 text-white p-4 rounded-2xl shadow-lg max-w-md mx-auto">
           <div className="flex-shrink-0 mr-4">
             <svg
@@ -139,21 +137,21 @@ const StockGainerLoser = () => {
                 <path
                   style={{ fill: "#FFFFFF" }}
                   d="M147.592,316v-34.496h-61.48v-16.728l55.416-84.688h30.32v81.968h17.568v19.448h-17.568V316H147.592
-			z M147.592,262.056V225.04c0-7.736,0.208-15.68,0.832-23.632h-0.832c-4.176,8.576-7.736,15.472-11.912,23l-24.88,37.224
-			l-0.208,0.416h37V262.056z"
+        z M147.592,262.056V225.04c0-7.736,0.208-15.68,0.832-23.632h-0.832c-4.176,8.576-7.736,15.472-11.912,23l-24.88,37.224
+        l-0.208,0.416h37V262.056z"
                 />
                 <path
                   style={{ fill: "#FFFFFF" }}
                   d="M298.976,247.208c0,43.696-17.144,71.088-49.552,71.088c-31.368,0-48.096-28.44-48.304-69.832
-			c0-42.24,17.984-70.672,49.768-70.672C283.712,177.784,298.976,207.056,298.976,247.208z M227.048,248.464
-			c-0.208,33.04,8.992,50.176,23.208,50.176c15.056,0,23-18.4,23-51.016c0-31.576-7.52-50.184-23-50.184
-			C236.456,197.44,226.832,214.376,227.048,248.464z"
+        c0-42.24,17.984-70.672,49.768-70.672C283.712,177.784,298.976,207.056,298.976,247.208z M227.048,248.464
+        c-0.208,33.04,8.992,50.176,23.208,50.176c15.056,0,23-18.4,23-51.016c0-31.576-7.52-50.184-23-50.184
+        C236.456,197.44,226.832,214.376,227.048,248.464z"
                 />
                 <path
                   style={{ fill: "#FFFFFF" }}
                   d="M371.736,316v-34.496h-61.48v-16.728l55.416-84.688h30.32v81.968h17.568v19.448h-17.568V316H371.736
-			z M371.736,262.056V225.04c0-7.736,0.208-15.68,0.832-23.632h-0.832c-4.176,8.576-7.736,15.472-11.912,23l-24.88,37.224
-			l-0.208,0.416h37V262.056z"
+        z M371.736,262.056V225.04c0-7.736,0.208-15.68,0.832-23.632h-0.832c-4.176,8.576-7.736,15.472-11.912,23l-24.88,37.224
+        l-0.208,0.416h37V262.056z"
                 />
               </g>
             </svg>
@@ -163,79 +161,79 @@ const StockGainerLoser = () => {
             <p className="mt-2 text-sm">{error}</p>
           </div>
         </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <div className="flex flex-row items-center">
+              <h2 className="text-2xl font-bold mb-4">Stocks Gainer</h2>
+              <div className="ml-2 -mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-chevron-double-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div className="shadow divide-y divide-gray-700">
+              {gainers.length > 0 ? (
+                gainers.map(renderStock)
+              ) : (
+                <p className="text-center p-4 text-gray-400">
+                  No gainers available
+                </p>
+              )}
+            </div>
+          </div>
+  
+          <div>
+            <div className="flex flex-row items-center">
+              <h2 className="text-2xl font-bold mb-4">Stocks Losser</h2>
+              <div className="ml-2 -mt-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-chevron-double-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div className="shadow divide-y divide-gray-700">
+              {losers.length > 0 ? (
+                losers.map(renderStock)
+              ) : (
+                <p className="text-center p-4 text-gray-400">
+                  No losers available
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
       )}
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <div className="flex flex-row items-center">
-            <h2 className="text-2xl font-bold mb-4">Stocks Gainer</h2>
-            <div className="ml-2 -mt-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-chevron-double-right"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"
-                />
-                <path
-                  fillRule="evenodd"
-                  d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="shadow divide-y divide-gray-700">
-            {gainers.length > 0 ? (
-              gainers.map(renderStock)
-            ) : (
-              <p className="text-center p-4 text-gray-400">
-                No gainers available
-              </p>
-            )}
-          </div>
-        </div>
-
-        <div>
-          <div className="flex flex-row items-center">
-            <h2 className="text-2xl font-bold mb-4">Stocks Losser</h2>
-            <div className="ml-2 -mt-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-chevron-double-right"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"
-                />
-                <path
-                  fillRule="evenodd"
-                  d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="shadow divide-y divide-gray-700">
-            {losers.length > 0 ? (
-              losers.map(renderStock)
-            ) : (
-              <p className="text-center p-4 text-gray-400">
-                No losers available
-              </p>
-            )}
-          </div>
-        </div>
-      </div>
     </div>
-  );
+  );  
 };
 
 export default StockGainerLoser;
