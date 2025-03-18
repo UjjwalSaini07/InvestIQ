@@ -4,7 +4,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const connectDB = require("./db/serverdb.js");
 const { app } = require("./app.js");
-const { morganLogger } = require("./middlewares/loggers.js");
+// const { morganLogger } = require("./middlewares/loggers.js");
 const AuthRoutes = require("./routers/auth/authRoutes.js");
 const { corsOptions } = require("./config/cors");
 const globalErrorHandler = require("./middlewares/globalErrorHandler.js");
@@ -28,10 +28,11 @@ connectDB()
 
 // Middleware setup
 app.use(cors(corsOptions));
+app.options("", cors(corsOptions))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(morganLogger);
+// app.use(morganLogger);
 app.use(versionHandler("v1"));
 app.use(UniversalRateLimiter(100, 15 * 60 * 1000));
 

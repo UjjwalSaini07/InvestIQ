@@ -20,7 +20,7 @@ const Home = () => {
         <title>Home | InvestIQ</title>
       </Helmet>
 
-      <main>
+      <main className='overflow-x-hidden'>
         <Home1 />
         <Home2 />
         <Home3 />

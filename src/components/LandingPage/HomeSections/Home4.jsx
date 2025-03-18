@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import Section1 from "../StockSlider/Cap1Stock";
 import Section2 from "../StockSlider/Cap2Stock";
 import Section3 from "../FeedSection/TradeNews";
@@ -15,14 +18,31 @@ import Section12 from "../TradingWidgets/RealtimeData";
 const Home4 = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    AOS.init({
+      offset: 100,
+      delay: 5,
+      duration: 2000,
+      easing: "ease",
+      once: true,
+    });
   }, []);
 
   return (
     <div>
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
+      <div data-aos="zoom-in-up">
+        <Section1 />
+      </div>
+      <div data-aos="zoom-in-up">
+        <Section2 />
+      </div>
+      <div className="h-auto mb-14">
+        <div data-aos="fade-left">
+          <Section3 />
+        </div>
+        <div data-aos="zoom-in-up">
+          <Section4 />
+        </div>
+      </div>
       <Section5 />
       <Section6 />
       <div>

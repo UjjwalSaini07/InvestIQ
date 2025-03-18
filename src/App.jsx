@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation, } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 
 import Layout from "./components/common/Layout";
 import Header from "./components/common/Header";
@@ -45,7 +45,8 @@ function App() {
             <Route path="/login" element={<AuthPage />} />
             <Route path="/register" element={<AuthPage />} />
             <Route path="/forgot" element={<AuthPage />} />
-            <Route path="*" element={<Error404 />} />
+            <Route path="/error404" element={<Error404 />} />
+            <Route path="*" element={<Navigate to="/error404" />} />
           </Route>
 
           <Route

@@ -50,7 +50,11 @@ const RegisterPage = () => {
   };
 
   const handleBack = () => {
-    window.history.back();
+    if (window.history.state || window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.replace("/");
+    }
   };
 
   const handleSubmitNext = (e) => {
