@@ -18,7 +18,7 @@ const StatCard = ({ number, suffix, label, highlight, startCount }) => {
   useEffect(() => {
     AOS.init({
       offset: 100,
-      delay: 10,
+      delay: 25,
       duration: 2000,
       easing: "ease",
       once: false,
@@ -118,6 +118,16 @@ const SlidingImageGallery = ({ images }) => {
     "Cutting-edge techonlogy used",
   ];
 
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      delay: 25,
+      duration: 2500,
+      easing: "ease",
+      once: false,
+    });
+  }, []);
+
   return (
     <div
       style={{
@@ -129,6 +139,7 @@ const SlidingImageGallery = ({ images }) => {
     >
       <button
         onClick={handlePrev}
+        data-aos="fade-down"
         style={{
           cursor: "pointer",
           padding: "8px",
@@ -150,6 +161,7 @@ const SlidingImageGallery = ({ images }) => {
         </svg>
       </button>
       <div
+        data-aos="fade-right"
         style={{
           display: "flex",
           gap: "20px",
@@ -206,6 +218,7 @@ const SlidingImageGallery = ({ images }) => {
       </div>
       <button
         onClick={handleNext}
+        data-aos="fade-down"
         style={{
           cursor: "pointer",
           padding: "8px",
@@ -297,6 +310,16 @@ const TradingViewStats = () => {
     };
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      delay: 15,
+      duration: 2500,
+      easing: "ease",
+      once: false,
+    });
+  }, []);
+
   return (
     <div
       style={{
@@ -306,34 +329,40 @@ const TradingViewStats = () => {
         padding: "20px",
       }}
     >
-      <Section
-        title={
-          <>
-            Love in every <span style={{ display: "block" }}>#INVEST-IQ</span>
-          </>
-        }
-        description="Trusted by hundreds of traders and investors."
-      >
-        <div ref={statsRef} className="flex flex-row">
-          {stats.map((stat, index) => (
-            <StatCard
-              key={index}
-              number={stat.number}
-              suffix={stat.suffix}
-              label={stat.label}
-              highlight={stat.highlight}
-              startCount={startCount}
-            />
-          ))}
-        </div>
-      </Section>
+      <div data-aos="flip-right">
+        <Section
+          title={
+            <>
+              Love in every <span style={{ display: "block" }}>#INVEST-IQ</span>
+            </>
+          }
+          description="Trusted by hundreds of traders and investors."
+        >
+          <div ref={statsRef} className="flex flex-row">
+            {stats.map((stat, index) => (
+              <StatCard
+                key={index}
+                number={stat.number}
+                suffix={stat.suffix}
+                label={stat.label}
+                highlight={stat.highlight}
+                startCount={startCount}
+              />
+            ))}
+          </div>
+        </Section>
+      </div>
 
-      <Section
-        title="Why Choose INVEST-IQ?"
-        description="Empowering hundreds of users with cutting-edge tools and unmatched reliability."
-      >
-        <SlidingImageGallery images={slidingImages} />
-      </Section>
+      <div data-aos="flip-right">
+        <Section
+          title="Why Choose INVEST-IQ?"
+          description="Empowering hundreds of users with cutting-edge tools and unmatched reliability."
+        >
+          <div>
+            <SlidingImageGallery images={slidingImages} />
+          </div>
+        </Section>
+      </div>
     </div>
   );
 };
