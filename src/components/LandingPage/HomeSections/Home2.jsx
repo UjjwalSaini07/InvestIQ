@@ -14,13 +14,17 @@ const Home2 = () => {
   const [activeButton, setActiveButton] = useState("Chart");
 
   useEffect(() => {
-    AOS.init({
-      offset: 100,
-      delay: 10,
-      duration: 2000,
-      easing: "ease",
-      once: false,
-    });
+    const timer = setTimeout(() => {
+      AOS.init({
+        offset: 100,
+        delay: 10,
+        duration: 2000,
+        easing: "ease",
+        once: false,
+      });
+    }, 3000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleMediaChange = (type, src, label) => {
