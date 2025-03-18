@@ -13,7 +13,7 @@ import Watchlist from "./pages/watchlist";
 import Dashboard from "./pages/dashboard";
 import ProtectedRoute from "./components/utils/ProtectedRoutes";
 import { useSelector } from "react-redux";
-import Error404 from "./components/common/Error404";
+// import Error404 from "./components/common/Error404";
 import LogoFetcher from "./components/extra/ForeignCompanyLogo";
 import StockFetcher from "./components/extra/FetchingStockData";
 import Tools from "./components/FinanceTools/FinanceTools";
@@ -45,7 +45,7 @@ function App() {
             <Route path="/login" element={<AuthPage />} />
             <Route path="/register" element={<AuthPage />} />
             <Route path="/forgot" element={<AuthPage />} />
-            <Route path="*" element={<Error404 />} />
+            {/* <Route path="*" element={<Error404 />} /> */}
           </Route>
 
           <Route
