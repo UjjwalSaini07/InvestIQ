@@ -310,16 +310,6 @@ const TradingViewStats = () => {
     };
   }, []);
 
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      delay: 15,
-      duration: 2500,
-      easing: "ease",
-      once: false,
-    });
-  }, []);
-
   return (
     <div
       style={{
@@ -329,7 +319,7 @@ const TradingViewStats = () => {
         padding: "20px",
       }}
     >
-      <div data-aos="flip-right">
+      <div>
         <Section
           title={
             <>
