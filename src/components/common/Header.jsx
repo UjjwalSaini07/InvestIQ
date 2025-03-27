@@ -107,7 +107,7 @@ function Header() {
         )}
       </div>
 
-      <div ref={dropdownRef} className="relative hidden md:inline-block">
+      <div ref={dropdownRef} className="relative flex flex-row items-center space-x-4">
         <button
           className="text-gray-400 hover:text-blue-400 text-2xl cursor-pointer flex items-center focus:outline-none"
           onClick={toggleDropdown}
@@ -189,6 +189,23 @@ function Header() {
               )}
             </ul>
           </div>
+        )}
+        {!user ? (
+          <div className="flex space-x-4">
+            <a 
+              href="/login"
+              className="px-5 py-1 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out shadow-md">
+              Login
+            </a>
+
+            <a 
+              href="/register"
+              className="px-5 py-1 bg-blue-500 border border-blue-500 text-white rounded-lg hover:bg-black hover:border-blue-500 transition-all duration-300 ease-in-out shadow-md">
+              Signup
+            </a>
+          </div>
+        ) : (
+          <></>
         )}
       </div>
     </div>
