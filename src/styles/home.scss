@@ -14,12 +14,6 @@ body {
 .main-container {
   display: flex;
   padding: 2rem;
-  // box-sizing: border-box;
-}
-
-.text-content {
-  flex: 1;
-  max-width: 50%;
 }
 
 .main-heading {
@@ -41,62 +35,14 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
-
-.gradient {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 320px;
-  height: auto;
-  pointer-events: none;
-  z-index: 1;
+  margin-right: -4rem;
+  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .phone-image {
   position: relative;
   z-index: 5;
-  width: 360px;
-}
-
-@media only screen and (max-width: 1200px) {
-  .main-heading {
-    font-size: clamp(2.5rem, 5vw, 6rem);
-  }
-
-  .gradient {
-    width: 300px;
-  }
-
-  .phone-image {
-    width: 300px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .main-container {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    height: auto;
-    padding: 2rem 1rem;
-  }
-
-  .text-content {
-    max-width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  .image-container {
-    justify-content: center;
-  }
-
-  .gradient {
-    width: 250px;
-    top: -20px;
-  }
-
-  .phone-image {
-    width: 280px;
-  }
+  width: 250px;
+  // width: 360px;
 }
