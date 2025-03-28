@@ -16,7 +16,8 @@ const TradeNews = () => {
           throw new Error("API Key is missing. Please check your environment configuration.");
         }
 
-        const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
+        const url = `https://newsapi.org/v2/everything?q=trading&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
+        // const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -85,7 +86,6 @@ const TradeNews = () => {
     );
 
   if (error)
-    console.log(error);
     return (
       <>
         <div className="flex items-center justify-center mt-3">
