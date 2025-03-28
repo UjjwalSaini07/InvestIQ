@@ -1,15 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Logo from '../../assets/InvestIQ_Logo.png';
+import Logo from "../../assets/InvestIQ_Logo.png";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenlogin, setIsOpenlogin] = useState(false);
   const dropdownRef = useRef(null);
+  const dropdownlogin = useRef(null);
   const user = useSelector((state) => state.auth.user);
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
+  };
+  const toggleLoginDropdown = () => {
+    setIsOpenlogin((prev) => !prev);
   };
   const logoutUser = () => {
     localStorage.removeItem("accessToken");
@@ -25,6 +30,9 @@ function Header() {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
       }
+      if (dropdownlogin.current && !dropdownlogin.current.contains(event.target)) {
+        setIsOpenlogin(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -38,8 +46,13 @@ function Header() {
   return (
     <div className="flex justify-between items-center p-7 sticky top-0 bg-black z-50">
       <Link to="/">
-        <div style={{ display: "flex", alignItems: "center"}}>
-          <img src={Logo} alt="Logo" style={{ width: "35px" }} className="sm:ml-2"/>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img
+            src={Logo}
+            alt="Logo"
+            style={{ width: "35px" }}
+            className="sm:ml-2"
+          />
           <h1 className="text-lg md:text-xl font-semibold text-white sm:ml-2">
             Invest IQ<span className="text-blue-500">.</span>
           </h1>
@@ -107,7 +120,10 @@ function Header() {
         )}
       </div>
 
-      <div ref={dropdownRef} className="relative hidden md:inline-block">
+      <div
+        ref={dropdownRef}
+        className="relative flex flex-row items-center space-x-4"
+      >
         <button
           className="text-gray-400 hover:text-blue-400 text-2xl cursor-pointer flex items-center focus:outline-none"
           onClick={toggleDropdown}
@@ -189,6 +205,52 @@ function Header() {
               )}
             </ul>
           </div>
+        )}
+        {!user ? (
+          <div ref={dropdownlogin}>
+            <button
+              className="text-gray-400 hover:text-blue-400 text-2xl cursor-pointer flex items-center focus:outline-none"
+              onClick={toggleLoginDropdown}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="currentColor"
+                class="bi bi-box-arrow-in-right"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 7a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v18a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-4a1 1 0 0 0 -2 0v4A3 3 0 0 0 13 28h16a3 3 0 0 0 3 -3v-18A3 3 0 0 0 29 4h-16A3 3 0 0 0 10 7v4a1 1 0 0 0 2 0z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M23.708 16.708a1 1 0 0 0 0 -1.416l-6 -6a1 1 0 1 0 -1.416 1.416L20.586 15H3a1 1 0 0 0 0 2h17.586l-4.294 4.292a1 1 0 0 0 1.416 1.416z"
+                />
+              </svg>
+            </button>
+            
+            {isOpenlogin && (
+              <div className="absolute top-10 right-0 bg-white shadow-md rounded-lg p-3 border border-gray-200 w-40">
+                <a
+                  href="/login"
+                  className="block px-3 py-2 text-blue-600 font-semibold border border-blue-500 rounded-md hover:bg-blue-500 hover:text-white transition-transform transform hover:scale-105 duration-200 shadow-sm mb-2 text-center"
+                >
+                  Login
+                </a>
+
+                <a
+                  href="/register"
+                  className="block px-3 py-2 bg-blue-500 text-white font-semibold border border-blue-500 rounded-md hover:bg-black hover:border-black  hover:shadow-lg transition-transform transform hover:scale-105 duration-200 text-center"
+                >
+                  Signup
+                </a>
+              </div>
+            )}
+          </div>
+        ) : (
+          <></>
         )}
       </div>
     </div>
