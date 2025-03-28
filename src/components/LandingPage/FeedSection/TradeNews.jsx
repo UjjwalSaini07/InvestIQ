@@ -136,6 +136,7 @@ const TradeNews = () => {
         </div>
       </>
     );
+  console.log(error);
 
   return (
     <div className="bg-black flex flex-col">
