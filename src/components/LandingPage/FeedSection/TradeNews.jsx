@@ -11,7 +11,7 @@ const TradeNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const apiKey = import.meta.env.VITE_NEWS_API;
+        const apiKey = import.meta.env.VITE_NEWS_APIKEY;
         if (!apiKey) {
           throw new Error("API Key is missing. Please check your environment configuration.");
         }
