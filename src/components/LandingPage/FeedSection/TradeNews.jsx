@@ -12,7 +12,7 @@ const TradeNews = () => {
     const fetchNews = async () => {
       try {
         const apiKey = import.meta.env.VITE_NEWS_APIKEY;
-        const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&from=us,in&sortBy=publishedAt&language=en&apiKey=fa0c89f7a83143da92e029ea6d7db67a`;
+        const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&from=us,in&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
         const response = await fetch(url);
 
         if (!response.ok) {
