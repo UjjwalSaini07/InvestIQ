@@ -85,6 +85,7 @@ const TradeNews = () => {
     );
 
   if (error)
+    console.log(error);
     return (
       <>
         <div className="flex items-center justify-center mt-3">
@@ -136,7 +137,6 @@ const TradeNews = () => {
         </div>
       </>
     );
-  console.log(error);
 
   return (
     <div className="bg-black flex flex-col">
