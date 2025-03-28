@@ -12,17 +12,22 @@ const TradeNews = () => {
     const fetchNews = async () => {
       try {
         const apiKey = import.meta.env.VITE_NEWS_APIKEY;
-        const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&from=us,in&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
+        if (!apiKey) {
+          throw new Error("API Key is missing. Please check your environment configuration.");
+        }
+
+        const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
         const response = await fetch(url);
 
         if (!response.ok) {
-          throw new Error(`Error: ${response.statusText}`);
+          throw new Error(`Failed to fetch news: ${response.status} ${response.statusText}`);
         }
 
         const data = await response.json();
         setNews(data.articles || []);
       } catch (err) {
-        setError("Failed to load News. Please try again later.");
+        console.error("Error fetching news:", err);
+        setError("Failed to load news. Please try again later.");
       } finally {
         setLoading(false);
       }
@@ -30,6 +35,29 @@ const TradeNews = () => {
 
     fetchNews();
   }, []);
+
+  // useEffect(() => {
+  //   const fetchNews = async () => {
+  //     try {
+  //       const apiKey = import.meta.env.VITE_NEWS_APIKEY;
+  //       const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&from=us,in&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
+  //       const response = await fetch(url);
+
+  //       if (!response.ok) {
+  //         throw new Error(`Error: ${response.statusText}`);
+  //       }
+
+  //       const data = await response.json();
+  //       setNews(data.articles || []);
+  //     } catch (err) {
+  //       setError("Failed to load News. Please try again later.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchNews();
+  // }, []);
 
   const handleNext = () => {
     if ((currentPage + 1) * itemsPerPage < news.length) {
