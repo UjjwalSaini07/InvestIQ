@@ -20,7 +20,8 @@ const Cap1Stock = () => {
   const getStocks = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:5000/api/v1/fetchStocksData');
+      const response = await axios.get('https://invest-iq-backend.vercel.app/api/v1/fetchStocksData');
+      // const response = await axios.get('http://localhost:5000/api/v1/fetchStocksData');
       setStocks(response.data);
     } catch (error) {
       console.error("Error fetching stocks:", error.message);
