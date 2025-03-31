@@ -1,6 +1,6 @@
 const { createLogger, format, transports } = require("winston");
 const DailyRotateFile = require("winston-daily-rotate-file");
-const path = require("path");
+// const path = require("path");
 const morgan = require("morgan");
 
 const { combine, timestamp, json, printf } = format;
@@ -11,14 +11,14 @@ const consoleLogFormat = printf(({ level, message, timestamp }) => {
 });
 
 // Configure log rotation
-const fileTransport = new DailyRotateFile({
-	filename: path.join("./logs/app-%DATE%.log"),
-	datePattern: "YYYY-MM-DD",
-	zippedArchive: true, // Compress old logs
-	maxSize: "10m", // Max log file size (10MB)
-	maxFiles: "14d", // Keep logs for 14 days
-	format: combine(timestamp(), json()), // JSON format for structured logs
-});
+// const fileTransport = new DailyRotateFile({
+// 	filename: path.join("./logs/app-%DATE%.log"),
+// 	datePattern: "YYYY-MM-DD",
+// 	zippedArchive: true, // Compress old logs
+// 	maxSize: "10m", // Max log file size (10MB)
+// 	maxFiles: "14d", // Keep logs for 14 days
+// 	format: combine(timestamp(), json()), // JSON format for structured logs
+// });
 
 const logger = createLogger({
 	level: "info",
@@ -27,7 +27,7 @@ const logger = createLogger({
 		new transports.Console({
 			format: combine(timestamp(), consoleLogFormat), // Console logs formatted for readability
 		}),
-		fileTransport, // Daily log rotation
+		// fileTransport, // Daily log rotation
 	],
 });
 
