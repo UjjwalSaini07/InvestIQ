@@ -8,7 +8,8 @@ export const loginUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/auth/login",
+        "https://invest-iq-backend.vercel.app/api/v1/auth/login",
+        // "http://localhost:5000/api/v1/auth/login",
         userData
       );
       const { accessToken, refreshToken, user } = response.data.data.token;
@@ -33,7 +34,8 @@ export const signupUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/auth/register",
+        "https://invest-iq-backend.vercel.app/api/v1/auth/register",
+        // "http://localhost:5000/api/v1/auth/register",
         userData
       );
       toast.success(
@@ -63,7 +65,8 @@ export const verifyOtp = createAsyncThunk(
       }
 
       const response = await axios.post(
-        "http://localhost:5000/api/v1/auth/verifyotp",
+        "https://invest-iq-backend.vercel.app/api/v1/auth/verifyotp",
+        // "http://localhost:5000/api/v1/auth/verifyotp",
         { email: userEmail, code: otpCode }
       );
       toast.success(response.data.message);

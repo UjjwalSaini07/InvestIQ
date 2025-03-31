@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const connectDB = require("./db/serverdb.js");
 const { app } = require("./app.js");
 // const { morganLogger } = require("./middlewares/loggers.js");
+const rateLimit = require('express-rate-limit');
 const AuthRoutes = require("./routers/auth/authRoutes.js");
 const { corsOptions } = require("./config/cors");
 const globalErrorHandler = require("./middlewares/globalErrorHandler.js");
@@ -33,16 +34,25 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // app.use(morganLogger);
-app.use(versionHandler("v1"));
+// app.use(versionHandler("v1"));
 app.use(UniversalRateLimiter(100, 15 * 60 * 1000));
 
 // Health check route
-app.get("/api/v1/", (req, res) => {
+app.get("/api/v1", (req, res) => {
     res.send("InvestIQ is Active");
 });
 
 // Routes
 app.use("/api/v1/auth", AuthRoutes);
+
+app.set('trust proxy', 1); // Enable proxy trust
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per window
+});
+
+app.use(limiter);
 
 // Function to run the Python script
 const runPythonScript = () => {
