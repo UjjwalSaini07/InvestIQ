@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 
 import Layout from "./components/common/Layout";
 import Header from "./components/common/Header";
@@ -28,13 +28,16 @@ function App() {
   const user = useSelector((state) => state.auth.user);
   const otpRequested = useSelector((state) => state.auth.otpRequested);
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(location.pathname === "/");
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
+    if (loading) {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 3800);
+      return () => clearTimeout(timer);
+    }
+  }, [loading]);
 
   return (
     <>
@@ -63,22 +66,11 @@ function App() {
                 <Route path="*" element={<Navigate to="/error404" />} />
               </Route>
 
-              <Route
-                element={
-                  <ProtectedRoute condition={user} redirectTo="/login" />
-                }
-              >
+              <Route element={<ProtectedRoute condition={user} redirectTo="/login" />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/watchlist" element={<Watchlist />} />
               </Route>
-              <Route
-                element={
-                  <ProtectedRoute
-                    condition={otpRequested}
-                    redirectTo="/register"
-                  />
-                }
-              >
+              <Route element={<ProtectedRoute condition={otpRequested} redirectTo="/register" />}>
                 <Route path="/verifyotp" element={<AuthPage />} />
               </Route>
             </Routes>
