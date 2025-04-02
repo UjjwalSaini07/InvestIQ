@@ -1,7 +1,7 @@
 const allowedOrigins = [
     "http://localhost:5173",
     "https://invest-iq-backend.vercel.app",
-    "https://invest-iqs.vercel.app/"
+    "https://invest-iqs.vercel.app"
 ];
 
 const corsOptions = {
