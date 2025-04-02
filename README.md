@@ -52,25 +52,68 @@ You can visit the live site here - https://invest-iqs.vercel.app/
 - **Redux** – A state management library for predictable and efficient application state control.
 - **Spline** – A 3D modeling tool for interactive 3D model rendering in web applications.
 
+## Getting Started ⚙️
+### Prerequisites
+
+- Node.js v22.14.0 or higher
+- Python v3.13.2 or higher
+- npm or pnpm (Package Managers)
+- Code Editor (e.g., VS Code)
+- Git (Version Control System)
+- Docker (For containerized deployments)
+- MongoDB (Ensure MongoDB is installed locally or accessible via a cloud service like MongoDB Atlas)
+- Postman (Optional but useful for API testing)
+- Browsers (Latest versions of Chrome, Firefox, or Edge for development and testing)
+
 ## Installation 🛠️
 - First Read this [License](https://github.com/UjjwalSaini07/InvestIQ/blob/main/LICENSE) & their terms then proceed.
-- star the [Repository](https://github.com/UjjwalSaini07/InvestIQ)
-- Fork the repository
-- Clone the repository:
+- Star ⭐ the [Repository](https://github.com/UjjwalSaini07/InvestIQ)
+- Fork the repository **(Optional)**
+- Project Setup:
+1. Clone the repository:
 ```bash
-  git clone https://github.com/yourusername/your-repo-name.git
+    git clone https://github.com/UjjwalSaini07/InvestIQ.git
 ```
-- Install the necessary dependencies:
+2. Navigate to the project Frontend directory:
 ```bash
-  npm install
+    cd InvestIQ
 ```
-- Start the NodeJS server:
+- Install Frontend dependencies:
+```bash
+    npm install
+```
+3. Navigate to the project Backend directory:
+```bash
+    cd Backend
+```
+- Install Backend dependencies:
+```bash
+    npm install
+```
+4. Navigate to the project WorkFlow directory:
+```bash
+    cd ActionWorkFlow_Integration
+```
+- Install Backend dependencies:
+```bash
+    npm install
+```
+> [!IMPORTANT]  
+> All these cd directory paths are relative to the root directory of the cloned project.
 
-## Usage 🖥️
-- Start the development server
+## Start the web app 🖥️
+- Start the Frontend Development server
 ```bash
- npm run dev
- ```
+    npm run dev
+```
+- Start the Backend Development server
+```bash
+    cd Backend
+```
+```bash
+     npm run dev
+```
+
 - Open your browser and navigate to http://localhost:5173 to view the localhost website
 
 ## Author ✍️
