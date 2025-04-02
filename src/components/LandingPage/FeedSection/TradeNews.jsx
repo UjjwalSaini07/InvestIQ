@@ -9,86 +9,31 @@ const TradeNews = () => {
   const itemsPerPage = 3;
 
   useEffect(() => {
-    // const fetchNews = async () => {
-    //   try {
-    //     const apiKey = import.meta.env.VITE_NEWS_APIKEY;
-    //     if (!apiKey) {
-    //       throw new Error("API Key is missing. Please check your environment configuration.");
-    //     }
-    //     const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
-    //     const response = await fetch(url);
-
-    //     if (!response.ok) {
-    //       throw new Error(`Failed to fetch news: ${response.status} ${response.statusText}`);
-    //     }
-
-    //     const data = await response.json();
-    //     setNews(data.articles || []);
-    //   } catch (err) {
-    //     console.error("Error fetching news:", err);
-    //     setError("Failed to load news. Please try again later.");
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // };
     const fetchNews = async () => {
       try {
         const apiKey = import.meta.env.VITE_NEWS_APIKEY;
         if (!apiKey) {
-          throw new Error("API Key is missing. Check environment settings.");
+          throw new Error("API Key is missing. Please check your environment configuration.");
         }
-    
-        const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
-        const response = await fetch(url, {
-          headers: {
-            "Accept": "application/json",
-            "X-Api-Key": apiKey,
-          },
-        });
-    
-        if (response.status === 426) {
-          throw new Error("Upgrade required. Check NewsAPI subscription or terms.");
-        }
-        
+        const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&from=us,in&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
+        const response = await fetch(url);
+
         if (!response.ok) {
-          throw new Error(`Error ${response.status}: ${response.statusText}`);
+          throw new Error(`Failed to fetch news: ${response.status} ${response.statusText}`);
         }
-    
+
         const data = await response.json();
         setNews(data.articles || []);
       } catch (err) {
         console.error("Error fetching news:", err);
-        setError(err.message);
+        setError("Failed to load news. Please try again later.");
       } finally {
         setLoading(false);
       }
     };
-    
+
     fetchNews();
   }, []);
-
-  // useEffect(() => {
-  //   const fetchNews = async () => {
-  //     try {
-  //       const apiKey = import.meta.env.VITE_NEWS_APIKEY;
-  //       const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&from=us,in&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
-  //       const response = await fetch(url);
-
-  //       if (!response.ok) {
-  //         throw new Error(`Error: ${response.statusText}`);
-  //       }
-
-  //       const data = await response.json();
-  //       setNews(data.articles || []);
-  //     } catch (err) {
-  //       setError("Failed to load News. Please try again later.");
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchNews();
-  // }, []);
 
   const handleNext = () => {
     if ((currentPage + 1) * itemsPerPage < news.length) {
