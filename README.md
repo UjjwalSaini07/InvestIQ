@@ -52,7 +52,7 @@ You can visit the live site here - https://invest-iqs.vercel.app/
 - **Redux** – A state management library for predictable and efficient application state control.
 - **Spline** – A 3D modeling tool for interactive 3D model rendering in web applications.
 
-## Installation
+## Installation 🛠️
 - First Read this [License](https://github.com/UjjwalSaini07/InvestIQ/blob/main/LICENSE) & their terms then proceed.
 - star the [Repository](https://github.com/UjjwalSaini07/InvestIQ)
 - Fork the repository
@@ -66,42 +66,34 @@ You can visit the live site here - https://invest-iqs.vercel.app/
 ```
 - Start the NodeJS server:
 
-## Usage
+## Usage 🖥️
 - Start the development server
 ```bash
  npm run dev
  ```
 - Open your browser and navigate to http://localhost:5173 to view the localhost website
 
-## Contributing
-Contributions are always welcome!
-
-- Follow the Installation Procedure.
-- Create a new branch:
-```bash
-    git branch branch-name
- ```
-- Switching the Branch:
-```bash
-    git checkout branch-name
- ```
-- For each and every change create new feature branch with respective number.
-- Make your changes and commit on the pull request.
-- Push to the branch
-```bash
-  git push origin feature/YourFeatureName
-```
-- Rasie and Open a pull request.
-
-## Author
+## Author ✍️
 - [@Ujjwal Saini](https://github.com/UjjwalSaini07)
 - [@Gayatri Singh](https://github.com/Gayatrisin123)
 
-## Screenshots
-**--Website Under Maintenance--**
+## Screenshots 📷
+![Invest-IQ Screen](https://github.com/user-attachments/assets/a02ff8ba-650e-4bb1-92a4-ed64ab46b721)
 
-## Contact:
+## Contact 📞
 Feel free to reach out if you have any questions or suggestions!
 
 - Raise an issue for the same [Issue](https://github.com/UjjwalSaini07/InvestIQ/issues/new)
 - Github: [@Ujjwal Saini](https://github.com/UjjwalSaini07), [@Gayatri Singh](https://github.com/Gayatrisin123)
+
+## License 📄
+License Credential [Check](https://github.com/UjjwalSaini07/InvestIQ/blob/main/LICENSE). </br>You can use this project the way you want. Feel free to credit me if you want to!
+
+## Feedback and Contributions 💌
+Feedback and contributions are always welcome! Feel free to open an [Issue](https://github.com/UjjwalSaini07/InvestIQ/issues).
+
+<div align="center">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+    </a>
+</div>
