@@ -22,7 +22,7 @@ const splineModel = {
 function Error404() {
   useEffect(() => {
     toast.info("You lost in the horizon and encountered Error 404. Press home.", {
-      position: "top-right",
+      position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
