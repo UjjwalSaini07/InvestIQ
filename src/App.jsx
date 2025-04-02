@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, } from "react-router-dom";
 
 import Layout from "./components/common/Layout";
 import Header from "./components/common/Header";
+import Preloader from "./components/common/Preloader";
 import Home from "./pages/home";
 import Compare from "./pages/compare";
 import HelpCenter from "./components/UserCenter/HelpCenter";
@@ -19,6 +20,7 @@ import StockFetcher from "./components/extra/FetchingStockData";
 import Tools from "./components/FinanceTools/FinanceTools";
 import ChatBot from "./components/BOT/botpresschat";
 import "./App.scss";
+
 function App() {
   const location = useLocation();
   const hideHeaderRoutes = ["/login", "/register", "/forgot", "/verifyotp"];
@@ -26,44 +28,63 @@ function App() {
   const user = useSelector((state) => state.auth.user);
   const otpRequested = useSelector((state) => state.auth.otpRequested);
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <>
-      {!shouldHideHeader && <Header />}
-      <div>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/compare" element={<Compare />} />
-            <Route path="/helpcenter" element={<HelpCenter />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contactus" element={<ContactUs />} />
-            <Route path="/logofetcher" element={<LogoFetcher />} />
-            <Route path="/stockfetcher" element={<StockFetcher />} />
-            <Route path="/tools" element={<Tools />} />
-            <Route path="/chatwithbot" element={<ChatBot />} />
-            {/* Auth Pages - Public */}
-            <Route path="/login" element={<AuthPage />} />
-            <Route path="/register" element={<AuthPage />} />
-            <Route path="/forgot" element={<AuthPage />} />
-            <Route path="/error404" element={<Error404 />} />
-            <Route path="*" element={<Navigate to="/error404" />} />
-          </Route>
+      {loading ? (
+        <Preloader />
+      ) : (
+        <>
+          {!shouldHideHeader && <Header />}
+          <div>
+            <Routes>
+              <Route element={<Layout />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/compare" element={<Compare />} />
+                <Route path="/helpcenter" element={<HelpCenter />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contactus" element={<ContactUs />} />
+                <Route path="/logofetcher" element={<LogoFetcher />} />
+                <Route path="/stockfetcher" element={<StockFetcher />} />
+                <Route path="/tools" element={<Tools />} />
+                <Route path="/chatwithbot" element={<ChatBot />} />
+                {/* Auth Pages - Public */}
+                <Route path="/login" element={<AuthPage />} />
+                <Route path="/register" element={<AuthPage />} />
+                <Route path="/forgot" element={<AuthPage />} />
+                <Route path="/error404" element={<Error404 />} />
+                <Route path="*" element={<Navigate to="/error404" />} />
+              </Route>
 
-          <Route
-            element={<ProtectedRoute condition={user} redirectTo="/login" />}
-          >
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/watchlist" element={<Watchlist />} />
-          </Route>
-          <Route
-            element={
-              <ProtectedRoute condition={otpRequested} redirectTo="/register" />
-            }
-          >
-            <Route path="/verifyotp" element={<AuthPage />} />
-          </Route>
-        </Routes>
-      </div>
+              <Route
+                element={
+                  <ProtectedRoute condition={user} redirectTo="/login" />
+                }
+              >
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/watchlist" element={<Watchlist />} />
+              </Route>
+              <Route
+                element={
+                  <ProtectedRoute
+                    condition={otpRequested}
+                    redirectTo="/register"
+                  />
+                }
+              >
+                <Route path="/verifyotp" element={<AuthPage />} />
+              </Route>
+            </Routes>
+          </div>
+        </>
+      )}
     </>
   );
 }
