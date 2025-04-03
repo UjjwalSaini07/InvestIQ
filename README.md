@@ -116,6 +116,9 @@ You can visit the live site here - https://invest-iqs.vercel.app/
 
 - Open your browser and navigate to http://localhost:5173 to view the localhost website
 
+## Architecture Diagram ⚙️
+![InvestIQ-Architecture](https://github.com/user-attachments/assets/8266ee1a-23f3-46dc-80be-469417548ea9)
+
 ## Author ✍️
 - [@Ujjwal Saini](https://github.com/UjjwalSaini07)
 - [@Gayatri Singh](https://github.com/Gayatrisin123)
