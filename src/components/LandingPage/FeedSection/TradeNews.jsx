@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Error404 from "../../../assets/Landing/Error404.png";
 
 const TradeNews = () => {
@@ -11,19 +12,15 @@ const TradeNews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const apiKey = import.meta.env.VITE_NEWS_APIKEY;
-        if (!apiKey) {
-          throw new Error("API Key is missing. Please check your environment configuration.");
-        }
-        const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&from=us,in&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
-        const response = await fetch(url);
+        console.log("Fetching news from API...");
+        const response = await axios.get("https://invest-iq-backend.vercel.app/api/v1/fetchTradeNews");
 
-        if (!response.ok) {
-          throw new Error(`Failed to fetch news: ${response.status} ${response.statusText}`);
+        if (!response.data || typeof response.data !== "object") {
+          // throw new Error('Failed to fetch news: ${response.status} ${response.statusText}');
+          throw new Error("Invalid response format");
         }
 
-        const data = await response.json();
-        setNews(data.articles || []);
+        setNews(response.data.articles || []);
       } catch (err) {
         console.error("Error fetching news:", err);
         setError("Failed to load news. Please try again later.");
@@ -56,7 +53,9 @@ const TradeNews = () => {
     return (
       <div className="flex justify-center items-center min-h-[200px]">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-        <p className="ml-4 text-lg font-medium text-blue-500">Loading News...</p>
+        <p className="ml-4 text-lg font-medium text-blue-500">
+          Loading News...
+        </p>
       </div>
     );
 
@@ -66,7 +65,6 @@ const TradeNews = () => {
         <div className="flex items-center justify-center mt-3">
           <h2 className="text-3xl font-bold mb-4">Crypto & Stocks News</h2>
         </div>
-
         <div className="flex items-center justify-center bg-gradient-to-r from-red-400 to-red-600 text-white p-4 rounded-2xl shadow-lg max-w-md mx-auto">
           <div className="flex-shrink-0 mr-4">
             <svg
@@ -119,7 +117,6 @@ const TradeNews = () => {
         <h1 className="text-5xl font-extrabold text-center text-white mb-12 tracking-wide">
           Latest <span className="text-blue-500">Stocks & Crypto</span> News
         </h1>
-
         {news.length === 0 ? (
           <div className="text-center text-gray-400 text-lg">
             No articles available.
@@ -145,7 +142,6 @@ const TradeNews = () => {
                 />
               </svg>
             </button>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
               {displayedNews.map((article, index) => (
                 <div
@@ -188,7 +184,6 @@ const TradeNews = () => {
                 </div>
               ))}
             </div>
-
             <button
               className="p-3 ml-3 border border-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition shadow-lg hover:shadow-blue-500/50 disabled:opacity-50 disabled:cursor-not-allowed"
               onClick={handleNext}

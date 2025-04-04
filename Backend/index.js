@@ -1,5 +1,6 @@
 const dotenv = require("dotenv");
 const express = require("express");
+const axios = require('axios');
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const connectDB = require("./db/serverdb.js");
@@ -142,6 +143,47 @@ app.get('/api/v1/fetchStocksData', async (req, res) => {
     } catch (error) {
         console.error("Error fetching stock data:", error);
         res.status(500).json({ error: "Failed to fetch stocks" });
+    }
+});
+
+app.get('/api/v1/fetchTradeNews', async (req, res) => {
+    try {
+        const apiKey = process.env.VITE_NEWS_APIKEY;
+        if (!apiKey) {
+            return res.status(500).json({ error: "API Key is missing in the backend" });
+        }
+
+        const url = `https://newsapi.org/v2/everything?q=trading+stocks+bitcoin&from=us,in&sortBy=publishedAt&language=en&apiKey=${apiKey}`;
+        const response = await axios.get(url, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0', // Avoid 426 errors
+                'Connection': 'keep-alive'
+            }
+        });
+        res.status(200).json(response.data);
+    } catch (error) {
+        console.error("Error fetching news:", error);
+        res.status(error.response?.status || 500).json({ error: "Failed to fetch news" });
+    }
+});
+app.get('/api/v1/fetchTopStories', async (req, res) => {
+    try {
+        const apiKey = process.env.VITE_NEWS_APIKEY;
+        if (!apiKey) {
+            return res.status(500).json({ error: "API Key is missing in the backend" });
+        }
+
+        const url = `https://newsapi.org/v2/everything?q=stocks OR finance OR markets&language=en&apiKey=${apiKey}`;
+        const response = await axios.get(url, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0', // Avoid 426 errors
+                'Connection': 'keep-alive'
+            }
+        });
+        res.status(200).json(response.data);
+    } catch (error) {
+        console.error("Error fetching news:", error);
+        res.status(error.response?.status || 500).json({ error: "Failed to fetch news" });
     }
 });
 

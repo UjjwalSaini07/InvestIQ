@@ -4,8 +4,7 @@ import "aos/dist/aos.css";
 
 import Section1 from "../StockSlider/Cap1Stock";
 import Section2 from "../StockSlider/Cap2Stock";
-// import Section3 from "../FeedSection/TradeNews";
-import Section3 from "../FeedSection/TryStories";
+import Section3 from "../FeedSection/TradeNews";
 import Section4 from "../FeedSection/TopStories";
 import Section5 from "../Geographical/WorldInflation";
 import Section6 from "./WidgetWraper";

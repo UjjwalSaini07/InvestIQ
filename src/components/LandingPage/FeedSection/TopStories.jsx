@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios"; 
 import Error404 from "../../../assets/Landing/Error404.png";
 import Logo from "../../../assets/InvestIQ_Logo.png";
 
@@ -11,20 +12,17 @@ const TopStories = () => {
   useEffect(() => {
     const fetchStories = async () => {
       try {
-        setLoading(true);
-        const apiKey = import.meta.env.VITE_NEWS_APIKEY;
-        const response = await fetch(
-          `https://newsapi.org/v2/everything?q=stocks OR finance OR markets&language=en&apiKey=${apiKey}`
-        );
+        console.log("Fetching news from API...");
+        const response = await axios.get("https://invest-iq-backend.vercel.app/api/v1/fetchTopStories");
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch stories");
+        if (!response.data || typeof response.data !== "object") {
+          throw new Error(`Failed to fetch news: ${response.status} ${response.statusText}`);
         }
 
-        const data = await response.json();
-        setStories(data.articles);
+        setStories(response.data.articles);
       } catch (err) {
-        setError("Failed to load Top Stories. Please try again later.");
+        console.error("Error fetching news:", err);
+        setError("Failed to load news. Please try again later.");
       } finally {
         setLoading(false);
       }
