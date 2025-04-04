@@ -9,11 +9,11 @@ Welcome to the InvestIQ - **Cryptocurrency Dashboard**, where you can find the l
 
 | **Cryptocurrency** | **Price (USD)**       | **Price (INR)**        |
 |---------------------|-----------------------|------------------------|
-| **Bitcoin**   | $82,521.00 | ₹70,37,492.00 |
-| **Ethereum**   | $1,806.77 | ₹1,54,085.00 |
-| **Dogecoin**   | $0.16 | ₹13.67 |
-| **Tether**   | $1.00 | ₹85.25 |
-| **Solana**   | $116.57 | ₹9,941.48 |
+| **Bitcoin**   | $83,874.00 | ₹71,79,309.00 |
+| **Ethereum**   | $1,815.30 | ₹1,55,383.00 |
+| **Dogecoin**   | $0.17 | ₹14.70 |
+| **Tether**   | $1.00 | ₹85.57 |
+| **Solana**   | $122.99 | ₹10,527.50 |
 
 ---
 
@@ -21,46 +21,46 @@ Welcome to the InvestIQ - **Cryptocurrency Dashboard**, where you can find the l
 
 ### Bitcoin
 
-- **USD Price:** $82,521.00
-- **INR Price:** ₹70,37,492.00
-- **Last Updated:** 4/3/2025, 11:10:39 PM (GMT)
+- **USD Price:** $83,874.00
+- **INR Price:** ₹71,79,309.00
+- **Last Updated:** 4/4/2025, 11:09:27 PM (GMT)
 ---
 
 
 ### Ethereum
 
-- **USD Price:** $1,806.77
-- **INR Price:** ₹1,54,085.00
-- **Last Updated:** 4/3/2025, 11:10:39 PM (GMT)
+- **USD Price:** $1,815.30
+- **INR Price:** ₹1,55,383.00
+- **Last Updated:** 4/4/2025, 11:09:27 PM (GMT)
 ---
 
 
 ### Dogecoin
 
-- **USD Price:** $0.16
-- **INR Price:** ₹13.67
-- **Last Updated:** 4/3/2025, 11:10:39 PM (GMT)
+- **USD Price:** $0.17
+- **INR Price:** ₹14.70
+- **Last Updated:** 4/4/2025, 11:09:27 PM (GMT)
 ---
 
 
 ### Tether
 
 - **USD Price:** $1.00
-- **INR Price:** ₹85.25
-- **Last Updated:** 4/3/2025, 11:10:39 PM (GMT)
+- **INR Price:** ₹85.57
+- **Last Updated:** 4/4/2025, 11:09:27 PM (GMT)
 ---
 
 
 ### Solana
 
-- **USD Price:** $116.57
-- **INR Price:** ₹9,941.48
-- **Last Updated:** 4/3/2025, 11:10:39 PM (GMT)
+- **USD Price:** $122.99
+- **INR Price:** ₹10,527.50
+- **Last Updated:** 4/4/2025, 11:09:27 PM (GMT)
 ---
 
 
 > _This data is powered by [CoinGecko](https://www.coingecko.com)._  
-> _Last updated: 4/3/2025, 11:10:39 PM_  
+> _Last updated: 4/4/2025, 11:09:27 PM_  
 
 ---
 🪙 Made with ❤️ by your cryptocurrency tracker - Developer: UjjwalSaini07!
