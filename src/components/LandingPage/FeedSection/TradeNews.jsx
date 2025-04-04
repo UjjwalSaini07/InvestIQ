@@ -13,7 +13,7 @@ const TradeNews = () => {
     const fetchNews = async () => {
       try {
         console.log("Fetching news from API...");
-        const response = await axios.get("https://invest-iq-backend.vercel.app/api/v1/fetchtradenews");
+        const response = await axios.get("https://invest-iq-backend.vercel.app/api/v1/fetchTradeNews");
 
         if (!response.data || typeof response.data !== "object") {
           // throw new Error('Failed to fetch news: ${response.status} ${response.statusText}');
