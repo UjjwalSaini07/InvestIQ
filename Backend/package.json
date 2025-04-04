@@ -19,6 +19,7 @@
   "license": "ISC",
   "description": "Separate Backend of InvestIQ",
   "dependencies": {
+    "axios": "^1.8.4",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
     "cloudinary": "^2.5.1",
