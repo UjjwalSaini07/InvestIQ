@@ -45,20 +45,6 @@ function MarketQuotesChart() {
               ]
             },
             {
-              "name": "Futures",
-              "originalName": "Futures",
-              "symbols": [
-                { "name": "CME_MINI:ES1!", "displayName": "S&P 500" },
-                { "name": "CME:6E1!", "displayName": "Euro" },
-                { "name": "COMEX:GC1!", "displayName": "Gold" },
-                { "name": "NYMEX:CL1!", "displayName": "WTI Crude Oil" },
-                { "name": "NYMEX:NG1!", "displayName": "Gas" },
-                { "name": "CBOT:ZC1!", "displayName": "Corn" },
-                { "name": "CME:BTC1!", "displayName": "BTCF" },
-                { "name": "NYMEX:NG1!", "displayName": "NG" }
-              ]
-            },
-            {
               "name": "Bonds",
               "originalName": "Bonds",
               "symbols": [
