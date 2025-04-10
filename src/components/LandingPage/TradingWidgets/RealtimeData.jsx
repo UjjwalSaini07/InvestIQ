@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, memo } from 'react';
 
-function MarketQuotesChart() {
+function RealtimeData() {
   const container = useRef();
   const [height, setHeight] = useState(window.innerHeight - 100);
 
@@ -91,10 +91,8 @@ function MarketQuotesChart() {
       style={{ height: `${height}px`, marginRight: '4rem' }}
     >
       <div className="tradingview-widget-container__widget"></div>
-      <div className="tradingview-widget-copyright">
-      </div>
     </div>
   );
 }
 
-export default memo(MarketQuotesChart);
+export default memo(RealtimeData);
