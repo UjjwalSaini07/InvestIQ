@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import "../../../styles/home.scss";
 import TextSpan from "../../common/TextSpan";
 import iphone from "../../../assets/PhoneDemo.png";
+import btc from "../../../assets/SVGs/bitcoin-btc-logo.svg";
+import eth from "../../../assets/SVGs/ethereum-eth-logo.svg";
+import charts from "../../../assets/Landing/Home1/candlestick.png";
+import coin from "../../../assets/Landing/Home1/coin.png";
+import rocket from "../../../assets/SVGs/rocket.svg";
 
 const styles = {
   heroHeadText: "font-black text-white lg:text-[78px] lg:leading-[110px] mt-2",
@@ -151,7 +156,7 @@ function Home1() {
               style={{ animationDuration: "5s" }}
             >
               <img
-                src="https://cryptologos.cc/logos/bitcoin-btc-logo.svg"
+                src={btc}
                 alt="Bitcoin"
                 className="w-14 h-14 opacity-80"
               />
@@ -163,7 +168,7 @@ function Home1() {
               style={{ animationDuration: "6s" }}
             >
               <img
-                src="https://cryptologos.cc/logos/ethereum-eth-logo.svg"
+                src={eth}
                 alt="Ethereum"
                 className="w-14 h-14 opacity-80"
               />
@@ -175,7 +180,7 @@ function Home1() {
               style={{ animationDuration: "7s" }}
             >
               <img
-                src="https://cdn-icons-png.flaticon.com/512/5070/5070639.png"
+                src={charts}
                 alt="Chart"
                 className="w-20 h-20 opacity-80"
               />
@@ -187,7 +192,7 @@ function Home1() {
               style={{ animationDuration: "8s" }}
             >
               <img
-                src="https://www.iconpacks.net/icons/2/free-coin-icon-2159-thumb.png"
+                src={coin}
                 alt="Coin"
                 className="w-14 h-14 opacity-80"
               />
@@ -199,7 +204,7 @@ function Home1() {
               style={{ animationDuration: "4s" }}
             >
               <img
-                src="https://www.svgrepo.com/show/275999/rocket.svg"
+                src={rocket}
                 alt="Rocket"
                 className="w-12 h-12 opacity-90"
               />
