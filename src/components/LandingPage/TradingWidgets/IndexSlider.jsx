@@ -57,8 +57,6 @@ const IndexSlider = () => {
   return (
     <div className="tradingview-widget-container rounded-xl overflow-hidden shadow-lg py-6">
       <div className="tradingview-widget-container__widget-4"></div>
-      <div className="tradingview-widget-copyright">
-      </div>
     </div>
   );
 };

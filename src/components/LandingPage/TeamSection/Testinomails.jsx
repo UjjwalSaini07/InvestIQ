@@ -5,29 +5,39 @@ import "swiper/css";
 
 const testimonials = [
   {
-    name: "Harshat Mehta",
+    name: "Mr. Paul",
     role: "Trader",
     review: `Investiq is a game-changer. The custom watchlist and detailed analysis save time and enhance my strategies effectively.`,
   },
   {
-    name: "Elon Musk",
+    name: "Ishita Mehra",
     role: "Stock Analyst",
     review: `Investiq stands out with its user-friendly interface and insights. It’s my go-to tool for stock and crypto analysis.`,
   },
   {
-    name: "Sundar Pichai",
+    name: "Mrs. Emma Collins",
     role: "Broker",
     review: `Managing portfolios is easier with Investiq. Its watchlist and real-time analytics are invaluable for staying ahead.`,
   },
   {
-    name: "Donald Trump",
+    name: "Ms. Sophia Bennett",
     role: "Investor",
     review: `Investiq is perfect for investors. It’s simple, effective, and packed with great tools for stock and crypto tracking.`,
   },
   {
-    name: "Narendra Modi",
+    name: "Araav Mishra",
+    role: "Investor",
+    review: `Investiq is a game-changer. The custom watchlist and detailed analysis save time and enhance my strategies effectively.`,
+  },
+  {
+    name: "Ms. Ava Thompson",
     role: "Investor",
     review: `For informed decision-making, Investiq’s insights are unmatched. Its flexibility keeps me updated on investments.`,
+  },
+  {
+    name: "Ananya Sharma",
+    role: "Stock Analyst",
+    review: `Investiq stands out with its user-friendly interface and insights. It’s my go-to tool for stock and crypto analysis.`,
   },
 ];
 
