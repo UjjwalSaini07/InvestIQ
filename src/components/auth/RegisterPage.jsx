@@ -10,7 +10,29 @@ import { Label } from "../ui/label";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { signupUser } from "../utils/authSlice";
-import Logo from '../../assets/Logo.png';
+import { initializeApp } from "firebase/app";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+} from "firebase/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Logo from "../../assets/Logo.png";
+
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -50,17 +72,69 @@ const RegisterPage = () => {
   };
 
   const handleBack = () => {
-    if (window.history.state || window.history.length > 1) {
-      window.history.back();
-    } else {
-      window.location.replace("/");
-    }
+    window.location.replace("/login");
   };
 
   const handleSubmitNext = (e) => {
     e.preventDefault();
     if (isValid) {
       navigate("/verifyotp");
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log("Google Sign-In successful:", result.user);
+      toast.success("Google Sign-In successful:", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+      });
+    } catch (error) {
+      console.error("Error during Google Sign-In:", error);
+      toast.error("Error during Google sign-in:" + error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+      });
+    }
+  };
+
+  const handleGithubSignIn = async () => {
+    const provider = new GithubAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log("GitHub Sign-In successful:", result.user);
+      toast.success("GitHub Sign-In successful:", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+      });
+    } catch (error) {
+      console.error("Error during GitHub Sign-In:", error);
+      toast.error("Error during GitHub sign-in: " + error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+      });
     }
   };
 
@@ -80,23 +154,13 @@ const RegisterPage = () => {
     <div className="flex items-center justify-center sm:min-h-screen">
       <Card className="w-full max-w-md">
         <CardContent>
-          {isMobile ? (
-            <button
-              onClick={handleBack}
-              className="fixed top-8 left-5 flex items-center justify-center w-8 h-8 rounded-full bg-black border-2 border-[#06b6d4] hover:bg-blue-500 text-[#06b6d4] hover:text-white transition-all z-50"
-              aria-label="Go back"
-            >
-              <ArrowLeft size={20} />
-            </button>
-          ) : (
-            <button
-              onClick={handleBack}
-              className="absolute top-12 left-1/2 ml-4 flex items-center justify-center w-8 h-8 rounded-full bg-black border-2 border-[#06b6d4] hover:bg-blue-500 text-[#06b6d4] hover:text-white transition-all z-50"
-              aria-label="Go back"
-            >
-              <ArrowLeft size={20} />
-            </button>
-          )}
+          <button
+            onClick={handleBack}
+            className="fixed sm:absolute top-8 sm:top-12 left-5 sm:left-1/2 sm:ml-4 flex items-center justify-center w-8 h-8 rounded-full bg-black border-2 border-[#06b6d4] hover:bg-blue-500 text-[#06b6d4] hover:text-white transition-all z-50"
+            aria-label="Go back"
+          >
+            <ArrowLeft size={20} />
+          </button>
 
           <div className="flex justify-center mb-2 sm:mt-4 -mt-30">
             <div className="w-21 h-21 rounded-full overflow-hidden">
@@ -250,13 +314,17 @@ const RegisterPage = () => {
                 className="cursor-pointer flex items-center justify-center hover:scale-110 transition-transform"
                 aria-label="Sign in with Google"
               >
-                <FcGoogle size={35} />
+                <button onClick={handleGoogleSignIn}>
+                  <FcGoogle size={35} />
+                </button>
               </button>
               <button
                 className="cursor-pointer flex items-center justify-center hover:scale-110 transition-transform"
                 aria-label="Sign in with GitHub"
               >
-                <FaGithub size={35} />
+                <button onClick={handleGithubSignIn}>
+                  <FaGithub size={35} />
+                </button>
               </button>
             </div>
           </div>

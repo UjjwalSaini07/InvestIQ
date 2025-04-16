@@ -12,7 +12,24 @@ import { FaGithub } from "react-icons/fa";
 import { ArrowLeft } from "lucide-react";
 import { handleError, handleSuccess } from "../utils/utilsToast";
 import { loginUser } from "../utils/authSlice";
+import { initializeApp } from 'firebase/app';
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Logo from '../../assets/Logo.png';
+
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -42,6 +59,62 @@ const LoginPage = () => {
         }, 5000);
       }
     });
+  };
+
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log('Google Sign-In successful:', result.user);
+      toast.success("Google Sign-In successful:", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+      });
+    } catch (error) {
+      console.error('Error during Google Sign-In:', error);
+      toast.error("Error during Google sign-in:" + error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+      });
+    }
+  };
+
+  const handleGithubSignIn = async () => {
+    const provider = new GithubAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log('GitHub Sign-In successful:', result.user);
+      toast.success("GitHub Sign-In successful:", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+      });
+    } catch (error) {
+      console.error('Error during GitHub Sign-In:', error);
+      toast.error("Error during GitHub sign-in: " + error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+      });
+    }
   };
 
   useEffect(() => {
@@ -211,13 +284,17 @@ const LoginPage = () => {
                 className="cursor-pointer flex items-center justify-center hover:scale-110 transition-transform"
                 aria-label="Sign in with Google"
               >
-                <FcGoogle size={35} />
+                <button onClick={handleGoogleSignIn}>
+                  <FcGoogle size={35} />
+                </button>
               </div>
               <div
                 className="cursor-pointer flex items-center justify-center hover:scale-110 transition-transform"
                 aria-label="Sign in with GitHub"
               >
-                <FaGithub size={35} />
+                <button onClick={handleGithubSignIn}>
+                  <FaGithub size={35} />
+                </button>
               </div>
             </div>
           </div>
