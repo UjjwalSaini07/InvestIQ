@@ -14,6 +14,7 @@ import { handleError, handleSuccess } from "../utils/utilsToast";
 import { loginUser } from "../utils/authSlice";
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
+import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Logo from '../../assets/Logo.png';
@@ -41,6 +42,8 @@ const LoginPage = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { loading, error, user } = useSelector((state) => state.auth);
   const [disableButton, setDisableButton] = useState(false);
+
+  const [fireuser] = useAuthState(auth);
 
   const {
     register,
@@ -118,10 +121,10 @@ const LoginPage = () => {
   };
 
   useEffect(() => {
-    if (user) {
+    if (user || fireuser) {
       navigate("/");
     }
-  }, [user, navigate]);
+  }, [user, fireuser, navigate]);  
 
   const handleBack = () => {
     navigate("/");
