@@ -2,9 +2,12 @@ import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
-import img1 from "../assets/Auth/Login-pana.svg";
+// import img1 from "../assets/Auth/Login-pana.svg";
+import img1 from "../assets/Auth/AuthImg3.png";
 import img2 from "../assets/Auth/Login-amico.svg";
 import img3 from "../assets/Auth/Online-world-cuate.svg";
+import img4 from "../assets/Auth/AuthImg1.png";
+import img5 from "../assets/Auth/AuthImg2.png";
 import Carousel from "../components/auth/Carousel";
 import LoginPage from "../components/auth/LoginPage";
 import RegisterPage from "../components/auth/RegisterPage";
@@ -39,7 +42,7 @@ const MotionWrapper = ({ children, animationVariants }) => (
 
 export default function AuthPage() {
   const location = useLocation();
-  const slides = [img1, img2, img3];
+  const slides = [img1, img2, img3, img4, img5];
   const isSignIn = location.pathname === "/login";
   const isForget = location.pathname === "/forgot";
   const isOtpverify = location.pathname === "/verifyotp";
