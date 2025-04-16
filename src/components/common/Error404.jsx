@@ -30,6 +30,11 @@ function Error404() {
       draggable: true,
       theme: "colored",
     });
+    document.body.style.overflow = 'hidden';
+  
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, []);
 
   return (
