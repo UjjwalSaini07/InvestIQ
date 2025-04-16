@@ -53,7 +53,7 @@ const OtpVerification = () => {
   };
 
   const handleBack = () => {
-    window.history.back();
+    navigate("/register");
   };
 
   useEffect(() => {
