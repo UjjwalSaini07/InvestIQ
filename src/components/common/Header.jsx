@@ -1,7 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { initializeApp } from 'firebase/app';
+import { getAuth, signOut } from 'firebase/auth';
+import { useAuthState } from "react-firebase-hooks/auth";
 import Logo from "../../assets/InvestIQ_Logo.png";
+
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +24,8 @@ function Header() {
   const dropdownRef = useRef(null);
   const dropdownlogin = useRef(null);
   const user = useSelector((state) => state.auth.user);
+
+  const [fireuser] = useAuthState(auth);
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
@@ -22,6 +39,16 @@ function Header() {
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("watchlist");
 
+    window.location.href = "/";
+  };
+
+  const firelogoutUser = async () => {
+    try {
+      await signOut(auth);
+      console.log("User successfully logged out");
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
     window.location.href = "/";
   };
 
@@ -146,7 +173,7 @@ function Header() {
         {isOpen && (
           <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg z-50 p-4 w-48">
             <ul className="list-none space-y-2">
-              {user ? (
+              {fireuser || user ? (
                 <li>
                   <a
                     href="/profile"
@@ -189,14 +216,19 @@ function Header() {
                   Help Center
                 </a>
               </li>
-              {user && (
+              {(fireuser || user) && (
                 <li>
                   <a
                     href="#"
                     className="block text-black text-base hover:text-blue-500 transition"
                     onClick={(e) => {
                       e.preventDefault();
-                      logoutUser();
+                      if(user){
+                        logoutUser();
+                      }
+                      if(fireuser){
+                        firelogoutUser();
+                      }
                     }}
                   >
                     Logout
@@ -206,7 +238,7 @@ function Header() {
             </ul>
           </div>
         )}
-        {!user ? (
+        {(!fireuser && !user) ?  (
           <div ref={dropdownlogin}>
             <button
               className="text-gray-400 hover:text-blue-400 text-2xl cursor-pointer flex items-center focus:outline-none"
