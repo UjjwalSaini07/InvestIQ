@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
-
-import Layout from "./components/common/Layout";
-import Header from "./components/common/Header";
-import Preloader from "./components/common/Preloader";
-import Home from "./pages/home";
-import Compare from "./pages/compare";
-import HelpCenter from "./components/UserCenter/HelpCenter";
-import ContactUs from "./components/UserCenter/ContactUs";
-import About from "./components/UserCenter/About";
-import AuthPage from "./pages/authPage";
-import Watchlist from "./pages/watchlist";
-import Dashboard from "./pages/dashboard";
-import ProtectedRoute from "./components/utils/ProtectedRoutes";
 import { useSelector } from "react-redux";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
+import ProtectedRoute from "./components/utils/ProtectedRoutes";
+
+import Layout from "./components/common/Layout";
+import Preloader from "./components/common/Preloader";
+import Header from "./components/common/Header";
+import AuthPage from "./pages/authPage";
+import Home from "./pages/home";
+import Compare from "./pages/compare";
+import Watchlist from "./pages/watchlist";
+import Dashboard from "./pages/dashboard";
+import Tools from "./components/FinanceTools/FinanceTools";
+import About from "./components/UserCenter/About";
+import HelpCenter from "./components/UserCenter/HelpCenter";
+import ContactUs from "./components/UserCenter/ContactUs";
 import Error404 from "./components/common/Error404";
 import LogoFetcher from "./components/extra/ForeignCompanyLogo";
 import StockFetcher from "./components/extra/FetchingStockData";
-import Tools from "./components/FinanceTools/FinanceTools";
 import ChatBot from "./components/BOT/botpresschat";
 import "./App.scss";
 
