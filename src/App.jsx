@@ -42,7 +42,7 @@ function App() {
   const shouldHideHeader = hideHeaderRoutes.includes(location.pathname);
   const user = useSelector((state) => state.auth.user);
   const otpRequested = useSelector((state) => state.auth.otpRequested);
-  const fireuser = useAuthState(auth);
+  const [fireuser] = useAuthState(auth);
   const [loading, setLoading] = useState(location.pathname === "/");
 
   useEffect(() => {
@@ -81,7 +81,7 @@ function App() {
                 <Route path="*" element={<Navigate to="/error404" />} />
               </Route>
 
-              <Route element={<ProtectedRoute condition={!!fireuser || !!user} redirectTo="/login" />}>
+              <Route element={<ProtectedRoute condition={!!user || !!fireuser} redirectTo="/login" />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/watchlist" element={<Watchlist />} />
               </Route>
