@@ -1,25 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import ProtectedRoute from "./components/utils/ProtectedRoutes";
 
 import Layout from "./components/common/Layout";
-import Header from "./components/common/Header";
 import Preloader from "./components/common/Preloader";
+import Header from "./components/common/Header";
+import AuthPage from "./pages/authPage";
 import Home from "./pages/home";
 import Compare from "./pages/compare";
-import HelpCenter from "./components/UserCenter/HelpCenter";
-import ContactUs from "./components/UserCenter/ContactUs";
-import About from "./components/UserCenter/About";
-import AuthPage from "./pages/authPage";
 import Watchlist from "./pages/watchlist";
 import Dashboard from "./pages/dashboard";
-import ProtectedRoute from "./components/utils/ProtectedRoutes";
-import { useSelector } from "react-redux";
+import Tools from "./components/FinanceTools/FinanceTools";
+import About from "./components/UserCenter/About";
+import HelpCenter from "./components/UserCenter/HelpCenter";
+import ContactUs from "./components/UserCenter/ContactUs";
 import Error404 from "./components/common/Error404";
 import LogoFetcher from "./components/extra/ForeignCompanyLogo";
 import StockFetcher from "./components/extra/FetchingStockData";
-import Tools from "./components/FinanceTools/FinanceTools";
 import ChatBot from "./components/BOT/botpresschat";
 import "./App.scss";
+
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 function App() {
   const location = useLocation();
@@ -27,7 +42,7 @@ function App() {
   const shouldHideHeader = hideHeaderRoutes.includes(location.pathname);
   const user = useSelector((state) => state.auth.user);
   const otpRequested = useSelector((state) => state.auth.otpRequested);
-
+  const [fireuser] = useAuthState(auth);
   const [loading, setLoading] = useState(location.pathname === "/");
 
   useEffect(() => {
@@ -66,7 +81,7 @@ function App() {
                 <Route path="*" element={<Navigate to="/error404" />} />
               </Route>
 
-              <Route element={<ProtectedRoute condition={user} redirectTo="/login" />}>
+              <Route element={<ProtectedRoute condition={!!user || !!fireuser} redirectTo="/login" />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/watchlist" element={<Watchlist />} />
               </Route>
