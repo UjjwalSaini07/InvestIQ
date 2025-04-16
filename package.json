@@ -47,7 +47,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.0.1",
     "react-simple-maps": "^3.0.0",
-    "react-toastify": "^11.0.3",
+    "react-toastify": "^11.0.5",
     "react-tooltip": "^5.28.0",
     "recharts": "^2.15.1",
     "redux-persist": "^6.0.0",

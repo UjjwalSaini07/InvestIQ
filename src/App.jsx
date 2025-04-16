@@ -14,6 +14,9 @@ import Watchlist from "./pages/watchlist";
 import Dashboard from "./pages/dashboard";
 import ProtectedRoute from "./components/utils/ProtectedRoutes";
 import { useSelector } from "react-redux";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import Error404 from "./components/common/Error404";
 import LogoFetcher from "./components/extra/ForeignCompanyLogo";
 import StockFetcher from "./components/extra/FetchingStockData";
@@ -21,13 +24,25 @@ import Tools from "./components/FinanceTools/FinanceTools";
 import ChatBot from "./components/BOT/botpresschat";
 import "./App.scss";
 
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 function App() {
   const location = useLocation();
   const hideHeaderRoutes = ["/login", "/register", "/forgot", "/verifyotp"];
   const shouldHideHeader = hideHeaderRoutes.includes(location.pathname);
   const user = useSelector((state) => state.auth.user);
   const otpRequested = useSelector((state) => state.auth.otpRequested);
-
+  const fireuser = useAuthState(auth);
   const [loading, setLoading] = useState(location.pathname === "/");
 
   useEffect(() => {
@@ -66,7 +81,7 @@ function App() {
                 <Route path="*" element={<Navigate to="/error404" />} />
               </Route>
 
-              <Route element={<ProtectedRoute condition={user} redirectTo="/login" />}>
+              <Route element={<ProtectedRoute condition={!!fireuser || !!user} redirectTo="/login" />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/watchlist" element={<Watchlist />} />
               </Route>
