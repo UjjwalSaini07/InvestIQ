@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { initializeApp } from 'firebase/app';
-import { getAuth, signOut } from 'firebase/auth';
+import { initializeApp } from "firebase/app";
+import { getAuth, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Logo from "../../assets/InvestIQ_Logo.png";
 
 const firebaseConfig = {
@@ -38,18 +40,49 @@ function Header() {
     localStorage.removeItem("persist:auth");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("watchlist");
+    toast.success("User successfully logged out. Reload the Services", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      theme: "dark",
+    });
 
-    window.location.href = "/";
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 1800);
   };
 
   const firelogoutUser = async () => {
     try {
       await signOut(auth);
       console.log("User successfully logged out");
+      toast.success("User successfully logged out. Reload the Services", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+      });
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1800);
     } catch (error) {
       console.error("Error during logout:", error);
+      toast.error("Error during logout:" + error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+      });
     }
-    window.location.href = "/";
   };
 
   useEffect(() => {
@@ -57,7 +90,10 @@ function Header() {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
       }
-      if (dropdownlogin.current && !dropdownlogin.current.contains(event.target)) {
+      if (
+        dropdownlogin.current &&
+        !dropdownlogin.current.contains(event.target)
+      ) {
         setIsOpenlogin(false);
       }
     };
@@ -223,10 +259,10 @@ function Header() {
                     className="block text-black text-base hover:text-blue-500 transition"
                     onClick={(e) => {
                       e.preventDefault();
-                      if(user){
+                      if (user) {
                         logoutUser();
                       }
-                      if(fireuser){
+                      if (fireuser) {
                         firelogoutUser();
                       }
                     }}
@@ -238,7 +274,7 @@ function Header() {
             </ul>
           </div>
         )}
-        {(!fireuser && !user) ?  (
+        {!fireuser && !user ? (
           <div ref={dropdownlogin}>
             <button
               className="text-gray-400 hover:text-blue-400 text-2xl cursor-pointer flex items-center focus:outline-none"
@@ -262,7 +298,7 @@ function Header() {
                 />
               </svg>
             </button>
-            
+
             {isOpenlogin && (
               <div className="absolute top-10 right-0 bg-white shadow-md rounded-lg p-3 border border-gray-200 w-40">
                 <a
