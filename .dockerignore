@@ -1,0 +1,6 @@
+node_modules
+.env
+.dockerignore
+dist
+.build
+.DS_Store

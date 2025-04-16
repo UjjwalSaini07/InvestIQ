@@ -1,7 +1,24 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { initializeApp } from "firebase/app";
+import { getAuth, signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Logo from "../../assets/InvestIQ_Logo.png";
+
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +26,8 @@ function Header() {
   const dropdownRef = useRef(null);
   const dropdownlogin = useRef(null);
   const user = useSelector((state) => state.auth.user);
+
+  const [fireuser] = useAuthState(auth);
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
@@ -21,8 +40,49 @@ function Header() {
     localStorage.removeItem("persist:auth");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("watchlist");
+    toast.success("User successfully logged out. Reload the Services", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      theme: "dark",
+    });
 
-    window.location.href = "/";
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 1800);
+  };
+
+  const firelogoutUser = async () => {
+    try {
+      await signOut(auth);
+      console.log("User successfully logged out");
+      toast.success("User successfully logged out. Reload the Services", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+      });
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1800);
+    } catch (error) {
+      console.error("Error during logout:", error);
+      toast.error("Error during logout:" + error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        theme: "dark",
+      });
+    }
   };
 
   useEffect(() => {
@@ -30,7 +90,10 @@ function Header() {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
       }
-      if (dropdownlogin.current && !dropdownlogin.current.contains(event.target)) {
+      if (
+        dropdownlogin.current &&
+        !dropdownlogin.current.contains(event.target)
+      ) {
         setIsOpenlogin(false);
       }
     };
@@ -146,7 +209,7 @@ function Header() {
         {isOpen && (
           <div className="absolute top-12 right-0 bg-white shadow-lg rounded-lg z-50 p-4 w-48">
             <ul className="list-none space-y-2">
-              {user ? (
+              {fireuser || user ? (
                 <li>
                   <a
                     href="/profile"
@@ -189,14 +252,19 @@ function Header() {
                   Help Center
                 </a>
               </li>
-              {user && (
+              {(fireuser || user) && (
                 <li>
                   <a
                     href="#"
                     className="block text-black text-base hover:text-blue-500 transition"
                     onClick={(e) => {
                       e.preventDefault();
-                      logoutUser();
+                      if (user) {
+                        logoutUser();
+                      }
+                      if (fireuser) {
+                        firelogoutUser();
+                      }
                     }}
                   >
                     Logout
@@ -206,7 +274,7 @@ function Header() {
             </ul>
           </div>
         )}
-        {!user ? (
+        {!fireuser && !user ? (
           <div ref={dropdownlogin}>
             <button
               className="text-gray-400 hover:text-blue-400 text-2xl cursor-pointer flex items-center focus:outline-none"
@@ -230,7 +298,7 @@ function Header() {
                 />
               </svg>
             </button>
-            
+
             {isOpenlogin && (
               <div className="absolute top-10 right-0 bg-white shadow-md rounded-lg p-3 border border-gray-200 w-40">
                 <a
