@@ -2,7 +2,7 @@ name: CryptoCurrency Price Automation
 
 on:
   schedule:
-    - cron: "0 23 * * *"
+    - cron: "0 * * * *"
 
 jobs:
   update-readme:
