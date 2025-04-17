@@ -46,6 +46,7 @@ You can visit the live site here - https://invest-iqs.vercel.app/
 - **Mongoose** – An elegant MongoDB object modeling tool for Node.js.
 - **MongoDB** – A NoSQL database for scalable and high-performance data storage.
 - **Python** – Used for data processing, automation, or backend tasks.
+- **Firebase** – Used for authentication, backend functions, and automation tasks.
 - **Docker** – Containerization for seamless deployment and scalability.
 - **TypeScript** – A strongly-typed JavaScript superset for improved code quality.
 - **GitHub Actions** – CI/CD automation for streamlined development workflows.
@@ -95,6 +96,14 @@ You can visit the live site here - https://invest-iqs.vercel.app/
     cd ActionWorkFlow_Integration
 ```
 - Install Backend dependencies:
+```bash
+    npm install
+```
+5. Navigate to the functions directory:
+```bash
+    cd functions
+```
+- Install firebase functions dependencies:
 ```bash
     npm install
 ```
