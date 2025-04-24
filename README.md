@@ -135,6 +135,9 @@ You can visit the live site here - https://invest-iqs.vercel.app/
 ## Screenshots 📷
 ![Invest-IQ Screen](https://github.com/user-attachments/assets/a02ff8ba-650e-4bb1-92a4-ed64ab46b721)
 
+## Demo Website Video 📷
+https://github.com/user-attachments/assets/be8c4183-11e8-4250-bac7-b06c9d951100
+
 ## Contact 📞
 Feel free to reach out if you have any questions or suggestions!
 
