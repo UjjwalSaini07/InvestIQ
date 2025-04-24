@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -35,24 +35,43 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const isAuthenticated = () => {
+  return !!localStorage.getItem("authenticatedUser");
+};
 
 function App() {
   const location = useLocation();
+  const dispatch = useDispatch();
   const hideHeaderRoutes = ["/login", "/register", "/forgot", "/verifyotp"];
   const shouldHideHeader = hideHeaderRoutes.includes(location.pathname);
   const user = useSelector((state) => state.auth.user);
   const otpRequested = useSelector((state) => state.auth.otpRequested);
-  const [fireuser] = useAuthState(auth);
+  const [fireuser, fireloading] = useAuthState(auth);
   const [loading, setLoading] = useState(location.pathname === "/");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (loading) {
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, 4000);
+      const timer = setTimeout(() => setLoading(false), 4000);
       return () => clearTimeout(timer);
     }
   }, [loading]);
+
+  useEffect(() => {
+    if (fireloading) return;
+
+    if (fireuser) {
+      const userData = {
+        uid: fireuser.uid,
+        email: fireuser.email,
+        displayName: fireuser.displayName,
+      };
+      localStorage.setItem("authenticatedUser", JSON.stringify(userData));
+    } else {
+      localStorage.removeItem("authenticatedUser");
+      // navigate("/login");
+    }
+  }, [fireuser, fireloading, navigate]);
 
   return (
     <>
@@ -73,7 +92,7 @@ function App() {
                 <Route path="/stockfetcher" element={<StockFetcher />} />
                 <Route path="/tools" element={<Tools />} />
                 <Route path="/chatwithbot" element={<ChatBot />} />
-                {/* Auth Pages - Public */}
+                {/* Public Auth Routes */}
                 <Route path="/login" element={<AuthPage />} />
                 <Route path="/register" element={<AuthPage />} />
                 <Route path="/forgot" element={<AuthPage />} />
@@ -81,11 +100,11 @@ function App() {
                 <Route path="*" element={<Navigate to="/error404" />} />
               </Route>
 
-              <Route element={<ProtectedRoute condition={!!user || !!fireuser} redirectTo="/login" />}>
+              <Route element={ <ProtectedRoute condition={!!user || isAuthenticated()} redirectTo="/login" />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/watchlist" element={<Watchlist />} />
               </Route>
-              <Route element={<ProtectedRoute condition={otpRequested} redirectTo="/register" />}>
+              <Route element={ <ProtectedRoute condition={otpRequested} redirectTo="/register"/> }>
                 <Route path="/verifyotp" element={<AuthPage />} />
               </Route>
             </Routes>

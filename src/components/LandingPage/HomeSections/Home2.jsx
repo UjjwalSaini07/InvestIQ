@@ -116,7 +116,7 @@ const Home2 = () => {
         Where the world does markets
       </div>
       <div data-aos="fade-left" style={subheadlineStyle}>
-        Join 90 million traders and investors taking the future into their own hands.
+        Join with 90+ traders and investors taking the future into their own hands.
       </div>
       <nav data-aos="zoom-in" style={navStyle}>
         {Object.keys(mediaMapping).map((label, index) => (

@@ -40,6 +40,7 @@ function Header() {
     localStorage.removeItem("persist:auth");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("watchlist");
+    localStorage.removeItem("authenticatedUser");
     toast.success("User successfully logged out. Reload the Services", {
       position: "top-center",
       autoClose: 5000,
