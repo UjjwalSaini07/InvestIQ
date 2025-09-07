@@ -19,16 +19,16 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd ActionWorkFlow_Integration
-          npm install
+          cd workflows
+          pnpm install
 
       - name: Update README and Push Changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd ActionWorkFlow_Integration
-          npm run dev
-          git config --global user.email "ujjwalsaini0007+workflow@gmail.com"
+          cd workflows
+          pnpm dev
+          git config --global user.email "ujjwalsaini0007+investiq@gmail.com"
           git config --global user.name "UjjwalSaini07"
           # Stash any unstaged changes
           git stash --include-untracked
