@@ -1,23 +1,48 @@
 {
   "name": "investiq-backend",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "commonjs",
   "main": "index.js",
+  "title": "InvestIQ - Smart Trading Platform",
+  "description": "Backend services for InvestIQ, handling real-time market data, API integrations, user authentication, portfolio management, and trading insights. Built with Node.js, Express.js, MongoDB, and Python for scalable and secure performance.",
+  "keywords": [
+    "InvestIQ backend",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Mongoose",
+    "Python backend",
+    "API integration",
+    "real-time data",
+    "crypto analysis",
+    "cryptocurrency",
+    "bitcoin",
+    "stock trading",
+    "portfolio management",
+    "authentication",
+    "REST API",
+    "scalable backend",
+    "trading insights"
+  ],
+  "author": "UjjwalS <ujjwalsaini0007+investiq@gmail.com>, GayatriS <gayatrisingh9317@gmail.com>",
+  "authorUrl": "https://www.ujjwalsaini.dev/",
+  "license": "BSD 2-Clause",
+  "homepage": "https://github.com/UjjwalSaini07/InvestIQ",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UjjwalSaini07/InvestIQ.git"
+  },
+  "bugs": {
+    "url": "https://github.com/UjjwalSaini07/InvestIQ/issues"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=8.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -r dotenv/config --experimental-json-modules index.js"
   },
-  "keywords": [
-    "javascript",
-    "backend",
-    "cryptoanalysis",
-    "cryptocurrency",
-    "bitcoin",
-    "API integration"
-  ],
-  "author": "UjjwalS",
-  "license": "ISC",
-  "description": "Separate Backend of InvestIQ",
   "dependencies": {
     "axios": "^1.8.4",
     "bcrypt": "^5.1.1",

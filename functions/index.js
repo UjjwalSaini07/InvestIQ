@@ -1,19 +1,35 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
-
-const {onRequest} = require("firebase-functions/v2/https");
+const { onRequest } = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
+const cors = require("cors")({ origin: true });
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+/**
+ * HTTP Cloud Function
+ * Endpoint: https://<your-region>-<project-id>.cloudfunctions.net/hello
+ */
+exports.hello = onRequest((req, res) => {
+  cors(req, res, () => {
+    try {
+      logger.info("Incoming request", {
+        method: req.method,
+        ip: req.ip,
+        path: req.path,
+        time: new Date().toISOString(),
+      });
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+      res.status(200).json({
+        success: true,
+        message: "Hello from InvestIQ Firebase Function 🚀",
+        data: {
+          method: req.method,
+          timestamp: Date.now(),
+        },
+      });
+    } catch (error) {
+      logger.error("Error in hello function", error);
+      res.status(500).json({
+        success: false,
+        error: "Internal Server Error",
+      });
+    }
+  });
+});

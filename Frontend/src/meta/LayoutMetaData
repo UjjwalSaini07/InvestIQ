@@ -1,0 +1,100 @@
+import React from "react";
+
+const metadata = {
+  viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+  httpEquiv: "IE=edge,chrome=1",
+  description:
+    "InvestIQ is a next-generation fintech platform built for crypto and stock traders. It delivers real-time market data, customizable dashboards, smart watchlists, and advanced candlestick pattern recognition. With intuitive design and intelligent automation, InvestIQ empowers traders and investors to analyze trends, manage portfolios, and make data-driven investment decisions with confidence.",
+  author: "Ujjwal Saini, Gayatri Singh",
+  authorUrl: "https://www.ujjwalsaini.dev/",
+  keywords:
+    "InvestIQ, fintech, crypto trading, stock trading, real-time market data, candlestick patterns, technical analysis, trading platform, portfolio management, personalized dashboards, smart watchlists, trading insights, automated trading tools, React.js, Node.js, MongoDB, TailwindCSS, TypeScript, Docker, Redux",
+  ogTitle: "InvestIQ – Smarter Trading with AI-Powered Insights",
+  ogDescription:
+    "InvestIQ is a powerful fintech platform designed for traders. From real-time crypto & stock data to customizable dashboards, advanced charting tools, and smart watchlists, it simplifies complex trading decisions for better outcomes.",
+  ogImage: "/InvestIQLogo.png",
+  ogUrl: "https://invest-iqs.vercel.app/",
+  ogType: "website",
+  ogLocale: "en_US",
+  ogSiteName: "InvestIQ",
+  twitterCard: "summary_large_image",
+  twitterTitle: "InvestIQ – Smarter Trading with AI-Powered Insights",
+  twitterDescription:
+    "Make data-driven investment decisions with InvestIQ. Real-time market data, advanced charting, smart watchlists, and personalized dashboards — all in one powerful trading platform.",
+  twitterImage: "/InvestIQLogo.png",
+  twitterSite: "@InvestIQ",
+  twitterCreator: "@UjjwalSaini0007",
+  canonical: "https://invest-iqs.vercel.app/",
+  robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+  themeColor: "#0d1b2a",
+  rating: "General",
+  distribution: "Global",
+  copyright: "InvestIQ ©2025",
+  applicationName: "InvestIQ",
+  appleMobileWebAppTitle: "InvestIQ",
+  appleMobileWebAppCapable: "yes"
+};
+
+// Author - Ujjwal Saini & Gayatri Singh
+function LayoutMetaData({ children }) {
+  React.useEffect(() => {
+    document.title = metadata.ogTitle;
+
+    function upsertMeta(attrName, attrValue, content) {
+      let element = document.querySelector(`meta[${attrName}="${attrValue}"]`);
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute(attrName, attrValue);
+        document.head.appendChild(element);
+      }
+      element.setAttribute("content", content);
+    }
+    // Basic Meta Tags
+    upsertMeta("name", "viewport", metadata.viewport);
+    upsertMeta("http-equiv", "X-UA-Compatible", metadata.httpEquiv);
+    upsertMeta("name", "description", metadata.description);
+    upsertMeta("name", "author", metadata.author);
+    upsertMeta("name", "keywords", metadata.keywords);
+    upsertMeta("name", "robots", metadata.robots);
+    upsertMeta("name", "theme-color", metadata.themeColor);
+    upsertMeta("name", "rating", metadata.rating);
+    upsertMeta("name", "distribution", metadata.distribution);
+    upsertMeta("name", "copyright", metadata.copyright);
+    upsertMeta("name", "application-name", metadata.applicationName);
+    upsertMeta("name", "apple-mobile-web-app-title", metadata.appleMobileWebAppTitle);
+    upsertMeta("name", "apple-mobile-web-app-capable", metadata.appleMobileWebAppCapable);
+
+    // Open Graph
+    upsertMeta("property", "og:title", metadata.ogTitle);
+    upsertMeta("property", "og:description", metadata.ogDescription);
+    upsertMeta("property", "og:image", metadata.ogImage);
+    upsertMeta("property", "og:url", metadata.ogUrl);
+    upsertMeta("property", "og:type", metadata.ogType);
+    upsertMeta("property", "og:locale", metadata.ogLocale);
+    upsertMeta("property", "og:site_name", metadata.ogSiteName);
+
+    // Twitter
+    upsertMeta("name", "twitter:card", metadata.twitterCard);
+    upsertMeta("name", "twitter:title", metadata.twitterTitle);
+    upsertMeta("name", "twitter:description", metadata.twitterDescription);
+    upsertMeta("name", "twitter:image", metadata.twitterImage);
+    upsertMeta("name", "twitter:site", metadata.twitterSite);
+    upsertMeta("name", "twitter:creator", metadata.twitterCreator);
+
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement("link");
+      link.setAttribute("rel", "canonical");
+      document.head.appendChild(link);
+    }
+    link.setAttribute("href", metadata.canonical);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-[#0d1b2a] text-white p-4 flex flex-col">
+      {children}
+    </div>
+  );
+}
+
+export default LayoutMetaData;

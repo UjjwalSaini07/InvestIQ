@@ -1,3 +1,4 @@
+import express, { Request, Response } from "express";
 import { writeFileSync } from "fs";
 
 interface Currency {
@@ -50,8 +51,6 @@ Stay ahead in the crypto market with **InvestIQ**, your go-to dashboard for up-t
 🌐 **Data Source:** [CoinGecko](https://www.coingecko.com)  
 🕒 **Last Updated:** *${timestamp}*  
 
----
-
 ## 📊 **Live Cryptocurrency Prices**  
 
 | 🪙 **Cryptocurrency** | 💵 **USD Price** | 💰 **INR Price** | 📈 **24h Change (%)** | 🏦 **Market Cap (USD)** | 🔄 **24h Volume (USD)** |
@@ -65,8 +64,6 @@ ${CRYPTOCURRENCIES.map((crypto) => {
     data[crypto]?.usd_market_cap ?? 0
   )} | ${formatter.usd.format(data[crypto]?.usd_24h_vol ?? 0)} |`;
 }).join("\n")}
-
----
 
 ## 🏆 **Top Cryptos at a Glance**  
 
@@ -83,8 +80,6 @@ ${CRYPTOCURRENCIES.map((crypto) => {
 - 🚀 **Tron (TRX)** – Smart contracts at ultra-low fees.  
 - ✨ **Stellar (XLM)** – Fast transactions & cross-border payments.  
 
----
-
 ## 🎯 **Why Choose InvestIQ?**  
 
 ✅ **Real-Time Data** – Up-to-the-minute crypto prices and trends.  
@@ -94,28 +89,26 @@ ${CRYPTOCURRENCIES.map((crypto) => {
 ✅ **24h Price Change** – Easily spot **gains** or **losses**.  
 ✅ **Open-Source & Customizable** – Modify & extend as needed.  
 
----
-
 ## 🛠 **About the Developer**  
 
-👨‍💻 **Developer:** UjjwalSaini07  
+👨‍💻 **Developer:** UjjwalSaini07 (ujjwalsaini.dev), Gayatri Singh
 ❤️ *Made with passion to keep you updated with crypto trends!*  
 
 🔗 **Follow for More Crypto Insights!**  
 
----
 `;
 
     writeFileSync("README.md", content);
-    console.log(
-      "README.md has been successfully updated with the latest cryptocurrency prices."
-    );
+    console.log("✅ README.md updated at", timestamp);
+
+    return { success: true, timestamp, data };
   } catch (error) {
     if (error instanceof Error) {
-      console.error("Error fetching or processing data:", error.message);
+      console.error("❌ Error fetching or processing data:", error.message);
     } else {
-      console.error("An unexpected error occurred:", error);
+      console.error("❌ Unexpected error:", error);
     }
+    return { success: false, error };
   }
 }
 
@@ -123,4 +116,63 @@ function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-getValues();
+// Express Server
+const app = express();
+const PORT = process.env.PORT || 4000;
+
+// 🌍 Root route
+app.get("/", (_req: Request, res: Response) => {
+  res.json({
+    message: "🚀 Workflow service is running",
+    endpoints: {
+      health: "/health",
+      run: "/run",
+      info: "/info"
+    },
+    timestamp: new Date().toISOString()
+  });
+});
+
+// ❤️ Health check route
+app.get("/health", (_req: Request, res: Response) => {
+  res.json({
+    status: "ok",
+    service: "workflows",
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString()
+  });
+});
+
+// ⚡ Trigger workflow manually
+app.get("/run", async (_req: Request, res: Response) => {
+  const result = await getValues();
+  if (result.success) {
+    res.json({
+      status: "success",
+      message: "README updated successfully",
+      lastUpdated: result.timestamp
+    });
+  } else {
+    res.status(500).json({
+      status: "error",
+      message: "Failed to update README",
+      error: result.error
+    });
+  }
+});
+
+// ℹ️ Service info route
+app.get("/info", (_req: Request, res: Response) => {
+  res.json({
+    service: "InvestIQ Workflows",
+    description: "Handles crypto data fetching & README updates",
+    version: "1.0.2",
+    author1: "Ujjwal Saini",
+    author2: "Gayatri Singh",
+    repo: "https://github.com/UjjwalSaini07/InvestIQ"
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`🌍 Workflow service running at http://localhost:${PORT}`);
+});

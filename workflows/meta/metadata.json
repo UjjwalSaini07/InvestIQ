@@ -1,0 +1,54 @@
+{
+  "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+  "httpEquiv": "IE=edge,chrome=1",
+  "description": "InvestIQ is a next-generation fintech platform built for crypto and stock traders. It delivers real-time market data, customizable dashboards, smart watchlists, and advanced candlestick pattern recognition. With intuitive design and intelligent automation, InvestIQ empowers traders and investors to analyze trends, manage portfolios, and make data-driven investment decisions with confidence.",
+  "author": "Ujjwal Saini, Gayatri Singh",
+  "keywords": "InvestIQ, fintech, crypto trading, stock trading, real-time market data, candlestick patterns, technical analysis, trading platform, portfolio management, personalized dashboards, smart watchlists, trading insights, automated trading tools, React.js, Node.js, MongoDB, TailwindCSS, TypeScript, Docker, Redux",
+  "og": {
+    "title": "InvestIQ – Smarter Trading with AI-Powered Insights",
+    "author": "Ujjwal Saini, Gayatri Singh",
+    "authorUrl": "https://www.ujjwalsaini.dev/",
+    "description": "InvestIQ is a powerful fintech platform designed for traders. From real-time crypto & stock data to customizable dashboards, advanced charting tools, and smart watchlists, it simplifies complex trading decisions for better outcomes.",
+    "image": "/InvestIQLogo.png",
+    "url": "https://invest-iqs.vercel.app/",
+    "type": "website",
+    "locale": "en_US",
+    "site_name": "InvestIQ"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "InvestIQ – Smarter Trading with AI-Powered Insights",
+    "description": "Make data-driven investment decisions with InvestIQ. Real-time market data, advanced charting, smart watchlists, and personalized dashboards — all in one powerful trading platform.",
+    "image": "/InvestIQLogo.png",
+    "site": "@InvestIQ",
+    "creator": "@UjjwalSaini0007"
+  },
+  "canonical": "https://invest-iqs.vercel.app/",
+  "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+  "themeColor": "#0d1b2a",
+  "backgroundColor": "#ffffff",
+  "rating": "General",
+  "distribution": "Global",
+  "copyright": "InvestIQ ©2025",
+  "applicationName": "InvestIQ",
+  "appleMobileWebAppTitle": "InvestIQ",
+  "appleMobileWebAppCapable": "yes",
+  "appleMobileWebAppStatusBarStyle": "black-translucent",
+  "formatDetection": "telephone=no, email=no, address=no",
+  "mobileOptimized": "width",
+  "handheldFriendly": "true",
+  "generator": "Node.js, React.js",
+  "icons": {
+    "icon": "/favicon.ico",
+    "shortcut": "/icons/icon-192x192.png",
+    "appleTouchIcon": "/icons/icon-512x512.png"
+  },
+  "alternates": {
+    "languages": {
+      "en": "https://invest-iqs.vercel.app/en"
+    }
+  },
+  "category": "Finance, Trading, Technology",
+  "publisher": "InvestIQ",
+  "revised": "2025-09-08"
+}

@@ -1,0 +1,54 @@
+{
+  "name": "investiq-workflows",
+  "private": false,
+  "type": "commonjs",
+  "version": "2.0.0",
+  "title": "InvestIQ - Smart Trading Platform",
+  "description": "Automated workflows powering InvestIQ’s CI/CD pipeline, deployment, and DevOps tasks. Built with GitHub Actions, Docker, and Firebase to streamline development, testing, and production releases with efficiency and scalability.",
+  "keywords": [
+    "InvestIQ workflows",
+    "CI/CD automation",
+    "GitHub Actions",
+    "Docker",
+    "Firebase automation",
+    "continuous integration",
+    "continuous deployment",
+    "DevOps",
+    "build automation",
+    "test automation",
+    "deployment pipeline",
+    "scalable deployment",
+    "frontend workflows",
+    "backend workflows"
+  ],
+  "author": "UjjwalS <ujjwalsaini0007+investiq@gmail.com>, GayatriS <gayatrisingh9317@gmail.com>",
+  "authorUrl": "https://www.ujjwalsaini.dev/",
+  "license": "BSD 2-Clause",
+  "main": "index.js",
+  "homepage": "https://github.com/UjjwalSaini07/InvestIQ",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UjjwalSaini07/InvestIQ.git"
+  },
+  "bugs": {
+    "url": "https://github.com/UjjwalSaini07/InvestIQ/issues"
+  },
+  "scripts": {
+    "dev": "ts-node index.ts",
+    "build": "tsc",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.13.5",
+    "typescript": "^5.7.3"
+  }
+}
