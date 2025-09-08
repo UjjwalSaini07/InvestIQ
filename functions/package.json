@@ -1,6 +1,20 @@
 {
-  "name": "functions",
-  "description": "Cloud Functions for Firebase",
+  "name": "investiq-functions",
+  "title": "InvestIQ - Smart Trading Platform",
+  "description": "Easily add custom backend logic with Cloud Functions for Firebase",
+  "private": true,
+  "version": "2.0.0",
+  "author": "UjjwalS <ujjwalsaini0007+investiq@gmail.com>, GayatriS <gayatrisingh9317@gmail.com>",
+  "authorUrl": "https://www.ujjwalsaini.dev/",
+  "license": "BSD 2-Clause",
+  "homepage": "https://github.com/UjjwalSaini07/InvestIQ",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UjjwalSaini07/InvestIQ.git"
+  },
+  "bugs": {
+    "url": "https://github.com/UjjwalSaini07/InvestIQ/issues"
+  },
   "scripts": {
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
@@ -9,7 +23,7 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "22"
+    "node": ">=22.0.0"
   },
   "main": "index.js",
   "dependencies": {
@@ -18,6 +32,5 @@
   },
   "devDependencies": {
     "firebase-functions-test": "^3.1.0"
-  },
-  "private": true
+  }
 }
