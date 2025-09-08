@@ -1,0 +1,12 @@
+FROM nginx:alpine
+
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+
+COPY ./Frontend/dist /usr/share/nginx/html
+
+COPY run-nginx.sh /usr/bin/run-nginx.sh
+RUN chmod +x /usr/bin/run-nginx.sh
+
+EXPOSE 80
+
+CMD ["/usr/bin/run-nginx.sh"]
