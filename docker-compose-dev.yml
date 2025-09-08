@@ -1,0 +1,101 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./Backend/.env
+    volumes:
+      - ./Backend:/app
+      - /app/node_modules
+    labels:
+      author: "Ujjwal Saini"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - investiq-net
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./Frontend/.env.local
+    volumes:
+      - ./Frontend:/app
+      - /app/node_modules
+    labels:
+      author: "Ujjwal Saini"
+    networks:
+      - investiq-net
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    labels:
+      author: "Ujjwal Saini"
+    networks:
+      - investiq-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  workflows:
+    build:
+      context: ./workflows
+      dockerfile: Dockerfile
+    container_name: workflows
+    environment:
+      - PORT=4000
+    ports:
+      - "4000:4000" 
+    volumes:
+      - ./workflows:/app
+      - /app/node_modules
+    command: ["pnpm", "dev"]
+    depends_on:
+      - backend
+    networks:
+      - investiq-net
+    restart: unless-stopped
+    labels:
+      author: "Ujjwal Saini"
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - workflows
+    networks:
+      - investiq-net
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
+
+networks:
+  investiq-net:
+    driver: bridge
+
+labels:
+      author: "Ujjwal Saini, Gayatri Singh"
