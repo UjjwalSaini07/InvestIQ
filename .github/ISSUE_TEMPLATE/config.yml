@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 GitHub Issue
+    url: https://github.com/UjjwalSaini07/InvestIQ
+    about: Please ask and answer questions here before creating an issue.
+
+  - name: 🌐 Author Website - 1
+    url: https://ujjwalsaini.dev
+    about: Learn more about the project author (UjjwalS).
+
+  - name: 🌐 Author Website - 2
+    url: https://portfolio-gayatri-singhs-projects.vercel.app/
+    about: Learn more about the project author (GayatriS).
+
+  - name: 📧 Security Contact
+    url: mailto:ujjwalsaini0007+investiq@gmail.com, mailto:gayatrisingh9317@gmail.com
+    about: Report critical vulnerabilities securely via email.
