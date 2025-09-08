@@ -51,8 +51,6 @@ Stay ahead in the crypto market with **InvestIQ**, your go-to dashboard for up-t
 🌐 **Data Source:** [CoinGecko](https://www.coingecko.com)  
 🕒 **Last Updated:** *${timestamp}*  
 
----
-
 ## 📊 **Live Cryptocurrency Prices**  
 
 | 🪙 **Cryptocurrency** | 💵 **USD Price** | 💰 **INR Price** | 📈 **24h Change (%)** | 🏦 **Market Cap (USD)** | 🔄 **24h Volume (USD)** |
@@ -66,8 +64,6 @@ ${CRYPTOCURRENCIES.map((crypto) => {
     data[crypto]?.usd_market_cap ?? 0
   )} | ${formatter.usd.format(data[crypto]?.usd_24h_vol ?? 0)} |`;
 }).join("\n")}
-
----
 
 ## 🏆 **Top Cryptos at a Glance**  
 
@@ -84,8 +80,6 @@ ${CRYPTOCURRENCIES.map((crypto) => {
 - 🚀 **Tron (TRX)** – Smart contracts at ultra-low fees.  
 - ✨ **Stellar (XLM)** – Fast transactions & cross-border payments.  
 
----
-
 ## 🎯 **Why Choose InvestIQ?**  
 
 ✅ **Real-Time Data** – Up-to-the-minute crypto prices and trends.  
@@ -95,16 +89,13 @@ ${CRYPTOCURRENCIES.map((crypto) => {
 ✅ **24h Price Change** – Easily spot **gains** or **losses**.  
 ✅ **Open-Source & Customizable** – Modify & extend as needed.  
 
----
-
 ## 🛠 **About the Developer**  
 
-👨‍💻 **Developer:** UjjwalSaini07  
+👨‍💻 **Developer:** UjjwalSaini07 (ujjwalsaini.dev), Gayatri Singh
 ❤️ *Made with passion to keep you updated with crypto trends!*  
 
 🔗 **Follow for More Crypto Insights!**  
 
----
 `;
 
     writeFileSync("README.md", content);
