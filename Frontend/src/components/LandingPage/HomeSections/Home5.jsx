@@ -39,7 +39,6 @@ const Home5 = () => {
 
   return (
     <div>
-      <ToastContainer />
       <div ref={sectionRef}>
         <Section1 />
         <Section2 />

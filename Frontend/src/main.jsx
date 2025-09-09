@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import MobiApp from "./MobiApp.jsx";
 import "./index.css";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css"; 
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./store/store.jsx";
@@ -29,7 +29,12 @@ const RootComponent = () => {
           <TooltipProvider>
             {isMobile ? <MobiApp /> : <App />}
           </TooltipProvider>
-          <ToastContainer />
+          <ToastContainer 
+            autoClose={5000} 
+            pauseOnHover={false} 
+            newestOnTop 
+            closeOnClick 
+          />
         </PersistGate>
       </Provider>
     </StrictMode>
