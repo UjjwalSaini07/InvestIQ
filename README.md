@@ -103,52 +103,105 @@ You can visit the live site here - https://invest-iqs.vercel.app/
 ```
 - Install Frontend dependencies:
 ```bash
-    npm install
+    cd Frontend
 ```
-3. Navigate to the project Backend directory:
+```bash
+    pnpm install
+```
+3. Open New Terminal
+```bash
+    ctrl + `
+```
+4. Navigate to the project Backend directory:
 ```bash
     cd Backend
 ```
 - Install Backend dependencies:
 ```bash
-    npm install
+    pnpm install
 ```
-4. Navigate to the project WorkFlow directory:
+5. Open New Terminal
 ```bash
-    cd ActionWorkFlow_Integration
+    ctrl + `
+```
+6. Navigate to the project WorkFlow directory:
+```bash
+    cd workflows
 ```
 - Install Backend dependencies:
 ```bash
-    npm install
+    pnpm install
 ```
-5. Navigate to the functions directory:
+7. Open New Terminal
+```bash
+    ctrl + `
+```
+8. Navigate to the functions directory:
 ```bash
     cd functions
 ```
 - Install firebase functions dependencies:
 ```bash
-    npm install
+    pnpm install
 ```
 > [!IMPORTANT]  
-> All these cd directory paths are relative to the root directory of the cloned project.
+> All these cd directory paths are relative to the root directory of the cloned project >>InvestIQ.
 
 ## Start the web app 🖥️
 - Start the Frontend Development server
 ```bash
-    npm run dev
+    cd Frontend
+```
+```bash
+    pnpm dev
 ```
 - Start the Backend Development server
 ```bash
     cd Backend
 ```
 ```bash
-     npm run dev
+     pnpm dev
 ```
 
 - Open your browser and navigate to http://localhost:5173 to view the localhost website
 
+## Project Setup Using Docker Containerization:
+1. Start the Docker Engine Locally or Use Any Service Globally
+2. Navigate to the project Root directory:
+```bash
+    cd InvestIQ
+```
+3. Change the Docker File Name {Temporary Step}
+- Rename docker-compose-dev.yml → docker-compose.yml
+4. Run DockerFile:
+```bash
+    docker-compose up --build
+```
+5. Wait for Generating the Image
+
+<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/0ea63d5a-df90-4f04-879f-0d23300d70d5" />
+<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/981e81ee-becc-4108-b6e4-c6101442f07c" />
+
+6. Make Sure not due any change in `nginx` file and if in Docker it causes any error so open [Issue](https://github.com/UjjwalSaini07/InvestIQ/issues)
+7. Now Simply use the Project using Docker Container
+8. **If u Want Direct Image Without Cloning So Contact with Me - [Mail](ujjwalsaini0007+investiq@gmail.com)**
+
 ## Architecture Diagram ⚙️
 ![InvestIQ-ArchitectureDiagram](https://github.com/user-attachments/assets/1b51bcf8-20df-4a5f-ae3f-c47e7225da88)
+
+## Resources 📚
+
+- [React.js Docs](https://react.dev/)  
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)  
+- [Node.js Docs](https://nodejs.org/en)  
+- [Express.js Docs](https://expressjs.com/)  
+- [SASS/SCSS Docs](https://sass-lang.com/documentation/) 
+- [MongoDB Docs](https://www.mongodb.com/docs/)  
+- [Python Docs](https://www.python.org/doc/)  
+- [Firebase Docs](https://firebase.google.com/docs)  
+- [Docker Docs](https://docs.docker.com/) 
+- [GitHub Actions Docs](https://docs.github.com/en/actions)  
+- [Redux Docs](https://redux.js.org/introduction/getting-started) 
 
 ## Author ✍️
 - [@Ujjwal Saini](https://github.com/UjjwalSaini07)
