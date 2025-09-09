@@ -1,5 +1,14 @@
-# InvestIQ
-InvestIQ is a cutting-edge fintech platform designed for crypto and stock traders, offering real-time data, personalized dashboards, watchlists, and advanced candlestick pattern insights. With its interactive interface and intelligent tools, InvestIQ simplifies trading complexities, empowering users to make smarter, data-driven investment decisions effortlessly.
+# 📈 InvestIQ
+> **InvestIQ is an innovative fintech startup transforming trading with real-time data, AI-powered insights, customizable dashboards, and simplified strategies—empowering smarter crypto and stock investments.**
+
+## 🌟 Introduction
+InvestIQ is a next-generation fintech platform built for both crypto and stock traders, delivering real-time market data, personalized dashboards, customizable watchlists, and in-depth candlestick pattern analysis. More than just a trading assistant, InvestIQ combines intelligent analytics, interactive design, and advanced visualization tools to cut through market noise and provide clarity. With features like predictive insights, trend detection, and intuitive portfolio management, it transforms complex trading strategies into actionable opportunities. Designed for beginners and professionals alike, InvestIQ empowers users to make faster, smarter, and data-driven investment decisions—effortlessly navigating today’s fast-moving financial markets with confidence.
+
+[![Github License](https://img.shields.io/github/license/UjjwalSaini07/InvestIQ)](https://github.com/UjjwalSaini07/InvestIQ/blob/main/LICENSE)
+[![Info](https://img.shields.io/badge/Project-Info-blue?style=flat&logo=data:image/svg%2bxml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggc3R5bGU9ImZpbGw6IzBBNEVBRjsiIGQ9Ik0yNTYsNTEyYy02OC4zOCwwLTEzMi42NjctMjYuNjI5LTE4MS4wMi03NC45OEMyNi42MjksMzg4LjY2NywwLDMyNC4zOCwwLDI1Ng0KCVMyNi42MjksMTIzLjMzMyw3NC45OCw3NC45OEMxMjMuMzMzLDI2LjYyOSwxODcuNjIsMCwyNTYsMHMxMzIuNjY3LDI2LjYyOSwxODEuMDIsNzQuOThDNDg1LjM3MSwxMjMuMzMzLDUxMiwxODcuNjIsNTEyLDI1Ng0KCXMtMjYuNjI5LDEzMi42NjctNzQuOTgsMTgxLjAyQzM4OC42NjcsNDg1LjM3MSwzMjQuMzgsNTEyLDI1Niw1MTJ6Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojMDYzRThCOyIgZD0iTTQzNy4wMiw3NC45OEMzODguNjY3LDI2LjYyOSwzMjQuMzgsMCwyNTYsMHY1MTJjNjguMzgsMCwxMzIuNjY3LTI2LjYyOSwxODEuMDItNzQuOTgNCglDNDg1LjM3MSwzODguNjY3LDUxMiwzMjQuMzgsNTEyLDI1NlM0ODUuMzcxLDEyMy4zMzMsNDM3LjAyLDc0Ljk4eiIvPg0KPHBhdGggc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIGQ9Ik0yNTYsMTg1Yy0zMC4zMjcsMC01NS0yNC42NzMtNTUtNTVzMjQuNjczLTU1LDU1LTU1czU1LDI0LjY3Myw1NSw1NVMyODYuMzI3LDE4NSwyNTYsMTg1eiBNMzAxLDM5NQ0KCVYyMTVIMTkxdjMwaDMwdjE1MGgtMzB2MzBoMTQwdi0zMEgzMDF6Ii8+DQo8Zz4NCgk8cGF0aCBzdHlsZT0iZmlsbDojQ0NFRkZGOyIgZD0iTTI1NiwxODVjMzAuMzI3LDAsNTUtMjQuNjczLDU1LTU1cy0yNC42NzMtNTUtNTUtNTVWMTg1eiIvPg0KCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiNDQ0VGRkY7IiBwb2ludHM9IjMwMSwzOTUgMzAxLDIxNSAyNTYsMjE1IDI1Niw0MjUgMzMxLDQyNSAzMzEsMzk1IAkiLz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K)](https://github.com/UjjwalSaini07/InvestIQ/blob/main/README.md)
+[![Generic badge](https://img.shields.io/badge/Owner-@Ujjwal-<COLOR>.svg)](https://github.com/UjjwalSaini07/InvestIQ)
+[![GitHub stars](https://img.shields.io/github/stars/UjjwalSaini07/InvestIQ?style=social&label=Star&maxAge=2592100)](https://github.com/UjjwalSaini07/InvestIQ/stargazers)
+[![Github Release](https://img.shields.io/github/v/release/UjjwalSaini07/InvestIQ)](https://github.com/UjjwalSaini07/InvestIQ)
 
 <table align="left">
     <thead align="left">
@@ -27,31 +36,44 @@ InvestIQ is a cutting-edge fintech platform designed for crypto and stock trader
 
 ## Key Features 🎯
 
-- Real-Time Market Data – Get instant updates on crypto and stock prices, trends, and insights.
-- Personalized Dashboards – Customize your trading interface for a seamless experience.
-- Advanced Charting & Analysis – Utilize candlestick patterns and technical indicators.
-- Smart Watchlists – Track your favorite assets and receive timely alerts.
-- Portfolio Management – Monitor and optimize your investments effortlessly.
-- User-Friendly Interface – Enjoy a sleek, interactive, and intuitive design.
+- **📊 Real-Time Market Data** → Get instant updates on crypto and stock prices, market trends, and actionable insights.
+- **🎛️ Personalized Dashboards** → Customize your trading workspace for a seamless, tailored experience.
+- **📈 Advanced Charting & Analysis** → Leverage candlestick patterns, technical indicators, and professional-grade visualizations.
+- **⭐ Smart Watchlists** → Track favorite assets, set alerts, and stay ahead of market moves.
+- **💼 Portfolio Management** → Monitor, manage, and optimize your investments effortlessly in one place.
+- **🤖 AI-Powered Insights** → Unlock predictive analytics and intelligent trade suggestions for smarter decisions.
+- **🔔 Real-Time Alerts** → Receive instant notifications on price movements, breakouts, and key trading signals.
+- **✨ User-Friendly Interface** → Enjoy a sleek, interactive, and intuitive design built for traders of all levels.
 
 ## Demo 🖥️
 You can visit the live site here - https://invest-iqs.vercel.app/
 
+## 🔥 What’s New in This Project
+
+- **🛠️ Custom Indian Stock Market API** → Built our own API by scraping trading websites, enabling real-time data gathering and seamless integration into the platform.
+- **📰 Integrated News Feed** → Added a live news section; since the provider requires payment in production, we re-engineered the frontend headers to route via backend (HTTP/1.1), making it work as if in development.
+- **📈 Advanced Trading Charts** → Implemented real-time TradingView-powered charts for deeper analysis, ensuring traders get professional-grade visualization tools.
+- **🧰 Financial Tools Section** → Introduced a dedicated toolkit for financial analysis, empowering users with powerful resources beyond basic market tracking.
+- **🎛️ Optimized Dashboards** → Users can fully customize and personalize their dashboards for a trading experience tailored to their strategy.
+- **⭐ Smart Watchlists** → Create and manage multiple watchlists, synced across devices for consistent access anywhere.
+- **☁️ Centralized Data Storage** → All user data, preferences, and settings are securely centralized using MongoDB, ensuring reliability and accessibility.
+- **🌍 Cross-Device Accessibility** → Whether on desktop or mobile, users can log in from any device and instantly access their personalized trading environment.
+
 ## Technologies Used 👨🏻‍💻
-- **React.js** – A powerful JavaScript library for building fast and scalable web applications.
-- **Tailwind CSS** – A utility-first CSS framework for efficient and responsive styling.
-- **Node.js** – A JavaScript runtime for server-side development.
-- **Express.js** – A lightweight and flexible web framework for Node.js.
-- **SASS/SCSS** – A preprocessor for CSS to enhance styling capabilities.
-- **Mongoose** – An elegant MongoDB object modeling tool for Node.js.
-- **MongoDB** – A NoSQL database for scalable and high-performance data storage.
-- **Python** – Used for data processing, automation, or backend tasks.
-- **Firebase** – Used for authentication, backend functions, and automation tasks.
-- **Docker** – Containerization for seamless deployment and scalability.
-- **TypeScript** – A strongly-typed JavaScript superset for improved code quality.
-- **GitHub Actions** – CI/CD automation for streamlined development workflows.
-- **Redux** – A state management library for predictable and efficient application state control.
-- **Spline** – A 3D modeling tool for interactive 3D model rendering in web applications.
+- **React.js** → A powerful JavaScript library for building fast and scalable web applications.
+- **Tailwind CSS** → A utility-first CSS framework for efficient and responsive styling.
+- **Node.js** → A JavaScript runtime for server-side development.
+- **Express.js** → A lightweight and flexible web framework for Node.js.
+- **SASS/SCSS** → A preprocessor for CSS to enhance styling capabilities.
+- **Mongoose** → An elegant MongoDB object modeling tool for Node.js.
+- **MongoDB** → A NoSQL database for scalable and high-performance data storage.
+- **Python** → Used for data processing, automation, or backend tasks.
+- **Firebase** → Used for authentication, backend functions, and automation tasks.
+- **Docker** → Containerization for seamless deployment and scalability.
+- **TypeScript** → A strongly-typed JavaScript superset for improved code quality.
+- **GitHub Actions** → CI/CD automation for streamlined development workflows.
+- **Redux** → A state management library for predictable and efficient application state control.
+- **Spline** → A 3D modeling tool for interactive 3D model rendering in web applications.
 
 ## Getting Started ⚙️
 ### Prerequisites
